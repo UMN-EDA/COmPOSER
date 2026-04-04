@@ -1,0 +1,784 @@
+{
+  "nets": {
+    "net7": {
+      "weight": 1.0,
+      "endpoints": [
+        {
+          "module": "LIn_1",
+          "pin_name": "P1",
+          "pin_index": 0,
+          "width": 6000
+        },
+        {
+          "module": "bias1",
+          "pin_name": "D",
+          "pin_index": 0,
+          "width": 2370
+        },
+        {
+          "module": "R1",
+          "pin_name": "MINUS",
+          "pin_index": 1,
+          "width": 4890
+        },
+        {
+          "module": "R2",
+          "pin_name": "PLUS",
+          "pin_index": 0,
+          "width": 9070
+        },
+        {
+          "module": "Cnew1",
+          "pin_name": "PLUS",
+          "pin_index": 0,
+          "width": 2361
+        }
+      ],
+      "branches": [
+        [
+          "LIn_1/P1",
+          "R2/PLUS",
+          0
+        ],
+        [
+          "LIn_1/P1",
+          "R1/MINUS",
+          0
+        ],
+        [
+          "LIn_1/P1",
+          "Cnew1/PLUS",
+          0
+        ],
+        [
+          "LIn_1/P1",
+          "bias1/D",
+          0
+        ]
+      ]
+    },
+    "net10": {
+      "weight": 2.0,
+      "endpoints": [
+        {
+          "module": "LIn_1",
+          "pin_name": "P2",
+          "pin_index": 1,
+          "width": 6000
+        },
+        {
+          "module": "Stage_1",
+          "pin_name": "GG",
+          "pin_index": 2,
+          "width": 13780
+        }
+      ],
+      "branches": [
+        [
+          "LIn_1/P2",
+          "Stage_1/GG",
+          0
+        ]
+      ]
+    },
+    "gnd": {
+      "weight": 0.1,
+      "endpoints": [
+        {
+          "module": "LIn_1",
+          "pin_name": "GND",
+          "pin_index": 2,
+          "width": 10000
+        },
+        {
+          "module": "Stage_1",
+          "pin_name": "SS",
+          "pin_index": 3,
+          "width": 1040
+        },
+        {
+          "module": "Stage_1",
+          "pin_name": "GND",
+          "pin_index": 4,
+          "width": 210
+        },
+        {
+          "module": "LD_1",
+          "pin_name": "GND",
+          "pin_index": 2,
+          "width": 10000
+        },
+        {
+          "module": "CShunt_D_1",
+          "pin_name": "MINUS",
+          "pin_index": 1,
+          "width": 8320
+        },
+        {
+          "module": "CShunt_D_1",
+          "pin_name": "BULK1",
+          "pin_index": 2,
+          "width": 3204
+        },
+        {
+          "module": "CShunt_D_1",
+          "pin_name": "BULK2",
+          "pin_index": 3,
+          "width": 3204
+        },
+        {
+          "module": "Stage_2",
+          "pin_name": "SS",
+          "pin_index": 3,
+          "width": 2040
+        },
+        {
+          "module": "Stage_2",
+          "pin_name": "GND",
+          "pin_index": 4,
+          "width": 210
+        },
+        {
+          "module": "CShunt_D_2",
+          "pin_name": "MINUS",
+          "pin_index": 1,
+          "width": 9411
+        },
+        {
+          "module": "bias1",
+          "pin_name": "BS",
+          "pin_index": 2,
+          "width": 280
+        },
+        {
+          "module": "C28",
+          "pin_name": "MINUS",
+          "pin_index": 1,
+          "width": 12140
+        },
+        {
+          "module": "C28",
+          "pin_name": "BULK1",
+          "pin_index": 2,
+          "width": 4476
+        },
+        {
+          "module": "C28",
+          "pin_name": "BULK2",
+          "pin_index": 3,
+          "width": 4476
+        },
+        {
+          "module": "Cnew1",
+          "pin_name": "MINUS",
+          "pin_index": 1,
+          "width": 12140
+        },
+        {
+          "module": "bias2",
+          "pin_name": "BS",
+          "pin_index": 2,
+          "width": 280
+        },
+        {
+          "module": "C29",
+          "pin_name": "MINUS",
+          "pin_index": 1,
+          "width": 12140
+        },
+        {
+          "module": "C29",
+          "pin_name": "BULK1",
+          "pin_index": 2,
+          "width": 4476
+        },
+        {
+          "module": "Cnew2",
+          "pin_name": "MINUS",
+          "pin_index": 1,
+          "width": 12140
+        },
+        {
+          "module": "gnd0",
+          "pin_name": "PAD",
+          "pin_index": 0,
+          "width": 22510
+        },
+        {
+          "module": "gnd1",
+          "pin_name": "PAD",
+          "pin_index": 0,
+          "width": 22510
+        },
+        {
+          "module": "gnd2",
+          "pin_name": "PAD",
+          "pin_index": 0,
+          "width": 22510
+        },
+        {
+          "module": "gnd3",
+          "pin_name": "PAD",
+          "pin_index": 0,
+          "width": 22510
+        }
+      ],
+      "branches": [
+        [
+          "LIn_1/GND",
+          "CShunt_D_2/MINUS",
+          0
+        ],
+        [
+          "LIn_1/GND",
+          "Cnew2/MINUS",
+          0
+        ],
+        [
+          "LIn_1/GND",
+          "Stage_1/GND",
+          0
+        ],
+        [
+          "LIn_1/GND",
+          "C29/BULK1",
+          0
+        ],
+        [
+          "LIn_1/GND",
+          "Stage_1/SS",
+          0
+        ],
+        [
+          "LIn_1/GND",
+          "LD_1/GND",
+          0
+        ],
+        [
+          "LIn_1/GND",
+          "C29/MINUS",
+          0
+        ],
+        [
+          "LIn_1/GND",
+          "CShunt_D_1/MINUS",
+          0
+        ],
+        [
+          "LIn_1/GND",
+          "gnd3/PAD",
+          0
+        ],
+        [
+          "LIn_1/GND",
+          "gnd0/PAD",
+          0
+        ],
+        [
+          "LIn_1/GND",
+          "C28/BULK2",
+          0
+        ],
+        [
+          "LIn_1/GND",
+          "CShunt_D_1/BULK1",
+          0
+        ],
+        [
+          "LIn_1/GND",
+          "gnd2/PAD",
+          0
+        ],
+        [
+          "LIn_1/GND",
+          "C28/BULK1",
+          0
+        ],
+        [
+          "LIn_1/GND",
+          "Cnew1/MINUS",
+          0
+        ],
+        [
+          "LIn_1/GND",
+          "gnd1/PAD",
+          0
+        ],
+        [
+          "LIn_1/GND",
+          "bias2/BS",
+          0
+        ],
+        [
+          "LIn_1/GND",
+          "Stage_2/SS",
+          0
+        ],
+        [
+          "LIn_1/GND",
+          "C28/MINUS",
+          0
+        ],
+        [
+          "LIn_1/GND",
+          "CShunt_D_1/BULK2",
+          0
+        ],
+        [
+          "LIn_1/GND",
+          "bias1/BS",
+          0
+        ],
+        [
+          "LIn_1/GND",
+          "Stage_2/GND",
+          0
+        ]
+      ]
+    },
+    "net4": {
+      "weight": 12.0,
+      "endpoints": [
+        {
+          "module": "Stage_1",
+          "pin_name": "DD",
+          "pin_index": 0,
+          "width": 14180
+        },
+        {
+          "module": "LD_1",
+          "pin_name": "P2",
+          "pin_index": 1,
+          "width": 5000
+        },
+        {
+          "module": "CShunt_D_1",
+          "pin_name": "PLUS",
+          "pin_index": 0,
+          "width": 2360
+        },
+        {
+          "module": "CSeries_D_1",
+          "pin_name": "PLUS",
+          "pin_index": 0,
+          "width": 1460
+        }
+      ],
+      "branches": [
+        [
+          "Stage_1/DD",
+          "CShunt_D_1/PLUS",
+          0
+        ],
+        [
+          "Stage_1/DD",
+          "CSeries_D_1/PLUS",
+          0
+        ],
+        [
+          "Stage_1/DD",
+          "LD_1/P2",
+          0
+        ]
+      ]
+    },
+    "net34": {
+      "weight": 1.0,
+      "endpoints": [
+        {
+          "module": "Stage_1",
+          "pin_name": "G2",
+          "pin_index": 1,
+          "width": 1600
+        },
+        {
+          "module": "R1",
+          "pin_name": "PLUS",
+          "pin_index": 0,
+          "width": 4890
+        },
+        {
+          "module": "R10",
+          "pin_name": "MINUS",
+          "pin_index": 1,
+          "width": 9070
+        },
+        {
+          "module": "C28",
+          "pin_name": "PLUS",
+          "pin_index": 0,
+          "width": 2361
+        }
+      ],
+      "branches": [
+        [
+          "Stage_1/G2",
+          "R10/MINUS",
+          0
+        ],
+        [
+          "Stage_1/G2",
+          "R1/PLUS",
+          0
+        ],
+        [
+          "Stage_1/G2",
+          "C28/PLUS",
+          0
+        ]
+      ]
+    },
+    "net12": {
+      "weight": 0.1,
+      "endpoints": [
+        {
+          "module": "LD_1",
+          "pin_name": "P1",
+          "pin_index": 0,
+          "width": 5000
+        },
+        {
+          "module": "vdd1",
+          "pin_name": "PAD",
+          "pin_index": 0,
+          "width": 22510
+        }
+      ],
+      "branches": [
+        [
+          "LD_1/P1",
+          "vdd1/PAD",
+          0
+        ]
+      ]
+    },
+    "net3": {
+      "weight": 2.0,
+      "endpoints": [
+        {
+          "module": "CSeries_D_1",
+          "pin_name": "MINUS",
+          "pin_index": 1,
+          "width": 9051
+        },
+        {
+          "module": "LIn_2",
+          "pin_name": "P2",
+          "pin_index": 1,
+          "width": 8000
+        },
+        {
+          "module": "Stage_2",
+          "pin_name": "GG",
+          "pin_index": 2,
+          "width": 13780
+        }
+      ],
+      "branches": [
+        [
+          "CSeries_D_1/MINUS",
+          "Stage_2/GG",
+          0
+        ],
+        [
+          "CSeries_D_1/MINUS",
+          "LIn_2/P2",
+          0
+        ]
+      ]
+    },
+    "net24": {
+      "weight": 1.0,
+      "endpoints": [
+        {
+          "module": "LIn_2",
+          "pin_name": "P1",
+          "pin_index": 0,
+          "width": 8000
+        },
+        {
+          "module": "bias2",
+          "pin_name": "D",
+          "pin_index": 0,
+          "width": 2370
+        },
+        {
+          "module": "R27",
+          "pin_name": "MINUS",
+          "pin_index": 1,
+          "width": 4890
+        },
+        {
+          "module": "R28",
+          "pin_name": "PLUS",
+          "pin_index": 0,
+          "width": 9070
+        },
+        {
+          "module": "Cnew2",
+          "pin_name": "PLUS",
+          "pin_index": 0,
+          "width": 2361
+        }
+      ],
+      "branches": [
+        [
+          "LIn_2/P1",
+          "bias2/D",
+          0
+        ],
+        [
+          "LIn_2/P1",
+          "R27/MINUS",
+          0
+        ],
+        [
+          "LIn_2/P1",
+          "R28/PLUS",
+          0
+        ],
+        [
+          "LIn_2/P1",
+          "Cnew2/PLUS",
+          0
+        ]
+      ]
+    },
+    "net16": {
+      "weight": 12.0,
+      "endpoints": [
+        {
+          "module": "Stage_2",
+          "pin_name": "DD",
+          "pin_index": 0,
+          "width": 14180
+        },
+        {
+          "module": "LD_2",
+          "pin_name": "P2",
+          "pin_index": 1,
+          "width": 2000
+        },
+        {
+          "module": "CShunt_D_2",
+          "pin_name": "PLUS",
+          "pin_index": 0,
+          "width": 1460
+        },
+        {
+          "module": "CSeries_D_2",
+          "pin_name": "PLUS",
+          "pin_index": 0,
+          "width": 1460
+        }
+      ],
+      "branches": [
+        [
+          "Stage_2/DD",
+          "CSeries_D_2/PLUS",
+          0
+        ],
+        [
+          "Stage_2/DD",
+          "CShunt_D_2/PLUS",
+          0
+        ],
+        [
+          "Stage_2/DD",
+          "LD_2/P2",
+          0
+        ]
+      ]
+    },
+    "net23": {
+      "weight": 1.0,
+      "endpoints": [
+        {
+          "module": "Stage_2",
+          "pin_name": "G2",
+          "pin_index": 1,
+          "width": 2600
+        },
+        {
+          "module": "R27",
+          "pin_name": "PLUS",
+          "pin_index": 0,
+          "width": 4890
+        },
+        {
+          "module": "R26",
+          "pin_name": "MINUS",
+          "pin_index": 1,
+          "width": 9070
+        },
+        {
+          "module": "C29",
+          "pin_name": "PLUS",
+          "pin_index": 0,
+          "width": 2361
+        }
+      ],
+      "branches": [
+        [
+          "Stage_2/G2",
+          "R26/MINUS",
+          0
+        ],
+        [
+          "Stage_2/G2",
+          "C29/PLUS",
+          0
+        ],
+        [
+          "Stage_2/G2",
+          "R27/PLUS",
+          0
+        ]
+      ]
+    },
+    "net17": {
+      "weight": 0.1,
+      "endpoints": [
+        {
+          "module": "LD_2",
+          "pin_name": "P1",
+          "pin_index": 0,
+          "width": 2000
+        },
+        {
+          "module": "vdd3",
+          "pin_name": "PAD",
+          "pin_index": 0,
+          "width": 22510
+        }
+      ],
+      "branches": [
+        [
+          "LD_2/P1",
+          "vdd3/PAD",
+          0
+        ]
+      ]
+    },
+    "net9": {
+      "weight": 2.0,
+      "endpoints": [
+        {
+          "module": "CSeries_D_2",
+          "pin_name": "MINUS",
+          "pin_index": 1,
+          "width": 9051
+        },
+        {
+          "module": "output",
+          "pin_name": "PAD",
+          "pin_index": 0,
+          "width": 22510
+        }
+      ],
+      "branches": [
+        [
+          "CSeries_D_2/MINUS",
+          "output/PAD",
+          0
+        ]
+      ]
+    },
+    "net32": {
+      "weight": 1.0,
+      "endpoints": [
+        {
+          "module": "bias1",
+          "pin_name": "G",
+          "pin_index": 1,
+          "width": 2370
+        },
+        {
+          "module": "R2",
+          "pin_name": "MINUS",
+          "pin_index": 1,
+          "width": 9070
+        }
+      ],
+      "branches": [
+        [
+          "bias1/G",
+          "R2/MINUS",
+          0
+        ]
+      ]
+    },
+    "net29": {
+      "weight": 0.1,
+      "endpoints": [
+        {
+          "module": "R10",
+          "pin_name": "PLUS",
+          "pin_index": 0,
+          "width": 9070
+        },
+        {
+          "module": "vdd2",
+          "pin_name": "PAD",
+          "pin_index": 0,
+          "width": 22510
+        }
+      ],
+      "branches": [
+        [
+          "R10/PLUS",
+          "vdd2/PAD",
+          0
+        ]
+      ]
+    },
+    "net25": {
+      "weight": 1.0,
+      "endpoints": [
+        {
+          "module": "bias2",
+          "pin_name": "G",
+          "pin_index": 1,
+          "width": 2370
+        },
+        {
+          "module": "R28",
+          "pin_name": "MINUS",
+          "pin_index": 1,
+          "width": 9070
+        }
+      ],
+      "branches": [
+        [
+          "bias2/G",
+          "R28/MINUS",
+          0
+        ]
+      ]
+    },
+    "net26": {
+      "weight": 0.1,
+      "endpoints": [
+        {
+          "module": "R26",
+          "pin_name": "PLUS",
+          "pin_index": 0,
+          "width": 9070
+        },
+        {
+          "module": "vdd0",
+          "pin_name": "PAD",
+          "pin_index": 0,
+          "width": 22510
+        }
+      ],
+      "branches": [
+        [
+          "R26/PLUS",
+          "vdd0/PAD",
+          0
+        ]
+      ]
+    }
+  }
+}

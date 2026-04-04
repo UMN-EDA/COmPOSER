@@ -1,0 +1,30 @@
+MACRO source_ind
+  UNITS
+    DATABASE MICRONS UNITS 1000;
+  END UNITS
+  ORIGIN 0 0 ;
+  FOREIGN source_ind 0 0 ;
+  SIZE 90000 BY 44500 ;
+  PIN P1
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER M9 ;
+        RECT 0 20000 4500 24500 ;
+    END
+  END P1
+  PIN P2
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER M9 ;
+        RECT 85500 20000 90000 24500 ;
+    END
+  END P2
+  OBS
+    LAYER M9 ;
+      RECT 0 20000 90000 24500 ;
+    LAYER M1 ;
+      RECT 4500 0 85500 44500 ;
+  END
+END source_ind
