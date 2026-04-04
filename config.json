@@ -1,0 +1,48 @@
+{
+  "datasets":
+    {
+        "spiral_inductor": "DATASETS/spiral_ind_data.csv",
+        "tline": "DATASETS/tline_data.csv",
+        "mimcap": "DATASETS/mimcap_dataset.csv",
+        "small_mimcap": "DATASETS/small_mimcap_dataset.csv"
+    },
+  "project_name": "lna_1_stage",
+  "design":
+    {
+        "input_netlist": "EXAMPLES/LNA_1_STAGE/lna_1_optimized.sp",
+        "net_weights": "EXAMPLES/LNA_1_STAGE/net_weights.json"
+    },
+  "scale": 1000,
+  "pdk": "PDK/mock_65nm/layers.json",
+  "topcell": "lna",
+  "decaps":
+    {
+        "add_decaps": false,
+        "decap_val": 500e-15,
+        "num_decaps": 0
+    },
+  "pad_direction": ["W", "N"],
+  "pad_mode": "periphery",
+  
+
+  "placement":
+    {
+        "placement_constraints": "EXAMPLES/LNA_1_STAGE/placement_constraint.json",
+        "timelimit": 60,
+        "aspect_ratio": 0,
+        "level": 1,
+        "weight_hpwl":1,
+        "plot_html": false
+        
+    },
+  "routing":
+    {
+        "router_bin": "ROUTER/hanan_router/hanan_router",
+        "routing_constraints": "EXAMPLES/LNA_1_STAGE/router_constraints.json"
+    },
+  "pdn":
+    {
+        "pdn_width": 6,
+        "pdn_gap": 2
+    }
+}
