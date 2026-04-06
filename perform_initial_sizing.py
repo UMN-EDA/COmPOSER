@@ -27,6 +27,7 @@ def main():
     args = parse_args()
     cfg = load_config(args.config)
     stage_1_script = cfg["stage_1_sizer"]
+    mapping_script = cfg["stage_1_mapping_script"]
     
     project_dir=cfg["project_name"]
     top_name = cfg["topcell"]
@@ -43,8 +44,18 @@ def main():
     ]
     run_step("Running Stage 1 sizer", cmd1)
 
-    print("Sizing completed successfully.")
+    cmd2 = [
+        sys.executable, 
+        mapping_script,
+        "--netlist", cfg["design"]["input_unsized_netlist"], 
+        "--design-json", os.path.join(stage_1_dir, f"best_{top_name}_design.json"),
+        "--mapping-json", cfg["stage_1_map_file"],
+        "--output", cfg["design"]["input_netlist"] 
+    ]
 
+    run_step("Mapping the sizes to netlist", cmd2)
+
+    print("Sizing completed successfully.")
 
 if __name__ == "__main__":
     print(f"Estimating initial sizes from specs")
