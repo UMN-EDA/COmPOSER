@@ -1,0 +1,512 @@
+{
+  "nets": {
+    "net5": {
+      "weight": 2.0,
+      "endpoints": [
+        {
+          "module": "drain_ind",
+          "pin_name": "P1",
+          "pin_index": 0,
+          "width": 8500
+        },
+        {
+          "module": "cas_mos",
+          "pin_name": "DD",
+          "pin_index": 0,
+          "width": 9700
+        },
+        {
+          "module": "xc1",
+          "pin_name": "MINUS",
+          "pin_index": 1,
+          "width": 9411
+        }
+      ],
+      "branches": [
+        [
+          "drain_ind/P1",
+          "xc1/MINUS",
+          0
+        ],
+        [
+          "drain_ind/P1",
+          "cas_mos/DD",
+          0
+        ]
+      ]
+    },
+    "net3": {
+      "weight": 0.1,
+      "endpoints": [
+        {
+          "module": "drain_ind",
+          "pin_name": "P2",
+          "pin_index": 1,
+          "width": 8500
+        },
+        {
+          "module": "vdd",
+          "pin_name": "PAD",
+          "pin_index": 0,
+          "width": 22510
+        }
+      ],
+      "branches": [
+        [
+          "drain_ind/P2",
+          "vdd/PAD",
+          0
+        ]
+      ]
+    },
+    "gnd": {
+      "weight": 0.1,
+      "endpoints": [
+        {
+          "module": "drain_ind",
+          "pin_name": "GND",
+          "pin_index": 2,
+          "width": 10000
+        },
+        {
+          "module": "source_ind",
+          "pin_name": "P2",
+          "pin_index": 1,
+          "width": 3500
+        },
+        {
+          "module": "gate_ind",
+          "pin_name": "GND",
+          "pin_index": 2,
+          "width": 10000
+        },
+        {
+          "module": "cas_mos",
+          "pin_name": "GND",
+          "pin_index": 4,
+          "width": 210
+        },
+        {
+          "module": "bias_mos",
+          "pin_name": "BS",
+          "pin_index": 2,
+          "width": 280
+        },
+        {
+          "module": "xc1",
+          "pin_name": "PLUS",
+          "pin_index": 0,
+          "width": 1460
+        },
+        {
+          "module": "xc2",
+          "pin_name": "BULK1",
+          "pin_index": 2,
+          "width": 6363
+        },
+        {
+          "module": "xc2",
+          "pin_name": "BULK2",
+          "pin_index": 3,
+          "width": 6363
+        },
+        {
+          "module": "xwg1",
+          "pin_name": "GND1",
+          "pin_index": 2,
+          "width": 9480
+        },
+        {
+          "module": "xwg1",
+          "pin_name": "GND2",
+          "pin_index": 3,
+          "width": 9480
+        },
+        {
+          "module": "xc3",
+          "pin_name": "PLUS",
+          "pin_index": 0,
+          "width": 2361
+        },
+        {
+          "module": "xc3",
+          "pin_name": "BULK1",
+          "pin_index": 2,
+          "width": 4476
+        },
+        {
+          "module": "xc3",
+          "pin_name": "BULK2",
+          "pin_index": 3,
+          "width": 4476
+        },
+        {
+          "module": "gnd0",
+          "pin_name": "PAD",
+          "pin_index": 0,
+          "width": 22510
+        },
+        {
+          "module": "gnd1",
+          "pin_name": "PAD",
+          "pin_index": 0,
+          "width": 22510
+        },
+        {
+          "module": "gnd2",
+          "pin_name": "PAD",
+          "pin_index": 0,
+          "width": 22510
+        }
+      ],
+      "branches": [
+        [
+          "drain_ind/GND",
+          "xc2/BULK2",
+          0
+        ],
+        [
+          "drain_ind/GND",
+          "xc3/BULK2",
+          0
+        ],
+        [
+          "drain_ind/GND",
+          "source_ind/P2",
+          0
+        ],
+        [
+          "drain_ind/GND",
+          "gnd2/PAD",
+          0
+        ],
+        [
+          "drain_ind/GND",
+          "xc3/PLUS",
+          0
+        ],
+        [
+          "drain_ind/GND",
+          "cas_mos/GND",
+          0
+        ],
+        [
+          "drain_ind/GND",
+          "gnd0/PAD",
+          0
+        ],
+        [
+          "drain_ind/GND",
+          "xc1/PLUS",
+          0
+        ],
+        [
+          "drain_ind/GND",
+          "gnd1/PAD",
+          0
+        ],
+        [
+          "drain_ind/GND",
+          "xc3/BULK1",
+          0
+        ],
+        [
+          "drain_ind/GND",
+          "bias_mos/BS",
+          0
+        ],
+        [
+          "drain_ind/GND",
+          "xc2/BULK1",
+          0
+        ],
+        [
+          "drain_ind/GND",
+          "xwg1/GND1",
+          0
+        ],
+        [
+          "drain_ind/GND",
+          "xwg1/GND2",
+          0
+        ],
+        [
+          "drain_ind/GND",
+          "gate_ind/GND",
+          0
+        ]
+      ]
+    },
+    "net1": {
+      "weight": 2.0,
+      "endpoints": [
+        {
+          "module": "source_ind",
+          "pin_name": "P1",
+          "pin_index": 0,
+          "width": 3500
+        },
+        {
+          "module": "cas_mos",
+          "pin_name": "SS",
+          "pin_index": 3,
+          "width": 1040
+        }
+      ],
+      "branches": [
+        [
+          "source_ind/P1",
+          "cas_mos/SS",
+          0
+        ]
+      ]
+    },
+    "net8": {
+      "weight": 2.0,
+      "endpoints": [
+        {
+          "module": "gate_ind",
+          "pin_name": "P1",
+          "pin_index": 0,
+          "width": 3500
+        },
+        {
+          "module": "xwg1",
+          "pin_name": "P1",
+          "pin_index": 0,
+          "width": 9480
+        }
+      ],
+      "branches": [
+        [
+          "gate_ind/P1",
+          "xwg1/P1",
+          0
+        ]
+      ]
+    },
+    "net12": {
+      "weight": 2.0,
+      "endpoints": [
+        {
+          "module": "gate_ind",
+          "pin_name": "P2",
+          "pin_index": 1,
+          "width": 3500
+        },
+        {
+          "module": "cas_mos",
+          "pin_name": "GG",
+          "pin_index": 2,
+          "width": 9580
+        },
+        {
+          "module": "xR3",
+          "pin_name": "MINUS",
+          "pin_index": 1,
+          "width": 9070
+        }
+      ],
+      "branches": [
+        [
+          "gate_ind/P2",
+          "cas_mos/GG",
+          0
+        ],
+        [
+          "gate_ind/P2",
+          "xR3/MINUS",
+          0
+        ]
+      ]
+    },
+    "net4": {
+      "weight": 1.0,
+      "endpoints": [
+        {
+          "module": "cas_mos",
+          "pin_name": "G2",
+          "pin_index": 1,
+          "width": 1600
+        },
+        {
+          "module": "xc3",
+          "pin_name": "MINUS",
+          "pin_index": 1,
+          "width": 12140
+        },
+        {
+          "module": "xR0",
+          "pin_name": "MINUS",
+          "pin_index": 1,
+          "width": 9440
+        },
+        {
+          "module": "xR2",
+          "pin_name": "MINUS",
+          "pin_index": 1,
+          "width": 9630
+        }
+      ],
+      "branches": [
+        [
+          "cas_mos/G2",
+          "xR0/MINUS",
+          0
+        ],
+        [
+          "cas_mos/G2",
+          "xc3/MINUS",
+          0
+        ],
+        [
+          "cas_mos/G2",
+          "xR2/MINUS",
+          0
+        ]
+      ]
+    },
+    "net2": {
+      "weight": 1.0,
+      "endpoints": [
+        {
+          "module": "bias_mos",
+          "pin_name": "D",
+          "pin_index": 0,
+          "width": 2370
+        },
+        {
+          "module": "xR0",
+          "pin_name": "PLUS",
+          "pin_index": 0,
+          "width": 9440
+        },
+        {
+          "module": "xR1",
+          "pin_name": "MINUS",
+          "pin_index": 1,
+          "width": 9070
+        },
+        {
+          "module": "xR3",
+          "pin_name": "PLUS",
+          "pin_index": 0,
+          "width": 9070
+        }
+      ],
+      "branches": [
+        [
+          "bias_mos/D",
+          "xR0/PLUS",
+          0
+        ],
+        [
+          "bias_mos/D",
+          "xR3/PLUS",
+          0
+        ],
+        [
+          "bias_mos/D",
+          "xR1/MINUS",
+          0
+        ]
+      ]
+    },
+    "net13": {
+      "weight": 1.0,
+      "endpoints": [
+        {
+          "module": "bias_mos",
+          "pin_name": "G",
+          "pin_index": 1,
+          "width": 2370
+        },
+        {
+          "module": "xR1",
+          "pin_name": "PLUS",
+          "pin_index": 0,
+          "width": 9070
+        }
+      ],
+      "branches": [
+        [
+          "bias_mos/G",
+          "xR1/PLUS",
+          0
+        ]
+      ]
+    },
+    "net010": {
+      "weight": 2.0,
+      "endpoints": [
+        {
+          "module": "xc2",
+          "pin_name": "PLUS",
+          "pin_index": 0,
+          "width": 2360
+        },
+        {
+          "module": "input",
+          "pin_name": "PAD",
+          "pin_index": 0,
+          "width": 22510
+        }
+      ],
+      "branches": [
+        [
+          "xc2/PLUS",
+          "input/PAD",
+          0
+        ]
+      ]
+    },
+    "net14": {
+      "weight": 2.0,
+      "endpoints": [
+        {
+          "module": "xc2",
+          "pin_name": "MINUS",
+          "pin_index": 1,
+          "width": 17800
+        },
+        {
+          "module": "xwg1",
+          "pin_name": "P2",
+          "pin_index": 1,
+          "width": 9480
+        }
+      ],
+      "branches": [
+        [
+          "xc2/MINUS",
+          "xwg1/P2",
+          0
+        ]
+      ]
+    },
+    "net7": {
+      "weight": 0.1,
+      "endpoints": [
+        {
+          "module": "xR2",
+          "pin_name": "PLUS",
+          "pin_index": 0,
+          "width": 9630
+        },
+        {
+          "module": "bias",
+          "pin_name": "PAD",
+          "pin_index": 0,
+          "width": 22510
+        }
+      ],
+      "branches": [
+        [
+          "xR2/PLUS",
+          "bias/PAD",
+          0
+        ]
+      ]
+    }
+  }
+}

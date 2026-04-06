@@ -1,0 +1,812 @@
+{
+  "nets": {
+    "net55": {
+      "weight": 2.0,
+      "endpoints": [
+        {
+          "module": "drain_ind2",
+          "pin_name": "P1",
+          "pin_index": 0,
+          "width": 3000
+        },
+        {
+          "module": "cas_mos2",
+          "pin_name": "DD",
+          "pin_index": 0,
+          "width": 2980
+        }
+      ],
+      "branches": [
+        [
+          "drain_ind2/P1",
+          "cas_mos2/DD",
+          0
+        ]
+      ]
+    },
+    "net33": {
+      "weight": 0.1,
+      "endpoints": [
+        {
+          "module": "drain_ind2",
+          "pin_name": "P2",
+          "pin_index": 1,
+          "width": 3000
+        },
+        {
+          "module": "vdd2",
+          "pin_name": "PAD",
+          "pin_index": 0,
+          "width": 22510
+        }
+      ],
+      "branches": [
+        [
+          "drain_ind2/P2",
+          "vdd2/PAD",
+          0
+        ]
+      ]
+    },
+    "net5": {
+      "weight": 2.0,
+      "endpoints": [
+        {
+          "module": "drain_ind1",
+          "pin_name": "P1",
+          "pin_index": 0,
+          "width": 2000
+        },
+        {
+          "module": "cas_mos1",
+          "pin_name": "DD",
+          "pin_index": 0,
+          "width": 2980
+        },
+        {
+          "module": "xc1",
+          "pin_name": "MINUS",
+          "pin_index": 1,
+          "width": 9411
+        },
+        {
+          "module": "xCs",
+          "pin_name": "PLUS",
+          "pin_index": 0,
+          "width": 2360
+        }
+      ],
+      "branches": [
+        [
+          "drain_ind1/P1",
+          "cas_mos1/DD",
+          0
+        ],
+        [
+          "drain_ind1/P1",
+          "xc1/MINUS",
+          0
+        ],
+        [
+          "drain_ind1/P1",
+          "xCs/PLUS",
+          0
+        ]
+      ]
+    },
+    "net3": {
+      "weight": 0.1,
+      "endpoints": [
+        {
+          "module": "drain_ind1",
+          "pin_name": "P2",
+          "pin_index": 1,
+          "width": 2000
+        },
+        {
+          "module": "vdd1",
+          "pin_name": "PAD",
+          "pin_index": 0,
+          "width": 22510
+        }
+      ],
+      "branches": [
+        [
+          "drain_ind1/P2",
+          "vdd1/PAD",
+          0
+        ]
+      ]
+    },
+    "net1": {
+      "weight": 2.0,
+      "endpoints": [
+        {
+          "module": "source_ind",
+          "pin_name": "P1",
+          "pin_index": 0,
+          "width": 8500
+        },
+        {
+          "module": "cas_mos1",
+          "pin_name": "SS",
+          "pin_index": 3,
+          "width": 1040
+        }
+      ],
+      "branches": [
+        [
+          "source_ind/P1",
+          "cas_mos1/SS",
+          0
+        ]
+      ]
+    },
+    "gnd": {
+      "weight": 0.1,
+      "endpoints": [
+        {
+          "module": "source_ind",
+          "pin_name": "P2",
+          "pin_index": 1,
+          "width": 8500
+        },
+        {
+          "module": "gate_ind",
+          "pin_name": "GND",
+          "pin_index": 2,
+          "width": 10000
+        },
+        {
+          "module": "cas_mos1",
+          "pin_name": "GND",
+          "pin_index": 4,
+          "width": 210
+        },
+        {
+          "module": "cas_mos2",
+          "pin_name": "SS",
+          "pin_index": 3,
+          "width": 1040
+        },
+        {
+          "module": "cas_mos2",
+          "pin_name": "GND",
+          "pin_index": 4,
+          "width": 210
+        },
+        {
+          "module": "bias_mos1",
+          "pin_name": "BS",
+          "pin_index": 2,
+          "width": 280
+        },
+        {
+          "module": "bias_mos2",
+          "pin_name": "BS",
+          "pin_index": 2,
+          "width": 280
+        },
+        {
+          "module": "xc1",
+          "pin_name": "PLUS",
+          "pin_index": 0,
+          "width": 1460
+        },
+        {
+          "module": "xc2",
+          "pin_name": "BULK1",
+          "pin_index": 2,
+          "width": 6363
+        },
+        {
+          "module": "xc2",
+          "pin_name": "BULK2",
+          "pin_index": 3,
+          "width": 6363
+        },
+        {
+          "module": "xc3",
+          "pin_name": "PLUS",
+          "pin_index": 0,
+          "width": 2361
+        },
+        {
+          "module": "xc3",
+          "pin_name": "BULK1",
+          "pin_index": 2,
+          "width": 4476
+        },
+        {
+          "module": "xc3",
+          "pin_name": "BULK2",
+          "pin_index": 3,
+          "width": 4476
+        },
+        {
+          "module": "xc33",
+          "pin_name": "PLUS",
+          "pin_index": 0,
+          "width": 2361
+        },
+        {
+          "module": "xc33",
+          "pin_name": "BULK1",
+          "pin_index": 2,
+          "width": 4476
+        },
+        {
+          "module": "xc33",
+          "pin_name": "BULK2",
+          "pin_index": 3,
+          "width": 4476
+        },
+        {
+          "module": "xwg1",
+          "pin_name": "GND1",
+          "pin_index": 2,
+          "width": 9470
+        },
+        {
+          "module": "xwg1",
+          "pin_name": "GND2",
+          "pin_index": 3,
+          "width": 9470
+        },
+        {
+          "module": "gnd0",
+          "pin_name": "PAD",
+          "pin_index": 0,
+          "width": 22510
+        },
+        {
+          "module": "gnd1",
+          "pin_name": "PAD",
+          "pin_index": 0,
+          "width": 22510
+        },
+        {
+          "module": "xCs",
+          "pin_name": "BULK1",
+          "pin_index": 2,
+          "width": 3204
+        },
+        {
+          "module": "xCs",
+          "pin_name": "BULK2",
+          "pin_index": 3,
+          "width": 3204
+        }
+      ],
+      "branches": [
+        [
+          "source_ind/P2",
+          "xc33/BULK2",
+          0
+        ],
+        [
+          "source_ind/P2",
+          "xc2/BULK1",
+          0
+        ],
+        [
+          "source_ind/P2",
+          "xwg1/GND2",
+          0
+        ],
+        [
+          "source_ind/P2",
+          "xc33/BULK1",
+          0
+        ],
+        [
+          "source_ind/P2",
+          "bias_mos1/BS",
+          0
+        ],
+        [
+          "source_ind/P2",
+          "xc1/PLUS",
+          0
+        ],
+        [
+          "source_ind/P2",
+          "bias_mos2/BS",
+          0
+        ],
+        [
+          "source_ind/P2",
+          "cas_mos2/SS",
+          0
+        ],
+        [
+          "source_ind/P2",
+          "gnd0/PAD",
+          0
+        ],
+        [
+          "source_ind/P2",
+          "xCs/BULK2",
+          0
+        ],
+        [
+          "source_ind/P2",
+          "xc33/PLUS",
+          0
+        ],
+        [
+          "source_ind/P2",
+          "xc3/PLUS",
+          0
+        ],
+        [
+          "source_ind/P2",
+          "xCs/BULK1",
+          0
+        ],
+        [
+          "source_ind/P2",
+          "gate_ind/GND",
+          0
+        ],
+        [
+          "source_ind/P2",
+          "cas_mos1/GND",
+          0
+        ],
+        [
+          "source_ind/P2",
+          "cas_mos2/GND",
+          0
+        ],
+        [
+          "source_ind/P2",
+          "xc3/BULK1",
+          0
+        ],
+        [
+          "source_ind/P2",
+          "xc3/BULK2",
+          0
+        ],
+        [
+          "source_ind/P2",
+          "xc2/BULK2",
+          0
+        ],
+        [
+          "source_ind/P2",
+          "xwg1/GND1",
+          0
+        ],
+        [
+          "source_ind/P2",
+          "gnd1/PAD",
+          0
+        ]
+      ]
+    },
+    "net8": {
+      "weight": 2.0,
+      "endpoints": [
+        {
+          "module": "gate_ind",
+          "pin_name": "P1",
+          "pin_index": 0,
+          "width": 4500
+        },
+        {
+          "module": "xwg1",
+          "pin_name": "P1",
+          "pin_index": 0,
+          "width": 9470
+        }
+      ],
+      "branches": [
+        [
+          "gate_ind/P1",
+          "xwg1/P1",
+          0
+        ]
+      ]
+    },
+    "net12": {
+      "weight": 2.0,
+      "endpoints": [
+        {
+          "module": "gate_ind",
+          "pin_name": "P2",
+          "pin_index": 1,
+          "width": 4500
+        },
+        {
+          "module": "cas_mos1",
+          "pin_name": "GG",
+          "pin_index": 2,
+          "width": 2860
+        },
+        {
+          "module": "xR3",
+          "pin_name": "MINUS",
+          "pin_index": 1,
+          "width": 9070
+        }
+      ],
+      "branches": [
+        [
+          "gate_ind/P2",
+          "xR3/MINUS",
+          0
+        ],
+        [
+          "gate_ind/P2",
+          "cas_mos1/GG",
+          0
+        ]
+      ]
+    },
+    "net4": {
+      "weight": 1.0,
+      "endpoints": [
+        {
+          "module": "cas_mos1",
+          "pin_name": "G2",
+          "pin_index": 1,
+          "width": 1600
+        },
+        {
+          "module": "xc3",
+          "pin_name": "MINUS",
+          "pin_index": 1,
+          "width": 12140
+        },
+        {
+          "module": "xR0",
+          "pin_name": "MINUS",
+          "pin_index": 1,
+          "width": 9440
+        },
+        {
+          "module": "xR2",
+          "pin_name": "MINUS",
+          "pin_index": 1,
+          "width": 9630
+        }
+      ],
+      "branches": [
+        [
+          "cas_mos1/G2",
+          "xc3/MINUS",
+          0
+        ],
+        [
+          "cas_mos1/G2",
+          "xR2/MINUS",
+          0
+        ],
+        [
+          "cas_mos1/G2",
+          "xR0/MINUS",
+          0
+        ]
+      ]
+    },
+    "net44": {
+      "weight": 1.0,
+      "endpoints": [
+        {
+          "module": "cas_mos2",
+          "pin_name": "G2",
+          "pin_index": 1,
+          "width": 1600
+        },
+        {
+          "module": "xc33",
+          "pin_name": "MINUS",
+          "pin_index": 1,
+          "width": 12140
+        },
+        {
+          "module": "xR00",
+          "pin_name": "MINUS",
+          "pin_index": 1,
+          "width": 10000
+        },
+        {
+          "module": "xR22",
+          "pin_name": "MINUS",
+          "pin_index": 1,
+          "width": 9630
+        }
+      ],
+      "branches": [
+        [
+          "cas_mos2/G2",
+          "xR22/MINUS",
+          0
+        ],
+        [
+          "cas_mos2/G2",
+          "xR00/MINUS",
+          0
+        ],
+        [
+          "cas_mos2/G2",
+          "xc33/MINUS",
+          0
+        ]
+      ]
+    },
+    "net1212": {
+      "weight": 2.0,
+      "endpoints": [
+        {
+          "module": "cas_mos2",
+          "pin_name": "GG",
+          "pin_index": 2,
+          "width": 2860
+        },
+        {
+          "module": "xR33",
+          "pin_name": "MINUS",
+          "pin_index": 1,
+          "width": 9070
+        },
+        {
+          "module": "xCs",
+          "pin_name": "MINUS",
+          "pin_index": 1,
+          "width": 8320
+        }
+      ],
+      "branches": [
+        [
+          "cas_mos2/GG",
+          "xR33/MINUS",
+          0
+        ],
+        [
+          "cas_mos2/GG",
+          "xCs/MINUS",
+          0
+        ]
+      ]
+    },
+    "net2": {
+      "weight": 1.0,
+      "endpoints": [
+        {
+          "module": "bias_mos1",
+          "pin_name": "D",
+          "pin_index": 0,
+          "width": 2370
+        },
+        {
+          "module": "xR0",
+          "pin_name": "PLUS",
+          "pin_index": 0,
+          "width": 9440
+        },
+        {
+          "module": "xR1",
+          "pin_name": "MINUS",
+          "pin_index": 1,
+          "width": 9070
+        },
+        {
+          "module": "xR3",
+          "pin_name": "PLUS",
+          "pin_index": 0,
+          "width": 9070
+        }
+      ],
+      "branches": [
+        [
+          "bias_mos1/D",
+          "xR1/MINUS",
+          0
+        ],
+        [
+          "bias_mos1/D",
+          "xR3/PLUS",
+          0
+        ],
+        [
+          "bias_mos1/D",
+          "xR0/PLUS",
+          0
+        ]
+      ]
+    },
+    "net13": {
+      "weight": 1.0,
+      "endpoints": [
+        {
+          "module": "bias_mos1",
+          "pin_name": "G",
+          "pin_index": 1,
+          "width": 2370
+        },
+        {
+          "module": "xR1",
+          "pin_name": "PLUS",
+          "pin_index": 0,
+          "width": 9070
+        }
+      ],
+      "branches": [
+        [
+          "bias_mos1/G",
+          "xR1/PLUS",
+          0
+        ]
+      ]
+    },
+    "net22": {
+      "weight": 1.0,
+      "endpoints": [
+        {
+          "module": "bias_mos2",
+          "pin_name": "D",
+          "pin_index": 0,
+          "width": 2370
+        },
+        {
+          "module": "xR00",
+          "pin_name": "PLUS",
+          "pin_index": 0,
+          "width": 10000
+        },
+        {
+          "module": "xR11",
+          "pin_name": "MINUS",
+          "pin_index": 1,
+          "width": 9070
+        },
+        {
+          "module": "xR33",
+          "pin_name": "PLUS",
+          "pin_index": 0,
+          "width": 9070
+        }
+      ],
+      "branches": [
+        [
+          "bias_mos2/D",
+          "xR33/PLUS",
+          0
+        ],
+        [
+          "bias_mos2/D",
+          "xR00/PLUS",
+          0
+        ],
+        [
+          "bias_mos2/D",
+          "xR11/MINUS",
+          0
+        ]
+      ]
+    },
+    "net1313": {
+      "weight": 1.0,
+      "endpoints": [
+        {
+          "module": "bias_mos2",
+          "pin_name": "G",
+          "pin_index": 1,
+          "width": 2370
+        },
+        {
+          "module": "xR11",
+          "pin_name": "PLUS",
+          "pin_index": 0,
+          "width": 9070
+        }
+      ],
+      "branches": [
+        [
+          "bias_mos2/G",
+          "xR11/PLUS",
+          0
+        ]
+      ]
+    },
+    "net010": {
+      "weight": 2.0,
+      "endpoints": [
+        {
+          "module": "xc2",
+          "pin_name": "PLUS",
+          "pin_index": 0,
+          "width": 2360
+        },
+        {
+          "module": "input",
+          "pin_name": "PAD",
+          "pin_index": 0,
+          "width": 22510
+        }
+      ],
+      "branches": [
+        [
+          "xc2/PLUS",
+          "input/PAD",
+          0
+        ]
+      ]
+    },
+    "net14": {
+      "weight": 2.0,
+      "endpoints": [
+        {
+          "module": "xc2",
+          "pin_name": "MINUS",
+          "pin_index": 1,
+          "width": 17800
+        },
+        {
+          "module": "xwg1",
+          "pin_name": "P2",
+          "pin_index": 1,
+          "width": 9470
+        }
+      ],
+      "branches": [
+        [
+          "xc2/MINUS",
+          "xwg1/P2",
+          0
+        ]
+      ]
+    },
+    "net7": {
+      "weight": 0.1,
+      "endpoints": [
+        {
+          "module": "xR2",
+          "pin_name": "PLUS",
+          "pin_index": 0,
+          "width": 9630
+        },
+        {
+          "module": "bias1",
+          "pin_name": "PAD",
+          "pin_index": 0,
+          "width": 22510
+        }
+      ],
+      "branches": [
+        [
+          "xR2/PLUS",
+          "bias1/PAD",
+          0
+        ]
+      ]
+    },
+    "net77": {
+      "weight": 0.1,
+      "endpoints": [
+        {
+          "module": "xR22",
+          "pin_name": "PLUS",
+          "pin_index": 0,
+          "width": 9630
+        },
+        {
+          "module": "bias2",
+          "pin_name": "PAD",
+          "pin_index": 0,
+          "width": 22510
+        }
+      ],
+      "branches": [
+        [
+          "xR22/PLUS",
+          "bias2/PAD",
+          0
+        ]
+      ]
+    }
+  }
+}

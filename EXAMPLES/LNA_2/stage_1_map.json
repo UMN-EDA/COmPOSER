@@ -1,0 +1,26 @@
+{
+    "drain_ind": {
+        "mode": "json_list",
+        "json_keys": ["DRAIN_IND_L", "DRAIN_IND_Q", "DRAIN_IND_PEAK_Q", "DRAIN_IND_SRF"],
+        "defaults": [-1, -1, -1, -1]
+    },
+    "source_ind": {
+        "mode": "json_list",
+        "json_keys": ["SOURCE_IND_L", "SOURCE_IND_Q", "SOURCE_IND_PEAK_Q", "SOURCE_IND_SRF"],
+        "defaults": [-1, -1, -1, -1]
+    },
+    "gate_ind": {
+        "mode": "json_list",
+        "json_keys": ["GATE_IND_L", "GATE_IND_Q", "GATE_IND_PEAK_Q", "GATE_IND_SRF"],
+        "defaults": [-1, -1, -1, -1]
+    },
+    "xwg1": {
+        "mode": "json_list",
+        "json_keys": ["CPWD_Length", "CPWD_Width", "CPWD_Gap"]
+    },
+    "cas_mos": {
+        "mode": "regex_extract",
+        "source_key": "CASMOS_Size",
+        "pattern": "\\s*([0-9]*\\.?[0-9]+)\\s*\\*\\s*([0-9]*\\.?[0-9]+)\\s*um\\s*/\\s*([0-9]*\\.?[0-9]+)\\s*nm\\s*"
+    }
+}

@@ -1,0 +1,63 @@
+{
+  "datasets":
+    {
+        "spiral_inductor": "DATASETS/spiral_ind_data.csv",
+        "tline": "DATASETS/tline_data.csv",
+        "mimcap": "DATASETS/mimcap_dataset.csv",
+        "small_mimcap": "DATASETS/small_mimcap_dataset.csv",
+        "cpwd": "DATASETS/cpwd_data.csv"
+    },
+  "project_name": "lna_3",
+  "stage_1_config": "EXAMPLES/LNA_3/lna_stage_1_config.json",
+  "stage_1_sizer": "lna_stage_1_sizer.py",
+  "stage_1_mapping_script": "map_initial_size_to_netlist.py",
+  "stage_1_map_file": "EXAMPLES/LNA_3/stage_1_map.json",
+  "design_requirements": {
+    "freq_ghz": 60,
+    "nf_req_db": 4,
+    "gain_req_db": 10,
+    "bw_req_ghz": 2,
+    "s11_req_db": -10,
+    "pwr_req_mw": 4,
+    "p_sat_db": 8    
+  },
+  "design":
+    {
+        "input_unsized_netlist": "EXAMPLES/LNA_3/lna_3.sp",
+        "input_netlist": "EXAMPLES/LNA_3/lna_3_optimized.sp",
+        "net_weights": "EXAMPLES/LNA_3/net_weights.json"
+    },
+  "scale": 1000,
+  "pdk": "PDK/mock_65nm/layers.json",
+  "topcell": "lna",
+  "decaps":
+    {
+        "add_decaps": false,
+        "decap_val": 500e-15,
+        "num_decaps": 0
+    },
+  "pad_direction": ["W", "N"],
+  "pad_mode": "periphery",
+  
+
+  "placement":
+    {
+        "placement_constraints": "EXAMPLES/LNA_3/placement_constraint.json",
+        "timelimit": 60,
+        "aspect_ratio": 0,
+        "level": 1,
+        "weight_hpwl":1,
+        "plot_html": false
+        
+    },
+  "routing":
+    {
+        "router_bin": "ROUTER/hanan_router/hanan_router",
+        "routing_constraints": "EXAMPLES/LNA_3/router_constraints.json"
+    },
+  "pdn":
+    {
+        "pdn_width": 6,
+        "pdn_gap": 2
+    }
+}

@@ -1,0 +1,4334 @@
+{
+  "chip": {
+    "pitch": 0,
+    "io_pitch": 80030,
+    "io_w": 50000,
+    "io_h": 60000
+  },
+  "modules": {
+    "LIn_1": {
+      "variants": [
+        {
+          "ll": [
+            0,
+            0
+          ],
+          "ur": [
+            140253,
+            141718
+          ],
+          "w": 140253,
+          "h": 141718,
+          "pins": [
+            {
+              "name": "P1",
+              "layer": 139,
+              "datatype": 0,
+              "bbox": [
+                137253,
+                65313,
+                140253,
+                68313
+              ],
+              "x": 138753,
+              "y": 66813,
+              "lx": 140250,
+              "ly": 66813,
+              "net_name": "net7",
+              "width": 3000
+            },
+            {
+              "name": "P2",
+              "layer": 139,
+              "datatype": 0,
+              "bbox": [
+                65313,
+                138718,
+                68313,
+                141718
+              ],
+              "x": 66813,
+              "y": 140218,
+              "lx": 65313,
+              "ly": 140219,
+              "net_name": "net10",
+              "width": 3000
+            },
+            {
+              "name": "GND",
+              "layer": 131,
+              "datatype": 0,
+              "bbox": [
+                123718,
+                61813,
+                133718,
+                71813
+              ],
+              "x": 128718,
+              "y": 66813,
+              "lx": 133719,
+              "ly": 66813,
+              "net_name": "gnd",
+              "width": 10000
+            }
+          ],
+          "gds_file": "pa_3/stage_2/primitives/LIn_1_x.25.gds"
+        },
+        {
+          "ll": [
+            0,
+            0
+          ],
+          "ur": [
+            131740,
+            116006
+          ],
+          "w": 131740,
+          "h": 116006,
+          "pins": [
+            {
+              "name": "P1",
+              "layer": 139,
+              "datatype": 0,
+              "bbox": [
+                128240,
+                56253,
+                131740,
+                59753
+              ],
+              "x": 129990,
+              "y": 58003,
+              "lx": 131740,
+              "ly": 58003,
+              "net_name": "net7",
+              "width": 3500
+            },
+            {
+              "name": "P2",
+              "layer": 139,
+              "datatype": 0,
+              "bbox": [
+                0,
+                56253,
+                3500,
+                59753
+              ],
+              "x": 1750,
+              "y": 58003,
+              "lx": 0,
+              "ly": 58003,
+              "net_name": "net10",
+              "width": 3500
+            },
+            {
+              "name": "GND",
+              "layer": 131,
+              "datatype": 0,
+              "bbox": [
+                113240,
+                53003,
+                123240,
+                63003
+              ],
+              "x": 118240,
+              "y": 58003,
+              "lx": 123240,
+              "ly": 58003,
+              "net_name": "gnd",
+              "width": 10000
+            }
+          ],
+          "gds_file": "pa_3/stage_2/primitives/LIn_1_x.5.gds"
+        },
+        {
+          "ll": [
+            0,
+            0
+          ],
+          "ur": [
+            124756,
+            126566
+          ],
+          "w": 124756,
+          "h": 126566,
+          "pins": [
+            {
+              "name": "P1",
+              "layer": 139,
+              "datatype": 0,
+              "bbox": [
+                120756,
+                65510,
+                124756,
+                69510
+              ],
+              "x": 122756,
+              "y": 67510,
+              "lx": 124754,
+              "ly": 67510,
+              "net_name": "net7",
+              "width": 4000
+            },
+            {
+              "name": "P2",
+              "layer": 139,
+              "datatype": 0,
+              "bbox": [
+                57056,
+                0,
+                61056,
+                4000
+              ],
+              "x": 59056,
+              "y": 2000,
+              "lx": 57056,
+              "ly": 2000,
+              "net_name": "net10",
+              "width": 4000
+            },
+            {
+              "name": "GND",
+              "layer": 131,
+              "datatype": 0,
+              "bbox": [
+                107566,
+                62510,
+                117566,
+                72510
+              ],
+              "x": 112566,
+              "y": 67510,
+              "lx": 117566,
+              "ly": 67510,
+              "net_name": "gnd",
+              "width": 10000
+            }
+          ],
+          "gds_file": "pa_3/stage_2/primitives/LIn_1_x.75.gds"
+        },
+        {
+          "ll": [
+            0,
+            0
+          ],
+          "ur": [
+            127712,
+            119214
+          ],
+          "w": 127712,
+          "h": 119214,
+          "pins": [
+            {
+              "name": "P1",
+              "layer": 139,
+              "datatype": 0,
+              "bbox": [
+                123712,
+                61547,
+                127712,
+                65547
+              ],
+              "x": 125712,
+              "y": 63547,
+              "lx": 127714,
+              "ly": 63544,
+              "net_name": "net7",
+              "width": 4000
+            },
+            {
+              "name": "P2",
+              "layer": 139,
+              "datatype": 0,
+              "bbox": [
+                123712,
+                53667,
+                127712,
+                57667
+              ],
+              "x": 125712,
+              "y": 55667,
+              "lx": 127714,
+              "ly": 55670,
+              "net_name": "net10",
+              "width": 4000
+            },
+            {
+              "name": "GND",
+              "layer": 131,
+              "datatype": 0,
+              "bbox": [
+                108712,
+                54607,
+                118712,
+                64607
+              ],
+              "x": 113712,
+              "y": 59607,
+              "lx": 118714,
+              "ly": 59607,
+              "net_name": "gnd",
+              "width": 10000
+            }
+          ],
+          "gds_file": "pa_3/stage_2/primitives/LIn_1_x.1.gds"
+        }
+      ],
+      "pad_only": false,
+      "pad_sides": null,
+      "concrete_name": "IND"
+    },
+    "Stage_1": {
+      "variants": [
+        {
+          "ll": [
+            0,
+            0
+          ],
+          "ur": [
+            8865,
+            8530
+          ],
+          "w": 8865,
+          "h": 8530,
+          "pins": [
+            {
+              "name": "DD",
+              "layer": 139,
+              "datatype": 0,
+              "bbox": [
+                1165,
+                0,
+                8065,
+                1000
+              ],
+              "x": 4615,
+              "y": 500,
+              "lx": 4615,
+              "ly": 0,
+              "net_name": "net4",
+              "width": 6900
+            },
+            {
+              "name": "G2",
+              "layer": 133,
+              "datatype": 0,
+              "bbox": [
+                8365,
+                2880,
+                8865,
+                4480
+              ],
+              "x": 8615,
+              "y": 3680,
+              "lx": 8865,
+              "ly": 3680,
+              "net_name": "net34",
+              "width": 1600
+            },
+            {
+              "name": "GG",
+              "layer": 139,
+              "datatype": 0,
+              "bbox": [
+                1365,
+                7530,
+                7865,
+                8530
+              ],
+              "x": 4615,
+              "y": 8030,
+              "lx": 4615,
+              "ly": 8530,
+              "net_name": "net10",
+              "width": 6500
+            },
+            {
+              "name": "SS",
+              "layer": 137,
+              "datatype": 0,
+              "bbox": [
+                0,
+                4850,
+                299,
+                5890
+              ],
+              "x": 149,
+              "y": 5370,
+              "lx": 0,
+              "ly": 5370,
+              "net_name": "gnd",
+              "width": 1040
+            },
+            {
+              "name": "GND",
+              "layer": 131,
+              "datatype": 0,
+              "bbox": [
+                700,
+                4368,
+                909,
+                4578
+              ],
+              "x": 804,
+              "y": 4473,
+              "lx": 700,
+              "ly": 4473,
+              "net_name": "gnd",
+              "width": 210
+            }
+          ],
+          "gds_file": "pa_3/stage_2/primitives/Stage_1.gds"
+        }
+      ],
+      "pad_only": false,
+      "pad_sides": null,
+      "concrete_name": "CASMOS"
+    },
+    "LD_1": {
+      "variants": [
+        {
+          "ll": [
+            0,
+            0
+          ],
+          "ur": [
+            125000,
+            47500
+          ],
+          "w": 125000,
+          "h": 47500,
+          "pins": [
+            {
+              "name": "P1",
+              "layer": 139,
+              "datatype": 0,
+              "bbox": [
+                0,
+                20000,
+                7500,
+                27500
+              ],
+              "x": 3750,
+              "y": 23750,
+              "lx": 0,
+              "ly": 23750,
+              "net_name": "net12",
+              "width": 7500
+            },
+            {
+              "name": "P2",
+              "layer": 139,
+              "datatype": 0,
+              "bbox": [
+                117500,
+                20000,
+                125000,
+                27500
+              ],
+              "x": 121250,
+              "y": 23750,
+              "lx": 125000,
+              "ly": 23750,
+              "net_name": "net4",
+              "width": 7500
+            }
+          ],
+          "gds_file": "pa_3/stage_2/primitives/LD_1.gds"
+        }
+      ],
+      "pad_only": false,
+      "pad_sides": null,
+      "concrete_name": "TLINE"
+    },
+    "CShunt_D_1": {
+      "variants": [
+        {
+          "ll": [
+            0,
+            0
+          ],
+          "ur": [
+            8170,
+            9610
+          ],
+          "w": 8170,
+          "h": 9610,
+          "pins": [
+            {
+              "name": "PLUS",
+              "layer": 138,
+              "datatype": 0,
+              "bbox": [
+                6890,
+                4075,
+                8170,
+                5535
+              ],
+              "x": 7529,
+              "y": 4805,
+              "lx": 8170,
+              "ly": 4805,
+              "net_name": "net4",
+              "width": 1460
+            },
+            {
+              "name": "MINUS",
+              "layer": 138,
+              "datatype": 0,
+              "bbox": [
+                0,
+                99,
+                840,
+                9510
+              ],
+              "x": 420,
+              "y": 4805,
+              "lx": 0,
+              "ly": 4805,
+              "net_name": "gnd",
+              "width": 9411
+            }
+          ],
+          "gds_file": "pa_3/stage_2/primitives/CShunt_D_1_1.gds"
+        }
+      ],
+      "pad_only": false,
+      "pad_sides": null,
+      "concrete_name": "CAP"
+    },
+    "CSeries_D_1": {
+      "variants": [
+        {
+          "ll": [
+            0,
+            0
+          ],
+          "ur": [
+            7040,
+            8480
+          ],
+          "w": 7040,
+          "h": 8480,
+          "pins": [
+            {
+              "name": "PLUS",
+              "layer": 138,
+              "datatype": 0,
+              "bbox": [
+                5760,
+                3510,
+                7040,
+                4970
+              ],
+              "x": 6400,
+              "y": 4240,
+              "lx": 7040,
+              "ly": 4240,
+              "net_name": "net4",
+              "width": 1460
+            },
+            {
+              "name": "MINUS",
+              "layer": 138,
+              "datatype": 0,
+              "bbox": [
+                0,
+                99,
+                840,
+                8380
+              ],
+              "x": 420,
+              "y": 4240,
+              "lx": 0,
+              "ly": 4240,
+              "net_name": "net3",
+              "width": 8281
+            }
+          ],
+          "gds_file": "pa_3/stage_2/primitives/CSeries_D_1_1.gds"
+        }
+      ],
+      "pad_only": false,
+      "pad_sides": null,
+      "concrete_name": "CAP"
+    },
+    "LIn_2": {
+      "variants": [
+        {
+          "ll": [
+            0,
+            0
+          ],
+          "ur": [
+            119352,
+            121257
+          ],
+          "w": 119352,
+          "h": 121257,
+          "pins": [
+            {
+              "name": "P1",
+              "layer": 139,
+              "datatype": 0,
+              "bbox": [
+                114852,
+                54017,
+                119352,
+                58517
+              ],
+              "x": 117102,
+              "y": 56267,
+              "lx": 119352,
+              "ly": 56267,
+              "net_name": "net24",
+              "width": 4500
+            },
+            {
+              "name": "P2",
+              "layer": 139,
+              "datatype": 0,
+              "bbox": [
+                54017,
+                116757,
+                58517,
+                121257
+              ],
+              "x": 56267,
+              "y": 119007,
+              "lx": 54017,
+              "ly": 119008,
+              "net_name": "net3",
+              "width": 4500
+            },
+            {
+              "name": "GND",
+              "layer": 131,
+              "datatype": 0,
+              "bbox": [
+                101757,
+                51267,
+                111757,
+                61267
+              ],
+              "x": 106757,
+              "y": 56267,
+              "lx": 111758,
+              "ly": 56267,
+              "net_name": "gnd",
+              "width": 10000
+            }
+          ],
+          "gds_file": "pa_3/stage_2/primitives/LIn_2_x.25.gds"
+        },
+        {
+          "ll": [
+            0,
+            0
+          ],
+          "ur": [
+            111700,
+            97492
+          ],
+          "w": 111700,
+          "h": 97492,
+          "pins": [
+            {
+              "name": "P1",
+              "layer": 139,
+              "datatype": 0,
+              "bbox": [
+                108200,
+                46996,
+                111700,
+                50496
+              ],
+              "x": 109950,
+              "y": 48746,
+              "lx": 111700,
+              "ly": 48746,
+              "net_name": "net24",
+              "width": 3500
+            },
+            {
+              "name": "P2",
+              "layer": 139,
+              "datatype": 0,
+              "bbox": [
+                0,
+                46996,
+                3500,
+                50496
+              ],
+              "x": 1750,
+              "y": 48746,
+              "lx": 0,
+              "ly": 48746,
+              "net_name": "net3",
+              "width": 3500
+            },
+            {
+              "name": "GND",
+              "layer": 131,
+              "datatype": 0,
+              "bbox": [
+                93200,
+                43746,
+                103200,
+                53746
+              ],
+              "x": 98200,
+              "y": 48746,
+              "lx": 103200,
+              "ly": 48746,
+              "net_name": "gnd",
+              "width": 10000
+            }
+          ],
+          "gds_file": "pa_3/stage_2/primitives/LIn_2_x.5.gds"
+        },
+        {
+          "ll": [
+            0,
+            0
+          ],
+          "ur": [
+            108127,
+            109627
+          ],
+          "w": 108127,
+          "h": 109627,
+          "pins": [
+            {
+              "name": "P1",
+              "layer": 139,
+              "datatype": 0,
+              "bbox": [
+                104127,
+                56705,
+                108127,
+                60705
+              ],
+              "x": 106127,
+              "y": 58705,
+              "lx": 108128,
+              "ly": 58705,
+              "net_name": "net24",
+              "width": 4000
+            },
+            {
+              "name": "P2",
+              "layer": 139,
+              "datatype": 0,
+              "bbox": [
+                48922,
+                0,
+                52922,
+                4000
+              ],
+              "x": 50922,
+              "y": 2000,
+              "lx": 48922,
+              "ly": 1998,
+              "net_name": "net3",
+              "width": 4000
+            },
+            {
+              "name": "GND",
+              "layer": 131,
+              "datatype": 0,
+              "bbox": [
+                90627,
+                53705,
+                100627,
+                63705
+              ],
+              "x": 95627,
+              "y": 58705,
+              "lx": 100628,
+              "ly": 58705,
+              "net_name": "gnd",
+              "width": 10000
+            }
+          ],
+          "gds_file": "pa_3/stage_2/primitives/LIn_2_x.75.gds"
+        },
+        {
+          "ll": [
+            0,
+            0
+          ],
+          "ur": [
+            118527,
+            114235
+          ],
+          "w": 118527,
+          "h": 114235,
+          "pins": [
+            {
+              "name": "P1",
+              "layer": 139,
+              "datatype": 0,
+              "bbox": [
+                115527,
+                58928,
+                118527,
+                61928
+              ],
+              "x": 117027,
+              "y": 60428,
+              "lx": 118530,
+              "ly": 60430,
+              "net_name": "net24",
+              "width": 3000
+            },
+            {
+              "name": "P2",
+              "layer": 139,
+              "datatype": 0,
+              "bbox": [
+                115527,
+                52308,
+                118527,
+                55308
+              ],
+              "x": 117027,
+              "y": 53808,
+              "lx": 118530,
+              "ly": 53806,
+              "net_name": "net3",
+              "width": 3000
+            },
+            {
+              "name": "GND",
+              "layer": 131,
+              "datatype": 0,
+              "bbox": [
+                103527,
+                52118,
+                113527,
+                62118
+              ],
+              "x": 108527,
+              "y": 57118,
+              "lx": 113530,
+              "ly": 57118,
+              "net_name": "gnd",
+              "width": 10000
+            }
+          ],
+          "gds_file": "pa_3/stage_2/primitives/LIn_2_x.1.gds"
+        }
+      ],
+      "pad_only": false,
+      "pad_sides": null,
+      "concrete_name": "IND"
+    },
+    "Stage_2": {
+      "variants": [
+        {
+          "ll": [
+            0,
+            0
+          ],
+          "ur": [
+            15025,
+            8530
+          ],
+          "w": 15025,
+          "h": 8530,
+          "pins": [
+            {
+              "name": "DD",
+              "layer": 139,
+              "datatype": 0,
+              "bbox": [
+                1165,
+                0,
+                14225,
+                1000
+              ],
+              "x": 7695,
+              "y": 500,
+              "lx": 7695,
+              "ly": 0,
+              "net_name": "net16",
+              "width": 13060
+            },
+            {
+              "name": "G2",
+              "layer": 133,
+              "datatype": 0,
+              "bbox": [
+                14525,
+                2880,
+                15025,
+                4480
+              ],
+              "x": 14775,
+              "y": 3680,
+              "lx": 15025,
+              "ly": 3680,
+              "net_name": "net23",
+              "width": 1600
+            },
+            {
+              "name": "GG",
+              "layer": 139,
+              "datatype": 0,
+              "bbox": [
+                1365,
+                7530,
+                14025,
+                8530
+              ],
+              "x": 7695,
+              "y": 8030,
+              "lx": 7695,
+              "ly": 8530,
+              "net_name": "net3",
+              "width": 12660
+            },
+            {
+              "name": "SS",
+              "layer": 137,
+              "datatype": 0,
+              "bbox": [
+                0,
+                4850,
+                299,
+                5890
+              ],
+              "x": 149,
+              "y": 5370,
+              "lx": 0,
+              "ly": 5370,
+              "net_name": "gnd",
+              "width": 1040
+            },
+            {
+              "name": "GND",
+              "layer": 131,
+              "datatype": 0,
+              "bbox": [
+                700,
+                4368,
+                909,
+                4578
+              ],
+              "x": 804,
+              "y": 4473,
+              "lx": 700,
+              "ly": 4473,
+              "net_name": "gnd",
+              "width": 210
+            }
+          ],
+          "gds_file": "pa_3/stage_2/primitives/Stage_2.gds"
+        }
+      ],
+      "pad_only": false,
+      "pad_sides": null,
+      "concrete_name": "CASMOS"
+    },
+    "LD_2": {
+      "variants": [
+        {
+          "ll": [
+            0,
+            0
+          ],
+          "ur": [
+            90000,
+            44000
+          ],
+          "w": 90000,
+          "h": 44000,
+          "pins": [
+            {
+              "name": "P1",
+              "layer": 139,
+              "datatype": 0,
+              "bbox": [
+                0,
+                20000,
+                4000,
+                24000
+              ],
+              "x": 2000,
+              "y": 22000,
+              "lx": 0,
+              "ly": 22000,
+              "net_name": "net17",
+              "width": 4000
+            },
+            {
+              "name": "P2",
+              "layer": 139,
+              "datatype": 0,
+              "bbox": [
+                86000,
+                20000,
+                90000,
+                24000
+              ],
+              "x": 88000,
+              "y": 22000,
+              "lx": 90000,
+              "ly": 22000,
+              "net_name": "net16",
+              "width": 4000
+            }
+          ],
+          "gds_file": "pa_3/stage_2/primitives/LD_2.gds"
+        }
+      ],
+      "pad_only": false,
+      "pad_sides": null,
+      "concrete_name": "TLINE"
+    },
+    "CShunt_D_2": {
+      "variants": [
+        {
+          "ll": [
+            0,
+            0
+          ],
+          "ur": [
+            8170,
+            9610
+          ],
+          "w": 8170,
+          "h": 9610,
+          "pins": [
+            {
+              "name": "PLUS",
+              "layer": 138,
+              "datatype": 0,
+              "bbox": [
+                6890,
+                4075,
+                8170,
+                5535
+              ],
+              "x": 7529,
+              "y": 4805,
+              "lx": 8170,
+              "ly": 4805,
+              "net_name": "net16",
+              "width": 1460
+            },
+            {
+              "name": "MINUS",
+              "layer": 138,
+              "datatype": 0,
+              "bbox": [
+                0,
+                99,
+                840,
+                9510
+              ],
+              "x": 420,
+              "y": 4805,
+              "lx": 0,
+              "ly": 4805,
+              "net_name": "gnd",
+              "width": 9411
+            }
+          ],
+          "gds_file": "pa_3/stage_2/primitives/CShunt_D_2_1.gds"
+        }
+      ],
+      "pad_only": false,
+      "pad_sides": null,
+      "concrete_name": "CAP"
+    },
+    "CSeries_D_2": {
+      "variants": [
+        {
+          "ll": [
+            0,
+            0
+          ],
+          "ur": [
+            8150,
+            9590
+          ],
+          "w": 8150,
+          "h": 9590,
+          "pins": [
+            {
+              "name": "PLUS",
+              "layer": 138,
+              "datatype": 0,
+              "bbox": [
+                6870,
+                4064,
+                8150,
+                5525
+              ],
+              "x": 7510,
+              "y": 4795,
+              "lx": 8150,
+              "ly": 4795,
+              "net_name": "net16",
+              "width": 1461
+            },
+            {
+              "name": "MINUS",
+              "layer": 138,
+              "datatype": 0,
+              "bbox": [
+                0,
+                99,
+                840,
+                9490
+              ],
+              "x": 420,
+              "y": 4795,
+              "lx": 0,
+              "ly": 4795,
+              "net_name": "net9",
+              "width": 9391
+            }
+          ],
+          "gds_file": "pa_3/stage_2/primitives/CSeries_D_2_1.gds"
+        }
+      ],
+      "pad_only": false,
+      "pad_sides": null,
+      "concrete_name": "CAP"
+    },
+    "bias1": {
+      "variants": [
+        {
+          "ll": [
+            0,
+            0
+          ],
+          "ur": [
+            2810,
+            2540
+          ],
+          "w": 2810,
+          "h": 2540,
+          "pins": [
+            {
+              "name": "D",
+              "layer": 132,
+              "datatype": 0,
+              "bbox": [
+                220,
+                0,
+                2590,
+                450
+              ],
+              "x": 1405,
+              "y": 225,
+              "lx": 1385,
+              "ly": 0,
+              "net_name": "net7",
+              "width": 2370
+            },
+            {
+              "name": "G",
+              "layer": 133,
+              "datatype": 0,
+              "bbox": [
+                220,
+                2140,
+                2590,
+                2540
+              ],
+              "x": 1405,
+              "y": 2340,
+              "lx": 1370,
+              "ly": 2540,
+              "net_name": "net32",
+              "width": 2370
+            },
+            {
+              "name": "B",
+              "layer": 131,
+              "datatype": 0,
+              "bbox": [
+                2310,
+                1150,
+                2590,
+                1390
+              ],
+              "x": 2450,
+              "y": 1270,
+              "lx": 2450,
+              "ly": 1270,
+              "net_name": "gnd",
+              "width": 280
+            }
+          ],
+          "gds_file": "pa_3/stage_2/primitives/bias1.gds"
+        }
+      ],
+      "pad_only": false,
+      "pad_sides": null,
+      "concrete_name": "BIASMOS"
+    },
+    "R1": {
+      "variants": [
+        {
+          "ll": [
+            0,
+            0
+          ],
+          "ur": [
+            6050,
+            5140
+          ],
+          "w": 6050,
+          "h": 5140,
+          "pins": [
+            {
+              "name": "PLUS",
+              "layer": 131,
+              "datatype": 0,
+              "bbox": [
+                230,
+                220,
+                320,
+                4920
+              ],
+              "x": 275,
+              "y": 2570,
+              "lx": 230,
+              "ly": 2585,
+              "net_name": "net34",
+              "width": 4700
+            },
+            {
+              "name": "MINUS",
+              "layer": 131,
+              "datatype": 0,
+              "bbox": [
+                5730,
+                220,
+                5820,
+                4920
+              ],
+              "x": 5775,
+              "y": 2570,
+              "lx": 5820,
+              "ly": 2585,
+              "net_name": "net7",
+              "width": 4700
+            }
+          ],
+          "gds_file": "pa_3/stage_2/primitives/R1_0.gds"
+        },
+        {
+          "ll": [
+            0,
+            0
+          ],
+          "ur": [
+            6250,
+            5330
+          ],
+          "w": 6250,
+          "h": 5330,
+          "pins": [
+            {
+              "name": "PLUS",
+              "layer": 131,
+              "datatype": 0,
+              "bbox": [
+                230,
+                220,
+                320,
+                5110
+              ],
+              "x": 275,
+              "y": 2665,
+              "lx": 230,
+              "ly": 2680,
+              "net_name": "net34",
+              "width": 4890
+            },
+            {
+              "name": "MINUS",
+              "layer": 131,
+              "datatype": 0,
+              "bbox": [
+                5930,
+                220,
+                6020,
+                5110
+              ],
+              "x": 5975,
+              "y": 2665,
+              "lx": 6020,
+              "ly": 2680,
+              "net_name": "net7",
+              "width": 4890
+            }
+          ],
+          "gds_file": "pa_3/stage_2/primitives/R1_1.gds"
+        },
+        {
+          "ll": [
+            0,
+            0
+          ],
+          "ur": [
+            5860,
+            4960
+          ],
+          "w": 5860,
+          "h": 4960,
+          "pins": [
+            {
+              "name": "PLUS",
+              "layer": 131,
+              "datatype": 0,
+              "bbox": [
+                230,
+                220,
+                320,
+                4740
+              ],
+              "x": 275,
+              "y": 2480,
+              "lx": 230,
+              "ly": 2495,
+              "net_name": "net34",
+              "width": 4520
+            },
+            {
+              "name": "MINUS",
+              "layer": 131,
+              "datatype": 0,
+              "bbox": [
+                5540,
+                220,
+                5630,
+                4740
+              ],
+              "x": 5585,
+              "y": 2480,
+              "lx": 5630,
+              "ly": 2495,
+              "net_name": "net7",
+              "width": 4520
+            }
+          ],
+          "gds_file": "pa_3/stage_2/primitives/R1_2.gds"
+        }
+      ],
+      "pad_only": false,
+      "pad_sides": null,
+      "concrete_name": "RES"
+    },
+    "R10": {
+      "variants": [
+        {
+          "ll": [
+            0,
+            0
+          ],
+          "ur": [
+            2280,
+            9510
+          ],
+          "w": 2280,
+          "h": 9510,
+          "pins": [
+            {
+              "name": "PLUS",
+              "layer": 131,
+              "datatype": 0,
+              "bbox": [
+                230,
+                220,
+                320,
+                9290
+              ],
+              "x": 275,
+              "y": 4755,
+              "lx": 230,
+              "ly": 4770,
+              "net_name": "net29",
+              "width": 9070
+            },
+            {
+              "name": "MINUS",
+              "layer": 131,
+              "datatype": 0,
+              "bbox": [
+                1960,
+                220,
+                2050,
+                9290
+              ],
+              "x": 2005,
+              "y": 4755,
+              "lx": 2050,
+              "ly": 4770,
+              "net_name": "net34",
+              "width": 9070
+            }
+          ],
+          "gds_file": "pa_3/stage_2/primitives/R10_0.gds"
+        },
+        {
+          "ll": [
+            0,
+            0
+          ],
+          "ur": [
+            2080,
+            8020
+          ],
+          "w": 2080,
+          "h": 8020,
+          "pins": [
+            {
+              "name": "PLUS",
+              "layer": 131,
+              "datatype": 0,
+              "bbox": [
+                230,
+                220,
+                320,
+                7800
+              ],
+              "x": 275,
+              "y": 4010,
+              "lx": 230,
+              "ly": 4025,
+              "net_name": "net29",
+              "width": 7580
+            },
+            {
+              "name": "MINUS",
+              "layer": 131,
+              "datatype": 0,
+              "bbox": [
+                1760,
+                220,
+                1850,
+                7800
+              ],
+              "x": 1805,
+              "y": 4010,
+              "lx": 1850,
+              "ly": 4025,
+              "net_name": "net34",
+              "width": 7580
+            }
+          ],
+          "gds_file": "pa_3/stage_2/primitives/R10_1.gds"
+        },
+        {
+          "ll": [
+            0,
+            0
+          ],
+          "ur": [
+            1880,
+            6440
+          ],
+          "w": 1880,
+          "h": 6440,
+          "pins": [
+            {
+              "name": "PLUS",
+              "layer": 131,
+              "datatype": 0,
+              "bbox": [
+                230,
+                220,
+                320,
+                6220
+              ],
+              "x": 275,
+              "y": 3219,
+              "lx": 230,
+              "ly": 3235,
+              "net_name": "net29",
+              "width": 6000
+            },
+            {
+              "name": "MINUS",
+              "layer": 131,
+              "datatype": 0,
+              "bbox": [
+                1560,
+                220,
+                1650,
+                6220
+              ],
+              "x": 1605,
+              "y": 3219,
+              "lx": 1650,
+              "ly": 3235,
+              "net_name": "net34",
+              "width": 6000
+            }
+          ],
+          "gds_file": "pa_3/stage_2/primitives/R10_2.gds"
+        }
+      ],
+      "pad_only": false,
+      "pad_sides": null,
+      "concrete_name": "RES"
+    },
+    "C28": {
+      "variants": [
+        {
+          "ll": [
+            0,
+            0
+          ],
+          "ur": [
+            20659,
+            15660
+          ],
+          "w": 20659,
+          "h": 15660,
+          "pins": [
+            {
+              "name": "PLUS",
+              "layer": 138,
+              "datatype": 0,
+              "bbox": [
+                0,
+                6649,
+                1659,
+                9010
+              ],
+              "x": 829,
+              "y": 7830,
+              "lx": 0,
+              "ly": 7830,
+              "net_name": "net34",
+              "width": 2361
+            },
+            {
+              "name": "MINUS",
+              "layer": 138,
+              "datatype": 0,
+              "bbox": [
+                19000,
+                1760,
+                20659,
+                13900
+              ],
+              "x": 19830,
+              "y": 7830,
+              "lx": 20659,
+              "ly": 7830,
+              "net_name": "gnd",
+              "width": 12140
+            },
+            {
+              "name": "BULK1",
+              "layer": 135,
+              "datatype": 0,
+              "bbox": [
+                8092,
+                15230,
+                12568,
+                15660
+              ],
+              "x": 10330,
+              "y": 15445,
+              "lx": 10330,
+              "ly": 15660,
+              "net_name": "gnd",
+              "width": 4476
+            },
+            {
+              "name": "BULK2",
+              "layer": 135,
+              "datatype": 0,
+              "bbox": [
+                8092,
+                0,
+                12568,
+                429
+              ],
+              "x": 10330,
+              "y": 214,
+              "lx": 10330,
+              "ly": 0,
+              "net_name": "gnd",
+              "width": 4476
+            }
+          ],
+          "gds_file": "pa_3/stage_2/primitives/C28_1.gds"
+        },
+        {
+          "ll": [
+            0,
+            0
+          ],
+          "ur": [
+            16470,
+            19420
+          ],
+          "w": 16470,
+          "h": 19420,
+          "pins": [
+            {
+              "name": "PLUS",
+              "layer": 138,
+              "datatype": 0,
+              "bbox": [
+                0,
+                8530,
+                1659,
+                10890
+              ],
+              "x": 829,
+              "y": 9710,
+              "lx": 0,
+              "ly": 9710,
+              "net_name": "net34",
+              "width": 2360
+            },
+            {
+              "name": "MINUS",
+              "layer": 138,
+              "datatype": 0,
+              "bbox": [
+                14810,
+                5735,
+                16470,
+                13685
+              ],
+              "x": 15640,
+              "y": 9710,
+              "lx": 16470,
+              "ly": 9710,
+              "net_name": "gnd",
+              "width": 7950
+            },
+            {
+              "name": "BULK1",
+              "layer": 135,
+              "datatype": 0,
+              "bbox": [
+                6695,
+                18990,
+                9774,
+                19420
+              ],
+              "x": 8235,
+              "y": 19205,
+              "lx": 8235,
+              "ly": 19420,
+              "net_name": "gnd",
+              "width": 3079
+            },
+            {
+              "name": "BULK2",
+              "layer": 135,
+              "datatype": 0,
+              "bbox": [
+                6695,
+                0,
+                9774,
+                429
+              ],
+              "x": 8235,
+              "y": 214,
+              "lx": 8235,
+              "ly": 0,
+              "net_name": "gnd",
+              "width": 3079
+            }
+          ],
+          "gds_file": "pa_3/stage_2/primitives/C28_2.gds"
+        },
+        {
+          "ll": [
+            0,
+            0
+          ],
+          "ur": [
+            14610,
+            21780
+          ],
+          "w": 14610,
+          "h": 21780,
+          "pins": [
+            {
+              "name": "PLUS",
+              "layer": 138,
+              "datatype": 0,
+              "bbox": [
+                0,
+                9710,
+                1659,
+                12070
+              ],
+              "x": 829,
+              "y": 10890,
+              "lx": 0,
+              "ly": 10890,
+              "net_name": "net34",
+              "width": 2360
+            },
+            {
+              "name": "MINUS",
+              "layer": 138,
+              "datatype": 0,
+              "bbox": [
+                12950,
+                7845,
+                14610,
+                13935
+              ],
+              "x": 13780,
+              "y": 10890,
+              "lx": 14610,
+              "ly": 10890,
+              "net_name": "gnd",
+              "width": 6090
+            },
+            {
+              "name": "BULK1",
+              "layer": 135,
+              "datatype": 0,
+              "bbox": [
+                6074,
+                21350,
+                8535,
+                21780
+              ],
+              "x": 7305,
+              "y": 21565,
+              "lx": 7305,
+              "ly": 21780,
+              "net_name": "gnd",
+              "width": 2461
+            },
+            {
+              "name": "BULK2",
+              "layer": 135,
+              "datatype": 0,
+              "bbox": [
+                6074,
+                0,
+                8535,
+                429
+              ],
+              "x": 7305,
+              "y": 214,
+              "lx": 7305,
+              "ly": 0,
+              "net_name": "gnd",
+              "width": 2461
+            }
+          ],
+          "gds_file": "pa_3/stage_2/primitives/C28_3.gds"
+        }
+      ],
+      "pad_only": false,
+      "pad_sides": null,
+      "concrete_name": "CAP"
+    },
+    "R2": {
+      "variants": [
+        {
+          "ll": [
+            0,
+            0
+          ],
+          "ur": [
+            34480,
+            8860
+          ],
+          "w": 34480,
+          "h": 8860,
+          "pins": [
+            {
+              "name": "PLUS",
+              "layer": 131,
+              "datatype": 0,
+              "bbox": [
+                230,
+                220,
+                320,
+                8640
+              ],
+              "x": 275,
+              "y": 4430,
+              "lx": 230,
+              "ly": 4445,
+              "net_name": "net7",
+              "width": 8420
+            },
+            {
+              "name": "MINUS",
+              "layer": 131,
+              "datatype": 0,
+              "bbox": [
+                34160,
+                220,
+                34250,
+                8640
+              ],
+              "x": 34205,
+              "y": 4430,
+              "lx": 34250,
+              "ly": 4445,
+              "net_name": "net32",
+              "width": 8420
+            }
+          ],
+          "gds_file": "pa_3/stage_2/primitives/R2_0.gds"
+        },
+        {
+          "ll": [
+            0,
+            0
+          ],
+          "ur": [
+            37070,
+            9510
+          ],
+          "w": 37070,
+          "h": 9510,
+          "pins": [
+            {
+              "name": "PLUS",
+              "layer": 131,
+              "datatype": 0,
+              "bbox": [
+                230,
+                220,
+                320,
+                9290
+              ],
+              "x": 275,
+              "y": 4755,
+              "lx": 230,
+              "ly": 4770,
+              "net_name": "net7",
+              "width": 9070
+            },
+            {
+              "name": "MINUS",
+              "layer": 131,
+              "datatype": 0,
+              "bbox": [
+                36750,
+                220,
+                36840,
+                9290
+              ],
+              "x": 36795,
+              "y": 4755,
+              "lx": 36840,
+              "ly": 4770,
+              "net_name": "net32",
+              "width": 9070
+            }
+          ],
+          "gds_file": "pa_3/stage_2/primitives/R2_1.gds"
+        },
+        {
+          "ll": [
+            0,
+            0
+          ],
+          "ur": [
+            16790,
+            4400
+          ],
+          "w": 16790,
+          "h": 4400,
+          "pins": [
+            {
+              "name": "PLUS",
+              "layer": 131,
+              "datatype": 0,
+              "bbox": [
+                230,
+                220,
+                320,
+                4180
+              ],
+              "x": 275,
+              "y": 2199,
+              "lx": 230,
+              "ly": 2215,
+              "net_name": "net7",
+              "width": 3960
+            },
+            {
+              "name": "MINUS",
+              "layer": 131,
+              "datatype": 0,
+              "bbox": [
+                16470,
+                220,
+                16560,
+                4180
+              ],
+              "x": 16515,
+              "y": 2199,
+              "lx": 16560,
+              "ly": 2215,
+              "net_name": "net32",
+              "width": 3960
+            }
+          ],
+          "gds_file": "pa_3/stage_2/primitives/R2_2.gds"
+        }
+      ],
+      "pad_only": false,
+      "pad_sides": null,
+      "concrete_name": "RES"
+    },
+    "Cnew1": {
+      "variants": [
+        {
+          "ll": [
+            0,
+            0
+          ],
+          "ur": [
+            20659,
+            15660
+          ],
+          "w": 20659,
+          "h": 15660,
+          "pins": [
+            {
+              "name": "PLUS",
+              "layer": 138,
+              "datatype": 0,
+              "bbox": [
+                0,
+                6649,
+                1659,
+                9010
+              ],
+              "x": 829,
+              "y": 7830,
+              "lx": 0,
+              "ly": 7830,
+              "net_name": "net7",
+              "width": 2361
+            },
+            {
+              "name": "MINUS",
+              "layer": 138,
+              "datatype": 0,
+              "bbox": [
+                19000,
+                1760,
+                20659,
+                13900
+              ],
+              "x": 19830,
+              "y": 7830,
+              "lx": 20659,
+              "ly": 7830,
+              "net_name": "gnd",
+              "width": 12140
+            },
+            {
+              "name": "BULK1",
+              "layer": 135,
+              "datatype": 0,
+              "bbox": [
+                8092,
+                15230,
+                12568,
+                15660
+              ],
+              "x": 10330,
+              "y": 15445,
+              "lx": 10330,
+              "ly": 15660,
+              "net_name": null,
+              "width": 4476
+            },
+            {
+              "name": "BULK2",
+              "layer": 135,
+              "datatype": 0,
+              "bbox": [
+                8092,
+                0,
+                12568,
+                429
+              ],
+              "x": 10330,
+              "y": 214,
+              "lx": 10330,
+              "ly": 0,
+              "net_name": null,
+              "width": 4476
+            }
+          ],
+          "gds_file": "pa_3/stage_2/primitives/Cnew1_1.gds"
+        },
+        {
+          "ll": [
+            0,
+            0
+          ],
+          "ur": [
+            16470,
+            19420
+          ],
+          "w": 16470,
+          "h": 19420,
+          "pins": [
+            {
+              "name": "PLUS",
+              "layer": 138,
+              "datatype": 0,
+              "bbox": [
+                0,
+                8530,
+                1659,
+                10890
+              ],
+              "x": 829,
+              "y": 9710,
+              "lx": 0,
+              "ly": 9710,
+              "net_name": "net7",
+              "width": 2360
+            },
+            {
+              "name": "MINUS",
+              "layer": 138,
+              "datatype": 0,
+              "bbox": [
+                14810,
+                5735,
+                16470,
+                13685
+              ],
+              "x": 15640,
+              "y": 9710,
+              "lx": 16470,
+              "ly": 9710,
+              "net_name": "gnd",
+              "width": 7950
+            },
+            {
+              "name": "BULK1",
+              "layer": 135,
+              "datatype": 0,
+              "bbox": [
+                6695,
+                18990,
+                9774,
+                19420
+              ],
+              "x": 8235,
+              "y": 19205,
+              "lx": 8235,
+              "ly": 19420,
+              "net_name": null,
+              "width": 3079
+            },
+            {
+              "name": "BULK2",
+              "layer": 135,
+              "datatype": 0,
+              "bbox": [
+                6695,
+                0,
+                9774,
+                429
+              ],
+              "x": 8235,
+              "y": 214,
+              "lx": 8235,
+              "ly": 0,
+              "net_name": null,
+              "width": 3079
+            }
+          ],
+          "gds_file": "pa_3/stage_2/primitives/Cnew1_2.gds"
+        },
+        {
+          "ll": [
+            0,
+            0
+          ],
+          "ur": [
+            14610,
+            21780
+          ],
+          "w": 14610,
+          "h": 21780,
+          "pins": [
+            {
+              "name": "PLUS",
+              "layer": 138,
+              "datatype": 0,
+              "bbox": [
+                0,
+                9710,
+                1659,
+                12070
+              ],
+              "x": 829,
+              "y": 10890,
+              "lx": 0,
+              "ly": 10890,
+              "net_name": "net7",
+              "width": 2360
+            },
+            {
+              "name": "MINUS",
+              "layer": 138,
+              "datatype": 0,
+              "bbox": [
+                12950,
+                7845,
+                14610,
+                13935
+              ],
+              "x": 13780,
+              "y": 10890,
+              "lx": 14610,
+              "ly": 10890,
+              "net_name": "gnd",
+              "width": 6090
+            },
+            {
+              "name": "BULK1",
+              "layer": 135,
+              "datatype": 0,
+              "bbox": [
+                6074,
+                21350,
+                8535,
+                21780
+              ],
+              "x": 7305,
+              "y": 21565,
+              "lx": 7305,
+              "ly": 21780,
+              "net_name": null,
+              "width": 2461
+            },
+            {
+              "name": "BULK2",
+              "layer": 135,
+              "datatype": 0,
+              "bbox": [
+                6074,
+                0,
+                8535,
+                429
+              ],
+              "x": 7305,
+              "y": 214,
+              "lx": 7305,
+              "ly": 0,
+              "net_name": null,
+              "width": 2461
+            }
+          ],
+          "gds_file": "pa_3/stage_2/primitives/Cnew1_3.gds"
+        }
+      ],
+      "pad_only": false,
+      "pad_sides": null,
+      "concrete_name": "CAP"
+    },
+    "bias2": {
+      "variants": [
+        {
+          "ll": [
+            0,
+            0
+          ],
+          "ur": [
+            2810,
+            2540
+          ],
+          "w": 2810,
+          "h": 2540,
+          "pins": [
+            {
+              "name": "D",
+              "layer": 132,
+              "datatype": 0,
+              "bbox": [
+                220,
+                0,
+                2590,
+                450
+              ],
+              "x": 1405,
+              "y": 225,
+              "lx": 1385,
+              "ly": 0,
+              "net_name": "net24",
+              "width": 2370
+            },
+            {
+              "name": "G",
+              "layer": 133,
+              "datatype": 0,
+              "bbox": [
+                220,
+                2140,
+                2590,
+                2540
+              ],
+              "x": 1405,
+              "y": 2340,
+              "lx": 1370,
+              "ly": 2540,
+              "net_name": "net25",
+              "width": 2370
+            },
+            {
+              "name": "B",
+              "layer": 131,
+              "datatype": 0,
+              "bbox": [
+                2310,
+                1150,
+                2590,
+                1390
+              ],
+              "x": 2450,
+              "y": 1270,
+              "lx": 2450,
+              "ly": 1270,
+              "net_name": "gnd",
+              "width": 280
+            }
+          ],
+          "gds_file": "pa_3/stage_2/primitives/bias2.gds"
+        }
+      ],
+      "pad_only": false,
+      "pad_sides": null,
+      "concrete_name": "BIASMOS"
+    },
+    "R27": {
+      "variants": [
+        {
+          "ll": [
+            0,
+            0
+          ],
+          "ur": [
+            6050,
+            5140
+          ],
+          "w": 6050,
+          "h": 5140,
+          "pins": [
+            {
+              "name": "PLUS",
+              "layer": 131,
+              "datatype": 0,
+              "bbox": [
+                230,
+                220,
+                320,
+                4920
+              ],
+              "x": 275,
+              "y": 2570,
+              "lx": 230,
+              "ly": 2585,
+              "net_name": "net23",
+              "width": 4700
+            },
+            {
+              "name": "MINUS",
+              "layer": 131,
+              "datatype": 0,
+              "bbox": [
+                5730,
+                220,
+                5820,
+                4920
+              ],
+              "x": 5775,
+              "y": 2570,
+              "lx": 5820,
+              "ly": 2585,
+              "net_name": "net24",
+              "width": 4700
+            }
+          ],
+          "gds_file": "pa_3/stage_2/primitives/R27_0.gds"
+        },
+        {
+          "ll": [
+            0,
+            0
+          ],
+          "ur": [
+            6250,
+            5330
+          ],
+          "w": 6250,
+          "h": 5330,
+          "pins": [
+            {
+              "name": "PLUS",
+              "layer": 131,
+              "datatype": 0,
+              "bbox": [
+                230,
+                220,
+                320,
+                5110
+              ],
+              "x": 275,
+              "y": 2665,
+              "lx": 230,
+              "ly": 2680,
+              "net_name": "net23",
+              "width": 4890
+            },
+            {
+              "name": "MINUS",
+              "layer": 131,
+              "datatype": 0,
+              "bbox": [
+                5930,
+                220,
+                6020,
+                5110
+              ],
+              "x": 5975,
+              "y": 2665,
+              "lx": 6020,
+              "ly": 2680,
+              "net_name": "net24",
+              "width": 4890
+            }
+          ],
+          "gds_file": "pa_3/stage_2/primitives/R27_1.gds"
+        },
+        {
+          "ll": [
+            0,
+            0
+          ],
+          "ur": [
+            5860,
+            4960
+          ],
+          "w": 5860,
+          "h": 4960,
+          "pins": [
+            {
+              "name": "PLUS",
+              "layer": 131,
+              "datatype": 0,
+              "bbox": [
+                230,
+                220,
+                320,
+                4740
+              ],
+              "x": 275,
+              "y": 2480,
+              "lx": 230,
+              "ly": 2495,
+              "net_name": "net23",
+              "width": 4520
+            },
+            {
+              "name": "MINUS",
+              "layer": 131,
+              "datatype": 0,
+              "bbox": [
+                5540,
+                220,
+                5630,
+                4740
+              ],
+              "x": 5585,
+              "y": 2480,
+              "lx": 5630,
+              "ly": 2495,
+              "net_name": "net24",
+              "width": 4520
+            }
+          ],
+          "gds_file": "pa_3/stage_2/primitives/R27_2.gds"
+        }
+      ],
+      "pad_only": false,
+      "pad_sides": null,
+      "concrete_name": "RES"
+    },
+    "R26": {
+      "variants": [
+        {
+          "ll": [
+            0,
+            0
+          ],
+          "ur": [
+            2280,
+            9510
+          ],
+          "w": 2280,
+          "h": 9510,
+          "pins": [
+            {
+              "name": "PLUS",
+              "layer": 131,
+              "datatype": 0,
+              "bbox": [
+                230,
+                220,
+                320,
+                9290
+              ],
+              "x": 275,
+              "y": 4755,
+              "lx": 230,
+              "ly": 4770,
+              "net_name": "net26",
+              "width": 9070
+            },
+            {
+              "name": "MINUS",
+              "layer": 131,
+              "datatype": 0,
+              "bbox": [
+                1960,
+                220,
+                2050,
+                9290
+              ],
+              "x": 2005,
+              "y": 4755,
+              "lx": 2050,
+              "ly": 4770,
+              "net_name": "net23",
+              "width": 9070
+            }
+          ],
+          "gds_file": "pa_3/stage_2/primitives/R26_0.gds"
+        },
+        {
+          "ll": [
+            0,
+            0
+          ],
+          "ur": [
+            2080,
+            8020
+          ],
+          "w": 2080,
+          "h": 8020,
+          "pins": [
+            {
+              "name": "PLUS",
+              "layer": 131,
+              "datatype": 0,
+              "bbox": [
+                230,
+                220,
+                320,
+                7800
+              ],
+              "x": 275,
+              "y": 4010,
+              "lx": 230,
+              "ly": 4025,
+              "net_name": "net26",
+              "width": 7580
+            },
+            {
+              "name": "MINUS",
+              "layer": 131,
+              "datatype": 0,
+              "bbox": [
+                1760,
+                220,
+                1850,
+                7800
+              ],
+              "x": 1805,
+              "y": 4010,
+              "lx": 1850,
+              "ly": 4025,
+              "net_name": "net23",
+              "width": 7580
+            }
+          ],
+          "gds_file": "pa_3/stage_2/primitives/R26_1.gds"
+        },
+        {
+          "ll": [
+            0,
+            0
+          ],
+          "ur": [
+            1880,
+            6440
+          ],
+          "w": 1880,
+          "h": 6440,
+          "pins": [
+            {
+              "name": "PLUS",
+              "layer": 131,
+              "datatype": 0,
+              "bbox": [
+                230,
+                220,
+                320,
+                6220
+              ],
+              "x": 275,
+              "y": 3219,
+              "lx": 230,
+              "ly": 3235,
+              "net_name": "net26",
+              "width": 6000
+            },
+            {
+              "name": "MINUS",
+              "layer": 131,
+              "datatype": 0,
+              "bbox": [
+                1560,
+                220,
+                1650,
+                6220
+              ],
+              "x": 1605,
+              "y": 3219,
+              "lx": 1650,
+              "ly": 3235,
+              "net_name": "net23",
+              "width": 6000
+            }
+          ],
+          "gds_file": "pa_3/stage_2/primitives/R26_2.gds"
+        }
+      ],
+      "pad_only": false,
+      "pad_sides": null,
+      "concrete_name": "RES"
+    },
+    "C29": {
+      "variants": [
+        {
+          "ll": [
+            0,
+            0
+          ],
+          "ur": [
+            20659,
+            15660
+          ],
+          "w": 20659,
+          "h": 15660,
+          "pins": [
+            {
+              "name": "PLUS",
+              "layer": 138,
+              "datatype": 0,
+              "bbox": [
+                0,
+                6649,
+                1659,
+                9010
+              ],
+              "x": 829,
+              "y": 7830,
+              "lx": 0,
+              "ly": 7830,
+              "net_name": "net23",
+              "width": 2361
+            },
+            {
+              "name": "MINUS",
+              "layer": 138,
+              "datatype": 0,
+              "bbox": [
+                19000,
+                1760,
+                20659,
+                13900
+              ],
+              "x": 19830,
+              "y": 7830,
+              "lx": 20659,
+              "ly": 7830,
+              "net_name": "gnd",
+              "width": 12140
+            },
+            {
+              "name": "BULK1",
+              "layer": 135,
+              "datatype": 0,
+              "bbox": [
+                8092,
+                15230,
+                12568,
+                15660
+              ],
+              "x": 10330,
+              "y": 15445,
+              "lx": 10330,
+              "ly": 15660,
+              "net_name": "gnd",
+              "width": 4476
+            },
+            {
+              "name": "BULK2",
+              "layer": 135,
+              "datatype": 0,
+              "bbox": [
+                8092,
+                0,
+                12568,
+                429
+              ],
+              "x": 10330,
+              "y": 214,
+              "lx": 10330,
+              "ly": 0,
+              "net_name": null,
+              "width": 4476
+            }
+          ],
+          "gds_file": "pa_3/stage_2/primitives/C29_1.gds"
+        },
+        {
+          "ll": [
+            0,
+            0
+          ],
+          "ur": [
+            16470,
+            19420
+          ],
+          "w": 16470,
+          "h": 19420,
+          "pins": [
+            {
+              "name": "PLUS",
+              "layer": 138,
+              "datatype": 0,
+              "bbox": [
+                0,
+                8530,
+                1659,
+                10890
+              ],
+              "x": 829,
+              "y": 9710,
+              "lx": 0,
+              "ly": 9710,
+              "net_name": "net23",
+              "width": 2360
+            },
+            {
+              "name": "MINUS",
+              "layer": 138,
+              "datatype": 0,
+              "bbox": [
+                14810,
+                5735,
+                16470,
+                13685
+              ],
+              "x": 15640,
+              "y": 9710,
+              "lx": 16470,
+              "ly": 9710,
+              "net_name": "gnd",
+              "width": 7950
+            },
+            {
+              "name": "BULK1",
+              "layer": 135,
+              "datatype": 0,
+              "bbox": [
+                6695,
+                18990,
+                9774,
+                19420
+              ],
+              "x": 8235,
+              "y": 19205,
+              "lx": 8235,
+              "ly": 19420,
+              "net_name": "gnd",
+              "width": 3079
+            },
+            {
+              "name": "BULK2",
+              "layer": 135,
+              "datatype": 0,
+              "bbox": [
+                6695,
+                0,
+                9774,
+                429
+              ],
+              "x": 8235,
+              "y": 214,
+              "lx": 8235,
+              "ly": 0,
+              "net_name": null,
+              "width": 3079
+            }
+          ],
+          "gds_file": "pa_3/stage_2/primitives/C29_2.gds"
+        },
+        {
+          "ll": [
+            0,
+            0
+          ],
+          "ur": [
+            14610,
+            21780
+          ],
+          "w": 14610,
+          "h": 21780,
+          "pins": [
+            {
+              "name": "PLUS",
+              "layer": 138,
+              "datatype": 0,
+              "bbox": [
+                0,
+                9710,
+                1659,
+                12070
+              ],
+              "x": 829,
+              "y": 10890,
+              "lx": 0,
+              "ly": 10890,
+              "net_name": "net23",
+              "width": 2360
+            },
+            {
+              "name": "MINUS",
+              "layer": 138,
+              "datatype": 0,
+              "bbox": [
+                12950,
+                7845,
+                14610,
+                13935
+              ],
+              "x": 13780,
+              "y": 10890,
+              "lx": 14610,
+              "ly": 10890,
+              "net_name": "gnd",
+              "width": 6090
+            },
+            {
+              "name": "BULK1",
+              "layer": 135,
+              "datatype": 0,
+              "bbox": [
+                6074,
+                21350,
+                8535,
+                21780
+              ],
+              "x": 7305,
+              "y": 21565,
+              "lx": 7305,
+              "ly": 21780,
+              "net_name": "gnd",
+              "width": 2461
+            },
+            {
+              "name": "BULK2",
+              "layer": 135,
+              "datatype": 0,
+              "bbox": [
+                6074,
+                0,
+                8535,
+                429
+              ],
+              "x": 7305,
+              "y": 214,
+              "lx": 7305,
+              "ly": 0,
+              "net_name": null,
+              "width": 2461
+            }
+          ],
+          "gds_file": "pa_3/stage_2/primitives/C29_3.gds"
+        }
+      ],
+      "pad_only": false,
+      "pad_sides": null,
+      "concrete_name": "CAP"
+    },
+    "R28": {
+      "variants": [
+        {
+          "ll": [
+            0,
+            0
+          ],
+          "ur": [
+            34480,
+            8860
+          ],
+          "w": 34480,
+          "h": 8860,
+          "pins": [
+            {
+              "name": "PLUS",
+              "layer": 131,
+              "datatype": 0,
+              "bbox": [
+                230,
+                220,
+                320,
+                8640
+              ],
+              "x": 275,
+              "y": 4430,
+              "lx": 230,
+              "ly": 4445,
+              "net_name": "net24",
+              "width": 8420
+            },
+            {
+              "name": "MINUS",
+              "layer": 131,
+              "datatype": 0,
+              "bbox": [
+                34160,
+                220,
+                34250,
+                8640
+              ],
+              "x": 34205,
+              "y": 4430,
+              "lx": 34250,
+              "ly": 4445,
+              "net_name": "net25",
+              "width": 8420
+            }
+          ],
+          "gds_file": "pa_3/stage_2/primitives/R28_0.gds"
+        },
+        {
+          "ll": [
+            0,
+            0
+          ],
+          "ur": [
+            37070,
+            9510
+          ],
+          "w": 37070,
+          "h": 9510,
+          "pins": [
+            {
+              "name": "PLUS",
+              "layer": 131,
+              "datatype": 0,
+              "bbox": [
+                230,
+                220,
+                320,
+                9290
+              ],
+              "x": 275,
+              "y": 4755,
+              "lx": 230,
+              "ly": 4770,
+              "net_name": "net24",
+              "width": 9070
+            },
+            {
+              "name": "MINUS",
+              "layer": 131,
+              "datatype": 0,
+              "bbox": [
+                36750,
+                220,
+                36840,
+                9290
+              ],
+              "x": 36795,
+              "y": 4755,
+              "lx": 36840,
+              "ly": 4770,
+              "net_name": "net25",
+              "width": 9070
+            }
+          ],
+          "gds_file": "pa_3/stage_2/primitives/R28_1.gds"
+        },
+        {
+          "ll": [
+            0,
+            0
+          ],
+          "ur": [
+            16790,
+            4400
+          ],
+          "w": 16790,
+          "h": 4400,
+          "pins": [
+            {
+              "name": "PLUS",
+              "layer": 131,
+              "datatype": 0,
+              "bbox": [
+                230,
+                220,
+                320,
+                4180
+              ],
+              "x": 275,
+              "y": 2199,
+              "lx": 230,
+              "ly": 2215,
+              "net_name": "net24",
+              "width": 3960
+            },
+            {
+              "name": "MINUS",
+              "layer": 131,
+              "datatype": 0,
+              "bbox": [
+                16470,
+                220,
+                16560,
+                4180
+              ],
+              "x": 16515,
+              "y": 2199,
+              "lx": 16560,
+              "ly": 2215,
+              "net_name": "net25",
+              "width": 3960
+            }
+          ],
+          "gds_file": "pa_3/stage_2/primitives/R28_2.gds"
+        }
+      ],
+      "pad_only": false,
+      "pad_sides": null,
+      "concrete_name": "RES"
+    },
+    "Cnew2": {
+      "variants": [
+        {
+          "ll": [
+            0,
+            0
+          ],
+          "ur": [
+            20659,
+            15660
+          ],
+          "w": 20659,
+          "h": 15660,
+          "pins": [
+            {
+              "name": "PLUS",
+              "layer": 138,
+              "datatype": 0,
+              "bbox": [
+                0,
+                6649,
+                1659,
+                9010
+              ],
+              "x": 829,
+              "y": 7830,
+              "lx": 0,
+              "ly": 7830,
+              "net_name": "net24",
+              "width": 2361
+            },
+            {
+              "name": "MINUS",
+              "layer": 138,
+              "datatype": 0,
+              "bbox": [
+                19000,
+                1760,
+                20659,
+                13900
+              ],
+              "x": 19830,
+              "y": 7830,
+              "lx": 20659,
+              "ly": 7830,
+              "net_name": "gnd",
+              "width": 12140
+            },
+            {
+              "name": "BULK1",
+              "layer": 135,
+              "datatype": 0,
+              "bbox": [
+                8092,
+                15230,
+                12568,
+                15660
+              ],
+              "x": 10330,
+              "y": 15445,
+              "lx": 10330,
+              "ly": 15660,
+              "net_name": null,
+              "width": 4476
+            },
+            {
+              "name": "BULK2",
+              "layer": 135,
+              "datatype": 0,
+              "bbox": [
+                8092,
+                0,
+                12568,
+                429
+              ],
+              "x": 10330,
+              "y": 214,
+              "lx": 10330,
+              "ly": 0,
+              "net_name": null,
+              "width": 4476
+            }
+          ],
+          "gds_file": "pa_3/stage_2/primitives/Cnew2_1.gds"
+        },
+        {
+          "ll": [
+            0,
+            0
+          ],
+          "ur": [
+            16470,
+            19420
+          ],
+          "w": 16470,
+          "h": 19420,
+          "pins": [
+            {
+              "name": "PLUS",
+              "layer": 138,
+              "datatype": 0,
+              "bbox": [
+                0,
+                8530,
+                1659,
+                10890
+              ],
+              "x": 829,
+              "y": 9710,
+              "lx": 0,
+              "ly": 9710,
+              "net_name": "net24",
+              "width": 2360
+            },
+            {
+              "name": "MINUS",
+              "layer": 138,
+              "datatype": 0,
+              "bbox": [
+                14810,
+                5735,
+                16470,
+                13685
+              ],
+              "x": 15640,
+              "y": 9710,
+              "lx": 16470,
+              "ly": 9710,
+              "net_name": "gnd",
+              "width": 7950
+            },
+            {
+              "name": "BULK1",
+              "layer": 135,
+              "datatype": 0,
+              "bbox": [
+                6695,
+                18990,
+                9774,
+                19420
+              ],
+              "x": 8235,
+              "y": 19205,
+              "lx": 8235,
+              "ly": 19420,
+              "net_name": null,
+              "width": 3079
+            },
+            {
+              "name": "BULK2",
+              "layer": 135,
+              "datatype": 0,
+              "bbox": [
+                6695,
+                0,
+                9774,
+                429
+              ],
+              "x": 8235,
+              "y": 214,
+              "lx": 8235,
+              "ly": 0,
+              "net_name": null,
+              "width": 3079
+            }
+          ],
+          "gds_file": "pa_3/stage_2/primitives/Cnew2_2.gds"
+        },
+        {
+          "ll": [
+            0,
+            0
+          ],
+          "ur": [
+            14610,
+            21780
+          ],
+          "w": 14610,
+          "h": 21780,
+          "pins": [
+            {
+              "name": "PLUS",
+              "layer": 138,
+              "datatype": 0,
+              "bbox": [
+                0,
+                9710,
+                1659,
+                12070
+              ],
+              "x": 829,
+              "y": 10890,
+              "lx": 0,
+              "ly": 10890,
+              "net_name": "net24",
+              "width": 2360
+            },
+            {
+              "name": "MINUS",
+              "layer": 138,
+              "datatype": 0,
+              "bbox": [
+                12950,
+                7845,
+                14610,
+                13935
+              ],
+              "x": 13780,
+              "y": 10890,
+              "lx": 14610,
+              "ly": 10890,
+              "net_name": "gnd",
+              "width": 6090
+            },
+            {
+              "name": "BULK1",
+              "layer": 135,
+              "datatype": 0,
+              "bbox": [
+                6074,
+                21350,
+                8535,
+                21780
+              ],
+              "x": 7305,
+              "y": 21565,
+              "lx": 7305,
+              "ly": 21780,
+              "net_name": null,
+              "width": 2461
+            },
+            {
+              "name": "BULK2",
+              "layer": 135,
+              "datatype": 0,
+              "bbox": [
+                6074,
+                0,
+                8535,
+                429
+              ],
+              "x": 7305,
+              "y": 214,
+              "lx": 7305,
+              "ly": 0,
+              "net_name": null,
+              "width": 2461
+            }
+          ],
+          "gds_file": "pa_3/stage_2/primitives/Cnew2_3.gds"
+        }
+      ],
+      "pad_only": false,
+      "pad_sides": null,
+      "concrete_name": "CAP"
+    },
+    "vdd0": {
+      "variants": [
+        {
+          "ll": [
+            0,
+            0
+          ],
+          "ur": [
+            50000,
+            60000
+          ],
+          "w": 50000,
+          "h": 60000,
+          "pins": [
+            {
+              "name": "PAD",
+              "layer": 139,
+              "datatype": 0,
+              "bbox": [
+                14750,
+                0,
+                37260,
+                17680
+              ],
+              "x": 26005,
+              "y": 8840,
+              "lx": 25000,
+              "ly": 0,
+              "net_name": "net26",
+              "width": 22510
+            }
+          ],
+          "gds_file": "pa_3/stage_2/primitives/vdd0.gds"
+        }
+      ],
+      "pad_only": true,
+      "pad_sides": [
+        "W",
+        "N"
+      ],
+      "concrete_name": "PAD"
+    },
+    "vdd1": {
+      "variants": [
+        {
+          "ll": [
+            0,
+            0
+          ],
+          "ur": [
+            50000,
+            60000
+          ],
+          "w": 50000,
+          "h": 60000,
+          "pins": [
+            {
+              "name": "PAD",
+              "layer": 139,
+              "datatype": 0,
+              "bbox": [
+                14750,
+                0,
+                37260,
+                17680
+              ],
+              "x": 26005,
+              "y": 8840,
+              "lx": 25000,
+              "ly": 0,
+              "net_name": "net12",
+              "width": 22510
+            }
+          ],
+          "gds_file": "pa_3/stage_2/primitives/vdd1.gds"
+        }
+      ],
+      "pad_only": true,
+      "pad_sides": [
+        "W",
+        "N"
+      ],
+      "concrete_name": "PAD"
+    },
+    "vdd2": {
+      "variants": [
+        {
+          "ll": [
+            0,
+            0
+          ],
+          "ur": [
+            50000,
+            60000
+          ],
+          "w": 50000,
+          "h": 60000,
+          "pins": [
+            {
+              "name": "PAD",
+              "layer": 139,
+              "datatype": 0,
+              "bbox": [
+                14750,
+                0,
+                37260,
+                17680
+              ],
+              "x": 26005,
+              "y": 8840,
+              "lx": 25000,
+              "ly": 0,
+              "net_name": "net29",
+              "width": 22510
+            }
+          ],
+          "gds_file": "pa_3/stage_2/primitives/vdd2.gds"
+        }
+      ],
+      "pad_only": true,
+      "pad_sides": [
+        "W",
+        "N"
+      ],
+      "concrete_name": "PAD"
+    },
+    "vdd3": {
+      "variants": [
+        {
+          "ll": [
+            0,
+            0
+          ],
+          "ur": [
+            50000,
+            60000
+          ],
+          "w": 50000,
+          "h": 60000,
+          "pins": [
+            {
+              "name": "PAD",
+              "layer": 139,
+              "datatype": 0,
+              "bbox": [
+                14750,
+                0,
+                37260,
+                17680
+              ],
+              "x": 26005,
+              "y": 8840,
+              "lx": 25000,
+              "ly": 0,
+              "net_name": "net17",
+              "width": 22510
+            }
+          ],
+          "gds_file": "pa_3/stage_2/primitives/vdd3.gds"
+        }
+      ],
+      "pad_only": true,
+      "pad_sides": [
+        "W",
+        "N"
+      ],
+      "concrete_name": "PAD"
+    },
+    "gnd0": {
+      "variants": [
+        {
+          "ll": [
+            0,
+            0
+          ],
+          "ur": [
+            50000,
+            60000
+          ],
+          "w": 50000,
+          "h": 60000,
+          "pins": [
+            {
+              "name": "PAD",
+              "layer": 139,
+              "datatype": 0,
+              "bbox": [
+                14750,
+                0,
+                37260,
+                17680
+              ],
+              "x": 26005,
+              "y": 8840,
+              "lx": 25000,
+              "ly": 0,
+              "net_name": "gnd",
+              "width": 22510
+            }
+          ],
+          "gds_file": "pa_3/stage_2/primitives/gnd0.gds"
+        }
+      ],
+      "pad_only": true,
+      "pad_sides": [
+        "W",
+        "N"
+      ],
+      "concrete_name": "PAD"
+    },
+    "gnd1": {
+      "variants": [
+        {
+          "ll": [
+            0,
+            0
+          ],
+          "ur": [
+            50000,
+            60000
+          ],
+          "w": 50000,
+          "h": 60000,
+          "pins": [
+            {
+              "name": "PAD",
+              "layer": 139,
+              "datatype": 0,
+              "bbox": [
+                14750,
+                0,
+                37260,
+                17680
+              ],
+              "x": 26005,
+              "y": 8840,
+              "lx": 25000,
+              "ly": 0,
+              "net_name": "gnd",
+              "width": 22510
+            }
+          ],
+          "gds_file": "pa_3/stage_2/primitives/gnd1.gds"
+        }
+      ],
+      "pad_only": true,
+      "pad_sides": [
+        "W",
+        "N"
+      ],
+      "concrete_name": "PAD"
+    },
+    "gnd2": {
+      "variants": [
+        {
+          "ll": [
+            0,
+            0
+          ],
+          "ur": [
+            50000,
+            60000
+          ],
+          "w": 50000,
+          "h": 60000,
+          "pins": [
+            {
+              "name": "PAD",
+              "layer": 139,
+              "datatype": 0,
+              "bbox": [
+                14750,
+                0,
+                37260,
+                17680
+              ],
+              "x": 26005,
+              "y": 8840,
+              "lx": 25000,
+              "ly": 0,
+              "net_name": "gnd",
+              "width": 22510
+            }
+          ],
+          "gds_file": "pa_3/stage_2/primitives/gnd2.gds"
+        }
+      ],
+      "pad_only": true,
+      "pad_sides": [
+        "W",
+        "N"
+      ],
+      "concrete_name": "PAD"
+    },
+    "gnd3": {
+      "variants": [
+        {
+          "ll": [
+            0,
+            0
+          ],
+          "ur": [
+            50000,
+            60000
+          ],
+          "w": 50000,
+          "h": 60000,
+          "pins": [
+            {
+              "name": "PAD",
+              "layer": 139,
+              "datatype": 0,
+              "bbox": [
+                14750,
+                0,
+                37260,
+                17680
+              ],
+              "x": 26005,
+              "y": 8840,
+              "lx": 25000,
+              "ly": 0,
+              "net_name": "gnd",
+              "width": 22510
+            }
+          ],
+          "gds_file": "pa_3/stage_2/primitives/gnd3.gds"
+        }
+      ],
+      "pad_only": true,
+      "pad_sides": [
+        "W",
+        "N"
+      ],
+      "concrete_name": "PAD"
+    },
+    "output": {
+      "variants": [
+        {
+          "ll": [
+            0,
+            0
+          ],
+          "ur": [
+            50000,
+            60000
+          ],
+          "w": 50000,
+          "h": 60000,
+          "pins": [
+            {
+              "name": "PAD",
+              "layer": 139,
+              "datatype": 0,
+              "bbox": [
+                14750,
+                0,
+                37260,
+                17680
+              ],
+              "x": 26005,
+              "y": 8840,
+              "lx": 25000,
+              "ly": 0,
+              "net_name": "net9",
+              "width": 22510
+            }
+          ],
+          "gds_file": "pa_3/stage_2/primitives/output.gds"
+        }
+      ],
+      "pad_only": true,
+      "pad_sides": [
+        "W",
+        "N"
+      ],
+      "concrete_name": "PAD"
+    }
+  },
+  "nets": {
+    "net7": {
+      "weight": 1.0,
+      "endpoints": [
+        {
+          "module": "LIn_1",
+          "pin_name": "P1",
+          "pin_index": 0,
+          "width": 4000
+        },
+        {
+          "module": "bias1",
+          "pin_name": "D",
+          "pin_index": 0,
+          "width": 2370
+        },
+        {
+          "module": "R1",
+          "pin_name": "MINUS",
+          "pin_index": 1,
+          "width": 4890
+        },
+        {
+          "module": "R2",
+          "pin_name": "PLUS",
+          "pin_index": 0,
+          "width": 9070
+        },
+        {
+          "module": "Cnew1",
+          "pin_name": "PLUS",
+          "pin_index": 0,
+          "width": 2361
+        }
+      ],
+      "branches": [
+        [
+          "LIn_1/P1",
+          "R1/MINUS",
+          0
+        ],
+        [
+          "LIn_1/P1",
+          "R2/PLUS",
+          0
+        ],
+        [
+          "LIn_1/P1",
+          "Cnew1/PLUS",
+          0
+        ],
+        [
+          "LIn_1/P1",
+          "bias1/D",
+          0
+        ]
+      ]
+    },
+    "net10": {
+      "weight": 2.0,
+      "endpoints": [
+        {
+          "module": "LIn_1",
+          "pin_name": "P2",
+          "pin_index": 1,
+          "width": 4000
+        },
+        {
+          "module": "Stage_1",
+          "pin_name": "GG",
+          "pin_index": 2,
+          "width": 6500
+        }
+      ],
+      "branches": [
+        [
+          "LIn_1/P2",
+          "Stage_1/GG",
+          0
+        ]
+      ]
+    },
+    "gnd": {
+      "weight": 0.1,
+      "endpoints": [
+        {
+          "module": "LIn_1",
+          "pin_name": "GND",
+          "pin_index": 2,
+          "width": 10000
+        },
+        {
+          "module": "Stage_1",
+          "pin_name": "SS",
+          "pin_index": 3,
+          "width": 1040
+        },
+        {
+          "module": "Stage_1",
+          "pin_name": "GND",
+          "pin_index": 4,
+          "width": 210
+        },
+        {
+          "module": "CShunt_D_1",
+          "pin_name": "MINUS",
+          "pin_index": 1,
+          "width": 9411
+        },
+        {
+          "module": "LIn_2",
+          "pin_name": "GND",
+          "pin_index": 2,
+          "width": 10000
+        },
+        {
+          "module": "Stage_2",
+          "pin_name": "SS",
+          "pin_index": 3,
+          "width": 1040
+        },
+        {
+          "module": "Stage_2",
+          "pin_name": "GND",
+          "pin_index": 4,
+          "width": 210
+        },
+        {
+          "module": "CShunt_D_2",
+          "pin_name": "MINUS",
+          "pin_index": 1,
+          "width": 9411
+        },
+        {
+          "module": "bias1",
+          "pin_name": "BS",
+          "pin_index": 2,
+          "width": 280
+        },
+        {
+          "module": "C28",
+          "pin_name": "MINUS",
+          "pin_index": 1,
+          "width": 12140
+        },
+        {
+          "module": "C28",
+          "pin_name": "BULK1",
+          "pin_index": 2,
+          "width": 4476
+        },
+        {
+          "module": "C28",
+          "pin_name": "BULK2",
+          "pin_index": 3,
+          "width": 4476
+        },
+        {
+          "module": "Cnew1",
+          "pin_name": "MINUS",
+          "pin_index": 1,
+          "width": 12140
+        },
+        {
+          "module": "bias2",
+          "pin_name": "BS",
+          "pin_index": 2,
+          "width": 280
+        },
+        {
+          "module": "C29",
+          "pin_name": "MINUS",
+          "pin_index": 1,
+          "width": 12140
+        },
+        {
+          "module": "C29",
+          "pin_name": "BULK1",
+          "pin_index": 2,
+          "width": 4476
+        },
+        {
+          "module": "Cnew2",
+          "pin_name": "MINUS",
+          "pin_index": 1,
+          "width": 12140
+        },
+        {
+          "module": "gnd0",
+          "pin_name": "PAD",
+          "pin_index": 0,
+          "width": 22510
+        },
+        {
+          "module": "gnd1",
+          "pin_name": "PAD",
+          "pin_index": 0,
+          "width": 22510
+        },
+        {
+          "module": "gnd2",
+          "pin_name": "PAD",
+          "pin_index": 0,
+          "width": 22510
+        },
+        {
+          "module": "gnd3",
+          "pin_name": "PAD",
+          "pin_index": 0,
+          "width": 22510
+        }
+      ],
+      "branches": [
+        [
+          "LIn_1/GND",
+          "CShunt_D_1/MINUS",
+          0
+        ],
+        [
+          "LIn_1/GND",
+          "Cnew1/MINUS",
+          0
+        ],
+        [
+          "LIn_1/GND",
+          "Stage_2/GND",
+          0
+        ],
+        [
+          "LIn_1/GND",
+          "bias1/BS",
+          0
+        ],
+        [
+          "LIn_1/GND",
+          "Stage_2/SS",
+          0
+        ],
+        [
+          "LIn_1/GND",
+          "C29/BULK1",
+          0
+        ],
+        [
+          "LIn_1/GND",
+          "gnd0/PAD",
+          0
+        ],
+        [
+          "LIn_1/GND",
+          "CShunt_D_2/MINUS",
+          0
+        ],
+        [
+          "LIn_1/GND",
+          "LIn_2/GND",
+          0
+        ],
+        [
+          "LIn_1/GND",
+          "Stage_1/SS",
+          0
+        ],
+        [
+          "LIn_1/GND",
+          "gnd3/PAD",
+          0
+        ],
+        [
+          "LIn_1/GND",
+          "C28/BULK1",
+          0
+        ],
+        [
+          "LIn_1/GND",
+          "C28/MINUS",
+          0
+        ],
+        [
+          "LIn_1/GND",
+          "gnd1/PAD",
+          0
+        ],
+        [
+          "LIn_1/GND",
+          "bias2/BS",
+          0
+        ],
+        [
+          "LIn_1/GND",
+          "Stage_1/GND",
+          0
+        ],
+        [
+          "LIn_1/GND",
+          "C29/MINUS",
+          0
+        ],
+        [
+          "LIn_1/GND",
+          "Cnew2/MINUS",
+          0
+        ],
+        [
+          "LIn_1/GND",
+          "gnd2/PAD",
+          0
+        ],
+        [
+          "LIn_1/GND",
+          "C28/BULK2",
+          0
+        ]
+      ]
+    },
+    "net4": {
+      "weight": 4.0,
+      "endpoints": [
+        {
+          "module": "Stage_1",
+          "pin_name": "DD",
+          "pin_index": 0,
+          "width": 6900
+        },
+        {
+          "module": "LD_1",
+          "pin_name": "P2",
+          "pin_index": 1,
+          "width": 7500
+        },
+        {
+          "module": "CShunt_D_1",
+          "pin_name": "PLUS",
+          "pin_index": 0,
+          "width": 1460
+        },
+        {
+          "module": "CSeries_D_1",
+          "pin_name": "PLUS",
+          "pin_index": 0,
+          "width": 1460
+        }
+      ],
+      "branches": [
+        [
+          "Stage_1/DD",
+          "LD_1/P2",
+          0
+        ],
+        [
+          "Stage_1/DD",
+          "CShunt_D_1/PLUS",
+          0
+        ],
+        [
+          "Stage_1/DD",
+          "CSeries_D_1/PLUS",
+          0
+        ]
+      ]
+    },
+    "net34": {
+      "weight": 1.0,
+      "endpoints": [
+        {
+          "module": "Stage_1",
+          "pin_name": "G2",
+          "pin_index": 1,
+          "width": 1600
+        },
+        {
+          "module": "R1",
+          "pin_name": "PLUS",
+          "pin_index": 0,
+          "width": 4890
+        },
+        {
+          "module": "R10",
+          "pin_name": "MINUS",
+          "pin_index": 1,
+          "width": 9070
+        },
+        {
+          "module": "C28",
+          "pin_name": "PLUS",
+          "pin_index": 0,
+          "width": 2361
+        }
+      ],
+      "branches": [
+        [
+          "Stage_1/G2",
+          "R10/MINUS",
+          0
+        ],
+        [
+          "Stage_1/G2",
+          "R1/PLUS",
+          0
+        ],
+        [
+          "Stage_1/G2",
+          "C28/PLUS",
+          0
+        ]
+      ]
+    },
+    "net12": {
+      "weight": 0.1,
+      "endpoints": [
+        {
+          "module": "LD_1",
+          "pin_name": "P1",
+          "pin_index": 0,
+          "width": 7500
+        },
+        {
+          "module": "vdd1",
+          "pin_name": "PAD",
+          "pin_index": 0,
+          "width": 22510
+        }
+      ],
+      "branches": [
+        [
+          "LD_1/P1",
+          "vdd1/PAD",
+          0
+        ]
+      ]
+    },
+    "net3": {
+      "weight": 4.0,
+      "endpoints": [
+        {
+          "module": "CSeries_D_1",
+          "pin_name": "MINUS",
+          "pin_index": 1,
+          "width": 8281
+        },
+        {
+          "module": "LIn_2",
+          "pin_name": "P2",
+          "pin_index": 1,
+          "width": 4500
+        },
+        {
+          "module": "Stage_2",
+          "pin_name": "GG",
+          "pin_index": 2,
+          "width": 12660
+        }
+      ],
+      "branches": [
+        [
+          "CSeries_D_1/MINUS",
+          "Stage_2/GG",
+          0
+        ],
+        [
+          "CSeries_D_1/MINUS",
+          "LIn_2/P2",
+          0
+        ]
+      ]
+    },
+    "net24": {
+      "weight": 1.0,
+      "endpoints": [
+        {
+          "module": "LIn_2",
+          "pin_name": "P1",
+          "pin_index": 0,
+          "width": 4500
+        },
+        {
+          "module": "bias2",
+          "pin_name": "D",
+          "pin_index": 0,
+          "width": 2370
+        },
+        {
+          "module": "R27",
+          "pin_name": "MINUS",
+          "pin_index": 1,
+          "width": 4890
+        },
+        {
+          "module": "R28",
+          "pin_name": "PLUS",
+          "pin_index": 0,
+          "width": 9070
+        },
+        {
+          "module": "Cnew2",
+          "pin_name": "PLUS",
+          "pin_index": 0,
+          "width": 2361
+        }
+      ],
+      "branches": [
+        [
+          "LIn_2/P1",
+          "Cnew2/PLUS",
+          0
+        ],
+        [
+          "LIn_2/P1",
+          "R27/MINUS",
+          0
+        ],
+        [
+          "LIn_2/P1",
+          "R28/PLUS",
+          0
+        ],
+        [
+          "LIn_2/P1",
+          "bias2/D",
+          0
+        ]
+      ]
+    },
+    "net16": {
+      "weight": 2.0,
+      "endpoints": [
+        {
+          "module": "Stage_2",
+          "pin_name": "DD",
+          "pin_index": 0,
+          "width": 13060
+        },
+        {
+          "module": "LD_2",
+          "pin_name": "P2",
+          "pin_index": 1,
+          "width": 4000
+        },
+        {
+          "module": "CShunt_D_2",
+          "pin_name": "PLUS",
+          "pin_index": 0,
+          "width": 1460
+        },
+        {
+          "module": "CSeries_D_2",
+          "pin_name": "PLUS",
+          "pin_index": 0,
+          "width": 1461
+        }
+      ],
+      "branches": [
+        [
+          "Stage_2/DD",
+          "LD_2/P2",
+          0
+        ],
+        [
+          "Stage_2/DD",
+          "CShunt_D_2/PLUS",
+          0
+        ],
+        [
+          "Stage_2/DD",
+          "CSeries_D_2/PLUS",
+          0
+        ]
+      ]
+    },
+    "net23": {
+      "weight": 1.0,
+      "endpoints": [
+        {
+          "module": "Stage_2",
+          "pin_name": "G2",
+          "pin_index": 1,
+          "width": 1600
+        },
+        {
+          "module": "R27",
+          "pin_name": "PLUS",
+          "pin_index": 0,
+          "width": 4890
+        },
+        {
+          "module": "R26",
+          "pin_name": "MINUS",
+          "pin_index": 1,
+          "width": 9070
+        },
+        {
+          "module": "C29",
+          "pin_name": "PLUS",
+          "pin_index": 0,
+          "width": 2361
+        }
+      ],
+      "branches": [
+        [
+          "Stage_2/G2",
+          "R26/MINUS",
+          0
+        ],
+        [
+          "Stage_2/G2",
+          "C29/PLUS",
+          0
+        ],
+        [
+          "Stage_2/G2",
+          "R27/PLUS",
+          0
+        ]
+      ]
+    },
+    "net17": {
+      "weight": 0.1,
+      "endpoints": [
+        {
+          "module": "LD_2",
+          "pin_name": "P1",
+          "pin_index": 0,
+          "width": 4000
+        },
+        {
+          "module": "vdd3",
+          "pin_name": "PAD",
+          "pin_index": 0,
+          "width": 22510
+        }
+      ],
+      "branches": [
+        [
+          "LD_2/P1",
+          "vdd3/PAD",
+          0
+        ]
+      ]
+    },
+    "net9": {
+      "weight": 2.0,
+      "endpoints": [
+        {
+          "module": "CSeries_D_2",
+          "pin_name": "MINUS",
+          "pin_index": 1,
+          "width": 9391
+        },
+        {
+          "module": "output",
+          "pin_name": "PAD",
+          "pin_index": 0,
+          "width": 22510
+        }
+      ],
+      "branches": [
+        [
+          "CSeries_D_2/MINUS",
+          "output/PAD",
+          0
+        ]
+      ]
+    },
+    "net32": {
+      "weight": 1.0,
+      "endpoints": [
+        {
+          "module": "bias1",
+          "pin_name": "G",
+          "pin_index": 1,
+          "width": 2370
+        },
+        {
+          "module": "R2",
+          "pin_name": "MINUS",
+          "pin_index": 1,
+          "width": 9070
+        }
+      ],
+      "branches": [
+        [
+          "bias1/G",
+          "R2/MINUS",
+          0
+        ]
+      ]
+    },
+    "net29": {
+      "weight": 0.1,
+      "endpoints": [
+        {
+          "module": "R10",
+          "pin_name": "PLUS",
+          "pin_index": 0,
+          "width": 9070
+        },
+        {
+          "module": "vdd2",
+          "pin_name": "PAD",
+          "pin_index": 0,
+          "width": 22510
+        }
+      ],
+      "branches": [
+        [
+          "R10/PLUS",
+          "vdd2/PAD",
+          0
+        ]
+      ]
+    },
+    "net25": {
+      "weight": 1.0,
+      "endpoints": [
+        {
+          "module": "bias2",
+          "pin_name": "G",
+          "pin_index": 1,
+          "width": 2370
+        },
+        {
+          "module": "R28",
+          "pin_name": "MINUS",
+          "pin_index": 1,
+          "width": 9070
+        }
+      ],
+      "branches": [
+        [
+          "bias2/G",
+          "R28/MINUS",
+          0
+        ]
+      ]
+    },
+    "net26": {
+      "weight": 0.1,
+      "endpoints": [
+        {
+          "module": "R26",
+          "pin_name": "PLUS",
+          "pin_index": 0,
+          "width": 9070
+        },
+        {
+          "module": "vdd0",
+          "pin_name": "PAD",
+          "pin_index": 0,
+          "width": 22510
+        }
+      ],
+      "branches": [
+        [
+          "R26/PLUS",
+          "vdd0/PAD",
+          0
+        ]
+      ]
+    }
+  }
+}

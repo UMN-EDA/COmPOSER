@@ -1,0 +1,48 @@
+{
+    "Best_Cascode_LNA_Design": {
+        "Selection_Score_LowerIsBetter": 1999999997.7881105,
+        "Spec_Targets": {
+            "Design_freq": 60000000000.0,
+            "NF_max_dB": 3.0,
+            "Gain_min_dB": 10.0,
+            "BW_min_Hz": 2000000000.0,
+            "S11_max_dB": -10.0,
+            "Power_max_mW": 4.0
+        },
+        "Design_Parameters": {
+            "Design_ID": "U",
+            "Input_Resistance_Ohms": 50.0,
+            "CASMOS_Size": "11*1um/60nm",
+            "Noise_Figure_dB": 4.2013689934,
+            "Gain_dB": 9.2209644133,
+            "S11_dB": -11.7286579989,
+            "Bandwidth_Hz": 1935046054.0992887,
+            "Bandwidth_GHz": 1.9350460541,
+            "Input_TLine_Impedance_Ohms": 18.0,
+            "Input_TLine_Length": 0.0315816671,
+            "GATE_IND_L": 402.9777901837,
+            "GATE_IND_Q": 17.9416598071,
+            "GATE_IND_SRF": 77.8368709344,
+            "GATE_IND_GEOM": "[22.5    3.5    2.875  2.   ]",
+            "DRAIN_IND_L": 63.5876946493,
+            "DRAIN_IND_Q": 37.4337350857,
+            "DRAIN_IND_SRF": 168.2709685816,
+            "DRAIN_IND_GEOM": "[15.    7.    2.75  1.  ]",
+            "SOURCE_IND_L": 43.4835498896,
+            "SOURCE_IND_Q": 15.0,
+            "SOURCE_IND_SRF": 0.0,
+            "SOURCE_IND_GEOM": "[0, 0, 0, 0]",
+            "DC_Power_mW": "1.76mW",
+            "DC_Power_numeric_mW": 1.76,
+            "Selection_Score": 1999999997.7881105,
+            "CPWD_Length": 60.64,
+            "CPWD_Width": 9.472,
+            "CPWD_Gap": 3.901,
+            "CLoad": 0.0,
+            "Inter_ind_L": 90.8452254545,
+            "Inter_ind_Q": 38.4206755599,
+            "Inter_ind_SRF": 155.1048374053,
+            "Inter_cap": 0.0
+        }
+    }
+}

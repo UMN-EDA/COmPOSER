@@ -1,0 +1,26 @@
+{
+    "Best_ClassA_PA_Design": {
+        "Spec_Targets": {
+            "freq_Hz": 20000000000.0,
+            "psat_req_dBm": 8.0,
+            "gain_req_dB": 15.0
+        },
+        "Design_Parameters": {
+            "Design_ID": "_",
+            "Stages": 1,
+            "Size_Last": 66.0,
+            "Stage_Step": 1.0,
+            "gm": 0.0013,
+            "Power_Unit_mW": 0.5,
+            "Stage_1_Size": "66*1um/60nm",
+            "Matching_Stage_0_Shunt_Ind_1_pH": 757.9756194917968,
+            "Matching_Stage_0_Series_Cap": "4.999999999999999899e-13",
+            "Matching_Stage_0_Shunt_Ind_2_pH": 977.9704632930957,
+            "Matching_Stage_0_Shunt_Cap": "0.000000000000000000e+00",
+            "Matching_Stage_1_Shunt_Ind_1_pH": 315.98743654280753,
+            "Matching_Stage_1_Series_Cap": "1.950230686929282136e-13",
+            "Matching_Stage_1_Shunt_Ind_2_pH": 0.0,
+            "Matching_Stage_1_Shunt_Cap": "5.257789446871901975e-14"
+        }
+    }
+}

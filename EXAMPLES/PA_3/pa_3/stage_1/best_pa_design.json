@@ -1,0 +1,36 @@
+{
+    "Best_ClassA_PA_Design": {
+        "Spec_Targets": {
+            "freq_Hz": 60000000000.0,
+            "psat_req_dBm": 8.0,
+            "gain_req_dB": 20.0
+        },
+        "Design_Parameters": {
+            "Design_ID": "_",
+            "Stages": 3,
+            "Size_Last": 92.0,
+            "Stage_Step": 2.0,
+            "gm": 0.00135,
+            "Power_Unit_mW": 0.468,
+            "Stage_1_Size": "24*1um/60nm",
+            "Stage_2_Size": "46*1um/60nm",
+            "Stage_3_Size": "92*1um/60nm",
+            "Matching_Stage_0_Shunt_Ind_1_pH": 354.11154098786255,
+            "Matching_Stage_0_Series_Cap": "4.999999999999999899e-13",
+            "Matching_Stage_0_Shunt_Ind_2_pH": 322.9157306729958,
+            "Matching_Stage_0_Shunt_Cap": "0.000000000000000000e+00",
+            "Matching_Stage_1_Shunt_Ind_1_pH": 89.45550143980275,
+            "Matching_Stage_1_Series_Cap": "2.987767403849550052e-14",
+            "Matching_Stage_1_Shunt_Ind_2_pH": 174.2476646989543,
+            "Matching_Stage_1_Shunt_Cap": "5.000000000000000152e-14",
+            "Matching_Stage_2_Shunt_Ind_1_pH": 62.931393407138856,
+            "Matching_Stage_2_Series_Cap": "4.957169293048266312e-14",
+            "Matching_Stage_2_Shunt_Ind_2_pH": 94.88917634947715,
+            "Matching_Stage_2_Shunt_Cap": "5.000000000000000152e-14",
+            "Matching_Stage_3_Shunt_Ind_1_pH": 46.2051313467383,
+            "Matching_Stage_3_Series_Cap": "1.199987612017917386e-13",
+            "Matching_Stage_3_Shunt_Ind_2_pH": 0.0,
+            "Matching_Stage_3_Shunt_Cap": "5.000000000000000152e-14"
+        }
+    }
+}

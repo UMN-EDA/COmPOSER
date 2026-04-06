@@ -1,0 +1,1961 @@
+Using options : -d PDK/mock_65nm/layers.json -p lna_3/stage_3/placement/lna_placement.json -l lna_3/stage_3/routing/lef/lna_primitives.lef -s  -uu 1 -ndr EXAMPLES/LNA_3/router_constraints.json -o lna_3/stage_3/routing/
+layer resistance : Poly 100 80 120
+layer resistance : Fin 0 0 0
+layer resistance : M1 680 80 120
+layer resistance : M2 560 80 120
+layer resistance : M3 560 80 120
+layer resistance : M4 560 80 120
+layer resistance : M5 560 80 120
+layer resistance : M6 560 80 120
+layer resistance : M7 560 80 120
+layer resistance : M8 21.8 80 120
+layer resistance : M9 4.36 80 120
+layer resistance : RH 0 0 0
+layer : Poly index : 0
+layer : Fin index : 1
+layer : M1 index : 2
+layer : M2 index : 3
+layer : M3 index : 4
+layer : M4 index : 5
+layer : M5 index : 6
+layer : M6 index : 7
+layer : M7 index : 8
+layer : M8 index : 9
+layer : M9 index : 10
+layer : RH index : 11
+layer : V0 index : 12
+ cover : l: 40,40 u: 40,40
+layer : V1 index : 13
+ cover : l: 50,50 u: 50,50
+layer : V2 index : 14
+ cover : l: 50,50 u: 50,50
+layer : V3 index : 15
+	 va : 110 110 2 2
+ cover : l: 50,50 u: 50,50
+layer : V4 index : 16
+	 va : 110 110 2 2
+ cover : l: 50,50 u: 50,50
+layer : V5 index : 17
+	 va : 110 110 2 2
+ cover : l: 60,60 u: 60,60
+layer : V6 index : 18
+	 va : 110 110 5 2
+ cover : l: 50,50 u: 50,50
+layer : V7 index : 19
+	 va : 300 300 2 2
+ cover : l: 70,70 u: 70,70
+layer : V8 index : 20
+	 va : 520 520 2 2
+ cover : l: 70,70 u: 70,70
+top metal layer : RH
+signal routing layers : M1 : M9
+power  routing layers : M1 : M8
+clock  routing layers : M2 : M9
+layer : 0 cost : 1e+07 100
+layer : 1 cost : 1 1e+07
+layer : 2 cost : 680 680
+layer : 3 cost : 560 560
+layer : 4 cost : 560 560
+layer : 5 cost : 560 560
+layer : 6 cost : 560 560
+layer : 7 cost : 560 560
+layer : 8 cost : 560 560
+layer : 9 cost : 21 21
+layer : 10 cost : 4 4
+layer : 11 cost : 1e+07 1
+layerPairCost : 0 1 1e+07
+layerPairCost : 1 0 1e+07
+layerPairCost : 1 2 1e+07
+layerPairCost : 2 1 1e+07
+layerPairCost : 2 3 600000
+layerPairCost : 3 2 600000
+layerPairCost : 3 4 600000
+layerPairCost : 4 3 600000
+layerPairCost : 4 5 600000
+layerPairCost : 5 4 600000
+layerPairCost : 5 6 600000
+layerPairCost : 6 5 600000
+layerPairCost : 6 7 600000
+layerPairCost : 7 6 600000
+layerPairCost : 7 8 600000
+layerPairCost : 8 7 600000
+layerPairCost : 8 9 88000
+layerPairCost : 9 8 88000
+layerPairCost : 9 10 88000
+layerPairCost : 10 9 88000
+layerPairCost : 10 11 1e+07
+layerPairCost : 11 10 1e+07
+layer : 0 width : 60 space : 200 v : 1 h : 0
+layer : 1 width : 14 space : 86 v : 0 h : 1
+layer : 2 width : 100 space : 100 v : 1 h : 1
+layer : 3 width : 100 space : 10 v : 1 h : 1
+layer : 4 width : 100 space : 10 v : 1 h : 1
+layer : 5 width : 100 space : 20 v : 1 h : 1
+layer : 6 width : 100 space : 20 v : 1 h : 1
+layer : 7 width : 100 space : 20 v : 1 h : 1
+layer : 8 width : 100 space : 20 v : 1 h : 1
+layer : 9 width : 400 space : 20 v : 1 h : 1
+layer : 10 width : 2000 space : 600 v : 1 h : 1
+layer : 11 width : 60 space : 220 v : 1 h : 0
+layer : 0 above : -1 below : -1
+layer : 1 above : -1 below : -1
+layer : 2 above : 13 below : -1
+layer : 3 above : 14 below : 13
+layer : 4 above : 15 below : 14
+layer : 5 above : 16 below : 15
+layer : 6 above : 17 below : 16
+layer : 7 above : 18 below : 17
+layer : 8 above : 19 below : 18
+layer : 9 above : 20 below : 19
+layer : 10 above : -1 below : 20
+layer : 11 above : -1 below : -1
+min routing layer : M1 max routing layer : M9
+via : l: 2 u: 3 c: 13 center: (0,0) lb: [(-105,-105),(105,105)] ub: [(-105,-105),(105,105)] cut: [(-55,-55),(55,55)] bbox: [(-105,-105),(105,105)]
+via : l: 3 u: 4 c: 14 center: (0,0) lb: [(-105,-105),(105,105)] ub: [(-105,-105),(105,105)] cut: [(-55,-55),(55,55)] bbox: [(-105,-105),(105,105)]
+via : l: 4 u: 5 c: 15 center: (0,0) lb: [(-215,-215),(215,215)] ub: [(-215,-215),(215,215)] cut: [(-165,-165),(165,165)] bbox: [(-215,-215),(215,215)]
+via : l: 5 u: 6 c: 16 center: (0,0) lb: [(-215,-215),(215,215)] ub: [(-215,-215),(215,215)] cut: [(-165,-165),(165,165)] bbox: [(-215,-215),(215,215)]
+via : l: 6 u: 7 c: 17 center: (0,0) lb: [(-225,-225),(225,225)] ub: [(-225,-225),(225,225)] cut: [(-165,-165),(165,165)] bbox: [(-225,-225),(225,225)]
+via : l: 7 u: 8 c: 18 center: (0,0) lb: [(-545,-215),(545,215)] ub: [(-545,-215),(545,215)] cut: [(-495,-165),(495,165)] bbox: [(-545,-215),(545,215)]
+via : l: 8 u: 9 c: 19 center: (0,0) lb: [(-570,-570),(570,570)] ub: [(-570,-570),(570,570)] cut: [(-500,-500),(500,500)] bbox: [(-570,-570),(570,570)]
+via : l: 9 u: 10 c: 20 center: (0,0) lb: [(-680,-680),(680,680)] ub: [(-680,-680),(680,680)] cut: [(-610,-610),(610,610)] bbox: [(-680,-680),(680,680)]
+adding leaf : bias
+adding leaf : bias_mos
+adding leaf : cas_mos
+adding leaf : drain_ind
+adding leaf : gate_ind_x.75
+adding leaf : gnd0
+adding leaf : gnd1
+adding leaf : gnd2
+adding leaf : input
+adding leaf : source_ind
+adding leaf : vdd
+adding leaf : xR0_2
+adding leaf : xR1_2
+adding leaf : xR2_0
+adding leaf : xR3_2
+adding leaf : xc1_1
+adding leaf : xc2_1
+adding leaf : xc3_1
+adding leaf : xwg1
+[(0,0),(853011,390824)]
+adding module : lna
+adding net : gnd
+adding pin : "source_ind" 0xf1ef30 "P2"
+adding pin : "gate_ind" 0xf1eb70 "GND"
+adding pin : "cas_mos" 0xf1e9f0 "GND"
+adding pin : "bias_mos" 0xefda70 "BS"
+adding pin : "xc1" 0xf1f3b0 "PLUS"
+adding pin : "xc2" 0xf1f470 "BULK1"
+adding pin : "xc2" 0xf1f470 "BULK2"
+adding pin : "xwg1" 0xf1f5f0 "GND1"
+adding pin : "xwg1" 0xf1f5f0 "GND2"
+adding pin : "xc3" 0xf1f530 "PLUS"
+adding pin : "xc3" 0xf1f530 "BULK1"
+adding pin : "xc3" 0xf1f530 "BULK2"
+adding pin : "gnd0" 0xf1ec30 "PAD"
+adding pin : "gnd1" 0xf1ecf0 "PAD"
+adding pin : "gnd2" 0xf1edb0 "PAD"
+adding net : net010
+adding pin : "xc2" 0xf1f470 "PLUS"
+adding pin : "input" 0xf1ee70 "PAD"
+adding net : net1
+adding pin : "source_ind" 0xf1ef30 "P1"
+adding pin : "cas_mos" 0xf1e9f0 "SS"
+adding net : net12
+adding pin : "gate_ind" 0xf1eb70 "P2"
+adding pin : "cas_mos" 0xf1e9f0 "GG"
+adding pin : "xR3" 0xf1f2f0 "MINUS"
+adding net : net13
+adding pin : "bias_mos" 0xefda70 "G"
+adding pin : "xR1" 0xf1f170 "PLUS"
+adding net : net14
+adding pin : "xc2" 0xf1f470 "MINUS"
+adding pin : "xwg1" 0xf1f5f0 "P2"
+adding net : net2
+adding pin : "bias_mos" 0xefda70 "D"
+adding pin : "xR0" 0xf1f0b0 "PLUS"
+adding pin : "xR1" 0xf1f170 "MINUS"
+adding pin : "xR3" 0xf1f2f0 "PLUS"
+adding net : net3
+adding pin : "drain_ind" 0xf1eab0 "P2"
+adding pin : "vdd" 0xf1eff0 "PAD"
+adding net : net4
+adding pin : "cas_mos" 0xf1e9f0 "G2"
+adding pin : "xc3" 0xf1f530 "MINUS"
+adding pin : "xR0" 0xf1f0b0 "MINUS"
+adding pin : "xR2" 0xf1f230 "MINUS"
+adding net : net5
+adding pin : "drain_ind" 0xf1eab0 "P1"
+adding pin : "cas_mos" 0xf1e9f0 "DD"
+adding pin : "xc1" 0xf1f3b0 "MINUS"
+adding net : net7
+adding pin : "xR2" 0xf1f230 "PLUS"
+adding pin : "bias" 0xf15ed0 "PAD"
+adding net : net8
+adding pin : "gate_ind" 0xf1eb70 "P1"
+adding pin : "xwg1" 0xf1f5f0 "P1"
+Reading LEF file lna_3/stage_3/routing/lef/lna_primitives.lef
+macro bias
+loading macro bias
+macro bias_mos
+loading macro bias_mos
+macro cas_mos
+loading macro cas_mos
+macro drain_ind
+loading macro drain_ind
+macro gate_ind_x.75
+loading macro gate_ind_x.75
+macro gnd0
+loading macro gnd0
+macro gnd1
+loading macro gnd1
+macro gnd2
+loading macro gnd2
+macro input
+loading macro input
+macro source_ind
+loading macro source_ind
+macro vdd
+loading macro vdd
+macro xR0_2
+loading macro xR0_2
+macro xR1_2
+loading macro xR1_2
+macro xR2_0
+loading macro xR2_0
+macro xR3_2
+loading macro xR3_2
+macro xc1_1
+loading macro xc1_1
+macro xc2_1
+loading macro xc2_1
+macro xc3_1
+loading macro xc3_1
+macro xwg1
+loading macro xwg1
+excluding net : gnd from routing
+excluding net : net3 from routing
+excluding net : net7 from routing
+excluding net : gnd from routing
+Checking SHORT for module : bias
+void Placement::Module::route(Router::Router&, const std::string&) runtime : 5.184e-06(s)
+Checking SHORT for module : bias_mos
+void Placement::Module::route(Router::Router&, const std::string&) runtime : 1.094e-06(s)
+Checking SHORT for module : cas_mos
+void Placement::Module::route(Router::Router&, const std::string&) runtime : 1.153e-06(s)
+Checking SHORT for module : drain_ind
+void Placement::Module::route(Router::Router&, const std::string&) runtime : 5.1e-07(s)
+Checking SHORT for module : gate_ind_x.75
+void Placement::Module::route(Router::Router&, const std::string&) runtime : 5.35e-07(s)
+Checking SHORT for module : gnd0
+void Placement::Module::route(Router::Router&, const std::string&) runtime : 3.43e-07(s)
+Checking SHORT for module : gnd1
+void Placement::Module::route(Router::Router&, const std::string&) runtime : 2.96e-07(s)
+Checking SHORT for module : gnd2
+void Placement::Module::route(Router::Router&, const std::string&) runtime : 2.83e-07(s)
+Checking SHORT for module : input
+void Placement::Module::route(Router::Router&, const std::string&) runtime : 3.33e-07(s)
+ routing : lna; num nets : 12; use pin width : 0
+setting module name : lna
+net : net1
+routing net : net1 28140
+ports dist : source_ind/P1_port_0 cas_mos/SS_port_0 0.40968
+ports to route order : source_ind/P1_port_0 cas_mos/SS_port_0
+flushing nodes
+routing ports : source_ind/P1_port_0 cas_mos/SS_port_0
+after updatendr layer : 0 width : 60 60
+after updatendr layer : 1 width : 14 14
+after updatendr layer : 2 width : 100 100
+after updatendr layer : 3 width : 100 100
+after updatendr layer : 4 width : 100 100
+after updatendr layer : 5 width : 100 100
+after updatendr layer : 6 width : 100 100
+after updatendr layer : 7 width : 100 100
+after updatendr layer : 8 width : 100 100
+after updatendr layer : 9 width : 400 400
+after updatendr layer : 10 width : 2000 2000
+after updatendr layer : 11 width : 60 60
+after updatendr layer : 12 width : 95 95
+after updatendr layer : 13 width : 110 110
+after updatendr layer : 14 width : 110 110
+after updatendr layer : 15 width : 110 110
+after updatendr layer : 16 width : 110 110
+after updatendr layer : 17 width : 110 110
+after updatendr layer : 18 width : 110 110
+after updatendr layer : 19 width : 350 350
+after updatendr layer : 20 width : 350 350
+layer : 0 width : 60 60
+layer : 1 width : 14 14
+layer : 2 width : 100 100
+layer : 3 width : 100 100
+layer : 4 width : 100 100
+layer : 5 width : 100 100
+layer : 6 width : 100 100
+layer : 7 width : 100 100
+layer : 8 width : 100 100
+layer : 9 width : 400 400
+layer : 10 width : 2000 2000
+layer : 11 width : 60 60
+layer : 12 width : 95 95
+layer : 13 width : 110 110
+layer : 14 width : 110 110
+layer : 15 width : 110 110
+layer : 16 width : 110 110
+layer : 17 width : 110 110
+layer : 18 width : 110 110
+layer : 19 width : 350 350
+layer : 20 width : 350 350
+via : l: 2 u: 3 c: 13 center: (0,0) lb: [(-105,-105),(105,105)] ub: [(-105,-105),(105,105)] cut: [(-55,-55),(55,55)] bbox: [(-105,-105),(105,105)]
+via : l: 3 u: 4 c: 14 center: (0,0) lb: [(-105,-105),(105,105)] ub: [(-105,-105),(105,105)] cut: [(-55,-55),(55,55)] bbox: [(-105,-105),(105,105)]
+via : l: 4 u: 5 c: 15 center: (0,0) lb: [(-215,-215),(215,215)] ub: [(-215,-215),(215,215)] cut: [(-165,-165),(165,165)] bbox: [(-215,-215),(215,215)]
+via : l: 5 u: 6 c: 16 center: (0,0) lb: [(-215,-215),(215,215)] ub: [(-215,-215),(215,215)] cut: [(-165,-165),(165,165)] bbox: [(-215,-215),(215,215)]
+via : l: 6 u: 7 c: 17 center: (0,0) lb: [(-225,-225),(225,225)] ub: [(-225,-225),(225,225)] cut: [(-165,-165),(165,165)] bbox: [(-225,-225),(225,225)]
+via : l: 7 u: 8 c: 18 center: (0,0) lb: [(-545,-215),(545,215)] ub: [(-545,-215),(545,215)] cut: [(-495,-165),(495,165)] bbox: [(-545,-215),(545,215)]
+via : l: 8 u: 9 c: 19 center: (0,0) lb: [(-570,-570),(570,570)] ub: [(-570,-570),(570,570)] cut: [(-500,-500),(500,500)] bbox: [(-570,-570),(570,570)]
+via : l: 9 u: 10 c: 20 center: (0,0) lb: [(-680,-680),(680,680)] ub: [(-680,-680),(680,680)] cut: [(-610,-610),(610,610)] bbox: [(-680,-680),(680,680)]
+routing : net1__source_ind/P1_port_0__cas_mos/SS_port_0
+num src : 31 tgt : 34
+sol found with 4 expansions!
+	expanded : 0 0
+	expanded : 1 0
+	expanded : 2 0
+	expanded : 3 0
+	expanded : 4 0
+	expanded : 5 0
+	expanded : 6 0
+	expanded : 7 0
+	expanded : 8 0
+	expanded : 9 2
+	expanded : 10 2
+flushing nodes
+Geom::LayerRects Router::Router::findSol() runtime : 0.0319833(s)
+Adding routes to source_ind/P1_port_0 5
+Adding routes to cas_mos/SS_port_0 5
+net : net12
+routing net : net12 36190
+ports dist : gate_ind/P2_port_0 cas_mos/GG_port_0 0.668417
+ports dist : gate_ind/P2_port_0 xR3/MINUS_port_0 0.871943
+ports dist : cas_mos/GG_port_0 xR3/MINUS_port_0 0.273987
+ports to route order : cas_mos/GG_port_0 xR3/MINUS_port_0
+ports to route order : cas_mos/GG_port_0 gate_ind/P2_port_0
+flushing nodes
+routing ports : cas_mos/GG_port_0 xR3/MINUS_port_0
+pref layer pin found for cas_mos/GG_port_0
+pref layer pin not found for xR3/MINUS_port_0
+layer cost (0) : 1e+07 1e+07
+layer cost (1) : 1e+07 1e+07
+layer cost (2) : 1e+07 1e+07
+layer cost (3) : 1e+07 1e+07
+layer cost (4) : 1e+07 1e+07
+layer cost (5) : 1e+07 1e+07
+layer cost (6) : 1e+07 1e+07
+layer cost (7) : 1e+07 1e+07
+layer cost (8) : 1e+07 1e+07
+layer cost (9) : 1 1
+layer cost (10) : 1 1
+layer cost (11) : 1e+07 1e+07
+after updatendr layer : 0 width : 60 60 ndr widthx : 60 ndr widthy : 60
+after updatendr layer : 1 width : 14 14 ndr widthx : 14 ndr widthy : 14
+after updatendr layer : 2 width : 100 100 ndr widthx : 100 ndr widthy : 100
+after updatendr layer : 3 width : 100 100 ndr widthx : 100 ndr widthy : 100
+after updatendr layer : 4 width : 100 100 ndr widthx : 100 ndr widthy : 100
+after updatendr layer : 5 width : 100 100 ndr widthx : 100 ndr widthy : 100
+after updatendr layer : 6 width : 100 100 ndr widthx : 100 ndr widthy : 100
+after updatendr layer : 7 width : 100 100 ndr widthx : 100 ndr widthy : 100
+after updatendr layer : 8 width : 100 100 ndr widthx : 100 ndr widthy : 100
+after updatendr layer : 9 width : 400 400 ndr widthx : 1500 ndr widthy : 1500
+after updatendr layer : 10 width : 2000 2000 ndr widthx : 1500 ndr widthy : 1500
+after updatendr layer : 11 width : 60 60 ndr widthx : 60 ndr widthy : 60
+after updatendr layer : 12 width : 95 95 ndr widthx : 95 ndr widthy : 95
+after updatendr layer : 13 width : 110 110 ndr widthx : 110 ndr widthy : 110
+after updatendr layer : 14 width : 110 110 ndr widthx : 110 ndr widthy : 110
+after updatendr layer : 15 width : 110 110 ndr widthx : 110 ndr widthy : 110
+after updatendr layer : 16 width : 110 110 ndr widthx : 110 ndr widthy : 110
+after updatendr layer : 17 width : 110 110 ndr widthx : 110 ndr widthy : 110
+after updatendr layer : 18 width : 110 110 ndr widthx : 110 ndr widthy : 110
+after updatendr layer : 19 width : 350 350 ndr widthx : 350 ndr widthy : 350
+after updatendr layer : 20 width : 350 350 ndr widthx : 350 ndr widthy : 350
+layer : 0 width : 60 60 ndr widthx : 60 ndr widthy : 60
+layer : 1 width : 14 14 ndr widthx : 14 ndr widthy : 14
+layer : 2 width : 100 100 ndr widthx : 100 ndr widthy : 100
+layer : 3 width : 100 100 ndr widthx : 100 ndr widthy : 100
+layer : 4 width : 100 100 ndr widthx : 100 ndr widthy : 100
+layer : 5 width : 100 100 ndr widthx : 100 ndr widthy : 100
+layer : 6 width : 100 100 ndr widthx : 100 ndr widthy : 100
+layer : 7 width : 100 100 ndr widthx : 100 ndr widthy : 100
+layer : 8 width : 100 100 ndr widthx : 100 ndr widthy : 100
+layer : 9 width : 400 400 ndr widthx : 1500 ndr widthy : 1500
+layer : 10 width : 2000 2000 ndr widthx : 1500 ndr widthy : 1500
+layer : 11 width : 60 60 ndr widthx : 60 ndr widthy : 60
+layer : 12 width : 95 95 ndr widthx : 95 ndr widthy : 95
+layer : 13 width : 110 110 ndr widthx : 110 ndr widthy : 110
+layer : 14 width : 110 110 ndr widthx : 110 ndr widthy : 110
+layer : 15 width : 110 110 ndr widthx : 110 ndr widthy : 110
+layer : 16 width : 110 110 ndr widthx : 110 ndr widthy : 110
+layer : 17 width : 110 110 ndr widthx : 110 ndr widthy : 110
+layer : 18 width : 110 110 ndr widthx : 110 ndr widthy : 110
+layer : 19 width : 350 350 ndr widthx : 350 ndr widthy : 350
+layer : 20 width : 350 350 ndr widthx : 350 ndr widthy : 350
+via : l: 2 u: 3 c: 13 center: (0,0) lb: [(-105,-105),(105,105)] ub: [(-105,-105),(105,105)] cut: [(-55,-55),(55,55)] bbox: [(-105,-105),(105,105)]
+via : l: 3 u: 4 c: 14 center: (0,0) lb: [(-105,-105),(105,105)] ub: [(-105,-105),(105,105)] cut: [(-55,-55),(55,55)] bbox: [(-105,-105),(105,105)]
+via : l: 4 u: 5 c: 15 center: (0,0) lb: [(-215,-215),(215,215)] ub: [(-215,-215),(215,215)] cut: [(-165,-165),(165,165)] bbox: [(-215,-215),(215,215)]
+via : l: 5 u: 6 c: 16 center: (0,0) lb: [(-215,-215),(215,215)] ub: [(-215,-215),(215,215)] cut: [(-165,-165),(165,165)] bbox: [(-215,-215),(215,215)]
+via : l: 6 u: 7 c: 17 center: (0,0) lb: [(-225,-225),(225,225)] ub: [(-225,-225),(225,225)] cut: [(-165,-165),(165,165)] bbox: [(-225,-225),(225,225)]
+via : l: 7 u: 8 c: 18 center: (0,0) lb: [(-545,-215),(545,215)] ub: [(-545,-215),(545,215)] cut: [(-495,-165),(495,165)] bbox: [(-545,-215),(545,215)]
+via : l: 8 u: 9 c: 19 center: (0,0) lb: [(-570,-570),(570,570)] ub: [(-570,-570),(570,570)] cut: [(-500,-500),(500,500)] bbox: [(-570,-570),(570,570)]
+via : l: 9 u: 10 c: 20 center: (0,0) lb: [(-680,-680),(680,680)] ub: [(-680,-680),(680,680)] cut: [(-610,-610),(610,610)] bbox: [(-680,-680),(680,680)]
+routing : net12__cas_mos/GG_port_0__xR3/MINUS_port_0
+num src : 10 tgt : 69
+sol found with 9 expansions!
+	expanded : 0 0
+	expanded : 1 0
+	expanded : 2 0
+	expanded : 3 1
+	expanded : 4 1
+	expanded : 5 1
+	expanded : 6 1
+	expanded : 7 1
+	expanded : 8 1
+	expanded : 9 2
+	expanded : 10 1
+flushing nodes
+Geom::LayerRects Router::Router::findSol() runtime : 0.0274505(s)
+Adding routes to cas_mos/GG_port_0 17
+Adding routes to xR3/MINUS_port_0 17
+flushing nodes
+routing ports : cas_mos/GG_port_0 gate_ind/P2_port_0
+pref layer pin found for cas_mos/GG_port_0
+pref layer pin found for gate_ind/P2_port_0
+layer cost (0) : 1e+07 1e+07
+layer cost (1) : 1e+07 1e+07
+layer cost (2) : 1e+07 1e+07
+layer cost (3) : 1e+07 1e+07
+layer cost (4) : 1e+07 1e+07
+layer cost (5) : 1e+07 1e+07
+layer cost (6) : 1e+07 1e+07
+layer cost (7) : 1e+07 1e+07
+layer cost (8) : 1e+07 1e+07
+layer cost (9) : 1 1
+layer cost (10) : 1 1
+layer cost (11) : 1e+07 1e+07
+after updatendr layer : 0 width : 60 60 ndr widthx : 60 ndr widthy : 60
+after updatendr layer : 1 width : 14 14 ndr widthx : 14 ndr widthy : 14
+after updatendr layer : 2 width : 100 100 ndr widthx : 100 ndr widthy : 100
+after updatendr layer : 3 width : 100 100 ndr widthx : 100 ndr widthy : 100
+after updatendr layer : 4 width : 100 100 ndr widthx : 100 ndr widthy : 100
+after updatendr layer : 5 width : 100 100 ndr widthx : 100 ndr widthy : 100
+after updatendr layer : 6 width : 100 100 ndr widthx : 100 ndr widthy : 100
+after updatendr layer : 7 width : 100 100 ndr widthx : 100 ndr widthy : 100
+after updatendr layer : 8 width : 100 100 ndr widthx : 100 ndr widthy : 100
+after updatendr layer : 9 width : 400 400 ndr widthx : 1500 ndr widthy : 1500
+after updatendr layer : 10 width : 2000 2000 ndr widthx : 1500 ndr widthy : 1500
+after updatendr layer : 11 width : 60 60 ndr widthx : 60 ndr widthy : 60
+after updatendr layer : 12 width : 95 95 ndr widthx : 95 ndr widthy : 95
+after updatendr layer : 13 width : 110 110 ndr widthx : 110 ndr widthy : 110
+after updatendr layer : 14 width : 110 110 ndr widthx : 110 ndr widthy : 110
+after updatendr layer : 15 width : 110 110 ndr widthx : 110 ndr widthy : 110
+after updatendr layer : 16 width : 110 110 ndr widthx : 110 ndr widthy : 110
+after updatendr layer : 17 width : 110 110 ndr widthx : 110 ndr widthy : 110
+after updatendr layer : 18 width : 110 110 ndr widthx : 110 ndr widthy : 110
+after updatendr layer : 19 width : 350 350 ndr widthx : 350 ndr widthy : 350
+after updatendr layer : 20 width : 350 350 ndr widthx : 350 ndr widthy : 350
+layer : 0 width : 60 60 ndr widthx : 60 ndr widthy : 60
+layer : 1 width : 14 14 ndr widthx : 14 ndr widthy : 14
+layer : 2 width : 100 100 ndr widthx : 100 ndr widthy : 100
+layer : 3 width : 100 100 ndr widthx : 100 ndr widthy : 100
+layer : 4 width : 100 100 ndr widthx : 100 ndr widthy : 100
+layer : 5 width : 100 100 ndr widthx : 100 ndr widthy : 100
+layer : 6 width : 100 100 ndr widthx : 100 ndr widthy : 100
+layer : 7 width : 100 100 ndr widthx : 100 ndr widthy : 100
+layer : 8 width : 100 100 ndr widthx : 100 ndr widthy : 100
+layer : 9 width : 400 400 ndr widthx : 1500 ndr widthy : 1500
+layer : 10 width : 2000 2000 ndr widthx : 1500 ndr widthy : 1500
+layer : 11 width : 60 60 ndr widthx : 60 ndr widthy : 60
+layer : 12 width : 95 95 ndr widthx : 95 ndr widthy : 95
+layer : 13 width : 110 110 ndr widthx : 110 ndr widthy : 110
+layer : 14 width : 110 110 ndr widthx : 110 ndr widthy : 110
+layer : 15 width : 110 110 ndr widthx : 110 ndr widthy : 110
+layer : 16 width : 110 110 ndr widthx : 110 ndr widthy : 110
+layer : 17 width : 110 110 ndr widthx : 110 ndr widthy : 110
+layer : 18 width : 110 110 ndr widthx : 110 ndr widthy : 110
+layer : 19 width : 350 350 ndr widthx : 350 ndr widthy : 350
+layer : 20 width : 350 350 ndr widthx : 350 ndr widthy : 350
+via : l: 2 u: 3 c: 13 center: (0,0) lb: [(-105,-105),(105,105)] ub: [(-105,-105),(105,105)] cut: [(-55,-55),(55,55)] bbox: [(-105,-105),(105,105)]
+via : l: 3 u: 4 c: 14 center: (0,0) lb: [(-105,-105),(105,105)] ub: [(-105,-105),(105,105)] cut: [(-55,-55),(55,55)] bbox: [(-105,-105),(105,105)]
+via : l: 4 u: 5 c: 15 center: (0,0) lb: [(-215,-215),(215,215)] ub: [(-215,-215),(215,215)] cut: [(-165,-165),(165,165)] bbox: [(-215,-215),(215,215)]
+via : l: 5 u: 6 c: 16 center: (0,0) lb: [(-215,-215),(215,215)] ub: [(-215,-215),(215,215)] cut: [(-165,-165),(165,165)] bbox: [(-215,-215),(215,215)]
+via : l: 6 u: 7 c: 17 center: (0,0) lb: [(-225,-225),(225,225)] ub: [(-225,-225),(225,225)] cut: [(-165,-165),(165,165)] bbox: [(-225,-225),(225,225)]
+via : l: 7 u: 8 c: 18 center: (0,0) lb: [(-545,-215),(545,215)] ub: [(-545,-215),(545,215)] cut: [(-495,-165),(495,165)] bbox: [(-545,-215),(545,215)]
+via : l: 8 u: 9 c: 19 center: (0,0) lb: [(-570,-570),(570,570)] ub: [(-570,-570),(570,570)] cut: [(-500,-500),(500,500)] bbox: [(-570,-570),(570,570)]
+via : l: 9 u: 10 c: 20 center: (0,0) lb: [(-680,-680),(680,680)] ub: [(-680,-680),(680,680)] cut: [(-610,-610),(610,610)] bbox: [(-680,-680),(680,680)]
+routing : net12__cas_mos/GG_port_0__gate_ind/P2_port_0
+num src : 17 tgt : 17
+sol found with 1 expansions!
+	expanded : 0 0
+	expanded : 1 0
+	expanded : 2 0
+	expanded : 3 0
+	expanded : 4 0
+	expanded : 5 0
+	expanded : 6 0
+	expanded : 7 0
+	expanded : 8 0
+	expanded : 9 0
+	expanded : 10 1
+flushing nodes
+Geom::LayerRects Router::Router::findSol() runtime : 0.00378282(s)
+Adding routes to cas_mos/GG_port_0 1
+Adding routes to gate_ind/P2_port_0 1
+net : net5
+routing net : net5 17430
+ports dist : xc1/MINUS_port_0 drain_ind/P1_port_0 0.0931096
+ports dist : xc1/MINUS_port_0 cas_mos/DD_port_0 0.0873723
+ports dist : drain_ind/P1_port_0 cas_mos/DD_port_0 0.199369
+ports to route order : xc1/MINUS_port_0 cas_mos/DD_port_0
+ports to route order : xc1/MINUS_port_0 drain_ind/P1_port_0
+flushing nodes
+routing ports : xc1/MINUS_port_0 cas_mos/DD_port_0
+pref layer pin found for xc1/MINUS_port_0
+pref layer pin found for cas_mos/DD_port_0
+layer cost (0) : 1e+07 1e+07
+layer cost (1) : 1e+07 1e+07
+layer cost (2) : 1e+07 1e+07
+layer cost (3) : 1e+07 1e+07
+layer cost (4) : 1e+07 1e+07
+layer cost (5) : 1e+07 1e+07
+layer cost (6) : 1e+07 1e+07
+layer cost (7) : 1e+07 1e+07
+layer cost (8) : 1e+07 1e+07
+layer cost (9) : 1 1
+layer cost (10) : 1 1
+layer cost (11) : 1e+07 1e+07
+after updatendr layer : 0 width : 60 60
+after updatendr layer : 1 width : 14 14
+after updatendr layer : 2 width : 100 100
+after updatendr layer : 3 width : 100 100
+after updatendr layer : 4 width : 100 100
+after updatendr layer : 5 width : 100 100
+after updatendr layer : 6 width : 100 100
+after updatendr layer : 7 width : 100 100
+after updatendr layer : 8 width : 100 100
+after updatendr layer : 9 width : 400 400
+after updatendr layer : 10 width : 2000 2000
+after updatendr layer : 11 width : 60 60
+after updatendr layer : 12 width : 95 95
+after updatendr layer : 13 width : 110 110
+after updatendr layer : 14 width : 110 110
+after updatendr layer : 15 width : 110 110
+after updatendr layer : 16 width : 110 110
+after updatendr layer : 17 width : 110 110
+after updatendr layer : 18 width : 110 110
+after updatendr layer : 19 width : 350 350
+after updatendr layer : 20 width : 350 350
+layer : 0 width : 60 60
+layer : 1 width : 14 14
+layer : 2 width : 100 100
+layer : 3 width : 100 100
+layer : 4 width : 100 100
+layer : 5 width : 100 100
+layer : 6 width : 100 100
+layer : 7 width : 100 100
+layer : 8 width : 100 100
+layer : 9 width : 400 400
+layer : 10 width : 2000 2000
+layer : 11 width : 60 60
+layer : 12 width : 95 95
+layer : 13 width : 110 110
+layer : 14 width : 110 110
+layer : 15 width : 110 110
+layer : 16 width : 110 110
+layer : 17 width : 110 110
+layer : 18 width : 110 110
+layer : 19 width : 350 350
+layer : 20 width : 350 350
+via : l: 2 u: 3 c: 13 center: (0,0) lb: [(-105,-105),(105,105)] ub: [(-105,-105),(105,105)] cut: [(-55,-55),(55,55)] bbox: [(-105,-105),(105,105)]
+via : l: 3 u: 4 c: 14 center: (0,0) lb: [(-105,-105),(105,105)] ub: [(-105,-105),(105,105)] cut: [(-55,-55),(55,55)] bbox: [(-105,-105),(105,105)]
+via : l: 4 u: 5 c: 15 center: (0,0) lb: [(-215,-215),(215,215)] ub: [(-215,-215),(215,215)] cut: [(-165,-165),(165,165)] bbox: [(-215,-215),(215,215)]
+via : l: 5 u: 6 c: 16 center: (0,0) lb: [(-215,-215),(215,215)] ub: [(-215,-215),(215,215)] cut: [(-165,-165),(165,165)] bbox: [(-215,-215),(215,215)]
+via : l: 6 u: 7 c: 17 center: (0,0) lb: [(-225,-225),(225,225)] ub: [(-225,-225),(225,225)] cut: [(-165,-165),(165,165)] bbox: [(-225,-225),(225,225)]
+via : l: 7 u: 8 c: 18 center: (0,0) lb: [(-545,-215),(545,215)] ub: [(-545,-215),(545,215)] cut: [(-495,-165),(495,165)] bbox: [(-545,-215),(545,215)]
+via : l: 8 u: 9 c: 19 center: (0,0) lb: [(-570,-570),(570,570)] ub: [(-570,-570),(570,570)] cut: [(-500,-500),(500,500)] bbox: [(-570,-570),(570,570)]
+via : l: 9 u: 10 c: 20 center: (0,0) lb: [(-680,-680),(680,680)] ub: [(-680,-680),(680,680)] cut: [(-610,-610),(610,610)] bbox: [(-680,-680),(680,680)]
+routing : net5__xc1/MINUS_port_0__cas_mos/DD_port_0
+num src : 5 tgt : 103
+sol found with 2 expansions!
+	expanded : 0 0
+	expanded : 1 0
+	expanded : 2 0
+	expanded : 3 0
+	expanded : 4 0
+	expanded : 5 0
+	expanded : 6 0
+	expanded : 7 0
+	expanded : 8 0
+	expanded : 9 1
+	expanded : 10 1
+flushing nodes
+Geom::LayerRects Router::Router::findSol() runtime : 0.00554534(s)
+Adding routes to xc1/MINUS_port_0 3
+Adding routes to cas_mos/DD_port_0 3
+flushing nodes
+routing ports : xc1/MINUS_port_0 drain_ind/P1_port_0
+pref layer pin found for xc1/MINUS_port_0
+pref layer pin found for drain_ind/P1_port_0
+layer cost (0) : 1e+07 1e+07
+layer cost (1) : 1e+07 1e+07
+layer cost (2) : 1e+07 1e+07
+layer cost (3) : 1e+07 1e+07
+layer cost (4) : 1e+07 1e+07
+layer cost (5) : 1e+07 1e+07
+layer cost (6) : 1e+07 1e+07
+layer cost (7) : 1e+07 1e+07
+layer cost (8) : 1e+07 1e+07
+layer cost (9) : 1 1
+layer cost (10) : 1 1
+layer cost (11) : 1e+07 1e+07
+after updatendr layer : 0 width : 60 60
+after updatendr layer : 1 width : 14 14
+after updatendr layer : 2 width : 100 100
+after updatendr layer : 3 width : 100 100
+after updatendr layer : 4 width : 100 100
+after updatendr layer : 5 width : 100 100
+after updatendr layer : 6 width : 100 100
+after updatendr layer : 7 width : 100 100
+after updatendr layer : 8 width : 100 100
+after updatendr layer : 9 width : 400 400
+after updatendr layer : 10 width : 2000 2000
+after updatendr layer : 11 width : 60 60
+after updatendr layer : 12 width : 95 95
+after updatendr layer : 13 width : 110 110
+after updatendr layer : 14 width : 110 110
+after updatendr layer : 15 width : 110 110
+after updatendr layer : 16 width : 110 110
+after updatendr layer : 17 width : 110 110
+after updatendr layer : 18 width : 110 110
+after updatendr layer : 19 width : 350 350
+after updatendr layer : 20 width : 350 350
+layer : 0 width : 60 60
+layer : 1 width : 14 14
+layer : 2 width : 100 100
+layer : 3 width : 100 100
+layer : 4 width : 100 100
+layer : 5 width : 100 100
+layer : 6 width : 100 100
+layer : 7 width : 100 100
+layer : 8 width : 100 100
+layer : 9 width : 400 400
+layer : 10 width : 2000 2000
+layer : 11 width : 60 60
+layer : 12 width : 95 95
+layer : 13 width : 110 110
+layer : 14 width : 110 110
+layer : 15 width : 110 110
+layer : 16 width : 110 110
+layer : 17 width : 110 110
+layer : 18 width : 110 110
+layer : 19 width : 350 350
+layer : 20 width : 350 350
+via : l: 2 u: 3 c: 13 center: (0,0) lb: [(-105,-105),(105,105)] ub: [(-105,-105),(105,105)] cut: [(-55,-55),(55,55)] bbox: [(-105,-105),(105,105)]
+via : l: 3 u: 4 c: 14 center: (0,0) lb: [(-105,-105),(105,105)] ub: [(-105,-105),(105,105)] cut: [(-55,-55),(55,55)] bbox: [(-105,-105),(105,105)]
+via : l: 4 u: 5 c: 15 center: (0,0) lb: [(-215,-215),(215,215)] ub: [(-215,-215),(215,215)] cut: [(-165,-165),(165,165)] bbox: [(-215,-215),(215,215)]
+via : l: 5 u: 6 c: 16 center: (0,0) lb: [(-215,-215),(215,215)] ub: [(-215,-215),(215,215)] cut: [(-165,-165),(165,165)] bbox: [(-215,-215),(215,215)]
+via : l: 6 u: 7 c: 17 center: (0,0) lb: [(-225,-225),(225,225)] ub: [(-225,-225),(225,225)] cut: [(-165,-165),(165,165)] bbox: [(-225,-225),(225,225)]
+via : l: 7 u: 8 c: 18 center: (0,0) lb: [(-545,-215),(545,215)] ub: [(-545,-215),(545,215)] cut: [(-495,-165),(495,165)] bbox: [(-545,-215),(545,215)]
+via : l: 8 u: 9 c: 19 center: (0,0) lb: [(-570,-570),(570,570)] ub: [(-570,-570),(570,570)] cut: [(-500,-500),(500,500)] bbox: [(-570,-570),(570,570)]
+via : l: 9 u: 10 c: 20 center: (0,0) lb: [(-680,-680),(680,680)] ub: [(-680,-680),(680,680)] cut: [(-610,-610),(610,610)] bbox: [(-680,-680),(680,680)]
+routing : net5__xc1/MINUS_port_0__drain_ind/P1_port_0
+num src : 5 tgt : 141
+sol found with 4 expansions!
+	expanded : 0 0
+	expanded : 1 0
+	expanded : 2 0
+	expanded : 3 0
+	expanded : 4 0
+	expanded : 5 0
+	expanded : 6 0
+	expanded : 7 0
+	expanded : 8 0
+	expanded : 9 1
+	expanded : 10 3
+flushing nodes
+Geom::LayerRects Router::Router::findSol() runtime : 0.00887943(s)
+Adding routes to xc1/MINUS_port_0 3
+Adding routes to drain_ind/P1_port_0 3
+net : net4
+routing net : net4 31554
+ports dist : xc3/MINUS_port_0 xR0/MINUS_port_0 0.539562
+ports dist : xc3/MINUS_port_0 xR2/MINUS_port_0 0.248632
+ports dist : xc3/MINUS_port_0 cas_mos/G2_port_0 0.597297
+ports dist : xR0/MINUS_port_0 xR2/MINUS_port_0 0.147683
+ports dist : xR0/MINUS_port_0 cas_mos/G2_port_0 0.373906
+ports dist : xR2/MINUS_port_0 cas_mos/G2_port_0 0.640275
+ports to route order : xR0/MINUS_port_0 xR2/MINUS_port_0
+ports to route order : xR2/MINUS_port_0 xc3/MINUS_port_0
+ports to route order : xR0/MINUS_port_0 cas_mos/G2_port_0
+flushing nodes
+routing ports : xR0/MINUS_port_0 xR2/MINUS_port_0
+after updatendr layer : 0 width : 60 60
+after updatendr layer : 1 width : 14 14
+after updatendr layer : 2 width : 100 100
+after updatendr layer : 3 width : 100 100
+after updatendr layer : 4 width : 100 100
+after updatendr layer : 5 width : 100 100
+after updatendr layer : 6 width : 100 100
+after updatendr layer : 7 width : 100 100
+after updatendr layer : 8 width : 100 100
+after updatendr layer : 9 width : 400 400
+after updatendr layer : 10 width : 2000 2000
+after updatendr layer : 11 width : 60 60
+after updatendr layer : 12 width : 95 95
+after updatendr layer : 13 width : 110 110
+after updatendr layer : 14 width : 110 110
+after updatendr layer : 15 width : 110 110
+after updatendr layer : 16 width : 110 110
+after updatendr layer : 17 width : 110 110
+after updatendr layer : 18 width : 110 110
+after updatendr layer : 19 width : 350 350
+after updatendr layer : 20 width : 350 350
+layer : 0 width : 60 60
+layer : 1 width : 14 14
+layer : 2 width : 100 100
+layer : 3 width : 100 100
+layer : 4 width : 100 100
+layer : 5 width : 100 100
+layer : 6 width : 100 100
+layer : 7 width : 100 100
+layer : 8 width : 100 100
+layer : 9 width : 400 400
+layer : 10 width : 2000 2000
+layer : 11 width : 60 60
+layer : 12 width : 95 95
+layer : 13 width : 110 110
+layer : 14 width : 110 110
+layer : 15 width : 110 110
+layer : 16 width : 110 110
+layer : 17 width : 110 110
+layer : 18 width : 110 110
+layer : 19 width : 350 350
+layer : 20 width : 350 350
+via : l: 2 u: 3 c: 13 center: (0,0) lb: [(-105,-105),(105,105)] ub: [(-105,-105),(105,105)] cut: [(-55,-55),(55,55)] bbox: [(-105,-105),(105,105)]
+via : l: 3 u: 4 c: 14 center: (0,0) lb: [(-105,-105),(105,105)] ub: [(-105,-105),(105,105)] cut: [(-55,-55),(55,55)] bbox: [(-105,-105),(105,105)]
+via : l: 4 u: 5 c: 15 center: (0,0) lb: [(-215,-215),(215,215)] ub: [(-215,-215),(215,215)] cut: [(-165,-165),(165,165)] bbox: [(-215,-215),(215,215)]
+via : l: 5 u: 6 c: 16 center: (0,0) lb: [(-215,-215),(215,215)] ub: [(-215,-215),(215,215)] cut: [(-165,-165),(165,165)] bbox: [(-215,-215),(215,215)]
+via : l: 6 u: 7 c: 17 center: (0,0) lb: [(-225,-225),(225,225)] ub: [(-225,-225),(225,225)] cut: [(-165,-165),(165,165)] bbox: [(-225,-225),(225,225)]
+via : l: 7 u: 8 c: 18 center: (0,0) lb: [(-545,-215),(545,215)] ub: [(-545,-215),(545,215)] cut: [(-495,-165),(495,165)] bbox: [(-545,-215),(545,215)]
+via : l: 8 u: 9 c: 19 center: (0,0) lb: [(-570,-570),(570,570)] ub: [(-570,-570),(570,570)] cut: [(-500,-500),(500,500)] bbox: [(-570,-570),(570,570)]
+via : l: 9 u: 10 c: 20 center: (0,0) lb: [(-680,-680),(680,680)] ub: [(-680,-680),(680,680)] cut: [(-610,-610),(610,610)] bbox: [(-680,-680),(680,680)]
+routing : net4__xR0/MINUS_port_0__xR2/MINUS_port_0
+num src : 80 tgt : 134
+sol found with 1 expansions!
+	expanded : 0 0
+	expanded : 1 0
+	expanded : 2 1
+	expanded : 3 0
+	expanded : 4 0
+	expanded : 5 0
+	expanded : 6 0
+	expanded : 7 0
+	expanded : 8 0
+	expanded : 9 0
+	expanded : 10 0
+flushing nodes
+Geom::LayerRects Router::Router::findSol() runtime : 0.0195069(s)
+Adding routes to xR0/MINUS_port_0 1
+Adding routes to xR2/MINUS_port_0 1
+flushing nodes
+routing ports : xR2/MINUS_port_0 xc3/MINUS_port_0
+after updatendr layer : 0 width : 60 60
+after updatendr layer : 1 width : 14 14
+after updatendr layer : 2 width : 100 100
+after updatendr layer : 3 width : 100 100
+after updatendr layer : 4 width : 100 100
+after updatendr layer : 5 width : 100 100
+after updatendr layer : 6 width : 100 100
+after updatendr layer : 7 width : 100 100
+after updatendr layer : 8 width : 100 100
+after updatendr layer : 9 width : 400 400
+after updatendr layer : 10 width : 2000 2000
+after updatendr layer : 11 width : 60 60
+after updatendr layer : 12 width : 95 95
+after updatendr layer : 13 width : 110 110
+after updatendr layer : 14 width : 110 110
+after updatendr layer : 15 width : 110 110
+after updatendr layer : 16 width : 110 110
+after updatendr layer : 17 width : 110 110
+after updatendr layer : 18 width : 110 110
+after updatendr layer : 19 width : 350 350
+after updatendr layer : 20 width : 350 350
+layer : 0 width : 60 60
+layer : 1 width : 14 14
+layer : 2 width : 100 100
+layer : 3 width : 100 100
+layer : 4 width : 100 100
+layer : 5 width : 100 100
+layer : 6 width : 100 100
+layer : 7 width : 100 100
+layer : 8 width : 100 100
+layer : 9 width : 400 400
+layer : 10 width : 2000 2000
+layer : 11 width : 60 60
+layer : 12 width : 95 95
+layer : 13 width : 110 110
+layer : 14 width : 110 110
+layer : 15 width : 110 110
+layer : 16 width : 110 110
+layer : 17 width : 110 110
+layer : 18 width : 110 110
+layer : 19 width : 350 350
+layer : 20 width : 350 350
+via : l: 2 u: 3 c: 13 center: (0,0) lb: [(-105,-105),(105,105)] ub: [(-105,-105),(105,105)] cut: [(-55,-55),(55,55)] bbox: [(-105,-105),(105,105)]
+via : l: 3 u: 4 c: 14 center: (0,0) lb: [(-105,-105),(105,105)] ub: [(-105,-105),(105,105)] cut: [(-55,-55),(55,55)] bbox: [(-105,-105),(105,105)]
+via : l: 4 u: 5 c: 15 center: (0,0) lb: [(-215,-215),(215,215)] ub: [(-215,-215),(215,215)] cut: [(-165,-165),(165,165)] bbox: [(-215,-215),(215,215)]
+via : l: 5 u: 6 c: 16 center: (0,0) lb: [(-215,-215),(215,215)] ub: [(-215,-215),(215,215)] cut: [(-165,-165),(165,165)] bbox: [(-215,-215),(215,215)]
+via : l: 6 u: 7 c: 17 center: (0,0) lb: [(-225,-225),(225,225)] ub: [(-225,-225),(225,225)] cut: [(-165,-165),(165,165)] bbox: [(-225,-225),(225,225)]
+via : l: 7 u: 8 c: 18 center: (0,0) lb: [(-545,-215),(545,215)] ub: [(-545,-215),(545,215)] cut: [(-495,-165),(495,165)] bbox: [(-545,-215),(545,215)]
+via : l: 8 u: 9 c: 19 center: (0,0) lb: [(-570,-570),(570,570)] ub: [(-570,-570),(570,570)] cut: [(-500,-500),(500,500)] bbox: [(-570,-570),(570,570)]
+via : l: 9 u: 10 c: 20 center: (0,0) lb: [(-680,-680),(680,680)] ub: [(-680,-680),(680,680)] cut: [(-610,-610),(610,610)] bbox: [(-680,-680),(680,680)]
+routing : net4__xR2/MINUS_port_0__xc3/MINUS_port_0
+num src : 136 tgt : 167
+sol found with 9 expansions!
+	expanded : 0 0
+	expanded : 1 0
+	expanded : 2 0
+	expanded : 3 2
+	expanded : 4 1
+	expanded : 5 1
+	expanded : 6 1
+	expanded : 7 1
+	expanded : 8 1
+	expanded : 9 2
+	expanded : 10 0
+flushing nodes
+Geom::LayerRects Router::Router::findSol() runtime : 0.0516916(s)
+Adding routes to xR2/MINUS_port_0 15
+Adding routes to xc3/MINUS_port_0 15
+flushing nodes
+routing ports : xR0/MINUS_port_0 cas_mos/G2_port_0
+after updatendr layer : 0 width : 60 60
+after updatendr layer : 1 width : 14 14
+after updatendr layer : 2 width : 100 100
+after updatendr layer : 3 width : 100 100
+after updatendr layer : 4 width : 100 100
+after updatendr layer : 5 width : 100 100
+after updatendr layer : 6 width : 100 100
+after updatendr layer : 7 width : 100 100
+after updatendr layer : 8 width : 100 100
+after updatendr layer : 9 width : 400 400
+after updatendr layer : 10 width : 2000 2000
+after updatendr layer : 11 width : 60 60
+after updatendr layer : 12 width : 95 95
+after updatendr layer : 13 width : 110 110
+after updatendr layer : 14 width : 110 110
+after updatendr layer : 15 width : 110 110
+after updatendr layer : 16 width : 110 110
+after updatendr layer : 17 width : 110 110
+after updatendr layer : 18 width : 110 110
+after updatendr layer : 19 width : 350 350
+after updatendr layer : 20 width : 350 350
+layer : 0 width : 60 60
+layer : 1 width : 14 14
+layer : 2 width : 100 100
+layer : 3 width : 100 100
+layer : 4 width : 100 100
+layer : 5 width : 100 100
+layer : 6 width : 100 100
+layer : 7 width : 100 100
+layer : 8 width : 100 100
+layer : 9 width : 400 400
+layer : 10 width : 2000 2000
+layer : 11 width : 60 60
+layer : 12 width : 95 95
+layer : 13 width : 110 110
+layer : 14 width : 110 110
+layer : 15 width : 110 110
+layer : 16 width : 110 110
+layer : 17 width : 110 110
+layer : 18 width : 110 110
+layer : 19 width : 350 350
+layer : 20 width : 350 350
+via : l: 2 u: 3 c: 13 center: (0,0) lb: [(-105,-105),(105,105)] ub: [(-105,-105),(105,105)] cut: [(-55,-55),(55,55)] bbox: [(-105,-105),(105,105)]
+via : l: 3 u: 4 c: 14 center: (0,0) lb: [(-105,-105),(105,105)] ub: [(-105,-105),(105,105)] cut: [(-55,-55),(55,55)] bbox: [(-105,-105),(105,105)]
+via : l: 4 u: 5 c: 15 center: (0,0) lb: [(-215,-215),(215,215)] ub: [(-215,-215),(215,215)] cut: [(-165,-165),(165,165)] bbox: [(-215,-215),(215,215)]
+via : l: 5 u: 6 c: 16 center: (0,0) lb: [(-215,-215),(215,215)] ub: [(-215,-215),(215,215)] cut: [(-165,-165),(165,165)] bbox: [(-215,-215),(215,215)]
+via : l: 6 u: 7 c: 17 center: (0,0) lb: [(-225,-225),(225,225)] ub: [(-225,-225),(225,225)] cut: [(-165,-165),(165,165)] bbox: [(-225,-225),(225,225)]
+via : l: 7 u: 8 c: 18 center: (0,0) lb: [(-545,-215),(545,215)] ub: [(-545,-215),(545,215)] cut: [(-495,-165),(495,165)] bbox: [(-545,-215),(545,215)]
+via : l: 8 u: 9 c: 19 center: (0,0) lb: [(-570,-570),(570,570)] ub: [(-570,-570),(570,570)] cut: [(-500,-500),(500,500)] bbox: [(-570,-570),(570,570)]
+via : l: 9 u: 10 c: 20 center: (0,0) lb: [(-680,-680),(680,680)] ub: [(-680,-680),(680,680)] cut: [(-610,-610),(610,610)] bbox: [(-680,-680),(680,680)]
+routing : net4__xR0/MINUS_port_0__cas_mos/G2_port_0
+num src : 78 tgt : 221
+sol found with 4 expansions!
+	expanded : 0 0
+	expanded : 1 0
+	expanded : 2 0
+	expanded : 3 3
+	expanded : 4 1
+	expanded : 5 0
+	expanded : 6 0
+	expanded : 7 0
+	expanded : 8 0
+	expanded : 9 0
+	expanded : 10 0
+flushing nodes
+Geom::LayerRects Router::Router::findSol() runtime : 0.0307839(s)
+Adding routes to xR0/MINUS_port_0 5
+Adding routes to cas_mos/G2_port_0 5
+net : net2
+routing net : net2 23536
+ports dist : xR0/PLUS_port_0 xR3/PLUS_port_0 0.145564
+ports dist : xR0/PLUS_port_0 xR1/MINUS_port_0 0.0947485
+ports dist : xR0/PLUS_port_0 bias_mos/D_port_0 0.366336
+ports dist : xR3/PLUS_port_0 xR1/MINUS_port_0 0.430192
+ports dist : xR3/PLUS_port_0 bias_mos/D_port_0 0.0818355
+ports dist : xR1/MINUS_port_0 bias_mos/D_port_0 0.679856
+ports to route order : xR3/PLUS_port_0 bias_mos/D_port_0
+ports to route order : xR3/PLUS_port_0 xR0/PLUS_port_0
+ports to route order : xR0/PLUS_port_0 xR1/MINUS_port_0
+flushing nodes
+routing ports : xR3/PLUS_port_0 bias_mos/D_port_0
+after updatendr layer : 0 width : 60 60
+after updatendr layer : 1 width : 14 14
+after updatendr layer : 2 width : 100 100
+after updatendr layer : 3 width : 100 100
+after updatendr layer : 4 width : 100 100
+after updatendr layer : 5 width : 100 100
+after updatendr layer : 6 width : 100 100
+after updatendr layer : 7 width : 100 100
+after updatendr layer : 8 width : 100 100
+after updatendr layer : 9 width : 400 400
+after updatendr layer : 10 width : 2000 2000
+after updatendr layer : 11 width : 60 60
+after updatendr layer : 12 width : 95 95
+after updatendr layer : 13 width : 110 110
+after updatendr layer : 14 width : 110 110
+after updatendr layer : 15 width : 110 110
+after updatendr layer : 16 width : 110 110
+after updatendr layer : 17 width : 110 110
+after updatendr layer : 18 width : 110 110
+after updatendr layer : 19 width : 350 350
+after updatendr layer : 20 width : 350 350
+layer : 0 width : 60 60
+layer : 1 width : 14 14
+layer : 2 width : 100 100
+layer : 3 width : 100 100
+layer : 4 width : 100 100
+layer : 5 width : 100 100
+layer : 6 width : 100 100
+layer : 7 width : 100 100
+layer : 8 width : 100 100
+layer : 9 width : 400 400
+layer : 10 width : 2000 2000
+layer : 11 width : 60 60
+layer : 12 width : 95 95
+layer : 13 width : 110 110
+layer : 14 width : 110 110
+layer : 15 width : 110 110
+layer : 16 width : 110 110
+layer : 17 width : 110 110
+layer : 18 width : 110 110
+layer : 19 width : 350 350
+layer : 20 width : 350 350
+via : l: 2 u: 3 c: 13 center: (0,0) lb: [(-105,-105),(105,105)] ub: [(-105,-105),(105,105)] cut: [(-55,-55),(55,55)] bbox: [(-105,-105),(105,105)]
+via : l: 3 u: 4 c: 14 center: (0,0) lb: [(-105,-105),(105,105)] ub: [(-105,-105),(105,105)] cut: [(-55,-55),(55,55)] bbox: [(-105,-105),(105,105)]
+via : l: 4 u: 5 c: 15 center: (0,0) lb: [(-215,-215),(215,215)] ub: [(-215,-215),(215,215)] cut: [(-165,-165),(165,165)] bbox: [(-215,-215),(215,215)]
+via : l: 5 u: 6 c: 16 center: (0,0) lb: [(-215,-215),(215,215)] ub: [(-215,-215),(215,215)] cut: [(-165,-165),(165,165)] bbox: [(-215,-215),(215,215)]
+via : l: 6 u: 7 c: 17 center: (0,0) lb: [(-225,-225),(225,225)] ub: [(-225,-225),(225,225)] cut: [(-165,-165),(165,165)] bbox: [(-225,-225),(225,225)]
+via : l: 7 u: 8 c: 18 center: (0,0) lb: [(-545,-215),(545,215)] ub: [(-545,-215),(545,215)] cut: [(-495,-165),(495,165)] bbox: [(-545,-215),(545,215)]
+via : l: 8 u: 9 c: 19 center: (0,0) lb: [(-570,-570),(570,570)] ub: [(-570,-570),(570,570)] cut: [(-500,-500),(500,500)] bbox: [(-570,-570),(570,570)]
+via : l: 9 u: 10 c: 20 center: (0,0) lb: [(-680,-680),(680,680)] ub: [(-680,-680),(680,680)] cut: [(-610,-610),(610,610)] bbox: [(-680,-680),(680,680)]
+routing : net2__xR3/PLUS_port_0__bias_mos/D_port_0
+num src : 69 tgt : 98
+sol found with 3 expansions!
+	expanded : 0 0
+	expanded : 1 0
+	expanded : 2 2
+	expanded : 3 1
+	expanded : 4 0
+	expanded : 5 0
+	expanded : 6 0
+	expanded : 7 0
+	expanded : 8 0
+	expanded : 9 0
+	expanded : 10 0
+flushing nodes
+Geom::LayerRects Router::Router::findSol() runtime : 0.0176044(s)
+Adding routes to xR3/PLUS_port_0 3
+Adding routes to bias_mos/D_port_0 3
+flushing nodes
+routing ports : xR0/PLUS_port_0 xR1/MINUS_port_0
+after updatendr layer : 0 width : 60 60
+after updatendr layer : 1 width : 14 14
+after updatendr layer : 2 width : 100 100
+after updatendr layer : 3 width : 100 100
+after updatendr layer : 4 width : 100 100
+after updatendr layer : 5 width : 100 100
+after updatendr layer : 6 width : 100 100
+after updatendr layer : 7 width : 100 100
+after updatendr layer : 8 width : 100 100
+after updatendr layer : 9 width : 400 400
+after updatendr layer : 10 width : 2000 2000
+after updatendr layer : 11 width : 60 60
+after updatendr layer : 12 width : 95 95
+after updatendr layer : 13 width : 110 110
+after updatendr layer : 14 width : 110 110
+after updatendr layer : 15 width : 110 110
+after updatendr layer : 16 width : 110 110
+after updatendr layer : 17 width : 110 110
+after updatendr layer : 18 width : 110 110
+after updatendr layer : 19 width : 350 350
+after updatendr layer : 20 width : 350 350
+layer : 0 width : 60 60
+layer : 1 width : 14 14
+layer : 2 width : 100 100
+layer : 3 width : 100 100
+layer : 4 width : 100 100
+layer : 5 width : 100 100
+layer : 6 width : 100 100
+layer : 7 width : 100 100
+layer : 8 width : 100 100
+layer : 9 width : 400 400
+layer : 10 width : 2000 2000
+layer : 11 width : 60 60
+layer : 12 width : 95 95
+layer : 13 width : 110 110
+layer : 14 width : 110 110
+layer : 15 width : 110 110
+layer : 16 width : 110 110
+layer : 17 width : 110 110
+layer : 18 width : 110 110
+layer : 19 width : 350 350
+layer : 20 width : 350 350
+via : l: 2 u: 3 c: 13 center: (0,0) lb: [(-105,-105),(105,105)] ub: [(-105,-105),(105,105)] cut: [(-55,-55),(55,55)] bbox: [(-105,-105),(105,105)]
+via : l: 3 u: 4 c: 14 center: (0,0) lb: [(-105,-105),(105,105)] ub: [(-105,-105),(105,105)] cut: [(-55,-55),(55,55)] bbox: [(-105,-105),(105,105)]
+via : l: 4 u: 5 c: 15 center: (0,0) lb: [(-215,-215),(215,215)] ub: [(-215,-215),(215,215)] cut: [(-165,-165),(165,165)] bbox: [(-215,-215),(215,215)]
+via : l: 5 u: 6 c: 16 center: (0,0) lb: [(-215,-215),(215,215)] ub: [(-215,-215),(215,215)] cut: [(-165,-165),(165,165)] bbox: [(-215,-215),(215,215)]
+via : l: 6 u: 7 c: 17 center: (0,0) lb: [(-225,-225),(225,225)] ub: [(-225,-225),(225,225)] cut: [(-165,-165),(165,165)] bbox: [(-225,-225),(225,225)]
+via : l: 7 u: 8 c: 18 center: (0,0) lb: [(-545,-215),(545,215)] ub: [(-545,-215),(545,215)] cut: [(-495,-165),(495,165)] bbox: [(-545,-215),(545,215)]
+via : l: 8 u: 9 c: 19 center: (0,0) lb: [(-570,-570),(570,570)] ub: [(-570,-570),(570,570)] cut: [(-500,-500),(500,500)] bbox: [(-570,-570),(570,570)]
+via : l: 9 u: 10 c: 20 center: (0,0) lb: [(-680,-680),(680,680)] ub: [(-680,-680),(680,680)] cut: [(-610,-610),(610,610)] bbox: [(-680,-680),(680,680)]
+routing : net2__xR0/PLUS_port_0__xR1/MINUS_port_0
+num src : 69 tgt : 134
+sol found with 9 expansions!
+	expanded : 0 0
+	expanded : 1 0
+	expanded : 2 9
+	expanded : 3 0
+	expanded : 4 0
+	expanded : 5 0
+	expanded : 6 0
+	expanded : 7 0
+	expanded : 8 0
+	expanded : 9 0
+	expanded : 10 0
+flushing nodes
+Geom::LayerRects Router::Router::findSol() runtime : 0.0221058(s)
+Adding routes to xR0/PLUS_port_0 1
+Adding routes to xR1/MINUS_port_0 1
+flushing nodes
+routing ports : xR3/PLUS_port_0 xR0/PLUS_port_0
+after updatendr layer : 0 width : 60 60
+after updatendr layer : 1 width : 14 14
+after updatendr layer : 2 width : 100 100
+after updatendr layer : 3 width : 100 100
+after updatendr layer : 4 width : 100 100
+after updatendr layer : 5 width : 100 100
+after updatendr layer : 6 width : 100 100
+after updatendr layer : 7 width : 100 100
+after updatendr layer : 8 width : 100 100
+after updatendr layer : 9 width : 400 400
+after updatendr layer : 10 width : 2000 2000
+after updatendr layer : 11 width : 60 60
+after updatendr layer : 12 width : 95 95
+after updatendr layer : 13 width : 110 110
+after updatendr layer : 14 width : 110 110
+after updatendr layer : 15 width : 110 110
+after updatendr layer : 16 width : 110 110
+after updatendr layer : 17 width : 110 110
+after updatendr layer : 18 width : 110 110
+after updatendr layer : 19 width : 350 350
+after updatendr layer : 20 width : 350 350
+layer : 0 width : 60 60
+layer : 1 width : 14 14
+layer : 2 width : 100 100
+layer : 3 width : 100 100
+layer : 4 width : 100 100
+layer : 5 width : 100 100
+layer : 6 width : 100 100
+layer : 7 width : 100 100
+layer : 8 width : 100 100
+layer : 9 width : 400 400
+layer : 10 width : 2000 2000
+layer : 11 width : 60 60
+layer : 12 width : 95 95
+layer : 13 width : 110 110
+layer : 14 width : 110 110
+layer : 15 width : 110 110
+layer : 16 width : 110 110
+layer : 17 width : 110 110
+layer : 18 width : 110 110
+layer : 19 width : 350 350
+layer : 20 width : 350 350
+via : l: 2 u: 3 c: 13 center: (0,0) lb: [(-105,-105),(105,105)] ub: [(-105,-105),(105,105)] cut: [(-55,-55),(55,55)] bbox: [(-105,-105),(105,105)]
+via : l: 3 u: 4 c: 14 center: (0,0) lb: [(-105,-105),(105,105)] ub: [(-105,-105),(105,105)] cut: [(-55,-55),(55,55)] bbox: [(-105,-105),(105,105)]
+via : l: 4 u: 5 c: 15 center: (0,0) lb: [(-215,-215),(215,215)] ub: [(-215,-215),(215,215)] cut: [(-165,-165),(165,165)] bbox: [(-215,-215),(215,215)]
+via : l: 5 u: 6 c: 16 center: (0,0) lb: [(-215,-215),(215,215)] ub: [(-215,-215),(215,215)] cut: [(-165,-165),(165,165)] bbox: [(-215,-215),(215,215)]
+via : l: 6 u: 7 c: 17 center: (0,0) lb: [(-225,-225),(225,225)] ub: [(-225,-225),(225,225)] cut: [(-165,-165),(165,165)] bbox: [(-225,-225),(225,225)]
+via : l: 7 u: 8 c: 18 center: (0,0) lb: [(-545,-215),(545,215)] ub: [(-545,-215),(545,215)] cut: [(-495,-165),(495,165)] bbox: [(-545,-215),(545,215)]
+via : l: 8 u: 9 c: 19 center: (0,0) lb: [(-570,-570),(570,570)] ub: [(-570,-570),(570,570)] cut: [(-500,-500),(500,500)] bbox: [(-570,-570),(570,570)]
+via : l: 9 u: 10 c: 20 center: (0,0) lb: [(-680,-680),(680,680)] ub: [(-680,-680),(680,680)] cut: [(-610,-610),(610,610)] bbox: [(-680,-680),(680,680)]
+routing : net2__xR3/PLUS_port_0__xR0/PLUS_port_0
+num src : 134 tgt : 177
+sol found with 7 expansions!
+	expanded : 0 0
+	expanded : 1 0
+	expanded : 2 7
+	expanded : 3 0
+	expanded : 4 0
+	expanded : 5 0
+	expanded : 6 0
+	expanded : 7 0
+	expanded : 8 0
+	expanded : 9 0
+	expanded : 10 0
+flushing nodes
+Geom::LayerRects Router::Router::findSol() runtime : 0.0230507(s)
+Adding routes to xR3/PLUS_port_0 1
+Adding routes to xR0/PLUS_port_0 1
+net : net13
+routing net : net13 8170
+ports dist : xR1/PLUS_port_0 bias_mos/G_port_0 0.236255
+ports to route order : xR1/PLUS_port_0 bias_mos/G_port_0
+flushing nodes
+routing ports : xR1/PLUS_port_0 bias_mos/G_port_0
+after updatendr layer : 0 width : 60 60
+after updatendr layer : 1 width : 14 14
+after updatendr layer : 2 width : 100 100
+after updatendr layer : 3 width : 100 100
+after updatendr layer : 4 width : 100 100
+after updatendr layer : 5 width : 100 100
+after updatendr layer : 6 width : 100 100
+after updatendr layer : 7 width : 100 100
+after updatendr layer : 8 width : 100 100
+after updatendr layer : 9 width : 400 400
+after updatendr layer : 10 width : 2000 2000
+after updatendr layer : 11 width : 60 60
+after updatendr layer : 12 width : 95 95
+after updatendr layer : 13 width : 110 110
+after updatendr layer : 14 width : 110 110
+after updatendr layer : 15 width : 110 110
+after updatendr layer : 16 width : 110 110
+after updatendr layer : 17 width : 110 110
+after updatendr layer : 18 width : 110 110
+after updatendr layer : 19 width : 350 350
+after updatendr layer : 20 width : 350 350
+layer : 0 width : 60 60
+layer : 1 width : 14 14
+layer : 2 width : 100 100
+layer : 3 width : 100 100
+layer : 4 width : 100 100
+layer : 5 width : 100 100
+layer : 6 width : 100 100
+layer : 7 width : 100 100
+layer : 8 width : 100 100
+layer : 9 width : 400 400
+layer : 10 width : 2000 2000
+layer : 11 width : 60 60
+layer : 12 width : 95 95
+layer : 13 width : 110 110
+layer : 14 width : 110 110
+layer : 15 width : 110 110
+layer : 16 width : 110 110
+layer : 17 width : 110 110
+layer : 18 width : 110 110
+layer : 19 width : 350 350
+layer : 20 width : 350 350
+via : l: 2 u: 3 c: 13 center: (0,0) lb: [(-105,-105),(105,105)] ub: [(-105,-105),(105,105)] cut: [(-55,-55),(55,55)] bbox: [(-105,-105),(105,105)]
+via : l: 3 u: 4 c: 14 center: (0,0) lb: [(-105,-105),(105,105)] ub: [(-105,-105),(105,105)] cut: [(-55,-55),(55,55)] bbox: [(-105,-105),(105,105)]
+via : l: 4 u: 5 c: 15 center: (0,0) lb: [(-215,-215),(215,215)] ub: [(-215,-215),(215,215)] cut: [(-165,-165),(165,165)] bbox: [(-215,-215),(215,215)]
+via : l: 5 u: 6 c: 16 center: (0,0) lb: [(-215,-215),(215,215)] ub: [(-215,-215),(215,215)] cut: [(-165,-165),(165,165)] bbox: [(-215,-215),(215,215)]
+via : l: 6 u: 7 c: 17 center: (0,0) lb: [(-225,-225),(225,225)] ub: [(-225,-225),(225,225)] cut: [(-165,-165),(165,165)] bbox: [(-225,-225),(225,225)]
+via : l: 7 u: 8 c: 18 center: (0,0) lb: [(-545,-215),(545,215)] ub: [(-545,-215),(545,215)] cut: [(-495,-165),(495,165)] bbox: [(-545,-215),(545,215)]
+via : l: 8 u: 9 c: 19 center: (0,0) lb: [(-570,-570),(570,570)] ub: [(-570,-570),(570,570)] cut: [(-500,-500),(500,500)] bbox: [(-570,-570),(570,570)]
+via : l: 9 u: 10 c: 20 center: (0,0) lb: [(-680,-680),(680,680)] ub: [(-680,-680),(680,680)] cut: [(-610,-610),(610,610)] bbox: [(-680,-680),(680,680)]
+routing : net13__xR1/PLUS_port_0__bias_mos/G_port_0
+num src : 69 tgt : 102
+sol found with 3 expansions!
+	expanded : 0 0
+	expanded : 1 0
+	expanded : 2 1
+	expanded : 3 2
+	expanded : 4 0
+	expanded : 5 0
+	expanded : 6 0
+	expanded : 7 0
+	expanded : 8 0
+	expanded : 9 0
+	expanded : 10 0
+flushing nodes
+Geom::LayerRects Router::Router::findSol() runtime : 0.0209378(s)
+Adding routes to xR1/PLUS_port_0 5
+Adding routes to bias_mos/G_port_0 5
+net : net010
+routing net : net010 56850
+ports dist : input/PAD_port_0 xc2/PLUS_port_0 0.293852
+ports to route order : input/PAD_port_0 xc2/PLUS_port_0
+flushing nodes
+routing ports : input/PAD_port_0 xc2/PLUS_port_0
+pref layer pin found for input/PAD_port_0
+pref layer pin not found for xc2/PLUS_port_0
+layer cost (0) : 1e+07 1e+07
+layer cost (1) : 1e+07 1e+07
+layer cost (2) : 1e+07 1e+07
+layer cost (3) : 1e+07 1e+07
+layer cost (4) : 1e+07 1e+07
+layer cost (5) : 1e+07 1e+07
+layer cost (6) : 1e+07 1e+07
+layer cost (7) : 1e+07 1e+07
+layer cost (8) : 1e+07 1e+07
+layer cost (9) : 1e+07 1e+07
+layer cost (10) : 1 1
+layer cost (11) : 1e+07 1e+07
+after updatendr layer : 0 width : 60 60 ndr widthx : 60 ndr widthy : 60
+after updatendr layer : 1 width : 14 14 ndr widthx : 14 ndr widthy : 14
+after updatendr layer : 2 width : 100 100 ndr widthx : 100 ndr widthy : 100
+after updatendr layer : 3 width : 100 100 ndr widthx : 100 ndr widthy : 100
+after updatendr layer : 4 width : 100 100 ndr widthx : 100 ndr widthy : 100
+after updatendr layer : 5 width : 100 100 ndr widthx : 100 ndr widthy : 100
+after updatendr layer : 6 width : 100 100 ndr widthx : 100 ndr widthy : 100
+after updatendr layer : 7 width : 100 100 ndr widthx : 100 ndr widthy : 100
+after updatendr layer : 8 width : 100 100 ndr widthx : 100 ndr widthy : 100
+after updatendr layer : 9 width : 400 400 ndr widthx : 400 ndr widthy : 400
+after updatendr layer : 10 width : 2000 2000 ndr widthx : 6000 ndr widthy : 6000
+after updatendr layer : 11 width : 60 60 ndr widthx : 60 ndr widthy : 60
+after updatendr layer : 12 width : 95 95 ndr widthx : 95 ndr widthy : 95
+after updatendr layer : 13 width : 110 110 ndr widthx : 110 ndr widthy : 110
+after updatendr layer : 14 width : 110 110 ndr widthx : 110 ndr widthy : 110
+after updatendr layer : 15 width : 110 110 ndr widthx : 110 ndr widthy : 110
+after updatendr layer : 16 width : 110 110 ndr widthx : 110 ndr widthy : 110
+after updatendr layer : 17 width : 110 110 ndr widthx : 110 ndr widthy : 110
+after updatendr layer : 18 width : 110 110 ndr widthx : 110 ndr widthy : 110
+after updatendr layer : 19 width : 350 350 ndr widthx : 350 ndr widthy : 350
+after updatendr layer : 20 width : 350 350 ndr widthx : 350 ndr widthy : 350
+layer : 0 width : 60 60 ndr widthx : 60 ndr widthy : 60
+layer : 1 width : 14 14 ndr widthx : 14 ndr widthy : 14
+layer : 2 width : 100 100 ndr widthx : 100 ndr widthy : 100
+layer : 3 width : 100 100 ndr widthx : 100 ndr widthy : 100
+layer : 4 width : 100 100 ndr widthx : 100 ndr widthy : 100
+layer : 5 width : 100 100 ndr widthx : 100 ndr widthy : 100
+layer : 6 width : 100 100 ndr widthx : 100 ndr widthy : 100
+layer : 7 width : 100 100 ndr widthx : 100 ndr widthy : 100
+layer : 8 width : 100 100 ndr widthx : 100 ndr widthy : 100
+layer : 9 width : 400 400 ndr widthx : 400 ndr widthy : 400
+layer : 10 width : 2000 2000 ndr widthx : 6000 ndr widthy : 6000
+layer : 11 width : 60 60 ndr widthx : 60 ndr widthy : 60
+layer : 12 width : 95 95 ndr widthx : 95 ndr widthy : 95
+layer : 13 width : 110 110 ndr widthx : 110 ndr widthy : 110
+layer : 14 width : 110 110 ndr widthx : 110 ndr widthy : 110
+layer : 15 width : 110 110 ndr widthx : 110 ndr widthy : 110
+layer : 16 width : 110 110 ndr widthx : 110 ndr widthy : 110
+layer : 17 width : 110 110 ndr widthx : 110 ndr widthy : 110
+layer : 18 width : 110 110 ndr widthx : 110 ndr widthy : 110
+layer : 19 width : 350 350 ndr widthx : 350 ndr widthy : 350
+layer : 20 width : 350 350 ndr widthx : 350 ndr widthy : 350
+via : l: 2 u: 3 c: 13 center: (0,0) lb: [(-105,-105),(105,105)] ub: [(-105,-105),(105,105)] cut: [(-55,-55),(55,55)] bbox: [(-105,-105),(105,105)]
+via : l: 3 u: 4 c: 14 center: (0,0) lb: [(-105,-105),(105,105)] ub: [(-105,-105),(105,105)] cut: [(-55,-55),(55,55)] bbox: [(-105,-105),(105,105)]
+via : l: 4 u: 5 c: 15 center: (0,0) lb: [(-215,-215),(215,215)] ub: [(-215,-215),(215,215)] cut: [(-165,-165),(165,165)] bbox: [(-215,-215),(215,215)]
+via : l: 5 u: 6 c: 16 center: (0,0) lb: [(-215,-215),(215,215)] ub: [(-215,-215),(215,215)] cut: [(-165,-165),(165,165)] bbox: [(-215,-215),(215,215)]
+via : l: 6 u: 7 c: 17 center: (0,0) lb: [(-225,-225),(225,225)] ub: [(-225,-225),(225,225)] cut: [(-165,-165),(165,165)] bbox: [(-225,-225),(225,225)]
+via : l: 7 u: 8 c: 18 center: (0,0) lb: [(-545,-215),(545,215)] ub: [(-545,-215),(545,215)] cut: [(-495,-165),(495,165)] bbox: [(-545,-215),(545,215)]
+via : l: 8 u: 9 c: 19 center: (0,0) lb: [(-570,-570),(570,570)] ub: [(-570,-570),(570,570)] cut: [(-500,-500),(500,500)] bbox: [(-570,-570),(570,570)]
+via : l: 9 u: 10 c: 20 center: (0,0) lb: [(-680,-680),(680,680)] ub: [(-680,-680),(680,680)] cut: [(-610,-610),(610,610)] bbox: [(-680,-680),(680,680)]
+routing : net010__input/PAD_port_0__xc2/PLUS_port_0
+num src : 34 tgt : 37
+sol found with 2 expansions!
+	expanded : 0 0
+	expanded : 1 0
+	expanded : 2 0
+	expanded : 3 0
+	expanded : 4 0
+	expanded : 5 0
+	expanded : 6 0
+	expanded : 7 0
+	expanded : 8 0
+	expanded : 9 1
+	expanded : 10 1
+flushing nodes
+Geom::LayerRects Router::Router::findSol() runtime : 0.0166258(s)
+Adding routes to input/PAD_port_0 3
+Adding routes to xc2/PLUS_port_0 3
+net : net14
+routing net : net14 32265
+ports dist : xc2/MINUS_port_0 xwg1/P2_port_0 0.133363
+ports to route order : xc2/MINUS_port_0 xwg1/P2_port_0
+flushing nodes
+routing ports : xc2/MINUS_port_0 xwg1/P2_port_0
+pref layer pin not found for xc2/MINUS_port_0
+pref layer pin found for xwg1/P2_port_0
+layer cost (0) : 1e+07 1e+07
+layer cost (1) : 1e+07 1e+07
+layer cost (2) : 1e+07 1e+07
+layer cost (3) : 1e+07 1e+07
+layer cost (4) : 1e+07 1e+07
+layer cost (5) : 1e+07 1e+07
+layer cost (6) : 1e+07 1e+07
+layer cost (7) : 1e+07 1e+07
+layer cost (8) : 1e+07 1e+07
+layer cost (9) : 1e+07 1e+07
+layer cost (10) : 1 1
+layer cost (11) : 1e+07 1e+07
+after updatendr layer : 0 width : 60 60 ndr widthx : 60 ndr widthy : 60
+after updatendr layer : 1 width : 14 14 ndr widthx : 14 ndr widthy : 14
+after updatendr layer : 2 width : 100 100 ndr widthx : 100 ndr widthy : 100
+after updatendr layer : 3 width : 100 100 ndr widthx : 100 ndr widthy : 100
+after updatendr layer : 4 width : 100 100 ndr widthx : 100 ndr widthy : 100
+after updatendr layer : 5 width : 100 100 ndr widthx : 100 ndr widthy : 100
+after updatendr layer : 6 width : 100 100 ndr widthx : 100 ndr widthy : 100
+after updatendr layer : 7 width : 100 100 ndr widthx : 100 ndr widthy : 100
+after updatendr layer : 8 width : 100 100 ndr widthx : 100 ndr widthy : 100
+after updatendr layer : 9 width : 400 400 ndr widthx : 400 ndr widthy : 400
+after updatendr layer : 10 width : 2000 2000 ndr widthx : 4000 ndr widthy : 4000
+after updatendr layer : 11 width : 60 60 ndr widthx : 60 ndr widthy : 60
+after updatendr layer : 12 width : 95 95 ndr widthx : 95 ndr widthy : 95
+after updatendr layer : 13 width : 110 110 ndr widthx : 110 ndr widthy : 110
+after updatendr layer : 14 width : 110 110 ndr widthx : 110 ndr widthy : 110
+after updatendr layer : 15 width : 110 110 ndr widthx : 110 ndr widthy : 110
+after updatendr layer : 16 width : 110 110 ndr widthx : 110 ndr widthy : 110
+after updatendr layer : 17 width : 110 110 ndr widthx : 110 ndr widthy : 110
+after updatendr layer : 18 width : 110 110 ndr widthx : 110 ndr widthy : 110
+after updatendr layer : 19 width : 350 350 ndr widthx : 350 ndr widthy : 350
+after updatendr layer : 20 width : 350 350 ndr widthx : 350 ndr widthy : 350
+layer : 0 width : 60 60 ndr widthx : 60 ndr widthy : 60
+layer : 1 width : 14 14 ndr widthx : 14 ndr widthy : 14
+layer : 2 width : 100 100 ndr widthx : 100 ndr widthy : 100
+layer : 3 width : 100 100 ndr widthx : 100 ndr widthy : 100
+layer : 4 width : 100 100 ndr widthx : 100 ndr widthy : 100
+layer : 5 width : 100 100 ndr widthx : 100 ndr widthy : 100
+layer : 6 width : 100 100 ndr widthx : 100 ndr widthy : 100
+layer : 7 width : 100 100 ndr widthx : 100 ndr widthy : 100
+layer : 8 width : 100 100 ndr widthx : 100 ndr widthy : 100
+layer : 9 width : 400 400 ndr widthx : 400 ndr widthy : 400
+layer : 10 width : 2000 2000 ndr widthx : 4000 ndr widthy : 4000
+layer : 11 width : 60 60 ndr widthx : 60 ndr widthy : 60
+layer : 12 width : 95 95 ndr widthx : 95 ndr widthy : 95
+layer : 13 width : 110 110 ndr widthx : 110 ndr widthy : 110
+layer : 14 width : 110 110 ndr widthx : 110 ndr widthy : 110
+layer : 15 width : 110 110 ndr widthx : 110 ndr widthy : 110
+layer : 16 width : 110 110 ndr widthx : 110 ndr widthy : 110
+layer : 17 width : 110 110 ndr widthx : 110 ndr widthy : 110
+layer : 18 width : 110 110 ndr widthx : 110 ndr widthy : 110
+layer : 19 width : 350 350 ndr widthx : 350 ndr widthy : 350
+layer : 20 width : 350 350 ndr widthx : 350 ndr widthy : 350
+via : l: 2 u: 3 c: 13 center: (0,0) lb: [(-105,-105),(105,105)] ub: [(-105,-105),(105,105)] cut: [(-55,-55),(55,55)] bbox: [(-105,-105),(105,105)]
+via : l: 3 u: 4 c: 14 center: (0,0) lb: [(-105,-105),(105,105)] ub: [(-105,-105),(105,105)] cut: [(-55,-55),(55,55)] bbox: [(-105,-105),(105,105)]
+via : l: 4 u: 5 c: 15 center: (0,0) lb: [(-215,-215),(215,215)] ub: [(-215,-215),(215,215)] cut: [(-165,-165),(165,165)] bbox: [(-215,-215),(215,215)]
+via : l: 5 u: 6 c: 16 center: (0,0) lb: [(-215,-215),(215,215)] ub: [(-215,-215),(215,215)] cut: [(-165,-165),(165,165)] bbox: [(-215,-215),(215,215)]
+via : l: 6 u: 7 c: 17 center: (0,0) lb: [(-225,-225),(225,225)] ub: [(-225,-225),(225,225)] cut: [(-165,-165),(165,165)] bbox: [(-225,-225),(225,225)]
+via : l: 7 u: 8 c: 18 center: (0,0) lb: [(-545,-215),(545,215)] ub: [(-545,-215),(545,215)] cut: [(-495,-165),(495,165)] bbox: [(-545,-215),(545,215)]
+via : l: 8 u: 9 c: 19 center: (0,0) lb: [(-570,-570),(570,570)] ub: [(-570,-570),(570,570)] cut: [(-500,-500),(500,500)] bbox: [(-570,-570),(570,570)]
+via : l: 9 u: 10 c: 20 center: (0,0) lb: [(-680,-680),(680,680)] ub: [(-680,-680),(680,680)] cut: [(-610,-610),(610,610)] bbox: [(-680,-680),(680,680)]
+routing : net14__xc2/MINUS_port_0__xwg1/P2_port_0
+num src : 21 tgt : 193
+sol found with 2 expansions!
+	expanded : 0 0
+	expanded : 1 0
+	expanded : 2 0
+	expanded : 3 0
+	expanded : 4 0
+	expanded : 5 0
+	expanded : 6 0
+	expanded : 7 0
+	expanded : 8 0
+	expanded : 9 0
+	expanded : 10 2
+flushing nodes
+Geom::LayerRects Router::Router::findSol() runtime : 0.0214654(s)
+Adding routes to xc2/MINUS_port_0 3
+Adding routes to xwg1/P2_port_0 3
+net : net8
+routing net : net8 27775
+ports dist : xwg1/P1_port_0 gate_ind/P1_port_0 0.120072
+ports to route order : xwg1/P1_port_0 gate_ind/P1_port_0
+flushing nodes
+routing ports : xwg1/P1_port_0 gate_ind/P1_port_0
+pref layer pin found for xwg1/P1_port_0
+pref layer pin found for gate_ind/P1_port_0
+layer cost (0) : 1e+07 1e+07
+layer cost (1) : 1e+07 1e+07
+layer cost (2) : 1e+07 1e+07
+layer cost (3) : 1e+07 1e+07
+layer cost (4) : 1e+07 1e+07
+layer cost (5) : 1e+07 1e+07
+layer cost (6) : 1e+07 1e+07
+layer cost (7) : 1e+07 1e+07
+layer cost (8) : 1e+07 1e+07
+layer cost (9) : 1e+07 1e+07
+layer cost (10) : 1 1
+layer cost (11) : 1e+07 1e+07
+after updatendr layer : 0 width : 60 60 ndr widthx : 60 ndr widthy : 60
+after updatendr layer : 1 width : 14 14 ndr widthx : 14 ndr widthy : 14
+after updatendr layer : 2 width : 100 100 ndr widthx : 100 ndr widthy : 100
+after updatendr layer : 3 width : 100 100 ndr widthx : 100 ndr widthy : 100
+after updatendr layer : 4 width : 100 100 ndr widthx : 100 ndr widthy : 100
+after updatendr layer : 5 width : 100 100 ndr widthx : 100 ndr widthy : 100
+after updatendr layer : 6 width : 100 100 ndr widthx : 100 ndr widthy : 100
+after updatendr layer : 7 width : 100 100 ndr widthx : 100 ndr widthy : 100
+after updatendr layer : 8 width : 100 100 ndr widthx : 100 ndr widthy : 100
+after updatendr layer : 9 width : 400 400 ndr widthx : 400 ndr widthy : 400
+after updatendr layer : 10 width : 2000 2000 ndr widthx : 4000 ndr widthy : 4000
+after updatendr layer : 11 width : 60 60 ndr widthx : 60 ndr widthy : 60
+after updatendr layer : 12 width : 95 95 ndr widthx : 95 ndr widthy : 95
+after updatendr layer : 13 width : 110 110 ndr widthx : 110 ndr widthy : 110
+after updatendr layer : 14 width : 110 110 ndr widthx : 110 ndr widthy : 110
+after updatendr layer : 15 width : 110 110 ndr widthx : 110 ndr widthy : 110
+after updatendr layer : 16 width : 110 110 ndr widthx : 110 ndr widthy : 110
+after updatendr layer : 17 width : 110 110 ndr widthx : 110 ndr widthy : 110
+after updatendr layer : 18 width : 110 110 ndr widthx : 110 ndr widthy : 110
+after updatendr layer : 19 width : 350 350 ndr widthx : 350 ndr widthy : 350
+after updatendr layer : 20 width : 350 350 ndr widthx : 350 ndr widthy : 350
+layer : 0 width : 60 60 ndr widthx : 60 ndr widthy : 60
+layer : 1 width : 14 14 ndr widthx : 14 ndr widthy : 14
+layer : 2 width : 100 100 ndr widthx : 100 ndr widthy : 100
+layer : 3 width : 100 100 ndr widthx : 100 ndr widthy : 100
+layer : 4 width : 100 100 ndr widthx : 100 ndr widthy : 100
+layer : 5 width : 100 100 ndr widthx : 100 ndr widthy : 100
+layer : 6 width : 100 100 ndr widthx : 100 ndr widthy : 100
+layer : 7 width : 100 100 ndr widthx : 100 ndr widthy : 100
+layer : 8 width : 100 100 ndr widthx : 100 ndr widthy : 100
+layer : 9 width : 400 400 ndr widthx : 400 ndr widthy : 400
+layer : 10 width : 2000 2000 ndr widthx : 4000 ndr widthy : 4000
+layer : 11 width : 60 60 ndr widthx : 60 ndr widthy : 60
+layer : 12 width : 95 95 ndr widthx : 95 ndr widthy : 95
+layer : 13 width : 110 110 ndr widthx : 110 ndr widthy : 110
+layer : 14 width : 110 110 ndr widthx : 110 ndr widthy : 110
+layer : 15 width : 110 110 ndr widthx : 110 ndr widthy : 110
+layer : 16 width : 110 110 ndr widthx : 110 ndr widthy : 110
+layer : 17 width : 110 110 ndr widthx : 110 ndr widthy : 110
+layer : 18 width : 110 110 ndr widthx : 110 ndr widthy : 110
+layer : 19 width : 350 350 ndr widthx : 350 ndr widthy : 350
+layer : 20 width : 350 350 ndr widthx : 350 ndr widthy : 350
+via : l: 2 u: 3 c: 13 center: (0,0) lb: [(-105,-105),(105,105)] ub: [(-105,-105),(105,105)] cut: [(-55,-55),(55,55)] bbox: [(-105,-105),(105,105)]
+via : l: 3 u: 4 c: 14 center: (0,0) lb: [(-105,-105),(105,105)] ub: [(-105,-105),(105,105)] cut: [(-55,-55),(55,55)] bbox: [(-105,-105),(105,105)]
+via : l: 4 u: 5 c: 15 center: (0,0) lb: [(-215,-215),(215,215)] ub: [(-215,-215),(215,215)] cut: [(-165,-165),(165,165)] bbox: [(-215,-215),(215,215)]
+via : l: 5 u: 6 c: 16 center: (0,0) lb: [(-215,-215),(215,215)] ub: [(-215,-215),(215,215)] cut: [(-165,-165),(165,165)] bbox: [(-215,-215),(215,215)]
+via : l: 6 u: 7 c: 17 center: (0,0) lb: [(-225,-225),(225,225)] ub: [(-225,-225),(225,225)] cut: [(-165,-165),(165,165)] bbox: [(-225,-225),(225,225)]
+via : l: 7 u: 8 c: 18 center: (0,0) lb: [(-545,-215),(545,215)] ub: [(-545,-215),(545,215)] cut: [(-495,-165),(495,165)] bbox: [(-545,-215),(545,215)]
+via : l: 8 u: 9 c: 19 center: (0,0) lb: [(-570,-570),(570,570)] ub: [(-570,-570),(570,570)] cut: [(-500,-500),(500,500)] bbox: [(-570,-570),(570,570)]
+via : l: 9 u: 10 c: 20 center: (0,0) lb: [(-680,-680),(680,680)] ub: [(-680,-680),(680,680)] cut: [(-610,-610),(610,610)] bbox: [(-680,-680),(680,680)]
+routing : net8__xwg1/P1_port_0__gate_ind/P1_port_0
+num src : 7 tgt : 21
+sol found with 1 expansions!
+	expanded : 0 0
+	expanded : 1 0
+	expanded : 2 0
+	expanded : 3 0
+	expanded : 4 0
+	expanded : 5 0
+	expanded : 6 0
+	expanded : 7 0
+	expanded : 8 0
+	expanded : 9 0
+	expanded : 10 1
+flushing nodes
+Geom::LayerRects Router::Router::findSol() runtime : 0.0013175(s)
+Adding routes to xwg1/P1_port_0 1
+Adding routes to gate_ind/P1_port_0 1
+net : net7
+excluding net : net7 from routing
+net : net3
+excluding net : net3 from routing
+net : gnd
+excluding net : gnd from routing
+Checking SHORT for module : lna
+SHORT between gnd & obstacle @ layer : 2
+[(235115,280417),(235325,280627)] [(229735,278455),(235325,282485)]
+SHORT between gnd & obstacle @ layer : 2
+[(176820,181065),(186820,191065)] [(176062,129597),(288998,242533)]
+SHORT between gnd & obstacle @ layer : 2
+[(227939,260985),(228179,261265)] [(228159,260985),(228619,261265)]
+SHORT between gnd & obstacle @ layer : 2
+[(227939,260985),(228179,261265)] [(227499,260985),(227959,261265)]
+SHORT between gnd & obstacle @ layer : 2
+[(227939,260985),(228179,261265)] [(227939,260985),(228179,261265)]
+SHORT between gnd & obstacle @ layer : 2
+[(227939,260985),(228179,261265)] [(227939,260985),(228179,261265)]
+SHORT between gnd & obstacle @ layer : 6
+[(84978,196295),(91342,196725)] [(87560,175405),(88760,196725)]
+SHORT between gnd & obstacle @ layer : 6
+[(84978,196295),(91342,196725)] [(89360,187865),(90560,196725)]
+SHORT between gnd & obstacle @ layer : 6
+[(84978,196295),(91342,196725)] [(91160,189665),(92360,196725)]
+SHORT between gnd & obstacle @ layer : 6
+[(84978,196295),(91342,196725)] [(85760,187865),(86960,196725)]
+SHORT between gnd & obstacle @ layer : 6
+[(84978,196295),(91342,196725)] [(83960,189665),(85160,196725)]
+SHORT between gnd & obstacle @ layer : 6
+[(84978,196295),(91342,196725)] [(77500,196295),(98820,196725)]
+SHORT between gnd & obstacle @ layer : 6
+[(84978,175405),(91342,175835)] [(87560,175405),(88760,196725)]
+SHORT between gnd & obstacle @ layer : 6
+[(84978,175405),(91342,175835)] [(85760,175405),(86960,184265)]
+SHORT between gnd & obstacle @ layer : 6
+[(84978,175405),(91342,175835)] [(83960,175405),(85160,182465)]
+SHORT between gnd & obstacle @ layer : 6
+[(84978,175405),(91342,175835)] [(89360,175405),(90560,184265)]
+SHORT between gnd & obstacle @ layer : 6
+[(84978,175405),(91342,175835)] [(91160,175405),(92360,182465)]
+SHORT between gnd & obstacle @ layer : 6
+[(84978,175405),(91342,175835)] [(77500,175405),(98820,175835)]
+SHORT between gnd & obstacle @ layer : 6
+[(244435,303256),(244865,307732)] [(229205,304894),(244865,306094)]
+SHORT between gnd & obstacle @ layer : 6
+[(244435,303256),(244865,307732)] [(238835,303094),(244865,304294)]
+SHORT between gnd & obstacle @ layer : 6
+[(244435,303256),(244865,307732)] [(238835,306694),(244865,307894)]
+SHORT between gnd & obstacle @ layer : 6
+[(244435,303256),(244865,307732)] [(244435,297664),(244865,313324)]
+SHORT between gnd & obstacle @ layer : 6
+[(229205,303256),(229635,307732)] [(229205,304894),(244865,306094)]
+SHORT between gnd & obstacle @ layer : 6
+[(229205,303256),(229635,307732)] [(229205,306694),(235235,307894)]
+SHORT between gnd & obstacle @ layer : 6
+[(229205,303256),(229635,307732)] [(229205,303094),(235235,304294)]
+SHORT between gnd & obstacle @ layer : 6
+[(229205,303256),(229635,307732)] [(229205,297664),(229635,313324)]
+SHORT between gnd & obstacle @ layer : 9
+[(231800,292885),(233260,294165)] [(231800,287675),(233260,294165)]
+SHORT between gnd & obstacle @ layer : 9
+[(235855,314164),(238215,315824)] [(235855,297664),(238215,315824)]
+SHORT between gnd & obstacle @ layer : 10
+[(174810,330824),(197320,348504)] [(160060,330824),(210060,390824)]
+SHORT between gnd & obstacle @ layer : 10
+[(174810,330824),(197320,348504)] [(161630,333794),(208490,387854)]
+SHORT between gnd & obstacle @ layer : 10
+[(42320,254840),(60000,277350)] [(0,240090),(60000,290090)]
+SHORT between gnd & obstacle @ layer : 10
+[(42320,254840),(60000,277350)] [(2970,241660),(57030,288520)]
+SHORT between gnd & obstacle @ layer : 10
+[(334870,330824),(357380,348504)] [(320120,330824),(370120,390824)]
+SHORT between gnd & obstacle @ layer : 10
+[(334870,330824),(357380,348504)] [(321690,333794),(368550,387854)]
+SHORT between gnd & obstacle @ layer : 10
+[(331865,275125),(340865,284125)] [(245865,275125),(340865,284125)]
+SHORT between gnd & obstacle @ layer : 10
+[(130085,194720),(139555,203190)] [(104655,194720),(164985,203190)]
+SHORT between gnd & obstacle @ layer : 10
+[(130085,194720),(139555,203190)] [(102320,201290),(167320,204190)]
+SHORT between gnd & obstacle @ layer : 10
+[(130085,168940),(139555,177410)] [(104655,168940),(164985,177410)]
+SHORT between gnd & obstacle @ layer : 10
+[(130085,168940),(139555,177410)] [(102320,167940),(167320,170840)]
+SHORT between net010 & obstacle @ layer : 9
+[(75000,184885),(76660,187245)] [(75000,184885),(98820,187245)]
+SHORT between net010 & obstacle @ layer : 9
+[(74520,185385),(75880,186745)] [(75000,184885),(98820,187245)]
+SHORT between net010 & obstacle @ layer : 10
+[(42320,174810),(60000,197320)] [(0,160060),(60000,210060)]
+SHORT between net010 & obstacle @ layer : 10
+[(42320,174810),(60000,197320)] [(2970,161630),(57030,208490)]
+SHORT between net010 & obstacle @ layer : 10
+[(57000,183065),(78200,189065)] [(0,160060),(60000,210060)]
+SHORT between net010 & obstacle @ layer : 10
+[(57000,183065),(78200,189065)] [(2970,161630),(57030,208490)]
+SHORT between net1 & obstacle @ layer : 8
+[(235405,279055),(236545,280195)] [(230200,279105),(236025,280145)]
+SHORT between net1 & obstacle @ layer : 10
+[(245865,275125),(254865,284125)] [(245865,275125),(340865,284125)]
+SHORT between net1 & obstacle @ layer : 10
+[(235260,278625),(246865,280625)] [(245865,275125),(340865,284125)]
+SHORT between net12 & obstacle @ layer : 2
+[(230549,275145),(234509,275235)] [(230564,275145),(234494,275235)]
+SHORT between net12 & obstacle @ layer : 2
+[(231075,275130),(231285,275340)] [(230564,275145),(234494,275235)]
+SHORT between net12 & obstacle @ layer : 10
+[(230400,276465),(234660,277465)] [(230400,276465),(234660,278465)]
+SHORT between net12 & obstacle @ layer : 10
+[(229780,246775),(235280,252275)] [(229780,214025),(235280,252275)]
+SHORT between net12 & obstacle @ layer : 10
+[(230500,275785),(231860,277145)] [(230400,276465),(234660,278465)]
+SHORT between net12 & obstacle @ layer : 10
+[(230430,251525),(231930,276465)] [(230400,276465),(234660,278465)]
+SHORT between net12 & obstacle @ layer : 10
+[(230430,251525),(231930,276465)] [(229780,214025),(235280,252275)]
+SHORT between net13 & obstacle @ layer : 2
+[(226944,253495),(227034,257455)] [(226944,253510),(227034,257440)]
+SHORT between net13 & obstacle @ layer : 2
+[(226885,257245),(227095,257455)] [(226944,253510),(227034,257440)]
+SHORT between net13 & obstacle @ layer : 4
+[(226789,258895),(227189,261265)] [(226789,258895),(227289,261265)]
+SHORT between net13 & obstacle @ layer : 4
+[(226789,258895),(227189,261265)] [(227154,259630),(227664,260530)]
+SHORT between net13 & obstacle @ layer : 4
+[(226885,258840),(227095,259050)] [(226789,258895),(227289,261265)]
+SHORT between net14 & obstacle @ layer : 9
+[(99660,177165),(101320,194965)] [(99660,175405),(101320,196725)]
+SHORT between net14 & obstacle @ layer : 9
+[(100440,185385),(101800,186745)] [(99660,175405),(101320,196725)]
+SHORT between net14 & obstacle @ layer : 10
+[(104655,181330),(114125,190800)] [(104655,181330),(164985,190800)]
+SHORT between net14 & obstacle @ layer : 10
+[(99120,184065),(106655,188065)] [(104655,181330),(164985,190800)]
+SHORT between net2 & obstacle @ layer : 2
+[(237245,259685),(244645,259775)] [(237260,259685),(244630,259775)]
+SHORT between net2 & obstacle @ layer : 2
+[(243184,253495),(243274,257455)] [(243184,253510),(243274,257440)]
+SHORT between net2 & obstacle @ layer : 2
+[(230549,258905),(234509,258995)] [(230564,258905),(234494,258995)]
+SHORT between net2 & obstacle @ layer : 2
+[(230625,258895),(230835,259105)] [(230564,258905),(234494,258995)]
+SHORT between net2 & obstacle @ layer : 2
+[(243145,257300),(243245,259685)] [(237260,259685),(244630,259775)]
+SHORT between net2 & obstacle @ layer : 2
+[(243145,257300),(243245,259685)] [(243184,253510),(243274,257440)]
+SHORT between net2 & obstacle @ layer : 2
+[(234354,259635),(237345,259735)] [(237260,259685),(244630,259775)]
+SHORT between net2 & obstacle @ layer : 2
+[(234354,258950),(234454,259735)] [(230564,258905),(234494,258995)]
+SHORT between net2 & obstacle @ layer : 3
+[(228879,258895),(229329,261265)] [(228829,258895),(229329,261265)]
+SHORT between net2 & obstacle @ layer : 3
+[(228879,258895),(229329,261265)] [(228179,260270),(229099,260450)]
+SHORT between net2 & obstacle @ layer : 3
+[(228879,258895),(229329,261265)] [(228179,259710),(229099,259890)]
+SHORT between net2 & obstacle @ layer : 3
+[(229280,258950),(230780,259050)] [(228829,258895),(229329,261265)]
+SHORT between net3 & obstacle @ layer : 10
+[(141725,284915),(144725,287915)] [(141725,284915),(226725,287915)]
+SHORT between net3 & obstacle @ layer : 10
+[(94780,330824),(117290,348504)] [(80030,330824),(130030,390824)]
+SHORT between net3 & obstacle @ layer : 10
+[(94780,330824),(117290,348504)] [(81600,333794),(128460,387854)]
+SHORT between net4 & obstacle @ layer : 2
+[(237245,284675),(244645,284765)] [(237260,284675),(244630,284765)]
+SHORT between net4 & obstacle @ layer : 2
+[(240900,289425),(240990,293945)] [(240900,289440),(240990,293930)]
+SHORT between net4 & obstacle @ layer : 2
+[(240895,284765),(240995,289640)] [(237260,284675),(244630,284765)]
+SHORT between net4 & obstacle @ layer : 2
+[(240895,284765),(240995,289640)] [(240900,289440),(240990,293930)]
+SHORT between net4 & obstacle @ layer : 2
+[(240840,293735),(241050,293945)] [(240900,289440),(240990,293930)]
+SHORT between net4 & obstacle @ layer : 2
+[(237240,284570),(237450,284780)] [(237260,284675),(244630,284765)]
+SHORT between net4 & obstacle @ layer : 4
+[(229400,280515),(229900,282115)] [(229900,280515),(230400,280695)]
+SHORT between net4 & obstacle @ layer : 4
+[(229400,280515),(229900,282115)] [(229900,281935),(230400,282115)]
+SHORT between net4 & obstacle @ layer : 4
+[(229400,280515),(229900,282115)] [(229400,280515),(229900,282115)]
+SHORT between net4 & obstacle @ layer : 4
+[(229725,281960),(229935,282170)] [(229900,281935),(230400,282115)]
+SHORT between net4 & obstacle @ layer : 4
+[(229725,281960),(229935,282170)] [(229400,280515),(229900,282115)]
+SHORT between net4 & obstacle @ layer : 9
+[(230965,295164),(243105,296824)] [(229205,295164),(244865,296824)]
+SHORT between net4 & obstacle @ layer : 9
+[(240795,293640),(241195,295365)] [(229205,295164),(244865,296824)]
+SHORT between net5 & obstacle @ layer : 9
+[(227825,285995),(237235,286835)] [(227825,285995),(229285,292485)]
+SHORT between net5 & obstacle @ layer : 9
+[(227825,285995),(237235,286835)] [(235775,285995),(237235,292485)]
+SHORT between net5 & obstacle @ layer : 9
+[(227825,285995),(237235,286835)] [(229285,285995),(235775,286835)]
+SHORT between net5 & obstacle @ layer : 9
+[(232330,284795),(232730,286195)] [(229285,285995),(235775,286835)]
+SHORT between net5 & obstacle @ layer : 9
+[(225525,286215),(228025,286615)] [(227825,285995),(229285,292485)]
+SHORT between net5 & obstacle @ layer : 10
+[(230200,283995),(234860,284995)] [(230200,282995),(234860,284995)]
+SHORT between net5 & obstacle @ layer : 10
+[(223725,284915),(226725,287915)] [(141725,284915),(226725,287915)]
+SHORT between net5 & obstacle @ layer : 10
+[(231850,284315),(233210,285675)] [(230200,282995),(234860,284995)]
+SHORT between net7 & obstacle @ layer : 2
+[(244420,289425),(244510,293945)] [(244420,289440),(244510,293930)]
+SHORT between net7 & obstacle @ layer : 10
+[(254840,330824),(277350,348504)] [(240090,330824),(290090,390824)]
+SHORT between net7 & obstacle @ layer : 10
+[(254840,330824),(277350,348504)] [(241660,333794),(288520,387854)]
+SHORT between net8 & obstacle @ layer : 10
+[(168320,183315),(173820,188815)] [(168320,183315),(198570,188815)]
+SHORT between net8 & obstacle @ layer : 10
+[(155515,181330),(164985,190800)] [(104655,181330),(164985,190800)]
+SHORT between net8 & obstacle @ layer : 10
+[(162985,184065),(170320,188065)] [(168320,183315),(198570,188815)]
+SHORT between net8 & obstacle @ layer : 10
+[(162985,184065),(170320,188065)] [(104655,181330),(164985,190800)]
+void Placement::Module::route(Router::Router&, const std::string&) runtime : 0.352501(s)
+Checking SHORT for module : source_ind
+void Placement::Module::route(Router::Router&, const std::string&) runtime : 1.33e-06(s)
+Checking SHORT for module : vdd
+void Placement::Module::route(Router::Router&, const std::string&) runtime : 6.84e-07(s)
+Checking SHORT for module : xR0_2
+void Placement::Module::route(Router::Router&, const std::string&) runtime : 8.47e-07(s)
+Checking SHORT for module : xR1_2
+void Placement::Module::route(Router::Router&, const std::string&) runtime : 5.13e-07(s)
+Checking SHORT for module : xR2_0
+void Placement::Module::route(Router::Router&, const std::string&) runtime : 6.84e-07(s)
+Checking SHORT for module : xR3_2
+void Placement::Module::route(Router::Router&, const std::string&) runtime : 5.1e-07(s)
+Checking SHORT for module : xc1_1
+void Placement::Module::route(Router::Router&, const std::string&) runtime : 7.86e-07(s)
+Checking SHORT for module : xc2_1
+void Placement::Module::route(Router::Router&, const std::string&) runtime : 1.417e-06(s)
+Checking SHORT for module : xc3_1
+void Placement::Module::route(Router::Router&, const std::string&) runtime : 9.56e-07(s)
+Checking SHORT for module : xwg1
+void Placement::Module::route(Router::Router&, const std::string&) runtime : 1.236e-06(s)
+plotting module bias to lna_3/stage_3/routing/bias.gplt
+plotting module bias_mos to lna_3/stage_3/routing/bias_mos.gplt
+plotting module cas_mos to lna_3/stage_3/routing/cas_mos.gplt
+plotting module drain_ind to lna_3/stage_3/routing/drain_ind.gplt
+plotting module gate_ind_x.75 to lna_3/stage_3/routing/gate_ind_x.75.gplt
+plotting module gnd0 to lna_3/stage_3/routing/gnd0.gplt
+plotting module gnd1 to lna_3/stage_3/routing/gnd1.gplt
+plotting module gnd2 to lna_3/stage_3/routing/gnd2.gplt
+plotting module input to lna_3/stage_3/routing/input.gplt
+plotting module lna to lna_3/stage_3/routing/lna.gplt
+plotting module source_ind to lna_3/stage_3/routing/source_ind.gplt
+plotting module vdd to lna_3/stage_3/routing/vdd.gplt
+plotting module xR0_2 to lna_3/stage_3/routing/xR0_2.gplt
+plotting module xR1_2 to lna_3/stage_3/routing/xR1_2.gplt
+plotting module xR2_0 to lna_3/stage_3/routing/xR2_0.gplt
+plotting module xR3_2 to lna_3/stage_3/routing/xR3_2.gplt
+plotting module xc1_1 to lna_3/stage_3/routing/xc1_1.gplt
+plotting module xc2_1 to lna_3/stage_3/routing/xc2_1.gplt
+plotting module xc3_1 to lna_3/stage_3/routing/xc3_1.gplt
+plotting module xwg1 to lna_3/stage_3/routing/xwg1.gplt
+Checking SHORT for module : bias
+Checking SHORT for module : bias_mos
+Checking SHORT for module : cas_mos
+Checking SHORT for module : drain_ind
+Checking SHORT for module : gate_ind_x.75
+Checking SHORT for module : gnd0
+Checking SHORT for module : gnd1
+Checking SHORT for module : gnd2
+Checking SHORT for module : input
+Checking SHORT for module : lna
+SHORT between gnd & obstacle @ layer : 2
+[(235115,280417),(235325,280627)] [(229735,278455),(235325,282485)]
+SHORT between gnd & obstacle @ layer : 2
+[(176820,181065),(186820,191065)] [(176062,129597),(288998,242533)]
+SHORT between gnd & obstacle @ layer : 2
+[(227939,260985),(228179,261265)] [(228159,260985),(228619,261265)]
+SHORT between gnd & obstacle @ layer : 2
+[(227939,260985),(228179,261265)] [(227499,260985),(227959,261265)]
+SHORT between gnd & obstacle @ layer : 2
+[(227939,260985),(228179,261265)] [(227939,260985),(228179,261265)]
+SHORT between gnd & obstacle @ layer : 2
+[(227939,260985),(228179,261265)] [(227939,260985),(228179,261265)]
+SHORT between gnd & obstacle @ layer : 6
+[(84978,196295),(91342,196725)] [(87560,175405),(88760,196725)]
+SHORT between gnd & obstacle @ layer : 6
+[(84978,196295),(91342,196725)] [(89360,187865),(90560,196725)]
+SHORT between gnd & obstacle @ layer : 6
+[(84978,196295),(91342,196725)] [(91160,189665),(92360,196725)]
+SHORT between gnd & obstacle @ layer : 6
+[(84978,196295),(91342,196725)] [(85760,187865),(86960,196725)]
+SHORT between gnd & obstacle @ layer : 6
+[(84978,196295),(91342,196725)] [(83960,189665),(85160,196725)]
+SHORT between gnd & obstacle @ layer : 6
+[(84978,196295),(91342,196725)] [(77500,196295),(98820,196725)]
+SHORT between gnd & obstacle @ layer : 6
+[(84978,175405),(91342,175835)] [(87560,175405),(88760,196725)]
+SHORT between gnd & obstacle @ layer : 6
+[(84978,175405),(91342,175835)] [(85760,175405),(86960,184265)]
+SHORT between gnd & obstacle @ layer : 6
+[(84978,175405),(91342,175835)] [(83960,175405),(85160,182465)]
+SHORT between gnd & obstacle @ layer : 6
+[(84978,175405),(91342,175835)] [(89360,175405),(90560,184265)]
+SHORT between gnd & obstacle @ layer : 6
+[(84978,175405),(91342,175835)] [(91160,175405),(92360,182465)]
+SHORT between gnd & obstacle @ layer : 6
+[(84978,175405),(91342,175835)] [(77500,175405),(98820,175835)]
+SHORT between gnd & obstacle @ layer : 6
+[(244435,303256),(244865,307732)] [(229205,304894),(244865,306094)]
+SHORT between gnd & obstacle @ layer : 6
+[(244435,303256),(244865,307732)] [(238835,303094),(244865,304294)]
+SHORT between gnd & obstacle @ layer : 6
+[(244435,303256),(244865,307732)] [(238835,306694),(244865,307894)]
+SHORT between gnd & obstacle @ layer : 6
+[(244435,303256),(244865,307732)] [(244435,297664),(244865,313324)]
+SHORT between gnd & obstacle @ layer : 6
+[(229205,303256),(229635,307732)] [(229205,304894),(244865,306094)]
+SHORT between gnd & obstacle @ layer : 6
+[(229205,303256),(229635,307732)] [(229205,306694),(235235,307894)]
+SHORT between gnd & obstacle @ layer : 6
+[(229205,303256),(229635,307732)] [(229205,303094),(235235,304294)]
+SHORT between gnd & obstacle @ layer : 6
+[(229205,303256),(229635,307732)] [(229205,297664),(229635,313324)]
+SHORT between gnd & obstacle @ layer : 9
+[(231800,292885),(233260,294165)] [(231800,287675),(233260,294165)]
+SHORT between gnd & obstacle @ layer : 9
+[(235855,314164),(238215,315824)] [(235855,297664),(238215,315824)]
+SHORT between gnd & obstacle @ layer : 10
+[(174810,330824),(197320,348504)] [(160060,330824),(210060,390824)]
+SHORT between gnd & obstacle @ layer : 10
+[(174810,330824),(197320,348504)] [(161630,333794),(208490,387854)]
+SHORT between gnd & obstacle @ layer : 10
+[(42320,254840),(60000,277350)] [(0,240090),(60000,290090)]
+SHORT between gnd & obstacle @ layer : 10
+[(42320,254840),(60000,277350)] [(2970,241660),(57030,288520)]
+SHORT between gnd & obstacle @ layer : 10
+[(334870,330824),(357380,348504)] [(320120,330824),(370120,390824)]
+SHORT between gnd & obstacle @ layer : 10
+[(334870,330824),(357380,348504)] [(321690,333794),(368550,387854)]
+SHORT between gnd & obstacle @ layer : 10
+[(331865,275125),(340865,284125)] [(245865,275125),(340865,284125)]
+SHORT between gnd & obstacle @ layer : 10
+[(130085,194720),(139555,203190)] [(104655,194720),(164985,203190)]
+SHORT between gnd & obstacle @ layer : 10
+[(130085,194720),(139555,203190)] [(102320,201290),(167320,204190)]
+SHORT between gnd & obstacle @ layer : 10
+[(130085,168940),(139555,177410)] [(104655,168940),(164985,177410)]
+SHORT between gnd & obstacle @ layer : 10
+[(130085,168940),(139555,177410)] [(102320,167940),(167320,170840)]
+SHORT between net010 & obstacle @ layer : 9
+[(75000,184885),(76660,187245)] [(75000,184885),(98820,187245)]
+SHORT between net010 & obstacle @ layer : 9
+[(74520,185385),(75880,186745)] [(75000,184885),(98820,187245)]
+SHORT between net010 & obstacle @ layer : 10
+[(42320,174810),(60000,197320)] [(0,160060),(60000,210060)]
+SHORT between net010 & obstacle @ layer : 10
+[(42320,174810),(60000,197320)] [(2970,161630),(57030,208490)]
+SHORT between net010 & obstacle @ layer : 10
+[(57000,183065),(78200,189065)] [(0,160060),(60000,210060)]
+SHORT between net010 & obstacle @ layer : 10
+[(57000,183065),(78200,189065)] [(2970,161630),(57030,208490)]
+SHORT between net1 & obstacle @ layer : 8
+[(235405,279055),(236545,280195)] [(230200,279105),(236025,280145)]
+SHORT between net1 & obstacle @ layer : 10
+[(245865,275125),(254865,284125)] [(245865,275125),(340865,284125)]
+SHORT between net1 & obstacle @ layer : 10
+[(235260,278625),(246865,280625)] [(245865,275125),(340865,284125)]
+SHORT between net12 & obstacle @ layer : 2
+[(230549,275145),(234509,275235)] [(230564,275145),(234494,275235)]
+SHORT between net12 & obstacle @ layer : 2
+[(231075,275130),(231285,275340)] [(230564,275145),(234494,275235)]
+SHORT between net12 & obstacle @ layer : 10
+[(230400,276465),(234660,277465)] [(230400,276465),(234660,278465)]
+SHORT between net12 & obstacle @ layer : 10
+[(229780,246775),(235280,252275)] [(229780,214025),(235280,252275)]
+SHORT between net12 & obstacle @ layer : 10
+[(230500,275785),(231860,277145)] [(230400,276465),(234660,278465)]
+SHORT between net12 & obstacle @ layer : 10
+[(230430,251525),(231930,276465)] [(230400,276465),(234660,278465)]
+SHORT between net12 & obstacle @ layer : 10
+[(230430,251525),(231930,276465)] [(229780,214025),(235280,252275)]
+SHORT between net13 & obstacle @ layer : 2
+[(226944,253495),(227034,257455)] [(226944,253510),(227034,257440)]
+SHORT between net13 & obstacle @ layer : 2
+[(226885,257245),(227095,257455)] [(226944,253510),(227034,257440)]
+SHORT between net13 & obstacle @ layer : 4
+[(226789,258895),(227189,261265)] [(226789,258895),(227289,261265)]
+SHORT between net13 & obstacle @ layer : 4
+[(226789,258895),(227189,261265)] [(227154,259630),(227664,260530)]
+SHORT between net13 & obstacle @ layer : 4
+[(226885,258840),(227095,259050)] [(226789,258895),(227289,261265)]
+SHORT between net14 & obstacle @ layer : 9
+[(99660,177165),(101320,194965)] [(99660,175405),(101320,196725)]
+SHORT between net14 & obstacle @ layer : 9
+[(100440,185385),(101800,186745)] [(99660,175405),(101320,196725)]
+SHORT between net14 & obstacle @ layer : 10
+[(104655,181330),(114125,190800)] [(104655,181330),(164985,190800)]
+SHORT between net14 & obstacle @ layer : 10
+[(99120,184065),(106655,188065)] [(104655,181330),(164985,190800)]
+SHORT between net2 & obstacle @ layer : 2
+[(237245,259685),(244645,259775)] [(237260,259685),(244630,259775)]
+SHORT between net2 & obstacle @ layer : 2
+[(243184,253495),(243274,257455)] [(243184,253510),(243274,257440)]
+SHORT between net2 & obstacle @ layer : 2
+[(230549,258905),(234509,258995)] [(230564,258905),(234494,258995)]
+SHORT between net2 & obstacle @ layer : 2
+[(230625,258895),(230835,259105)] [(230564,258905),(234494,258995)]
+SHORT between net2 & obstacle @ layer : 2
+[(243145,257300),(243245,259685)] [(237260,259685),(244630,259775)]
+SHORT between net2 & obstacle @ layer : 2
+[(243145,257300),(243245,259685)] [(243184,253510),(243274,257440)]
+SHORT between net2 & obstacle @ layer : 2
+[(234354,259635),(237345,259735)] [(237260,259685),(244630,259775)]
+SHORT between net2 & obstacle @ layer : 2
+[(234354,258950),(234454,259735)] [(230564,258905),(234494,258995)]
+SHORT between net2 & obstacle @ layer : 3
+[(228879,258895),(229329,261265)] [(228829,258895),(229329,261265)]
+SHORT between net2 & obstacle @ layer : 3
+[(228879,258895),(229329,261265)] [(228179,260270),(229099,260450)]
+SHORT between net2 & obstacle @ layer : 3
+[(228879,258895),(229329,261265)] [(228179,259710),(229099,259890)]
+SHORT between net2 & obstacle @ layer : 3
+[(229280,258950),(230780,259050)] [(228829,258895),(229329,261265)]
+SHORT between net3 & obstacle @ layer : 10
+[(141725,284915),(144725,287915)] [(141725,284915),(226725,287915)]
+SHORT between net3 & obstacle @ layer : 10
+[(94780,330824),(117290,348504)] [(80030,330824),(130030,390824)]
+SHORT between net3 & obstacle @ layer : 10
+[(94780,330824),(117290,348504)] [(81600,333794),(128460,387854)]
+SHORT between net4 & obstacle @ layer : 2
+[(237245,284675),(244645,284765)] [(237260,284675),(244630,284765)]
+SHORT between net4 & obstacle @ layer : 2
+[(240900,289425),(240990,293945)] [(240900,289440),(240990,293930)]
+SHORT between net4 & obstacle @ layer : 2
+[(240895,284765),(240995,289640)] [(237260,284675),(244630,284765)]
+SHORT between net4 & obstacle @ layer : 2
+[(240895,284765),(240995,289640)] [(240900,289440),(240990,293930)]
+SHORT between net4 & obstacle @ layer : 2
+[(240840,293735),(241050,293945)] [(240900,289440),(240990,293930)]
+SHORT between net4 & obstacle @ layer : 2
+[(237240,284570),(237450,284780)] [(237260,284675),(244630,284765)]
+SHORT between net4 & obstacle @ layer : 4
+[(229400,280515),(229900,282115)] [(229900,280515),(230400,280695)]
+SHORT between net4 & obstacle @ layer : 4
+[(229400,280515),(229900,282115)] [(229900,281935),(230400,282115)]
+SHORT between net4 & obstacle @ layer : 4
+[(229400,280515),(229900,282115)] [(229400,280515),(229900,282115)]
+SHORT between net4 & obstacle @ layer : 4
+[(229725,281960),(229935,282170)] [(229900,281935),(230400,282115)]
+SHORT between net4 & obstacle @ layer : 4
+[(229725,281960),(229935,282170)] [(229400,280515),(229900,282115)]
+SHORT between net4 & obstacle @ layer : 9
+[(230965,295164),(243105,296824)] [(229205,295164),(244865,296824)]
+SHORT between net4 & obstacle @ layer : 9
+[(240795,293640),(241195,295365)] [(229205,295164),(244865,296824)]
+SHORT between net5 & obstacle @ layer : 9
+[(227825,285995),(237235,286835)] [(227825,285995),(229285,292485)]
+SHORT between net5 & obstacle @ layer : 9
+[(227825,285995),(237235,286835)] [(235775,285995),(237235,292485)]
+SHORT between net5 & obstacle @ layer : 9
+[(227825,285995),(237235,286835)] [(229285,285995),(235775,286835)]
+SHORT between net5 & obstacle @ layer : 9
+[(232330,284795),(232730,286195)] [(229285,285995),(235775,286835)]
+SHORT between net5 & obstacle @ layer : 9
+[(225525,286215),(228025,286615)] [(227825,285995),(229285,292485)]
+SHORT between net5 & obstacle @ layer : 10
+[(230200,283995),(234860,284995)] [(230200,282995),(234860,284995)]
+SHORT between net5 & obstacle @ layer : 10
+[(223725,284915),(226725,287915)] [(141725,284915),(226725,287915)]
+SHORT between net5 & obstacle @ layer : 10
+[(231850,284315),(233210,285675)] [(230200,282995),(234860,284995)]
+SHORT between net7 & obstacle @ layer : 2
+[(244420,289425),(244510,293945)] [(244420,289440),(244510,293930)]
+SHORT between net7 & obstacle @ layer : 10
+[(254840,330824),(277350,348504)] [(240090,330824),(290090,390824)]
+SHORT between net7 & obstacle @ layer : 10
+[(254840,330824),(277350,348504)] [(241660,333794),(288520,387854)]
+SHORT between net8 & obstacle @ layer : 10
+[(168320,183315),(173820,188815)] [(168320,183315),(198570,188815)]
+SHORT between net8 & obstacle @ layer : 10
+[(155515,181330),(164985,190800)] [(104655,181330),(164985,190800)]
+SHORT between net8 & obstacle @ layer : 10
+[(162985,184065),(170320,188065)] [(168320,183315),(198570,188815)]
+SHORT between net8 & obstacle @ layer : 10
+[(162985,184065),(170320,188065)] [(104655,181330),(164985,190800)]
+Checking SHORT for module : source_ind
+Checking SHORT for module : vdd
+Checking SHORT for module : xR0_2
+Checking SHORT for module : xR1_2
+Checking SHORT for module : xR2_0
+Checking SHORT for module : xR3_2
+Checking SHORT for module : xc1_1
+Checking SHORT for module : xc2_1
+Checking SHORT for module : xc3_1
+Checking SHORT for module : xwg1
+flushing nodes
+int main(int, char**) runtime : 0.691325(s)

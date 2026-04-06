@@ -1,0 +1,37 @@
+{
+    "cgs": 1.2e-15,
+    "cd": 1.1e-15,
+    "gm": 1.3e-3,
+    "rgate": 500,
+    "rs_fixed": 6,
+    "power_unit": 0.5,
+    "vdsat": 1,
+    "ft": 120000000000.0,
+
+    "em_l_border": 100,
+
+    "stage_gain_factor": 1.5,
+    "size_last_coeff": 11.11,
+    "size_last_round_base": 2,
+    "size_last_search_start": 2,
+    "size_last_search_stop": 101,
+    "size_last_search_step": 2,
+    "error_threshold": 0.1,
+
+    "load_cap_offset": 5.0e-14,
+    "omega_approx": 6.28,
+    "drain_res_base": 5000.0,
+    "check_target_real": 50.0,
+
+    "size_last_vdsat_override": 1.1,
+    "z1_coeff": 20.0,
+    "tan_numerator": 31.4,
+    "theta1_coeff": 0.25,
+
+    "default_cap_mod": 50,
+    "default_cload_mod": 50,
+    "matching0_col1_value": 500.0,
+    "shunt_ind2_scale": 1.2,
+
+    "optimizer_four_variants": false
+}
