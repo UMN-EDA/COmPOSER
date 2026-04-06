@@ -617,13 +617,13 @@ def parse_gds_directory(gds_dir, subckts, top_name, pad_dir, pad_mode="periphery
             logger.info(f"Generating 1 variant for the {cell} {inst_name}")
             logger.info(f"Required specs : {val/1e-15}")
 
-            if val /1e-15 > 50:
+            if val /1e-15 > 70:
                 _, cap_results = my_C_optimizer.find_candidates_fast(
                     C_target=val/1e-15, poly_model=poly_model,
                     aspect_ratios=[1, 2, 3], W_min=4, W_max=100, tol_frac=0.1
                 )
                 for aspect_ratio, (l, w_, pred_cap) in cap_results.items():
-                    logger.info(f"\n Generating layout for the variant with aspect ratio {aspect_ratio} with dimensions {l,w} and estimated cap {pred_cap}")
+                    logger.info(f"\n Generating layout for the variant with aspect ratio {aspect_ratio} with dimensions {l,w_} and estimated cap {pred_cap}")
                     gds_file_path = os.path.join(gds_dir, f"{inst_name}_{aspect_ratio}.gds")
                     gen_cap.create_interdigitated_capacitor(
                         cap_length=l, cap_width=w_,
@@ -645,11 +645,11 @@ def parse_gds_directory(gds_dir, subckts, top_name, pad_dir, pad_mode="periphery
             else:
                 _, cap_results = my_C_optimizer.find_candidates_fast(
                     C_target=val/1e-15, poly_model=small_poly_model,
-                    aspect_ratios=[1, 2, 3], W_min=4, W_max=100, tol_frac=0.1
+                    aspect_ratios=[1], W_min=1, W_max=10, tol_frac=0.1
                 )
                 pin_order = pin_order[:2]
                 for aspect_ratio, (l, w_, pred_cap) in cap_results.items():
-                    logger.info(f"\n Generating layout for the variant with aspect ratio {aspect_ratio} with dimensions {l,w} and estimated cap {pred_cap}")
+                    logger.info(f"\n Generating layout for the variant with aspect ratio {aspect_ratio} with dimensions {l,w_} and estimated cap {pred_cap}")
                     gds_file_path = os.path.join(gds_dir, f"{inst_name}_{aspect_ratio}.gds")
                     gen_cap.create_small_mim_capacitor(
                         cap_length=l, cap_width=w_,
