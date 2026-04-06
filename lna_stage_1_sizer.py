@@ -12,7 +12,7 @@ from tqdm import tqdm
 
 
 
-
+#Importing the optimizers
 from PRIMITIVE_OPTIMIZERS import optimize_inductor as my_L_optimizer
 from PRIMITIVE_OPTIMIZERS import optimize_tline as my_TL_optimizer
 from PRIMITIVE_OPTIMIZERS import optimize_cpwd as my_CPWD_optimizer
