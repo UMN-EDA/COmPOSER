@@ -39,6 +39,19 @@ The website source is stored in [`docs/`](docs/).
 | `utils/` | Helper scripts for LEF generation, GDS assembly, and related utilities |
 | `composer.sh` | Main shell driver for the end-to-end flow |
 
+### Main Scripts
+
+| Script | Description |
+| --- | --- |
+| `perform_initial_sizing.py` | Runs stage 1 sizing and maps the selected design values into the sized netlist |
+| `lna_stage_1_sizer.py` | Equation-based stage 1 sizing engine for LNA designs |
+| `pa_stage_1_sizer.py` | Equation-based stage 1 sizing engine for PA designs |
+| `map_initial_size_to_netlist.py` | Maps stage 1 sizing outputs back into the SPICE netlist |
+| `parse_netlist.py` | Parses the sized netlist, selects or generates primitive layouts, and exports stage 2 design JSON |
+| `perform_placement.py` | Runs the placement engine and generates placement JSON and placement GDS |
+| `generate_routing_inputs.py` | Converts primitive GDS files into LEF files for routing |
+| `perform_routing.py` | Runs detailed routing, routed GDS generation, and PDN generation |
+
 ## Installation and Setup
 
 ### 1. Clone the repository
