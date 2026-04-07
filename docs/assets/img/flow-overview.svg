@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="440" viewBox="0 0 720 440" role="img" aria-labelledby="title desc">
+  <title id="title">COmPOSER flow overview</title>
+  <desc id="desc">Diagram showing stage 1 sizing, stage 2 parsing and primitive generation, and stage 3 placement, routing, and PDN generation.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b4f66"/>
+      <stop offset="100%" stop-color="#c57d2a"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#f5f8fb"/>
+    </linearGradient>
+  </defs>
+  <rect width="720" height="440" rx="28" fill="#edf3f7"/>
+  <circle cx="92" cy="78" r="94" fill="rgba(197,125,42,0.13)"/>
+  <circle cx="620" cy="372" r="110" fill="rgba(15,108,123,0.10)"/>
+  <rect x="48" y="48" width="624" height="344" rx="28" fill="url(#bg)" opacity="0.09"/>
+
+  <rect x="72" y="88" width="170" height="230" rx="22" fill="url(#card)" stroke="#d5dfe8"/>
+  <rect x="275" y="88" width="170" height="230" rx="22" fill="url(#card)" stroke="#d5dfe8"/>
+  <rect x="478" y="88" width="170" height="230" rx="22" fill="url(#card)" stroke="#d5dfe8"/>
+
+  <text x="96" y="126" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="15" font-weight="700" fill="#0b4f66">Stage 1</text>
+  <text x="96" y="152" font-family="Georgia, serif" font-size="24" font-weight="700" fill="#10212f">Sizing</text>
+  <text x="96" y="188" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="14" fill="#1e2c37">Unsized netlist</text>
+  <text x="96" y="212" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="14" fill="#1e2c37">Design targets</text>
+  <text x="96" y="236" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="14" fill="#1e2c37">Equation-based search</text>
+  <text x="96" y="260" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="14" fill="#1e2c37">Stage 1 mapping</text>
+
+  <text x="299" y="126" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="15" font-weight="700" fill="#0b4f66">Stage 2</text>
+  <text x="299" y="152" font-family="Georgia, serif" font-size="24" font-weight="700" fill="#10212f">Parse</text>
+  <text x="299" y="188" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="14" fill="#1e2c37">Sized netlist</text>
+  <text x="299" y="212" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="14" fill="#1e2c37">Primitive selection</text>
+  <text x="299" y="236" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="14" fill="#1e2c37">GDS generation</text>
+  <text x="299" y="260" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="14" fill="#1e2c37">Design JSON export</text>
+
+  <text x="502" y="126" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="15" font-weight="700" fill="#0b4f66">Stage 3</text>
+  <text x="502" y="152" font-family="Georgia, serif" font-size="24" font-weight="700" fill="#10212f">Layout</text>
+  <text x="502" y="188" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="14" fill="#1e2c37">Placement</text>
+  <text x="502" y="212" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="14" fill="#1e2c37">LEF generation</text>
+  <text x="502" y="236" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="14" fill="#1e2c37">Hanan routing</text>
+  <text x="502" y="260" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="14" fill="#1e2c37">PDN and final GDS</text>
+
+  <path d="M242 202 H270" fill="none" stroke="#0b4f66" stroke-width="4" stroke-linecap="round"/>
+  <path d="M445 202 H473" fill="none" stroke="#0b4f66" stroke-width="4" stroke-linecap="round"/>
+  <path d="M262 194 L274 202 L262 210" fill="none" stroke="#0b4f66" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M465 194 L477 202 L465 210" fill="none" stroke="#0b4f66" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="104" y="330" width="512" height="32" rx="16" fill="#ffffff" stroke="#d5dfe8"/>
+  <text x="126" y="351" font-family="Trebuchet MS, Segoe UI, sans-serif" font-size="13" fill="#576978">One framework, reusable pieces: sizers, parser, generators, placer, router, PDN, and conversion utilities.</text>
+</svg>

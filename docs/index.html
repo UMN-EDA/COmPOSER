@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>COmPOSER Documentation</title>
+    <meta name="description" content="Static documentation website for the COmPOSER RF/mm-wave design automation framework.">
+    <link rel="stylesheet" href="assets/css/site.css">
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="brand" href="index.html">
+          <span class="brand-mark">CO</span>
+          <span class="brand-text">
+            <strong>COmPOSER</strong>
+            <small>RF/mm-wave layout automation docs</small>
+          </span>
+        </a>
+        <div class="header-links">
+          <a href="paper.html">Paper</a>
+          <a href="quickstart.html">Quickstart</a>
+          <a href="examples.html">Examples</a>
+        </div>
+      </header>
+      <div class="content-shell">
+        <aside class="sidebar">
+          <section class="nav-group">
+            <h2>Overview</h2>
+            <ul>
+              <li><a href="index.html" class="active">Home</a></li>
+              <li><a href="paper.html">Paper Overview</a></li>
+              <li><a href="install.html">Installation</a></li>
+              <li><a href="quickstart.html">Quickstart</a></li>
+              <li><a href="flow.html">Full Flow</a></li>
+              <li><a href="configuration.html">Configuration</a></li>
+              <li><a href="examples.html">Examples</a></li>
+            </ul>
+          </section>
+          <section class="nav-group">
+            <h2>Reference</h2>
+            <ul>
+              <li><a href="datasets-models.html">Datasets and Models</a></li>
+              <li><a href="stage-1-sizing.html">Stage 1 Sizing</a></li>
+              <li><a href="netlist-parsing.html">Netlist Parsing</a></li>
+              <li><a href="placement.html">Placement</a></li>
+              <li><a href="routing.html">Routing</a></li>
+              <li><a href="hanan-router.html">Hanan Router</a></li>
+              <li><a href="primitives.html">Primitives</a></li>
+              <li><a href="utilities.html">Utilities</a></li>
+            </ul>
+          </section>
+        </aside>
+        <main class="main-content">
+          <p class="eyebrow">Documentation</p>
+          <article class="doc-card">
+            <h1>COmPOSER</h1>
+            <p class="lead">COmPOSER is a performance-oriented RF/mm-wave design automation framework that connects hybrid analytical sizing, primitive generation, placement, routing, and final layout assembly into one workflow.</p>
+            <p>This website has been rebuilt as a fully static site with real HTML pages and relative links, so it works directly from the <code>docs/</code> folder and on GitHub Pages without any Jekyll dependency.</p>
+
+            <div class="hero-grid">
+              <div class="callout">
+                <h3>Paper-aligned framing</h3>
+                <p>The site now follows the attached paper's framing of COmPOSER as an end-to-end RF/mm-wave synthesis flow, not just a repository of scripts.</p>
+                <p>It emphasizes layout-aware passive modeling, MILP-based placement, A*-based routing, PDN integration, and the LNA/PA evaluation story from the paper.</p>
+              </div>
+              <div class="callout">
+                <img src="assets/img/flow-overview.svg" alt="COmPOSER flow overview">
+              </div>
+            </div>
+
+            <h2>Main Stages</h2>
+            <div class="card-grid">
+              <div class="mini-card">
+                <h3>Stage 1</h3>
+                <p>Hybrid analytical sizing computes active and passive targets from user specifications.</p>
+              </div>
+              <div class="mini-card">
+                <h3>Stage 2</h3>
+                <p>Primitive block generation turns sized elements into layout-ready GDS building blocks.</p>
+              </div>
+              <div class="mini-card">
+                <h3>Stage 3</h3>
+                <p>Layout synthesis performs placement, routing-input generation, detailed routing, and PDN creation.</p>
+              </div>
+              <div class="mini-card">
+                <h3>Stage 4</h3>
+                <p>The paper closes the loop with post-layout verification and iterative refinement.</p>
+              </div>
+            </div>
+
+            <h2>Start Here</h2>
+            <ul>
+              <li><a href="paper.html">Paper Overview</a> explains how the public repo maps to the manuscript.</li>
+              <li><a href="install.html">Installation</a> covers Python packages, Gurobi, router build, and the mock PDK.</li>
+              <li><a href="quickstart.html">Quickstart</a> shows the fastest way to run one of the LNA or PA examples.</li>
+              <li><a href="configuration.html">Configuration</a> explains the main <code>config.json</code> interface.</li>
+              <li><a href="examples.html">Examples</a> explains what each example file and generated directory means.</li>
+            </ul>
+
+            <h2>Important Notes</h2>
+            <blockquote>
+              The CSV files in <code>DATASETS/</code> are reference-format datasets. Users should generate their own datasets with the same columns and units expected by the scripts.
+            </blockquote>
+            <blockquote>
+              The <code>MODELS/</code> directory is intended to hold trained <code>.pkl</code> files, but those artifacts are not committed in the repo.
+            </blockquote>
+            <blockquote>
+              The mock PDK and fixed primitive GDS files are useful for validating the public flow, but they are placeholders rather than production technology assets.
+            </blockquote>
+          </article>
+        </main>
+      </div>
+      <footer class="site-footer">
+        <p>Static docs site generated directly inside <code>docs/</code>.</p>
+      </footer>
+    </div>
+  </body>
+</html>
