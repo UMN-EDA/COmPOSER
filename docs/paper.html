@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Paper Overview | COmPOSER</title>
+    <link rel="stylesheet" href="assets/css/site.css">
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="brand" href="index.html"><span class="brand-mark">CO</span><span class="brand-text"><strong>COmPOSER</strong><small>RF/mm-wave layout automation docs</small></span></a>
+        <div class="header-links"><a href="index.html">Home</a><a href="quickstart.html">Quickstart</a><a href="examples.html">Examples</a></div>
+      </header>
+      <div class="content-shell">
+        <aside class="sidebar">
+          <section class="nav-group"><h2>Overview</h2><ul><li><a href="index.html">Home</a></li><li><a href="paper.html" class="active">Paper Overview</a></li><li><a href="install.html">Installation</a></li><li><a href="quickstart.html">Quickstart</a></li><li><a href="flow.html">Full Flow</a></li><li><a href="configuration.html">Configuration</a></li><li><a href="examples.html">Examples</a></li></ul></section>
+          <section class="nav-group"><h2>Reference</h2><ul><li><a href="datasets-models.html">Datasets and Models</a></li><li><a href="stage-1-sizing.html">Stage 1 Sizing</a></li><li><a href="netlist-parsing.html">Netlist Parsing</a></li><li><a href="placement.html">Placement</a></li><li><a href="routing.html">Routing</a></li><li><a href="hanan-router.html">Hanan Router</a></li><li><a href="primitives.html">Primitives</a></li><li><a href="utilities.html">Utilities</a></li></ul></section>
+        </aside>
+        <main class="main-content">
+          <p class="eyebrow">Paper</p>
+          <article class="doc-card">
+            <h1>Paper Overview</h1>
+            <p class="lead"><strong>COmPOSER: Circuit Optimization of mm-wave/RF circuits with Performance-Oriented Synthesis for Efficient Realizations</strong></p>
+            <p>The attached PDF presents COmPOSER as an open-source end-to-end RF/mm-wave design automation framework that translates target specifications into optimized circuits with layouts.</p>
+            <h2>What the Paper Emphasizes</h2>
+            <ul>
+              <li>schematic synthesis and physical synthesis are tightly coupled</li>
+              <li>passives are modeled with physics-based equations and ML-driven electromagnetic surrogates</li>
+              <li>placement, routing, and PDN are part of the method, not afterthoughts</li>
+              <li>the framework is evaluated on multiple LNAs and PAs</li>
+              <li>productivity gain versus manual design is a central claim</li>
+            </ul>
+            <h2>Paper Stages and Repo Mapping</h2>
+            <table>
+              <thead><tr><th>Paper Stage</th><th>Meaning</th><th>Repo Mapping</th></tr></thead>
+              <tbody>
+                <tr><td>Stage 1</td><td>Hybrid analytical sizing</td><td><code>perform_initial_sizing.py</code>, <code>lna_stage_1_sizer.py</code>, <code>pa_stage_1_sizer.py</code>, <code>map_initial_size_to_netlist.py</code></td></tr>
+                <tr><td>Stage 2</td><td>Primitive block layout generation</td><td><code>parse_netlist.py</code>, <code>PRIMITIVE_GENERATORS/</code>, <code>PRIMITIVE_OPTIMIZERS/</code></td></tr>
+                <tr><td>Stage 3</td><td>Layout synthesis</td><td><code>perform_placement.py</code>, <code>generate_routing_inputs.py</code>, <code>perform_routing.py</code>, <code>perform_power_grid_multi_level.py</code></td></tr>
+                <tr><td>Stage 4</td><td>Post-layout verification</td><td>Discussed in the paper's evaluation flow; only the synthesis side is bundled directly in this public repo</td></tr>
+              </tbody>
+            </table>
+            <h2>Public Repo vs Paper Scope</h2>
+            <p>The paper discusses validation in a commercial 65 nm environment with commercial EM and SPICE tools. This public repo contains the open synthesis flow, mock/reference datasets, mock PDK content, and the placement-routing-generation infrastructure.</p>
+            <p>That distinction matters: the website now follows the paper's terminology, but it does not claim that every commercial verification dependency from the paper ships in this repository.</p>
+            <h2>Why the Site Was Updated</h2>
+            <p>The docs now explicitly frame COmPOSER around layout-aware synthesis, RF-critical net weighting, passive geometry selection, MILP placement, A*-based routing, PDN construction, and the LNA/PA validation story from the manuscript.</p>
+          </article>
+        </main>
+      </div>
+      <footer class="site-footer"><p>Static docs site generated directly inside <code>docs/</code>.</p></footer>
+    </div>
+  </body>
+</html>
