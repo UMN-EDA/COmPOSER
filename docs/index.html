@@ -1,0 +1,87 @@
+---
+layout: default
+title: COmPOSER Documentation
+permalink: /
+eyebrow: Documentation
+description: Documentation for the COmPOSER RF design automation framework.
+---
+
+<h1>COmPOSER</h1>
+
+<p>COmPOSER is an RF/mm-wave design automation framework for <strong>performance-oriented synthesis</strong>. In the paper, it is presented as an open-source end-to-end flow that translates target specifications into optimized circuits with layouts, unifying schematic synthesis, primitive layout generation, placement, routing, and layout-aware passive modeling.</p>
+
+<p>The repository is organized so that you can use the full pipeline or only the pieces you need. You can run the end-to-end shell driver, or you can call the sizers, parser, placement engine, router, primitive generators, and utilities independently in your own project.</p>
+
+<div class="hero-grid">
+  <div class="callout">
+    <h3>Paper-aligned framing</h3>
+    <p>These pages now follow the attached paper's framing of COmPOSER as a layout-aware RF/mm-wave synthesis framework, not just a collection of scripts.</p>
+    <p>The site reflects the actual public repo structure while also matching the paper's language around hybrid sizing, primitive generation, layout synthesis, and verification.</p>
+  </div>
+  <div class="callout">
+    <img src="{{ '/assets/img/flow-overview.svg' | relative_url }}" alt="COmPOSER flow overview">
+  </div>
+</div>
+
+<h2>Main Ideas</h2>
+
+<div class="card-grid">
+  <div class="mini-card">
+    <h3>Paper Stage 1</h3>
+    <p>Hybrid analytical sizing uses circuit equations plus ML-informed passive estimation to produce layout-aware active and passive targets.</p>
+  </div>
+  <div class="mini-card">
+    <h3>Paper Stage 2</h3>
+    <p>Primitive block layout generation turns sized devices, passives, CPWs, and matching structures into reusable DRC-clean layout blocks.</p>
+  </div>
+  <div class="mini-card">
+    <h3>Paper Stage 3</h3>
+    <p>Layout synthesis combines constraint-driven MILP placement, A*-based routing, and PDN generation with user RF priorities.</p>
+  </div>
+  <div class="mini-card">
+    <h3>Paper Stage 4</h3>
+    <p>Post-layout verification closes the loop between synthesis intent and extracted behavior. The public repo exposes the synthesis flow that feeds that validation story.</p>
+  </div>
+</div>
+
+<h2>Abstract-Aligned Summary</h2>
+
+<p>Based on the attached paper PDF, COmPOSER is positioned as a framework that:</p>
+
+<ul>
+  <li>translates target specifications into optimized RF/mm-wave circuits with layouts</li>
+  <li>unifies schematic synthesis, active and passive layout generation, and placement and routing</li>
+  <li>combines physics-based equations with machine-learning-driven electromagnetic models</li>
+  <li>targets LNA and PA design classes</li>
+  <li>emphasizes productivity gains relative to manual design</li>
+</ul>
+
+<h2>Public Repo and Paper Scope</h2>
+
+<p>The paper reports results validated in a commercial 65 nm environment and discusses post-layout verification with commercial EM and SPICE tools.</p>
+
+<p>This public repository contains the open synthesis flow, example assets, mock datasets, mock PDK files, and the routing and layout-generation infrastructure. The website now makes that distinction explicit so the docs match the paper without overstating what is bundled locally.</p>
+
+<h2>Start Here</h2>
+
+<ul>
+  <li>Read <a href="{{ '/paper/' | relative_url }}">Paper Overview</a> for the paper-aligned architecture and terminology.</li>
+  <li>Read <a href="{{ '/install/' | relative_url }}">Installation</a> for environment requirements, router build notes, and Python setup.</li>
+  <li>Read <a href="{{ '/quickstart/' | relative_url }}">Quickstart</a> to run one of the included LNA or PA examples.</li>
+  <li>Read <a href="{{ '/configuration/' | relative_url }}">Configuration</a> for the complete meaning of the main <code>config.json</code>.</li>
+  <li>Read <a href="{{ '/examples/' | relative_url }}">Examples</a> for the file-by-file meaning of <code>LNA_1</code> to <code>LNA_4</code> and <code>PA_1</code> to <code>PA_3</code>.</li>
+</ul>
+
+<h2>Important Notes</h2>
+
+<blockquote>
+  <p>The CSV files in <code>DATASETS/</code> are reference-format datasets, not production datasets. Users should generate their own datasets with the same column names and the same units expected by the scripts.</p>
+</blockquote>
+
+<blockquote>
+  <p>The <code>MODELS/</code> directory is intended to hold trained <code>.pkl</code> artifacts, but those model files are not committed. They are created locally during training or setup.</p>
+</blockquote>
+
+<blockquote>
+  <p>The mock PDK and fixed primitive GDS files are flow-compatible placeholders. They are useful for validating the public pipeline, but users should substitute technology-correct assets for real deployment.</p>
+</blockquote>

@@ -1,0 +1,34 @@
+- section: Overview
+  items:
+    - title: Home
+      url: /
+    - title: Paper Overview
+      url: /paper/
+    - title: Installation
+      url: /install/
+    - title: Quickstart
+      url: /quickstart/
+    - title: Full Flow
+      url: /flow/
+    - title: Configuration
+      url: /configuration/
+    - title: Examples
+      url: /examples/
+- section: Reference
+  items:
+    - title: Datasets and Models
+      url: /datasets-models/
+    - title: Stage 1 Sizing
+      url: /stage-1-sizing/
+    - title: Netlist Parsing
+      url: /netlist-parsing/
+    - title: Placement
+      url: /placement/
+    - title: Routing
+      url: /routing/
+    - title: Hanan Router
+      url: /hanan-router/
+    - title: Primitives
+      url: /primitives/
+    - title: Utilities
+      url: /utilities/

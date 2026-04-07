@@ -1,0 +1,11 @@
+title: COmPOSER
+description: RF design automation documentation for the COmPOSER framework.
+baseurl: ""
+url: ""
+markdown: kramdown
+kramdown:
+  input: GFM
+theme: null
+exclude:
+  - Gemfile
+  - Gemfile.lock
