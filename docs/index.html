@@ -55,8 +55,11 @@
           <p class="eyebrow">Documentation</p>
           <article class="doc-card">
             <h1>COmPOSER</h1>
-            <p class="lead">COmPOSER is a performance-oriented RF/mm-wave design automation framework that connects hybrid analytical sizing, primitive generation, placement, routing, and final layout assembly into one workflow.</p>
-            <p>This website has been rebuilt as a fully static site with real HTML pages and relative links, so it works directly from the <code>docs/</code> folder and on GitHub Pages without any Jekyll dependency.</p>
+            <p class="lead">COmPOSER is a framework for automatically designing RF and mm-wave circuits, especially blocks like LNAs and PAs, starting from user performance targets such as frequency, gain, noise figure, bandwidth, and power. Instead of treating circuit design and layout as separate steps, it connects them into one flow so that the physical layout is considered early, not only at the very end.
+
+At a high level, the framework first estimates reasonable circuit sizes and passive values from the user?s specs. Then it turns those values into layout-ready building blocks such as inductors, capacitors, resistors, transmission lines, CPWs, and device blocks. After that, it performs placement, routing, and power-grid generation to create a full physical layout. The overall goal is to reduce manual RF design effort while still producing layouts that are physically meaningful and close to real design practice.
+
+Another important part of COmPOSER is that it is modular. A user can run the full end-to-end flow, or use only one part of it, such as the primitive generators, the router, the placement engine, or the initial sizing scripts. That makes it useful both as a complete automation framework and as a toolkit for RF layout research and development.</p>
 
             <div class="hero-grid">
               <div class="callout">
