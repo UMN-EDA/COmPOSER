@@ -3,7 +3,7 @@
 
 # COmPOSER: Circuit Optimization of mm-wave/RF circuits with Performance-Oriented Synthesis for Efficient Realizations
 
-COmPOSER is an RF/mm-wave design automation framework for generating layout-aware implementations of circuits such as low-noise amplifiers (LNAs) and power amplifiers (PAs). It connects high-level design targets to circuit sizing, primitive generation, placement, routing, and final layout construction in one flow.
+COmPOSER is an open-source RF/mm-wave design automation framework for ened-to-end design of circuits such as low-noise amplifiers (LNAs) and power amplifiers (PAs). It connects high-level design targets to circuit sizing, primitive generation, placement, routing, and final layout construction in one flow.
 
 Instead of treating circuit design and physical layout as completely separate steps, COmPOSER brings layout considerations in early. The framework uses equation-based sizing, learned or surrogate passive models, parameterized primitive generators, a placement engine, a detailed router, and power-grid generation to produce layouts that are physically meaningful and easier to validate.
 
@@ -156,3 +156,16 @@ These can all be run independently if you want to use only part of the framework
 ## License
 
 This repository is distributed under the license in [`LICENSE`](LICENSE).
+
+## Citation
+
+COmPOSER has been accepted publication at the Proceedings of the ACM/IEEE Design Automation Conference (DAC) - 2026. If you use COmPOSER in your research, please cite our work:
+
+```bibtex
+@article{ghosh2026composer,
+  title={COmPOSER: Circuit Optimization of mm-wave/RF circuits with Performance-Oriented Synthesis for Efficient Realizations},
+  author={Ghosh, Subhadip and Peri, Surya Srikar and Ramprasath, S. and Berhan, Sosina A. and Gebru, Endalk Y. and Harjani, Ramesh and Sapatnekar, Sachin S.},
+  journal={arXiv preprint arXiv:2603.20486},
+  year={2026}
+}
+
