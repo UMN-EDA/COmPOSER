@@ -79,6 +79,7 @@ class Constraints:
         self.halo = data.get("halo", 0)                 #Halo gap around each modules
         self.keepouts = data.get("keepouts", [])        #Keepout regions - regions where no modules can be placed
         self.symmetry = data.get("symmetry", [])        #Symmetry accross a given axes
+        self.chip_symmetry = data.get("chip_symmetry", [])  # Symmetry about the solved chip centerline
         self.alignment = data.get("alignment", [])      #Align along a certain axes
         self.regions = data.get("regions", {})          #Region specific to a given module, where that module has to be placed
         self.proximity = data.get("proximity", [])      #Proximity within which a pair of modules has to be placed
@@ -136,9 +137,60 @@ class Constraints:
             model.addConstr(xi + wi <= r["ur"][0])
             model.addConstr(yi + hi <= r["ur"][1])
 
+    def _parse_symmetry_groups(self, spec, spec_idx, mod_index, label):
+        stype = spec["type"].lower()
+        if stype not in ("vertical", "horizontal"):
+            raise ValueError(f"{label}[{spec_idx}] has invalid type '{spec['type']}'")
+
+        pair_list = []
+        self_list = []
+
+        if "pairs" in spec:
+            for p_idx, pair in enumerate(spec["pairs"]):
+                if len(pair) != 2:
+                    raise ValueError(
+                        f"{label}[{spec_idx}]['pairs'][{p_idx}] must contain exactly 2 module names"
+                    )
+                a, b = pair
+                if a not in mod_index or b not in mod_index:
+                    raise ValueError(
+                        f"Unknown module in {label}[{spec_idx}]['pairs'][{p_idx}]: {pair}"
+                    )
+                pair_list.append((a, b))
+
+            for mname in spec.get("self_symmetric", []):
+                if mname not in mod_index:
+                    raise ValueError(
+                        f"Unknown module in {label}[{spec_idx}]['self_symmetric']: {mname}"
+                    )
+                self_list.append(mname)
+
+        else:
+            mods = spec.get("modules", [])
+            if len(mods) < 2:
+                raise ValueError(
+                    f"{label}[{spec_idx}] needs either 'pairs' or at least 2 names in 'modules'"
+                )
+
+            for mname in mods:
+                if mname not in mod_index:
+                    raise ValueError(f"Unknown module '{mname}' in {label}[{spec_idx}]")
+
+            left = 0
+            right = len(mods) - 1
+            while left < right:
+                pair_list.append((mods[left], mods[right]))
+                left += 1
+                right -= 1
+
+            if left == right:
+                self_list.append(mods[left])
+
+        return stype, pair_list, self_list
+
     def apply_symmetry(self, model, mod_index, x, y, w, h):
         """
-        Apply symmetry constraints across an axis.
+        Apply symmetry constraints across a fixed user-provided axis.
 
         Supported formats:
 
@@ -161,64 +213,19 @@ class Constraints:
            }
         """
         for s_idx, s in enumerate(self.symmetry):
-            stype = s["type"].lower()
+            stype, pair_list, self_list = self._parse_symmetry_groups(
+                s, s_idx, mod_index, "symmetry"
+            )
 
             if stype == "vertical":
                 if "axis_x" not in s:
                     raise ValueError(f"symmetry[{s_idx}] with type='vertical' requires 'axis_x'")
                 axis = s["axis_x"]
-            elif stype == "horizontal":
+            else:
                 if "axis_y" not in s:
                     raise ValueError(f"symmetry[{s_idx}] with type='horizontal' requires 'axis_y'")
                 axis = s["axis_y"]
-            else:
-                raise ValueError(f"symmetry[{s_idx}] has invalid type '{s['type']}'")
 
-            pair_list = []
-            self_list = []
-
-            if "pairs" in s:
-                for p_idx, pair in enumerate(s["pairs"]):
-                    if len(pair) != 2:
-                        raise ValueError(
-                            f"symmetry[{s_idx}]['pairs'][{p_idx}] must contain exactly 2 module names"
-                        )
-                    a, b = pair
-                    if a not in mod_index or b not in mod_index:
-                        raise ValueError(
-                            f"Unknown module in symmetry[{s_idx}]['pairs'][{p_idx}]: {pair}"
-                        )
-                    pair_list.append((a, b))
-
-                for mname in s.get("self_symmetric", []):
-                    if mname not in mod_index:
-                        raise ValueError(
-                            f"Unknown module in symmetry[{s_idx}]['self_symmetric']: {mname}"
-                        )
-                    self_list.append(mname)
-
-            else:
-                mods = s.get("modules", [])
-                if len(mods) < 2:
-                    raise ValueError(
-                        f"symmetry[{s_idx}] needs either 'pairs' or at least 2 names in 'modules'"
-                    )
-
-                for mname in mods:
-                    if mname not in mod_index:
-                        raise ValueError(f"Unknown module '{mname}' in symmetry[{s_idx}]")
-
-                left = 0
-                right = len(mods) - 1
-                while left < right:
-                    pair_list.append((mods[left], mods[right]))
-                    left += 1
-                    right -= 1
-
-                if left == right:
-                    self_list.append(mods[left])
-
-            # Apply pair symmetry
             for p_idx, (ma, mb) in enumerate(pair_list):
                 i = mod_index[ma]
                 j = mod_index[mb]
@@ -234,7 +241,6 @@ class Constraints:
                         name=f"sym_h_{s_idx}_{p_idx}_{ma}_{mb}"
                     )
 
-            # Apply self-symmetry for center modules
             for c_idx, mname in enumerate(self_list):
                 i = mod_index[mname]
 
@@ -247,6 +253,53 @@ class Constraints:
                     model.addConstr(
                         y[i] + h[i] / 2 == axis,
                         name=f"sym_h_self_{s_idx}_{c_idx}_{mname}"
+                    )
+
+    def apply_chip_symmetry(self, model, mod_index, x, y, w, h, W, H):
+        """
+        Apply symmetry constraints about the solved chip centerline.
+
+        Supported formats mirror 'symmetry', but no numeric axis is needed:
+
+        {
+          "chip_symmetry": [
+            {"pairs": [["L1", "R1"]], "self_symmetric": ["C"], "type": "vertical"},
+            {"modules": ["B", "M", "T"], "type": "horizontal"}
+          ]
+        }
+        """
+        for s_idx, s in enumerate(self.chip_symmetry):
+            stype, pair_list, self_list = self._parse_symmetry_groups(
+                s, s_idx, mod_index, "chip_symmetry"
+            )
+
+            for p_idx, (ma, mb) in enumerate(pair_list):
+                i = mod_index[ma]
+                j = mod_index[mb]
+
+                if stype == "vertical":
+                    model.addConstr(
+                        x[i] + w[i] / 2 + x[j] + w[j] / 2 == W,
+                        name=f"chip_sym_v_{s_idx}_{p_idx}_{ma}_{mb}"
+                    )
+                else:
+                    model.addConstr(
+                        y[i] + h[i] / 2 + y[j] + h[j] / 2 == H,
+                        name=f"chip_sym_h_{s_idx}_{p_idx}_{ma}_{mb}"
+                    )
+
+            for c_idx, mname in enumerate(self_list):
+                i = mod_index[mname]
+
+                if stype == "vertical":
+                    model.addConstr(
+                        2 * x[i] + w[i] == W,
+                        name=f"chip_sym_v_self_{s_idx}_{c_idx}_{mname}"
+                    )
+                else:
+                    model.addConstr(
+                        2 * y[i] + h[i] == H,
+                        name=f"chip_sym_h_self_{s_idx}_{c_idx}_{mname}"
                     )
 
 
@@ -875,6 +928,7 @@ def gurobi_floorplan(chip, modules, nets, constraints, aspect_ratio=None, margin
             constraints.apply_halo(model, x, y, w, h, M, t, i, j)
 
     constraints.apply_symmetry (model, mod_index, x, y, w, h)
+    constraints.apply_chip_symmetry(model, mod_index, x, y, w, h, W, H)
     constraints.apply_alignment(model, mod_index, x, y, w, h)
     constraints.apply_proximity(model, mod_index, x, y, w, h)
     constraints.apply_ordering(model, mod_index, x, y, w, h)
@@ -1545,7 +1599,6 @@ if __name__ == "__main__":
             copy_gds_to=final_primitives,
             snap_all_after_flat=True
         )
-
 
 
 
