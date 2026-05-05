@@ -1,5 +1,310 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Placement | COmPOSER</title><link rel="stylesheet" href="assets/css/site.css"></head>
-  <body><div class="page-shell"><header class="site-header"><a class="brand" href="index.html"><span class="brand-mark">CO</span><span class="brand-text"><strong>COmPOSER</strong><small>RF/mm-wave layout automation docs</small></span></a><div class="header-links"><a href="paper.html">Paper</a><a href="quickstart.html">Quickstart</a><a href="examples.html">Examples</a></div></header><div class="content-shell"><aside class="sidebar"><section class="nav-group"><h2>Overview</h2><ul><li><a href="index.html">Home</a></li><li><a href="paper.html">Paper Overview</a></li><li><a href="install.html">Installation</a></li><li><a href="quickstart.html">Quickstart</a></li><li><a href="flow.html">Full Flow</a></li><li><a href="configuration.html">Configuration</a></li><li><a href="examples.html">Examples</a></li></ul></section><section class="nav-group"><h2>Reference</h2><ul><li><a href="datasets-models.html">Datasets and Models</a></li><li><a href="stage-1-sizing.html">Stage 1 Sizing</a></li><li><a href="netlist-parsing.html">Netlist Parsing</a></li><li><a href="placement.html" class="active">Placement</a></li><li><a href="routing.html">Routing</a></li><li><a href="hanan-router.html">Hanan Router</a></li><li><a href="primitives.html">Primitives</a></li><li><a href="utilities.html">Utilities</a></li></ul></section></aside><main class="main-content"><p class="eyebrow">Reference</p><article class="doc-card"><h1>Placement</h1><p class="lead">In the paper, placement is part of the layout synthesis stage. The public implementation uses Gurobi to solve a placement problem with area and weighted-HPWL objectives, module variants, rotation choices, halo spacing, and IO placement rules.</p><h2>Command</h2><pre><code>python3 perform_placement.py --config EXAMPLES/LNA_1/config.json</code></pre><h2>Inputs</h2><ul><li><code>project_name/stage_2/&lt;topcell&gt;_design.json</code></li><li><code>placement.placement_constraints</code></li><li><code>placement.timelimit</code></li><li><code>placement.aspect_ratio</code></li><li><code>placement.level</code></li><li><code>placement.weight_hpwl</code></li></ul><h2>Outputs</h2><ul><li><code>stage_3/placement/&lt;topcell&gt;_placement.json</code></li><li><code>stage_3/placement/&lt;topcell&gt;_placement.gds</code></li><li><code>stage_3/placement/primitives/*.gds</code></li></ul><h2>Supported Constraint Types</h2><ul><li><code>halo</code></li><li><code>keepouts</code></li><li><code>symmetry</code></li><li><code>alignment</code></li><li><code>regions</code></li><li><code>proximity</code></li><li><code>ordering</code></li></ul><p>The shipped examples are minimal, but the code supports much richer constraint files than the simplest examples show.</p></article></main></div><footer class="site-footer"><p>Static docs site generated directly inside <code>docs/</code>.</p></footer></div></body>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Placement | COmPOSER</title>
+    <link rel="stylesheet" href="assets/css/site.css">
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="brand" href="index.html">
+          <span class="brand-mark">CO</span>
+          <span class="brand-text"><strong>COmPOSER</strong><small>RF/mm-wave layout automation docs</small></span>
+        </a>
+        <div class="header-links">
+          <a href="paper.html">Paper</a>
+          <a href="quickstart.html">Quickstart</a>
+          <a href="examples.html">Examples</a>
+        </div>
+      </header>
+      <div class="content-shell">
+        <aside class="sidebar">
+          <section class="nav-group">
+            <h2>Overview</h2>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="paper.html">Paper Overview</a></li>
+              <li><a href="install.html">Installation</a></li>
+              <li><a href="quickstart.html">Quickstart</a></li>
+              <li><a href="flow.html">Full Flow</a></li>
+              <li><a href="configuration.html">Configuration</a></li>
+              <li><a href="examples.html">Examples</a></li>
+            </ul>
+          </section>
+          <section class="nav-group">
+            <h2>Reference</h2>
+            <ul>
+              <li><a href="datasets-models.html">Datasets and Models</a></li>
+              <li><a href="stage-1-sizing.html">Stage 1 Sizing</a></li>
+              <li><a href="netlist-parsing.html">Netlist Parsing</a></li>
+              <li><a href="placement.html" class="active">Placement</a></li>
+              <li><a href="routing.html">Routing</a></li>
+              <li><a href="hanan-router.html">Hanan Router</a></li>
+              <li><a href="primitives.html">Primitives</a></li>
+              <li><a href="utilities.html">Utilities</a></li>
+            </ul>
+          </section>
+        </aside>
+        <main class="main-content">
+          <p class="eyebrow">Reference</p>
+          <article class="doc-card">
+            <h1>Placement</h1>
+            <p class="lead">COmPOSER uses a Gurobi-based mixed-integer floorplanner. The placer chooses module positions, legal rotations, optional module variants, pad locations, and chip size while minimizing a weighted combination of area and wirelength.</p>
+
+            <h2>Command</h2>
+            <pre><code>python3 perform_placement.py --config EXAMPLES/LNA_1/config.json</code></pre>
+
+            <h2>Primary Inputs</h2>
+            <ul>
+              <li><code>project_name/stage_2/&lt;topcell&gt;_design.json</code>: module sizes, module variants, pins, and chip pad metadata</li>
+              <li><code>placement.placement_constraints</code>: user placement-constraint JSON</li>
+              <li><code>placement.timelimit</code>: Gurobi solve time limit in seconds</li>
+              <li><code>placement.aspect_ratio</code>: target chip aspect ratio; <code>0</code> disables the ratio constraint</li>
+              <li><code>placement.level</code>: objective mode, described below</li>
+              <li><code>placement.weight_hpwl</code>: tradeoff between pure area and wirelength-driven placement</li>
+            </ul>
+
+            <h2>Outputs</h2>
+            <ul>
+              <li><code>stage_3/placement/&lt;topcell&gt;_placement.json</code></li>
+              <li><code>stage_3/placement/&lt;topcell&gt;_placement.gds</code></li>
+              <li><code>stage_3/placement/primitives/*.gds</code></li>
+            </ul>
+
+            <h2>What The Placer Solves</h2>
+            <ul>
+              <li>Every module gets an <code>x</code>, <code>y</code>, <code>w</code>, and <code>h</code>.</li>
+              <li>Every module gets exactly one orientation from <code>R0</code>, <code>R90</code>, <code>R180</code>, and <code>R270</code>.</li>
+              <li>Modules with multiple geometry variants get exactly one active variant.</li>
+              <li>The chip outline <code>W</code> and <code>H</code> are solved along with the placement.</li>
+              <li>Pads are constrained either to the periphery or to a BGA lattice, depending on <code>pad_mode</code>.</li>
+              <li>Net wirelength uses orientation-aware pin positions, not just module centers.</li>
+            </ul>
+
+            <h2>Objective Controls</h2>
+            <table>
+              <thead>
+                <tr><th>Key</th><th>Meaning</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>placement.timelimit</code></td><td>Maximum Gurobi runtime in seconds.</td></tr>
+                <tr><td><code>placement.aspect_ratio</code></td><td>If nonzero, constrains <code>W/H</code> to a narrow band around the given value.</td></tr>
+                <tr><td><code>placement.level</code></td><td><code>0</code> minimizes area plus weighted HPWL. <code>1</code> adds extra weighted Manhattan distance terms for branch pairs listed in the net JSON.</td></tr>
+                <tr><td><code>placement.weight_hpwl</code></td><td>Blend factor between area and the wirelength-related objective terms.</td></tr>
+                <tr><td><code>placement.plot_html</code></td><td>If <code>true</code>, writes an interactive placement plot.</td></tr>
+              </tbody>
+            </table>
+
+            <h2>Constraint File Format</h2>
+            <p>The placement-constraint file is a JSON object. All keys are optional. A minimal valid file can be as small as:</p>
+            <pre><code>{
+  "halo": 1000
+}</code></pre>
+
+            <p>A richer example looks like this:</p>
+            <pre><code>{
+  "halo": 1000,
+  "keepouts": [
+    {"ll": [0, 0], "ur": [20000, 15000]}
+  ],
+  "regions": {
+    "input": {"ll": [0, 40000], "ur": [80000, 140000]}
+  },
+  "symmetry": [
+    {
+      "pairs": [["Lleft", "Lright"]],
+      "self_symmetric": ["CenterTap"],
+      "type": "vertical",
+      "axis_x": 150000
+    }
+  ],
+  "chip_symmetry": [
+    {
+      "modules": ["BiasLeft", "BiasCenter", "BiasRight"],
+      "type": "vertical"
+    }
+  ],
+  "alignment": [
+    {"modules": ["gnd0", "input", "gnd1"], "type": "bottom"}
+  ],
+  "proximity": [
+    {"modules": ["cas_mos", "bias_mos"], "max_dx": 40000, "max_dy": 20000}
+  ],
+  "ordering": [
+    {"modules": ["gnd0", "input", "gnd1"], "type": "horizontal", "gap": 5000}
+  ]
+}</code></pre>
+
+            <h2>Supported Constraint Types</h2>
+
+            <h3><code>halo</code></h3>
+            <p><code>halo</code> is a global spacing rule applied to every module pair. It expands the non-overlap requirement by the same amount in all directions.</p>
+            <pre><code>{
+  "halo": 3000
+}</code></pre>
+            <p>If module A is to the left of module B, the solver enforces <code>xA + wA + halo &lt;= xB</code>. This is the simplest way to get uniform white space between blocks.</p>
+
+            <h3><code>keepouts</code></h3>
+            <p><code>keepouts</code> define forbidden rectangles. Every module must lie entirely outside each keepout.</p>
+            <pre><code>{
+  "keepouts": [
+    {"ll": [0, 0], "ur": [10000, 20000]},
+    {"ll": [200000, 50000], "ur": [260000, 90000]}
+  ]
+}</code></pre>
+            <p>Each keepout is an axis-aligned rectangle with lower-left <code>ll</code> and upper-right <code>ur</code>.</p>
+
+            <h3><code>regions</code></h3>
+            <p><code>regions</code> assign a legal placement box to specific modules. A constrained module must be placed completely inside its region.</p>
+            <pre><code>{
+  "regions": {
+    "input": {"ll": [0, 80000], "ur": [120000, 180000]},
+    "output": {"ll": [220000, 80000], "ur": [360000, 180000]}
+  }
+}</code></pre>
+            <p>This is useful when a block must stay near an edge, near a matching network, or inside a reserved floorplan zone.</p>
+
+            <h3><code>symmetry</code></h3>
+            <p><code>symmetry</code> mirrors modules about a fixed numeric axis that you provide explicitly.</p>
+            <p>Supported forms:</p>
+            <ul>
+              <li><code>pairs</code> plus optional <code>self_symmetric</code></li>
+              <li><code>modules</code> as an ordered list; the code automatically pairs outside-in, and an odd middle module becomes self-symmetric</li>
+            </ul>
+            <p>Vertical symmetry example:</p>
+            <pre><code>{
+  "symmetry": [
+    {
+      "pairs": [["L1", "R1"], ["L2", "R2"]],
+      "self_symmetric": ["CenterBlock"],
+      "type": "vertical",
+      "axis_x": 150000
+    }
+  ]
+}</code></pre>
+            <p>Ordered-list example:</p>
+            <pre><code>{
+  "symmetry": [
+    {
+      "modules": ["L2", "L1", "C", "R1", "R2"],
+      "type": "vertical",
+      "axis_x": 150000
+    }
+  ]
+}</code></pre>
+            <p>Semantics:</p>
+            <ul>
+              <li><code>type: "vertical"</code> means reflect about <code>x = axis_x</code>.</li>
+              <li><code>type: "horizontal"</code> means reflect about <code>y = axis_y</code>.</li>
+              <li>Pair symmetry constrains only the module centers, not orientation or variant equality.</li>
+              <li><code>self_symmetric</code> means the module center is forced onto the axis.</li>
+            </ul>
+            <p>Important limitation: a block containing only <code>self_symmetric</code> is not currently accepted by the parser. Use either <code>pairs</code> or a <code>modules</code> list with at least two names.</p>
+
+            <h3><code>chip_symmetry</code></h3>
+            <p><code>chip_symmetry</code> uses the same syntax as <code>symmetry</code>, but reflects modules about the solved chip centerline rather than a fixed numeric axis.</p>
+            <pre><code>{
+  "chip_symmetry": [
+    {
+      "pairs": [["LeftPA", "RightPA"]],
+      "self_symmetric": ["OutputMatch"],
+      "type": "vertical"
+    }
+  ]
+}</code></pre>
+            <pre><code>{
+  "chip_symmetry": [
+    {
+      "modules": ["BottomBias", "CenterBias", "TopBias"],
+      "type": "horizontal"
+    }
+  ]
+}</code></pre>
+            <p>Semantics:</p>
+            <ul>
+              <li><code>type: "vertical"</code> means symmetry about the chip vertical midpoint, so paired module centers satisfy <code>center_x(A) + center_x(B) = W</code>.</li>
+              <li><code>type: "horizontal"</code> means symmetry about the chip horizontal midpoint, so paired module centers satisfy <code>center_y(A) + center_y(B) = H</code>.</li>
+              <li>As with <code>symmetry</code>, this is geometric center symmetry only. It does not force identical orientation, identical variant choice, or mirrored pin selection.</li>
+            </ul>
+            <p>The same parser limitation applies here too: a <code>chip_symmetry</code> block cannot contain only <code>self_symmetric</code> names.</p>
+
+            <h3><code>alignment</code></h3>
+            <p><code>alignment</code> aligns a set of modules to the first module listed.</p>
+            <p>Supported types are <code>top</code>, <code>bottom</code>, <code>left</code>, <code>right</code>, <code>center_x</code>, and <code>center_y</code>.</p>
+            <pre><code>{
+  "alignment": [
+    {"modules": ["gnd0", "input", "gnd1"], "type": "bottom"},
+    {"modules": ["M1", "M2", "M3"], "type": "center_x"}
+  ]
+}</code></pre>
+            <p><code>bottom</code> aligns all module lower edges. <code>center_x</code> aligns all module horizontal centers. The first module in the list is the reference for the others.</p>
+
+            <h3><code>proximity</code></h3>
+            <p><code>proximity</code> limits how far apart two module centers may be.</p>
+            <p>Supported forms:</p>
+            <ul>
+              <li><code>max_dx</code>: absolute center-to-center separation in x</li>
+              <li><code>max_dy</code>: absolute center-to-center separation in y</li>
+              <li><code>max_dist</code>: Euclidean center-to-center distance</li>
+            </ul>
+            <pre><code>{
+  "proximity": [
+    {"modules": ["cas_mos", "bias_mos"], "max_dx": 40000, "max_dy": 20000},
+    {"modules": ["L1", "C1"], "max_dist": 60000}
+  ]
+}</code></pre>
+            <p>Important limitation: <code>min_dist</code> is explicitly rejected by the code today.</p>
+
+            <h3><code>ordering</code></h3>
+            <p><code>ordering</code> enforces a chain order with an optional minimum gap between consecutive modules.</p>
+            <pre><code>{
+  "ordering": [
+    {"modules": ["gnd0", "input", "gnd1"], "type": "horizontal", "gap": 5000},
+    {"modules": ["source_ind", "cas_mos", "drain_ind"], "type": "vertical", "gap": 10000}
+  ]
+}</code></pre>
+            <ul>
+              <li><code>horizontal</code> means left-to-right ordering.</li>
+              <li><code>vertical</code> means bottom-to-top ordering.</li>
+              <li><code>gap</code> defaults to <code>0</code> if omitted.</li>
+            </ul>
+
+            <h2>Pad Placement Rules</h2>
+            <p>Pad placement is not configured inside <code>placement_constraint.json</code>, but it is still an important part of the placement solution.</p>
+            <table>
+              <thead>
+                <tr><th>Control</th><th>Meaning</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>pad_mode</code></td><td><code>periphery</code> places pads on chip edges. <code>bga</code> snaps pad centers to an internal grid.</td></tr>
+                <tr><td><code>pad_direction</code></td><td>Top-level config input used earlier in the flow to decide which pad sides are legal.</td></tr>
+                <tr><td><code>io_pitch</code>, <code>io_h</code></td><td>Periphery pad pitch and pad band height stored in the stage-2 design JSON.</td></tr>
+                <tr><td><code>io_row_h</code>, <code>io_col_w</code></td><td>Optional reserved edge-band thicknesses for core exclusion in periphery mode.</td></tr>
+                <tr><td><code>bga_pitch_x</code>, <code>bga_pitch_y</code></td><td>BGA grid pitch when <code>pad_mode</code> is <code>bga</code>.</td></tr>
+                <tr><td><code>bga_origin_x</code>, <code>bga_origin_y</code></td><td>BGA lattice origin.</td></tr>
+              </tbody>
+            </table>
+            <p>In periphery mode, non-pad modules are kept out of the reserved IO bands. In BGA mode, there is no automatic edge band because pads can live inside the array.</p>
+
+            <h2>Constraint Interaction Notes</h2>
+            <ul>
+              <li>All module names must match the stage-2 design JSON exactly.</li>
+              <li><code>halo</code> is global; it is not per-module or per-pair.</li>
+              <li><code>symmetry</code> and <code>chip_symmetry</code> enforce mirrored centers only.</li>
+              <li>Constraints can conflict. For example, a tight <code>region</code>, large <code>halo</code>, and strict <code>ordering</code> can easily make the problem infeasible.</li>
+              <li>The solver also accounts for module rotation and multi-variant module dimensions when enforcing these constraints.</li>
+            </ul>
+
+            <h2>Practical Starting Point</h2>
+            <p>A good first constraint file usually contains only <code>halo</code>, one or two <code>ordering</code> rules, and a small number of <code>regions</code> or <code>symmetry</code> blocks. Add stronger constraints only after the unconstrained or lightly constrained placement is already behaving reasonably.</p>
+          </article>
+        </main>
+      </div>
+      <footer class="site-footer">
+        <p>Static docs site generated directly inside <code>docs/</code>.</p>
+      </footer>
+    </div>
+  </body>
 </html>
