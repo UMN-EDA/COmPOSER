@@ -206,7 +206,7 @@ def parse_args():
     parser.add_argument(
         "--dataset_path",
         type=str,
-        default=os.path.join(base, "DEV", "DATASETS", "spiral_ind_data.csv"),
+        default=os.path.join(base,  "DATASETS", "spiral_ind_data.csv"),
         help="Path to the training dataset CSV"
     )
 
