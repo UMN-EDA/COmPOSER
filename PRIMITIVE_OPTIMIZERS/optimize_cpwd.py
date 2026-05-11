@@ -126,7 +126,7 @@ def parse_args():
     parser.add_argument(
         "--csv-path",
         type=str,
-        default=os.path.join(base, "DEV", "DATASETS", "cpwd_data.csv"),
+        default=os.path.join(base,  "DATASETS", "cpwd_data.csv"),
         help="Path to the CPWD dataset CSV file. Default: cpwd_data.csv"
     )
 
