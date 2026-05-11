@@ -97,7 +97,7 @@ def parse_args():
     parser.add_argument(
         "--csv_path",
         type=str,
-        default=os.path.join(base, "DEV", "DATASETS", "tline_data.csv"),
+        default=os.path.join(base,  "DATASETS", "tline_data.csv"),
         help="Path to the input CSV dataset"
     )
 
