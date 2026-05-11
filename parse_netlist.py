@@ -880,8 +880,8 @@ if __name__ == "__main__":
     mimcap_dataset = cfg["datasets"]["mimcap"]
     small_mimcap_dataset = cfg["datasets"]["small_mimcap"]
     log_section(logger, f"Setting up the MIM CAP poly model using dataset {mimcap_dataset}")
-    poly_model = my_C_optimizer.train_poly_model(mimcap_dataset, degree=2, model_path = os.path.join(base, "DEV", "MODELS", "mimcap_poly_model.pkl"))
-    small_poly_model = my_C_optimizer.train_poly_model(small_mimcap_dataset, degree=2, model_path = os.path.join(base, "DEV", "MODELS", "small_mimcap_poly_model.pkl"))
+    poly_model = my_C_optimizer.train_poly_model(mimcap_dataset, degree=2, model_path = os.path.join(base, "MODELS", "mimcap_poly_model.pkl"))
+    small_poly_model = my_C_optimizer.train_poly_model(small_mimcap_dataset, degree=2, model_path = os.path.join(base,  "MODELS", "small_mimcap_poly_model.pkl"))
 
     #Parsing netlist
     subckts = parse_netlist(netlist_file, num_decaps = cfg['decaps']['num_decaps'], add_decaps = cfg['decaps']['add_decaps'], decap_val = cfg['decaps']['decap_val']) 
