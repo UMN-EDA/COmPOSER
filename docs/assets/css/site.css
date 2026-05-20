@@ -114,17 +114,10 @@ pre code {
 
 .brand-logo {
   display: block;
-  width: 11.5rem;
+  width: clamp(10.5rem, 20vw, 15.5rem);
   height: auto;
-  max-height: 2.8rem;
+  max-height: 3.25rem;
   object-fit: contain;
-}
-
-.site-header .brand-logo {
-  flex: 0 0 auto;
-  width: 11.5rem !important;
-  max-width: 11.5rem;
-  max-height: 2.8rem !important;
 }
 
 .header-links a,
@@ -397,17 +390,31 @@ img {
 }
 
 .courtesy-section,
-.contact-section,
-.developer-section {
+.contact-section {
   margin-top: 2.4rem;
+}
+
+.contact-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+  gap: 1.4rem;
+  align-items: start;
+}
+
+.contact-aside {
+  display: grid;
+  gap: 1rem;
+}
+
+.contact-aside h2 {
+  margin-top: 0;
 }
 
 .institution-strip {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.8rem;
+  gap: 1rem;
   margin: 1rem 0 1.25rem;
-  max-width: 760px;
 }
 
 .institution-card {
@@ -415,9 +422,9 @@ img {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 0.55rem;
-  min-height: 6.6rem;
-  padding: 0.85rem;
+  gap: 0.8rem;
+  min-height: 10rem;
+  padding: 1.2rem;
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: #ffffff;
@@ -428,7 +435,7 @@ img {
 .institution-card img {
   width: auto;
   max-width: 100%;
-  max-height: 3rem;
+  max-height: 5.25rem;
   object-fit: contain;
 }
 
@@ -448,7 +455,7 @@ img {
 
 .developer-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.25fr) minmax(260px, 0.75fr);
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.9fr);
   gap: 1rem;
   margin-top: 1rem;
 }
@@ -471,7 +478,7 @@ img {
 }
 
 .developer-card ul {
-  columns: 1;
+  columns: 2;
   margin-bottom: 0;
 }
 
@@ -485,7 +492,6 @@ img {
   display: grid;
   gap: 0.9rem;
   margin-top: 1rem;
-  max-width: 760px;
   padding: 1.1rem;
   border: 1px solid var(--line);
   border-radius: var(--radius);
