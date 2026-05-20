@@ -9,43 +9,109 @@
   <body>
     <div class="page-shell">
       <header class="site-header">
-        <a class="brand" href="index.html"><span class="brand-mark">CO</span><span class="brand-text"><strong>COmPOSER</strong><small>RF/mm-wave layout automation docs</small></span></a>
-        <div class="header-links"><a href="index.html">Home</a><a href="quickstart.html">Quickstart</a><a href="examples.html">Examples</a></div>
+        <a class="brand" href="index.html"><img class="brand-logo" src="assets/img/logo-header.png" alt="COmPOSER logo"></a>
+        <div class="header-links"><a href="index.html">Home</a><a href="quickstart.html">Quickstart</a><a href="examples.html">Examples</a><a href="contact.html">Contact</a></div>
       </header>
       <div class="content-shell">
         <aside class="sidebar">
-          <section class="nav-group"><h2>Overview</h2><ul><li><a href="index.html">Home</a></li><li><a href="paper.html" class="active">Paper Overview</a></li><li><a href="install.html">Installation</a></li><li><a href="quickstart.html">Quickstart</a></li><li><a href="flow.html">Full Flow</a></li><li><a href="configuration.html">Configuration</a></li><li><a href="examples.html">Examples</a></li></ul></section>
-          <section class="nav-group"><h2>Reference</h2><ul><li><a href="datasets-models.html">Datasets and Models</a></li><li><a href="stage-1-sizing.html">Stage 1 Sizing</a></li><li><a href="netlist-parsing.html">Netlist Parsing</a></li><li><a href="placement.html">Placement</a></li><li><a href="routing.html">Routing</a></li><li><a href="hanan-router.html">Hanan Router</a></li><li><a href="primitives.html">Primitives</a></li><li><a href="utilities.html">Utilities</a></li></ul></section>
+          <section class="nav-group"><h2>Overview</h2><ul><li><a href="index.html">Home</a></li><li><a href="paper.html" class="active">Paper Overview</a></li><li><a href="install.html">Installation</a></li><li><a href="quickstart.html">Quickstart</a></li><li><a href="flow.html">Full Flow</a></li><li><a href="configuration.html">Configuration</a></li><li><a href="examples.html">Examples</a></li><li><a href="contact.html">Contact</a></li></ul></section>
+          <section class="nav-group"><h2>Reference</h2><ul><li><a href="datasets-models.html">Datasets and Models</a></li><li><a href="stage-1-sizing.html">Hybrid Optimizer</a></li><li><a href="netlist-parsing.html">Netlist Parsing</a></li><li><a href="placement.html">Placement</a></li><li><a href="routing.html">Routing</a></li><li><a href="hanan-router.html">Hanan Router</a></li><li><a href="primitives.html">Primitives</a></li><li><a href="utilities.html">Utilities</a></li></ul></section>
         </aside>
         <main class="main-content">
           <p class="eyebrow">Paper</p>
           <article class="doc-card">
             <h1>Paper Overview</h1>
-            <p class="lead"><strong>COmPOSER: Circuit Optimization of mm-wave/RF circuits with Performance-Oriented Synthesis for Efficient Realizations</strong></p>
-            <p>The attached PDF presents COmPOSER as an open-source end-to-end RF/mm-wave design automation framework that translates target specifications into optimized circuits with layouts.</p>
-            <h2>What the Paper Emphasizes</h2>
-            <ul>
-              <li>schematic synthesis and physical synthesis are tightly coupled</li>
-              <li>passives are modeled with physics-based equations and ML-driven electromagnetic surrogates</li>
-              <li>placement, routing, and PDN are part of the method, not afterthoughts</li>
-              <li>the framework is evaluated on multiple LNAs and PAs</li>
-              <li>productivity gain versus manual design is a central claim</li>
-            </ul>
-            <h2>Paper Stages and Repo Mapping</h2>
+            <p class="lead"><strong>COmPOSER: Circuit Optimization of mm-wave/RF circuits with Performance-Oriented Synthesis for Efficient Realizations</strong> presents COmPOSER as a specification-to-layout automation framework for CMOS RF and mm-wave blocks.</p>
+            <p>RF/mm-wave automation cannot stop at schematic sizing. At tens of GHz, performance is strongly shaped by passive geometry, routing parasitics, pad access, substrate loss, and the power delivery network. COmPOSER therefore joins circuit synthesis and physical synthesis into one flow that produces layout-ready implementations for LNAs and PAs rather than only optimized component values.</p>
+
+            <section class="automation-block">
+              <h2>Publication Facts</h2>
+              <div class="automation-list">
+                <div class="automation-item">
+                  <h3>Publication</h3>
+                  <p>arXiv:2603.20486v3, last revised April 21, 2026, accepted for DAC 2026.</p>
+                </div>
+                <div class="automation-item">
+                  <h3>Target Circuits</h3>
+                  <p>Inductively degenerated cascode LNAs and Class-A power amplifiers operating up to 60 GHz.</p>
+                </div>
+                <div class="automation-item">
+                  <h3>Validation Stack</h3>
+                  <p>Commercial 65 nm technology, with post-layout validation using EM, extraction, and SPICE tools.</p>
+                </div>
+                <div class="automation-item">
+                  <h3>Evaluation Result</h3>
+                  <p>Comparable post-layout quality to expert manual design with roughly 100-300x productivity gain.</p>
+                </div>
+              </div>
+            </section>
+
+            <h2>Why Layout Awareness Matters</h2>
+            <p>Manual LNA and PA design repeatedly alternates between schematic sizing, layout construction, EM extraction, SPICE simulation, and tuning. That loop is slow because the layout is not a cosmetic final step. Spiral inductors, CPWs, shielded transmission lines, bias devices, routing corridors, pads, and decaps affect gain, input and output matching, noise figure, output power, stability, and bandwidth.</p>
+            <p>COmPOSER addresses that by embedding layout effects into synthesis. Active devices are sized using physics-based equations and technology-dependent operating-point choices. Passive devices, where EM behavior dominates, are selected through learned EM models and inverse design so the chosen dimensions already correspond to realizable layouts.</p>
+
+            <figure class="flow-figure">
+              <img src="assets/img/full-flow.png" alt="COmPOSER flow diagram">
+            </figure>
+
+            <h2>Method in Detail</h2>
             <table>
-              <thead><tr><th>Paper Stage</th><th>Meaning</th><th>Repo Mapping</th></tr></thead>
+              <thead><tr><th>Stage</th><th>What COmPOSER Does</th><th>Why It Matters</th></tr></thead>
               <tbody>
-                <tr><td>Stage 1</td><td>Hybrid analytical sizing</td><td><code>perform_initial_sizing.py</code>, <code>lna_stage_1_sizer.py</code>, <code>pa_stage_1_sizer.py</code>, <code>map_initial_size_to_netlist.py</code></td></tr>
-                <tr><td>Stage 2</td><td>Primitive block layout generation</td><td><code>parse_netlist.py</code>, <code>PRIMITIVE_GENERATORS/</code>, <code>PRIMITIVE_OPTIMIZERS/</code></td></tr>
-                <tr><td>Stage 3</td><td>Layout synthesis</td><td><code>perform_placement.py</code>, <code>generate_routing_inputs.py</code>, <code>perform_routing.py</code>, <code>perform_power_grid_multi_level.py</code></td></tr>
-                <tr><td>Stage 4</td><td>Post-layout verification</td><td>Discussed in the paper's evaluation flow; only the synthesis side is bundled directly in this public repo</td></tr>
+                <tr><td>Stage 1: Hybrid optimizer</td><td>Combines analytical LNA/PA equations with ML-based EM inverse design for inductors, T-lines, and CPWs. The inductor model uses a random-forest forward model and k-NN inverse search over geometry candidates.</td><td>It avoids layout-oblivious sizing while keeping the search fast enough for repeated design exploration.</td></tr>
+                <tr><td>Stage 2: Primitive block generator</td><td>Turns optimized dimensions into DRC-clean layouts for cascode and bias MOS devices, resistors, capacitors, spiral inductors, CPWs, and T-lines. It also produces geometry variants such as alternative aspect ratios and terminal locations.</td><td>Placement and routing get real physical blocks, not abstract values, and can trade off area, pin access, and routing length.</td></tr>
+                <tr><td>Stage 3: Automated layout synthesizer</td><td>Uses MILP-based placement to choose primitive variants, rotations, compact positions, and pad sides. Routing uses a Hanan-grid A* search with net priority, layer preference, width control, and blockage handling, followed by PDN and decap insertion.</td><td>The output is a complete implementation-ready layout with pads, internal routing, and power delivery included.</td></tr>
+                <tr><td>Stage 4: Verification and refinement</td><td>Runs post-layout EM and circuit-level verification, then tightens constraints and resynthesizes if specifications miss.</td><td>The flow closes the loop between schematic intent and physical behavior instead of relying on manual post-layout tuning.</td></tr>
               </tbody>
             </table>
+
+            <h2>Passive Modeling Details</h2>
+            <ul>
+              <li>Inductors are represented by geometry parameters such as turns, width, spacing, and inner radius, with predicted inductance, peak Q, peak-Q frequency, and self-resonant frequency.</li>
+              <li>The inductor dataset contains 80k generated layouts simulated in Cadence EMX; surrogate accuracy is above R2 = 0.999 for the key EM outputs.</li>
+              <li>The inverse design step searches for geometries that satisfy inductance while improving quality factor, peak-Q frequency, and self-resonant frequency.</li>
+              <li>For CPWs and T-lines, COmPOSER uses k-NN regression around the requested specification to infer physical dimensions.</li>
+              <li>Small inductances below the technology-specific threshold are implemented as T-lines, while larger values are implemented as spiral inductors.</li>
+            </ul>
+
+            <h2>Evaluation Summary</h2>
+            <p>COmPOSER is evaluated on four LNA designs and three PA designs in a commercial 65 nm technology. The LNA set includes multiple single-stage designs and a two-stage LNA. The PA set includes a single-stage 20 GHz PA and two two-stage PAs at 40 GHz and 60 GHz. The evaluation covers post-layout EM- and SPICE-validated performance, stability, area, matching behavior, and runtime.</p>
+            <p>The Smith chart analysis shows the synthesized matching networks moving from pad impedance through intermediate matching points to final impedances that satisfy the intended input or output matching criteria. The synthesized designs remain stable after PDN parasitics are included.</p>
+
+            <h2>Ablation and Runtime</h2>
+            <ul>
+              <li>Without EM-aware passive modeling, the ablation shows severe center-frequency shifts: a 60 GHz PA degrades toward 45 GHz and a 60 GHz LNA toward 40 GHz.</li>
+              <li>The layout-oblivious ablation also causes substantial performance loss, including PA gain and output-power degradation and LNA gain and noise-figure degradation.</li>
+              <li>Stages 1-3 run in minutes: average design-generation time is around 2.58 minutes for LNA cases and 3.10 minutes for PA cases.</li>
+              <li>Final EM and SPICE verification dominates runtime: total runtime is about 23.58 minutes for LNA cases and 40.10 minutes for PA cases.</li>
+              <li>Against a roughly 70-hour manual LNA baseline, the productivity improvement is about 100-300x.</li>
+            </ul>
+
+            <h2>Flow Stages and Repo Mapping</h2>
+            <table>
+              <thead><tr><th>COmPOSER Stage</th><th>Public Repo Entry Points</th><th>Notes</th></tr></thead>
+              <tbody>
+                <tr><td>Stage 1: Hybrid optimizer</td><td><code>perform_initial_sizing.py</code>, <code>lna_stage_1_sizer.py</code>, <code>pa_stage_1_sizer.py</code>, <code>map_initial_size_to_netlist.py</code></td><td>Maps user specs and topology assumptions into sized netlists and stage-1 JSON outputs.</td></tr>
+                <tr><td>Stage 2: Primitive generation</td><td><code>parse_netlist.py</code>, <code>PRIMITIVE_GENERATORS/</code>, <code>PRIMITIVE_OPTIMIZERS/</code></td><td>Builds primitive GDS blocks and JSON consumed by placement and routing.</td></tr>
+                <tr><td>Stage 3: Layout synthesis</td><td><code>perform_placement.py</code>, <code>generate_routing_inputs.py</code>, <code>perform_routing.py</code>, <code>perform_power_grid_multi_level.py</code></td><td>Generates placement, LEF/DEF-style routing inputs, routed GDS, and PDN-enhanced final GDS.</td></tr>
+                <tr><td>Stage 4: Verification</td><td>Not fully bundled as an open-source replacement for commercial EM/SPICE verification</td><td>The published validation uses commercial technology and verification tools; the repo exposes the synthesis infrastructure and mock/reference assets.</td></tr>
+              </tbody>
+            </table>
+
             <h2>Public Repo vs Paper Scope</h2>
-            <p>The paper discusses validation in a commercial 65 nm environment with commercial EM and SPICE tools. This public repo contains the open synthesis flow, mock/reference datasets, mock PDK content, and the placement-routing-generation infrastructure.</p>
-            <p>That distinction matters: the website now follows the paper's terminology, but it does not claim that every commercial verification dependency from the paper ships in this repository.</p>
-            <h2>Why the Site Was Updated</h2>
-            <p>The docs now explicitly frame COmPOSER around layout-aware synthesis, RF-critical net weighting, passive geometry selection, MILP placement, A*-based routing, PDN construction, and the LNA/PA validation story from the manuscript.</p>
+            <p>The public repository is intended to let readers inspect and run the synthesis side of COmPOSER. It includes the open flow, example LNA and PA directories, mock/reference datasets, mock PDK content, primitive generators, placement, routing, and PDN construction. It does not ship the commercial 65 nm PDK, Cadence EMX setup, Calibre extraction flow, or Spectre verification environment used for the published silicon-process validation.</p>
+
+            <h2>Trying COmPOSER After Reading the Manuscript</h2>
+            <ol>
+              <li>Start with <a href="install.html">Installation</a> to set up Python dependencies, Gurobi, the router build, and the mock PDK assets.</li>
+              <li>Use <a href="quickstart.html">Quickstart</a> to run one of the included LNA or PA examples and inspect the generated <code>stage_1</code>, <code>stage_2</code>, and <code>stage_3</code> directories.</li>
+              <li>Read <a href="configuration.html">Configuration</a> before changing specs, topology-specific sizing constants, net weights, placement constraints, routing constraints, or PDN settings.</li>
+              <li>Use <a href="examples.html">Examples</a> to understand the difference between user input files, generated netlists, primitive GDS outputs, placement results, routed GDS, and final PDN-enhanced GDS.</li>
+            </ol>
+            <blockquote>The examples are the fastest way to connect COmPOSER's four-stage flow to concrete files. Treat the bundled datasets and mock PDK as reference scaffolding; technology-specific reproduction requires technology-specific datasets, models, rules, and verification tools.</blockquote>
+
+            <h2>Paper Link</h2>
+            <p>arXiv entry: <a href="https://arxiv.org/abs/2603.20486">https://arxiv.org/abs/2603.20486</a></p>
           </article>
         </main>
       </div>
