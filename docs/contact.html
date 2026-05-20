@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Contact | COmPOSER</title>
     <meta name="description" content="Contact the COmPOSER developers and view project acknowledgments.">
-    <link rel="stylesheet" href="assets/css/site.css">
+    <link rel="stylesheet" href="assets/css/site.css?v=20260520b">
   </head>
   <body>
     <div class="page-shell">
       <header class="site-header">
         <a class="brand" href="index.html">
-          <img class="brand-logo" src="assets/img/logo-header.png" alt="COmPOSER logo">
+          <img class="brand-logo" src="assets/img/logo-header.png" alt="COmPOSER logo" width="184" height="50">
         </a>
         <div class="header-links">
           <a href="paper.html">Paper</a>
@@ -55,39 +55,39 @@
             <h1>Contact Us</h1>
             <p class="lead">For questions about COmPOSER, examples, or the public flow, send a note to <a href="mailto:ghosh211@umn.edu">ghosh211@umn.edu</a>.</p>
 
-            <section class="contact-layout">
-              <div>
-                <h2>Send a Message</h2>
-                <form class="contact-form" action="mailto:ghosh211@umn.edu?subject=COmPOSER%20inquiry" method="post" enctype="text/plain">
-                  <div class="form-grid">
-                    <label>
-                      Name
-                      <input type="text" name="name" autocomplete="name" required>
-                    </label>
-                    <label>
-                      Email
-                      <input type="email" name="email" autocomplete="email" required>
-                    </label>
-                  </div>
+            <section class="contact-section">
+              <h2>Send a Message</h2>
+              <form class="contact-form" action="mailto:ghosh211@umn.edu?subject=COmPOSER%20inquiry" method="post" enctype="text/plain">
+                <div class="form-grid">
                   <label>
-                    Affiliation
-                    <input type="text" name="affiliation" autocomplete="organization">
+                    Name
+                    <input type="text" name="name" autocomplete="name" required>
                   </label>
                   <label>
-                    Subject
-                    <input type="text" name="subject" value="COmPOSER inquiry" required>
+                    Email
+                    <input type="email" name="email" autocomplete="email" required>
                   </label>
-                  <label>
-                    Message
-                    <textarea name="message" rows="7" required></textarea>
-                  </label>
-                  <button type="submit">Send Message</button>
-                </form>
-              </div>
+                </div>
+                <label>
+                  Affiliation
+                  <input type="text" name="affiliation" autocomplete="organization">
+                </label>
+                <label>
+                  Subject
+                  <input type="text" name="subject" value="COmPOSER inquiry" required>
+                </label>
+                <label>
+                  Message
+                  <textarea name="message" rows="6" required></textarea>
+                </label>
+                <button type="submit">Send Message</button>
+              </form>
+            </section>
 
-              <aside class="contact-aside">
-                <h2>Developers</h2>
-                <p>COmPOSER is developed through a collaboration between the University of Minnesota and the Indian Institute of Technology Madras.</p>
+            <section class="developer-section">
+              <h2>Developers</h2>
+              <p>COmPOSER is developed through a collaboration between the University of Minnesota and the Indian Institute of Technology Madras.</p>
+              <div class="developer-grid">
                 <div class="developer-card">
                   <h3>University of Minnesota</h3>
                   <p>Department of Electrical and Computer Engineering, Minneapolis, MN, USA</p>
@@ -107,7 +107,7 @@
                     <li>Ramprasath S.</li>
                   </ul>
                 </div>
-              </aside>
+              </div>
             </section>
 
             <section class="courtesy-section">
