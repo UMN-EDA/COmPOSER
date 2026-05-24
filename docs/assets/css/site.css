@@ -389,6 +389,35 @@ img {
   margin: 0;
 }
 
+.updates-highlight {
+  margin: 1.6rem 0 2rem;
+  padding: 1.2rem 1.35rem;
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--green);
+  border-radius: var(--radius);
+  background: #fbfdfc;
+  box-shadow: var(--shadow-soft);
+}
+
+.updates-highlight h2 {
+  margin: 0.15rem 0 0.65rem;
+  border-bottom: 0;
+  box-shadow: none;
+  padding-bottom: 0;
+}
+
+.updates-highlight p {
+  margin: 0;
+}
+
+.updates-kicker {
+  color: var(--green);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 .courtesy-section,
 .contact-section {
   margin-top: 2.4rem;
