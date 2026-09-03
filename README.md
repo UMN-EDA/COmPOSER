@@ -61,6 +61,8 @@ git clone https://github.com/UMN-EDA/COmPOSER.git
 cd COmPOSER
 ```
 
+Python 3.10 or newer is recommended.
+
 ### 2. Create and activate a Python environment
 
 ```bash
@@ -113,6 +115,13 @@ This creates the router binary expected by the example configurations:
 ROUTER/hanan_router/hanan_router
 ```
 
+Build the optional dedicated power-grid router used by the connected-PDN LNA
+example:
+
+```bash
+make -C ROUTER/pdn_router
+```
+
 ### 6. Make sure Gurobi is available
 
 Placement uses `gurobipy`, so you need:
@@ -153,6 +162,20 @@ Run only one step:
 ```bash
 ./composer.sh EXAMPLES/LNA_1/config.json only routing
 ```
+
+Run the isolated LNA routing flow that connects pads, internal power pins, and
+generated decaps to their nearest PDN rails:
+
+```bash
+python3 perform_routing_with_pdn.py --config EXAMPLES/LNA_1/config_pdn.json
+```
+
+This flow leaves the normal router and `perform_routing.py` behavior unchanged.
+It generates an augmented placement and LEF under `lna_1/stage_3/pdn/`, routes
+only the configured VDD and GND nets with `pdn_router`, and writes a hierarchical
+final GDS. The final hierarchy contains `PDN_ROUTES` with one `PDN_NET_*` child
+per routed power net. Adjust `pdn_routing.decap_count` in `config_pdn.json` to
+control the number of generated decaps used by the example.
 
 ## Flow Overview
 
@@ -212,4 +235,3 @@ ghosh211@umn.edu
 ## License
 
 This repository is distributed under the license in [`LICENSE`](LICENSE).
-

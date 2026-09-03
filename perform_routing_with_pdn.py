@@ -31,7 +31,7 @@ def main():
     cfg = load_config(args.config)
     router_binary = cfg["routing"]["router_bin"]
     pdk = cfg["pdk"]
-    
+
     project_dir=cfg["project_name"]
     top_name = cfg["topcell"]
     placement_json = os.path.join(project_dir, "stage_3", "placement", f"{top_name}_placement.json")
@@ -65,20 +65,53 @@ def main():
     ]
     pdn_out = os.path.join(project_dir, "stage_3", "pdn")
     os.makedirs(pdn_out, exist_ok=True)
-    pdn_script = "perform_power_grid_multi_level.py"
+    pdn_script = "perform_power_grid_with_pdn_routing.py"
+    pdn_grid_gds = os.path.join(pdn_out, f"{top_name}_grid.gds")
+    pdn_constraints = os.path.join(pdn_out, f"{top_name}_router_constraints.json")
+    pdn_placement = os.path.join(pdn_out, f"{top_name}_pdn_placement.json")
+    pdn_lef = os.path.join(pdn_out, f"{top_name}_pdn_primitives.lef")
+    pdn_route_out = os.path.join(pdn_out, "routing")
+    os.makedirs(pdn_route_out, exist_ok=True)
     cmd3 = [
         sys.executable,
         pdn_script,
         "--config", args.config,
         "--infile", f"{router_out}/{top_name}.gds",
         "--top", top_name,
-        "--outfile", f"{pdn_out}/{top_name}_final.gds",
-        "--io-direction", *cfg["pad_direction"]
+        "--outfile", pdn_grid_gds,
+        "--io-direction", *cfg["pad_direction"],
+        "--router-constraints", pdn_constraints,
+        "--signal-def", f"{router_out}/{top_name}.def",
+        "--placement-output", pdn_placement,
+        "--lef-output", pdn_lef
+    ]
+    cmd4 = [
+        cfg["pdn_routing"]["router_bin"],
+        "-d", pdk,
+        "-p", pdn_placement,
+        "-t", top_name,
+        "-l", pdn_lef,
+        "-uu", str(1),
+        "-s", str(1),
+        "-o", pdn_route_out,
+        "-ndr", pdn_constraints,
+        "-log", os.path.join(pdn_route_out, "route.log")
+    ]
+    cmd5 = [
+        sys.executable,
+        "utils/gen_pdn_rt_gds.py",
+        "--config", args.config,
+        "--infile", pdn_grid_gds,
+        "--deff", os.path.join(pdn_route_out, f"{top_name}.def"),
+        "--top", top_name,
+        "--outfile", os.path.join(pdn_out, f"{top_name}_final.gds")
     ]
 
     run_step("ROUTING", cmd1)
     run_step("GDS_GENERATION", cmd2)
-    run_step("POWER_GRID", cmd3)
+    run_step("POWER_GRID_GENERATION", cmd3)
+    run_step("POWER_GRID_ROUTING", cmd4)
+    run_step("POWER_GRID_GDS", cmd5)
 
     print("All steps completed successfully.")
 

@@ -53,7 +53,7 @@ def real_roots_only(roots_arr, tol=1e-9):
 
 def export_best_design_json(best_row, best_feasible, best_idx,
                             nf_target_max, gain_target_min, bw_target_min,
-                            s11_target_max, pwr_target_max,
+                            s11_target_max, pwr_target_max, freq_target,
                             out_json="best_lna_design.json"):
     """
     Export best LNA designs (multi-objective) to a JSON file with clean custom keys.
@@ -110,6 +110,7 @@ def export_best_design_json(best_row, best_feasible, best_idx,
         "Best_Cascode_LNA_Design": {
             "Selection_Score_LowerIsBetter": float(best_row["Score"]),
             "Spec_Targets": {
+                "Design_freq": float(freq_target),
                 "NF_max_dB": float(nf_target_max),
                 "Gain_min_dB": float(gain_target_min),
                 "BW_min_Hz": float(bw_target_min),
@@ -631,7 +632,7 @@ def main():
     # =============================
     export_best_design_json(best_row, best_feasible, best_idx,
                             nf_target_max, gain_target_min, bw_target_min,
-                            s11_target_max, pwr_target_max,
+                            s11_target_max, pwr_target_max, freq,
                             out_json=args.out_json)
 
     # Drop any rows with at least one NaN and report how many were removed

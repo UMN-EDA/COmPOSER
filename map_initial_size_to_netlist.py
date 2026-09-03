@@ -97,10 +97,16 @@ def clean_number(x):
     if isinstance(x, str):
         return x
 
-    if math.isclose(float(x), round(float(x)), rel_tol=0.0, abs_tol=1e-12):
-        return str(int(round(float(x))))
+    x = float(x)
 
-    return f"{float(x):.2f}"
+    # tiny nonzero numbers should not be rounded to integer 0
+    if x != 0.0 and abs(x) < 1e-9:
+        return f"{x:.6e}"
+
+    if math.isclose(x, round(x), rel_tol=0.0, abs_tol=1e-12):
+        return str(int(round(x)))
+
+    return f"{x:.2f}"
 
 def format_annotation(values):
     return "(" + " ".join(clean_number(v) for v in values) + ")"

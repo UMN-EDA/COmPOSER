@@ -208,13 +208,13 @@ def main():
 
     # Example: Single input query
     single_input = [190, 28, 40, 110]
-    predict_single_spec(single_input, os.path.join(base, "MODELS", "knn_model.pkl"), emx_model)
+    predict_single_spec(single_input, os.path.join(base,  "MODELS", "knn_model.pkl"), emx_model)
 
 def train_knn_model(dataset_path):
     start_time = time.time()
     df = load_and_prepare(dataset_path)
     _, geom_train, _, _, knn_model = \
-        train_models(df, k_neighbors=K_NEIGHBORS, knn_save_path=os.path.join(base,  "MODELS", "knn_model.pkl"))
+        train_models(df, k_neighbors=K_NEIGHBORS, knn_save_path=os.path.join(base, "MODELS", "knn_model.pkl"))
     print(f"Total time to train the k-NN model {time.time() - start_time:.2f} seconds")
     return knn_model, geom_train
 
