@@ -4,21 +4,60 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Updates | COmPOSER</title>
-    <link rel="stylesheet" href="assets/css/site.css">
+    <meta name="description" content="Updates, release notes, and documentation changes for COmPOSER.">
+    <link rel="stylesheet" href="assets/css/site.css?v=20260524a">
   </head>
   <body>
     <div class="page-shell">
-      <header class="site-header"><a class="brand" href="index.html"><span class="brand-mark">CO</span><span class="brand-text"><strong>COmPOSER</strong><small>RF/mm-wave layout automation docs</small></span></a><div class="header-links"><a href="paper.html">Paper</a><a href="quickstart.html">Quickstart</a><a href="examples.html">Examples</a><a href="updates.html">Updates</a></div></header>
+      <header class="site-header">
+        <a class="brand" href="index.html">
+          <img class="brand-logo" src="assets/img/logo-header.png" alt="COmPOSER logo" width="184" height="50">
+        </a>
+        <div class="header-links">
+          <a href="paper.html">Paper</a>
+          <a href="quickstart.html">Quickstart</a>
+          <a href="examples.html">Examples</a>
+          <a href="updates.html">Updates</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </header>
       <div class="content-shell">
         <aside class="sidebar">
-          <section class="nav-group"><h2>Overview</h2><ul><li><a href="index.html">Home</a></li><li><a href="paper.html">Paper Overview</a></li><li><a href="install.html">Installation</a></li><li><a href="quickstart.html">Quickstart</a></li><li><a href="flow.html">Full Flow</a></li><li><a href="configuration.html">Configuration</a></li><li><a href="examples.html">Examples</a></li><li><a href="updates.html" class="active">Updates</a></li></ul></section>
-          <section class="nav-group"><h2>Reference</h2><ul><li><a href="datasets-models.html">Datasets and Models</a></li><li><a href="stage-1-sizing.html">Stage 1 Sizing</a></li><li><a href="netlist-parsing.html">Netlist Parsing</a></li><li><a href="placement.html">Placement</a></li><li><a href="routing.html">Routing</a></li><li><a href="pdn-routing.html">PDN Routing</a></li><li><a href="hanan-router.html">Hanan Router</a></li><li><a href="primitives.html">Primitives</a></li><li><a href="utilities.html">Utilities</a></li></ul></section>
+          <section class="nav-group">
+            <h2>Overview</h2>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="paper.html">Paper Overview</a></li>
+              <li><a href="install.html">Installation</a></li>
+              <li><a href="quickstart.html">Quickstart</a></li>
+              <li><a href="flow.html">Full Flow</a></li>
+              <li><a href="configuration.html">Configuration</a></li>
+              <li><a href="examples.html">Examples</a></li>
+              <li><a href="updates.html" class="active">Updates</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </section>
+          <section class="nav-group">
+            <h2>Reference</h2>
+            <ul>
+              <li><a href="datasets-models.html">Datasets and Models</a></li>
+              <li><a href="stage-1-sizing.html">Hybrid Optimizer</a></li>
+              <li><a href="netlist-parsing.html">Netlist Parsing</a></li>
+              <li><a href="placement.html">Placement</a></li>
+              <li><a href="routing.html">Routing</a></li><li><a href="pdn-routing.html">PDN Routing</a></li>
+              <li><a href="hanan-router.html">Hanan Router</a></li>
+              <li><a href="primitives.html">Primitives</a></li>
+              <li><a href="utilities.html">Utilities</a></li>
+            </ul>
+          </section>
         </aside>
-        <main class="main-content"><p class="eyebrow">Release notes</p><article class="doc-card">
-          <h1>Updates</h1>
-          <p class="lead">Detailed public-framework changes for the connected power-grid routing release on <code>feature/pdn-grid-routing</code>.</p>
+        <main class="main-content">
+          <p class="eyebrow">Updates</p>
+          <article class="doc-card">
+            <h1>Updates</h1>
+            <p class="lead">This page will track COmPOSER website updates, documentation changes, tool-flow notes, and future release announcements.</p>
 
-          <h2>September 3, 2026: Connected PDN Routing</h2>
+                      <h2>September 3, 2026: Connected PDN Routing</h2>
           <p>Initial implementation commit: <code>f3b3942</code>. This release connects VDD/GND pads, internal-module power pins, and generated decaps to the power grid without changing the original signal-router implementation.</p>
 
           <h3>New isolated flow</h3>
@@ -49,7 +88,9 @@
           <p>The shared Hanan router currently compiles with warnings that several placement dimensions and an R-tree comparison value may be used uninitialized. These warnings predate the isolated PDN change and did not prevent either router from building or either documented LNA_1 flow from completing. They should be addressed separately rather than mixed into the PDN-specific implementation.</p>
 
           <p>For the operational reference, see <a href="pdn-routing.html">Connected PDN Routing</a>.</p>
-        </article></main>
+
+          </article>
+        </main>
       </div>
       <footer class="site-footer"><p>Static docs site generated directly inside <code>docs/</code>.</p></footer>
     </div>

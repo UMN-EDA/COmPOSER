@@ -1,5 +1,211 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Stage 1 Sizing | COmPOSER</title><link rel="stylesheet" href="assets/css/site.css"></head>
-  <body><div class="page-shell"><header class="site-header"><a class="brand" href="index.html"><span class="brand-mark">CO</span><span class="brand-text"><strong>COmPOSER</strong><small>RF/mm-wave layout automation docs</small></span></a><div class="header-links"><a href="paper.html">Paper</a><a href="quickstart.html">Quickstart</a><a href="examples.html">Examples</a><a href="updates.html">Updates</a></div></header><div class="content-shell"><aside class="sidebar"><section class="nav-group"><h2>Overview</h2><ul><li><a href="index.html">Home</a></li><li><a href="paper.html">Paper Overview</a></li><li><a href="install.html">Installation</a></li><li><a href="quickstart.html">Quickstart</a></li><li><a href="flow.html">Full Flow</a></li><li><a href="configuration.html">Configuration</a></li><li><a href="examples.html">Examples</a></li><li><a href="updates.html">Updates</a></li></ul></section><section class="nav-group"><h2>Reference</h2><ul><li><a href="datasets-models.html">Datasets and Models</a></li><li><a href="stage-1-sizing.html" class="active">Stage 1 Sizing</a></li><li><a href="netlist-parsing.html">Netlist Parsing</a></li><li><a href="placement.html">Placement</a></li><li><a href="routing.html">Routing</a></li><li><a href="pdn-routing.html">PDN Routing</a></li><li><a href="hanan-router.html">Hanan Router</a></li><li><a href="primitives.html">Primitives</a></li><li><a href="utilities.html">Utilities</a></li></ul></section></aside><main class="main-content"><p class="eyebrow">Reference</p><article class="doc-card"><h1>Stage 1 Sizing</h1><p class="lead">In the paper, this is the hybrid analytical sizing stage. It combines circuit equations with learned passive models to produce initial device and passive values that are later mapped into the netlist.</p><h2>Main Driver</h2><pre><code>python3 perform_initial_sizing.py --config EXAMPLES/LNA_1/config.json</code></pre><h2>What It Does</h2><ul><li>reads the main config</li><li>calls the selected stage 1 sizer</li><li>writes <code>best_&lt;topcell&gt;_design.json</code> and a sweep CSV into <code>project_name/stage_1/</code></li><li>maps the chosen values into <code>design.input_netlist</code></li></ul><h2>LNA Stage 1</h2><p>The LNA flow uses <code>lna_stage_1_sizer.py</code> plus a detailed JSON file such as <code>EXAMPLES/LNA_1/lna_stage_1_config.json</code>. That config holds device constants, sweep ranges, scoring weights, and fallback rules.</p><h2>PA Stage 1</h2><p>The PA flow uses <code>pa_stage_1_sizer.py</code> and a flatter stage 1 config such as <code>EXAMPLES/PA_1/pa_stage_1_config.json</code> for stage gain, load-line, and matching-network calculations.</p><h2>Mapping to the Netlist</h2><p><code>map_initial_size_to_netlist.py</code> supports:</p><ul><li><code>json_list</code> mode for directly mapping numeric design keys</li><li><code>regex_extract</code> mode for extracting values from formatted sizing strings</li></ul></article></main></div><footer class="site-footer"><p>Static docs site generated directly inside <code>docs/</code>.</p></footer></div></body>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hybrid Optimizer | COmPOSER</title>
+    <link rel="stylesheet" href="assets/css/site.css?v=20260524a">
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="brand" href="index.html">
+          <img class="brand-logo" src="assets/img/logo-header.png" alt="COmPOSER logo" width="184" height="50">
+        </a>
+        <div class="header-links">
+          <a href="paper.html">Paper</a>
+          <a href="quickstart.html">Quickstart</a>
+          <a href="examples.html">Examples</a>
+          <a href="updates.html">Updates</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </header>
+      <div class="content-shell">
+        <aside class="sidebar">
+          <section class="nav-group">
+            <h2>Overview</h2>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="paper.html">Paper Overview</a></li>
+              <li><a href="install.html">Installation</a></li>
+              <li><a href="quickstart.html">Quickstart</a></li>
+              <li><a href="flow.html">Full Flow</a></li>
+              <li><a href="configuration.html">Configuration</a></li>
+              <li><a href="examples.html">Examples</a></li>
+              <li><a href="updates.html">Updates</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </section>
+          <section class="nav-group">
+            <h2>Reference</h2>
+            <ul>
+              <li><a href="datasets-models.html">Datasets and Models</a></li>
+              <li><a href="stage-1-sizing.html" class="active">Hybrid Optimizer</a></li>
+              <li><a href="netlist-parsing.html">Netlist Parsing</a></li>
+              <li><a href="placement.html">Placement</a></li>
+              <li><a href="routing.html">Routing</a></li><li><a href="pdn-routing.html">PDN Routing</a></li>
+              <li><a href="hanan-router.html">Hanan Router</a></li>
+              <li><a href="primitives.html">Primitives</a></li>
+              <li><a href="utilities.html">Utilities</a></li>
+            </ul>
+          </section>
+        </aside>
+        <main class="main-content">
+          <p class="eyebrow">Reference</p>
+          <article class="doc-card">
+            <h1>Hybrid Optimizer</h1>
+            <p class="lead">The hybrid optimizer converts user-level LNA or PA specifications into concrete device sizes, passive values, matching-network elements, and geometry-aware inductor or CPWD choices. It combines analytical circuit equations with dataset-backed inverse design models, then maps the selected values back into the SPICE netlist used by the rest of COmPOSER.</p>
+
+            <h2>Entry Point</h2>
+            <p>Run the optimizer through the shared driver. The driver reads the design config, calls the selected LNA or PA sizing script, stores the best design under the project directory, and annotates the unsized netlist.</p>
+            <pre><code>python3 perform_initial_sizing.py --config EXAMPLES/LNA_1/config.json
+python3 perform_initial_sizing.py --config EXAMPLES/PA_1/config.json</code></pre>
+
+            <h2>Required Config Keys</h2>
+            <table>
+              <thead>
+                <tr>
+                  <th>Key</th>
+                  <th>What It Controls</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>stage_1_sizer</code></td>
+                  <td>Selects <code>lna_stage_1_sizer.py</code> or <code>pa_stage_1_sizer.py</code>.</td>
+                </tr>
+                <tr>
+                  <td><code>stage_1_config</code></td>
+                  <td>Points to circuit-class constants, sweep settings, thresholds, and fallback values.</td>
+                </tr>
+                <tr>
+                  <td><code>stage_1_mapping_script</code></td>
+                  <td>Usually <code>map_initial_size_to_netlist.py</code>; writes optimizer results into SPICE annotations.</td>
+                </tr>
+                <tr>
+                  <td><code>stage_1_map_file</code></td>
+                  <td>Maps JSON output keys such as <code>GATE_IND_L</code> or <code>Stage_1_Size</code> to netlist instances.</td>
+                </tr>
+                <tr>
+                  <td><code>design_requirements</code></td>
+                  <td>Defines frequency and circuit targets, including LNA NF/gain/BW/S11/power or PA gain/<code>p_sat_db</code>.</td>
+                </tr>
+                <tr>
+                  <td><code>datasets</code></td>
+                  <td>Provides the spiral-inductor dataset and, for LNA matching, the CPWD dataset.</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <h2>What the Driver Does</h2>
+            <ol>
+              <li>Creates <code>&lt;project_name&gt;/stage_1/</code>.</li>
+              <li>Runs the selected script with <code>--config</code>, <code>--out-json</code>, and <code>--out-csv</code>.</li>
+              <li>Writes <code>best_&lt;topcell&gt;_design.json</code> and <code>all_&lt;topcell&gt;_designs.csv</code>.</li>
+              <li>Calls <code>map_initial_size_to_netlist.py</code> to annotate <code>design.input_unsized_netlist</code>.</li>
+              <li>Writes the sized netlist to <code>design.input_netlist</code>, which is consumed by netlist parsing and primitive generation.</li>
+            </ol>
+
+            <h2>Shared Modeling Idea</h2>
+            <p>The optimizer does not choose passives as abstract circuit numbers only. For inductors, <code>PRIMITIVE_OPTIMIZERS/optimize_inductor.py</code> loads the spiral-inductor dataset, trains or reuses the RF estimator and k-nearest-neighbor inverse model, and returns a realizable geometry with predicted <code>Inductance</code>, <code>Peak Q</code>, <code>Peak Q Freq</code>, and <code>SRF</code>.</p>
+            <p>The scripts use analytical equations to identify target passive values, then call <code>optimize_specs_multi_variant(...)</code> to pull those values back into the layout-realizable data manifold.</p>
+
+            <h2>LNA Hybrid Optimizer</h2>
+            <p>The LNA path uses <code>lna_stage_1_sizer.py</code> with a design-specific file such as <code>EXAMPLES/LNA_1/lna_stage_1_config.json</code>. It targets a cascode LNA with source degeneration, input matching, output matching, and optional interstage matching for higher-frequency cases.</p>
+            <table>
+              <thead>
+                <tr>
+                  <th>Input Group</th>
+                  <th>Examples</th>
+                  <th>Purpose</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Design targets</td>
+                  <td><code>freq_ghz</code>, <code>nf_req_db</code>, <code>gain_req_db</code>, <code>bw_req_ghz</code>, <code>s11_req_db</code>, <code>pwr_req_mw</code></td>
+                  <td>Define the performance envelope the optimizer scores against.</td>
+                </tr>
+                <tr>
+                  <td>Device constants</td>
+                  <td><code>cgs</code>, <code>cd</code>, <code>gm</code>, <code>rin</code>, <code>rgate</code>, <code>ft</code>, <code>power_unit</code></td>
+                  <td>Parameterize the analytical LNA equations.</td>
+                </tr>
+                <tr>
+                  <td>Sweeps</td>
+                  <td><code>rin</code>, <code>z2</code>, <code>theta2</code></td>
+                  <td>Control input-resistance and CPWD matching exploration.</td>
+                </tr>
+                <tr>
+                  <td>Model data</td>
+                  <td><code>spiral_inductor</code>, <code>cpwd</code></td>
+                  <td>Selects realizable inductor and CPWD geometries.</td>
+                </tr>
+              </tbody>
+            </table>
+            <p>The LNA script first computes candidate transistor multiplicities from the NF, gain, bandwidth, and power limits. It uses the same equation structure implemented in the code, including the minimum-size estimate and polynomial roots for combined NF/gain/BW constraints.</p>
+            <pre><code>Nmin = ft / (freq * Rin) * sqrt(Rgate / noise_denominator)
+Qout_required = freq / bandwidth
+Pdc = power_unit * size</code></pre>
+            <p>For each candidate size and input resistance, it then solves the source-degeneration inductance, computes the gate inductor required for input resonance, and computes the drain inductor required for output resonance.</p>
+            <pre><code>Ls -> source degeneration from the quadratic roots
+Lg -> 1 / (omega^2 * Cgs * size) adjusted by Ls
+Ld -> 1 / (omega^2 * (Cd * size + Cload))</code></pre>
+            <p>Each inductor target is passed to the inductor optimizer. The returned geometry and predicted Q/SRF are used immediately to adjust matching behavior, so the selected values remain tied to realizable passive layouts.</p>
+            <p>Input matching is handled with a CPWD sweep. The script forms the transformed input impedance, computes <code>S11</code>, filters candidates that satisfy the S11 and imaginary-impedance limits, then uses <code>optimize_cpwd.py</code> to pick the shortest realizable CPWD geometry for the selected <code>beta_l</code> and <code>Char_Imp</code>.</p>
+            <p>The final LNA table contains NF, gain, S11, bandwidth, DC power, passive values, passive geometries, and optional interstage values. A hinge-penalty score selects the best row, preferring low NF and power while penalizing missed gain, bandwidth, S11, or power targets.</p>
+
+            <h2>PA Hybrid Optimizer</h2>
+            <p>The PA path uses <code>pa_stage_1_sizer.py</code> with a file such as <code>EXAMPLES/PA_1/pa_stage_1_config.json</code>. It targets a Class-A PA, estimates the number of stages, sizes the final stage from the saturation-power target, and constructs matching elements between stages and at the output.</p>
+            <table>
+              <thead>
+                <tr>
+                  <th>Input Group</th>
+                  <th>Examples</th>
+                  <th>Purpose</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Design targets</td>
+                  <td><code>freq_ghz</code>, <code>gain_req_db</code>, <code>p_sat_db</code></td>
+                  <td>Set the operating frequency, required gain, and output-power target.</td>
+                </tr>
+                <tr>
+                  <td>Device constants</td>
+                  <td><code>cgs</code>, <code>cd</code>, <code>gm</code>, <code>rgate</code>, <code>rs_fixed</code>, <code>vdsat</code>, <code>ft</code></td>
+                  <td>Define stage gain, loading, and impedance estimates.</td>
+                </tr>
+                <tr>
+                  <td>Search controls</td>
+                  <td><code>size_last_search_start</code>, <code>size_last_search_stop</code>, <code>error_threshold</code>, <code>stage_gain_factor</code></td>
+                  <td>Control final-stage sizing and stage-count exploration.</td>
+                </tr>
+                <tr>
+                  <td>Passive model data</td>
+                  <td><code>spiral_inductor</code>, <code>em_l_border</code></td>
+                  <td>Converts large shunt-inductor targets into geometry-aware inductor choices.</td>
+                </tr>
+              </tbody>
+            </table>
+            <p>The PA optimizer computes the stage count from required gain and per-stage gain, then estimates the last-stage transistor size from the saturation-power requirement.</p>
+            <pre><code>stages = ceil(gain_req / (10 * log10(stage_gain_factor * (ft / freq)^2)))
+size_last ~= size_last_coeff * 10^(p_sat_req / 10)</code></pre>
+            <p>The script refines <code>size_last</code> with a search loop, checks that the output load condition is valid, and derives a stage-size ladder. Each earlier stage is scaled from the previous one using <code>stage_step</code>, capped to keep the drive progression reasonable.</p>
+            <p>After stage sizing, the PA optimizer walks through the matching matrix. For the output stage it computes the final load transformation to 50 ohms; for intermediate stages it compares the previous stage source impedance with the current stage load and chooses the appropriate shunt/series matching structure.</p>
+            <p>Whenever a required shunt inductor exceeds <code>em_l_border</code>, the script queries the inductor optimizer, obtains SRF-aware geometry, and adjusts the companion capacitance so the matching network remains consistent with the realizable passive. The exported JSON contains stage sizes, matching-stage shunt inductors, series capacitors, shunt capacitors, and the final-stage sizing parameters.</p>
+
+            <h2>Outputs Used by the Next Stage</h2>
+            <p>The JSON output is intentionally shaped for <code>map_initial_size_to_netlist.py</code>. The mapping file supports two modes:</p>
+            <ul>
+              <li><code>json_list</code>: copies one or more design JSON keys into a netlist annotation.</li>
+              <li><code>regex_extract</code>: extracts values from formatted strings such as <code>12*1um/60nm</code>.</li>
+            </ul>
+            <p>After mapping, <code>parse_netlist.py</code> reads the sized netlist and generates the primitive layout blocks used by placement and routing.</p>
+          </article>
+        </main>
+      </div>
+      <footer class="site-footer"><p>Static docs site generated directly inside <code>docs/</code>.</p></footer>
+    </div>
+  </body>
 </html>
