@@ -73,29 +73,31 @@ source .venv/bin/activate
 ### 3. Install Python dependencies
 
 ```bash
-pip install -r requirements.txt
+python -m pip install --upgrade "pip&lt;25.1"
+python -m pip install -r requirements.txt
 ```
 
 Notes:
 
 - `requirements.txt` should be treated as the dependency list used by the repository.
-- Some environments may require manual resolution of version conflicts.
+- The <code>-r</code> option is required. Without it, pip searches for a package literally named <code>requirements.txt</code>.
+- The pinned dependency set is validated with CPython 3.8 on Linux x86-64.
 
 ### 4. Set the required environment variables
 
-COmPOSER expects the project root to be defined, and placement requires a valid Gurobi license file.
+COmPOSER expects the project root to be defined, and placement requires a valid Gurobi license file. <code>PROJECT_HOME</code> must point directly to the checkout containing <code>composer.sh</code>; do not append <code>DEV</code> or another directory name.
 
 Using `csh`/`tcsh` style:
 
 ```csh
-setenv PROJECT_HOME ~/RF_DESIGN_AUTOMATION
+setenv PROJECT_HOME /absolute/path/to/COmPOSER
 setenv GRB_LICENSE_FILE ~/gurobi.lic
 ```
 
 If you are using `bash` or `zsh`, the equivalent is:
 
 ```bash
-export PROJECT_HOME=~/RF_DESIGN_AUTOMATION
+export PROJECT_HOME=/absolute/path/to/COmPOSER
 export GRB_LICENSE_FILE=~/gurobi.lic
 ```
 
