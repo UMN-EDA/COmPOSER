@@ -151,8 +151,18 @@ run_selected_step() {
                 python3 generate_routing_inputs.py --config "$CONFIG"
             ;;
         routing)
-            run_step "perform_routing" \
-                python3 perform_routing.py --config "$CONFIG"
+            local config_dir
+            local pdn_config
+            config_dir=1000 1000 1428 11457 15072 15075 15078 15080 77930 416806 531052 531210 531555 587763 1057471 1524748 1657909 2250686 38693426 43551672 59626750 79559656 96653542 118763438 162302374 451107875 483001641 512194978 582172737 588876012 816048422 853562094 867857153 901489026 933993915 994288581 1000179966 1055030236 1130212420 1138336024 1156764875 1212420267 1315188223 1806512976 1808947410 1853926220 1864340183 1962015000 2021385396 2033742384 2079082141dirname "")
+            pdn_config="/config_pdn.json"
+
+            if [ -f "" ]; then
+                run_step "perform_routing_with_pdn" \
+                    python3 perform_routing_with_pdn.py --config ""
+            else
+                run_step "perform_routing" \
+                    python3 perform_routing.py --config ""
+            fi
             ;;
         *)
             echo "Unknown step: $step"
