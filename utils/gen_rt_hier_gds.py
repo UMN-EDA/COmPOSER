@@ -9,18 +9,24 @@ import os
 
 def parse_args():
     ap = argparse.ArgumentParser()
-    ap.add_argument( "-p", "--pl_file", type=str, default="", help='<filename.placement_verilog.json>')
-    ap.add_argument( "-g", "--gds_dir", type=str, default="", help='<dir with all leaf gds files>')
-    ap.add_argument( "-i", "--def_dir", type=str, default="", help='<dir with all hier def files>')
-    ap.add_argument( "-t", "--top_cell", type=str, default="library", help='<top cell>')
-    ap.add_argument( "-u", "--units", type=float, default=1e-6, help='<units in m>')
-    ap.add_argument( "-s", "--scale", type=float, default=1e3, help='<scale>')
-    ap.add_argument( "-l", "--layers", type=str, default="", help='<layers.json>')
-    ap.add_argument( "-d", "--deff", type=str, default="", help='<route def file>')
-    ap.add_argument( "-o", "--out", type=str, default="", help='Output gds file path')
+    ap.add_argument("-p", "--pl_file", type=str, default="", help='<filename.placement_verilog.json>')
+    ap.add_argument("-g", "--gds_dir", type=str, default="", help='<dir with all leaf gds files>')
+    ap.add_argument("-i", "--def_dir", type=str, default="", help='<dir with all hier def files>')
+    ap.add_argument("-t", "--top_cell", type=str, default="library", help='<top cell>')
+    ap.add_argument("-u", "--units", type=float, default=1e-6, help='<units in m>')
+    ap.add_argument("-s", "--scale", type=float, default=1e3, help='<scale>')
+    ap.add_argument("-l", "--layers", type=str, default="", help='<layers.json>')
+    ap.add_argument("-d", "--deff", type=str, default="", help='<route def file>')
+    ap.add_argument("-o", "--out", type=str, default="", help='Output gds file path')
+    ap.add_argument(
+        "--net_gds_dir",
+        type=str,
+        default="",
+        help="Optional directory to export each individual routed net as a separate GDS file",
+    )
     args = ap.parse_args()
 
-    if args.pl_file == "" or args.gds_dir == "" or args.layers == "" or args.deff == "" :
+    if args.pl_file == "" or args.gds_dir == "" or args.layers == "" or args.deff == "":
         ap.print_help()
         exit()
 
@@ -31,6 +37,7 @@ def parse_args():
     print(f"layers.json       : {args.layers}")
     print(f"route def file    : {args.deff}")
     print(f"hier def dir      : {args.def_dir}")
+    print(f"net gds dir       : {args.net_gds_dir}")
 
     if args.pl_file == "" or args.gds_dir == "":
         ap.print_help()
@@ -42,28 +49,82 @@ def parse_args():
 args = None
 orientLUT = [0, 90, 180, 270]
 
+
+def sanitize_net_name(name):
+    safe = []
+    for ch in str(name):
+        if ch.isalnum() or ch in ("_", "-", "."):
+            safe.append(ch)
+        else:
+            safe.append("_")
+    out = "".join(safe).strip("._")
+    return out if out else "unnamed_net"
+
+
+def write_individual_net_gds(net_shapes, out_dir):
+    if not out_dir or not net_shapes:
+        return
+
+    os.makedirs(out_dir, exist_ok=True)
+
+    for net_name, shapes in net_shapes.items():
+        cell_name = sanitize_net_name(net_name)
+        lib = gdspy.GdsLibrary(name=cell_name, unit=args.units)
+        cell = lib.new_cell(cell_name)
+
+        for item in shapes:
+            if item["kind"] == "rect":
+                rect = item["rect"]
+                cell.add(
+                    gdspy.Rectangle(
+                        (rect[0], rect[1]),
+                        (rect[2], rect[3]),
+                        layer=item["layer"],
+                        datatype=item["datatype"],
+                    )
+                )
+            elif item["kind"] == "label":
+                cell.add(
+                    gdspy.Label(
+                        item["text"],
+                        position=item["position"],
+                        anchor=item["anchor"],
+                        layer=item["layer"],
+                        texttype=item["texttype"],
+                    )
+                )
+
+        out_gds = os.path.join(out_dir, f"{cell_name}.gds")
+        print(f"writing net gds file {out_gds}")
+        lib.write_gds(out_gds)
+
+
 class Instance:
-    def __init__(self, name = "", origin=(0,0), angle=0):
-        self._name   = name
-        self._angle  = angle
-        self._modu   = None
+    def __init__(self, name="", origin=(0, 0), angle=0):
+        self._name = name
+        self._angle = angle
+        self._modu = None
         self._origin = origin
+
     def __str__(self):
         return f'{self._name} {self._origin} {self._angle}'
 
+
 class Module:
-    def __init__(self, name = "", leaf = False):
-        self._name      = name
+    def __init__(self, name="", leaf=False):
+        self._name = name
         self._instances = list()
-        self._added     = False
-        self._leaf      = leaf
-        self._fname     = ""
-        self._cell      = None
+        self._added = False
+        self._leaf = leaf
+        self._fname = ""
+        self._cell = None
+
     def __str__(self):
         s = f"{self._name} '{self._fname}' {self._cell}"
         for i in self._instances:
             s += f' [{str(i)} {i._modu._name}]'
         return s
+
     def add(self):
         print(f'working on cell {self._name}')
         for i in self._instances:
@@ -72,16 +133,17 @@ class Module:
                     i._modu.add()
                 bbox = i._modu._cell.get_bounding_box()
                 angle, refl = 0, False
-                oX, oY = i._origin[0]/args.scale, i._origin[1]/args.scale
+                oX, oY = i._origin[0] / args.scale, i._origin[1] / args.scale
                 angle = i._angle
-                print(f'{self._name} creating reference of {i._name} at {(oX,oY)} {refl} {angle})')
-                ref = gdspy.CellReference(i._modu._cell, (oX, oY), x_reflection = refl, rotation = angle)
+                print(f'{self._name} creating reference of {i._name} at {(oX, oY)} {refl} {angle})')
+                ref = gdspy.CellReference(i._modu._cell, (oX, oY), x_reflection=refl, rotation=angle)
                 if not self._cell:
                     self._cell = gdspy.Cell(self._name)
                 self._cell.add(ref)
         self._added = True
 
-def read_def(def_file, modu):
+
+def read_def(def_file, modu, net_shapes=None):
     with open(def_file) as fp:
         innets = False
         infills = False
@@ -92,10 +154,10 @@ def read_def(def_file, modu):
         for line in fp:
             line.strip()
             if "UNITS" in line:
-              if "DISTANCE" in line:
-                s = line.split()
-                if sca == 1 and len(s) == 5:
-                  sca = int(s[3])
+                if "DISTANCE" in line:
+                    s = line.split()
+                    if sca == 1 and len(s) == 5:
+                        sca = int(s[3])
             if "NETS" in line:
                 if "END" in line:
                     innets = False
@@ -107,7 +169,7 @@ def read_def(def_file, modu):
                 else:
                     infills = True
             if infills:
-                continue 
+                continue
             if innets:
                 if not currnet and "-" in line:
                     s = line.split()
@@ -123,15 +185,60 @@ def read_def(def_file, modu):
                         if s[1] == "RECT":
                             index = 1
                         layer = s[index + 1]
-                        rect = [float(s[index + 3])/sca, float(s[index + 4])/sca, float(s[index + 7])/sca, float(s[index + 8])/sca]
+                        rect = [
+                            float(s[index + 3]) / sca,
+                            float(s[index + 4]) / sca,
+                            float(s[index + 7]) / sca,
+                            float(s[index + 8]) / sca,
+                        ]
                         l = layers[layer]
                         if args.top_cell in modules:
-                            modu._cell.add(gdspy.Rectangle((rect[0], rect[1]), (rect[2], rect[3]),\
-                                        layer=l[0], datatype=l[1]))
+                            modu._cell.add(
+                                gdspy.Rectangle(
+                                    (rect[0], rect[1]),
+                                    (rect[2], rect[3]),
+                                    layer=l[0],
+                                    datatype=l[1],
+                                )
+                            )
+
+                        if net_shapes is not None and currnet:
+                            if currnet not in net_shapes:
+                                net_shapes[currnet] = []
+                            net_shapes[currnet].append({
+                                "kind": "rect",
+                                "rect": (rect[0], rect[1], rect[2], rect[3]),
+                                "layer": l[0],
+                                "datatype": l[1],
+                            })
+
                         if currnet and (not labeladded) and (layer in labellayers) and ('M' in layer.upper()):
-                            modu._cell.add(gdspy.Label(currnet, position=((rect[0] + rect[2])/2, (rect[1] + rect[3])/2),\
-                                        anchor='o', layer = labellayers[layer][0][0], texttype = labellayers[layer][0][1]))
+                            label_pos = ((rect[0] + rect[2]) / 2, (rect[1] + rect[3]) / 2)
+
+                            modu._cell.add(
+                                gdspy.Label(
+                                    currnet,
+                                    position=label_pos,
+                                    anchor='o',
+                                    layer=labellayers[layer][0][0],
+                                    texttype=labellayers[layer][0][1],
+                                )
+                            )
+
+                            if net_shapes is not None:
+                                if currnet not in net_shapes:
+                                    net_shapes[currnet] = []
+                                net_shapes[currnet].append({
+                                    "kind": "label",
+                                    "text": currnet,
+                                    "position": label_pos,
+                                    "anchor": 'o',
+                                    "layer": labellayers[layer][0][0],
+                                    "texttype": labellayers[layer][0][1],
+                                })
+
                             labeladded = True
+
                 if ";" in line:
                     currnet = None
                     labeladded = False
@@ -149,7 +256,7 @@ def main():
             if "modules" in pldata:
                 modu = Module(args.top_cell)
                 modules[modu._name] = modu
-                for k,v in pldata["modules"].items():
+                for k, v in pldata["modules"].items():
                     flname = v.get("gds_file")
                     if flname and '/' in flname and '.gds' in flname:
                         flname = flname[flname.rfind('/') + 1:flname.rfind('.gds')]
@@ -160,19 +267,19 @@ def main():
                     origin = (v.get("x"), v.get("y"))
                     wh = (v.get("w"), v.get("h"))
                     if orient == 1:
-                      origin = (origin[0], origin[1] + wh[1])
+                        origin = (origin[0], origin[1] + wh[1])
                     elif orient == 2:
-                      origin = (origin[0] + wh[0], origin[1] + wh[1])
+                        origin = (origin[0] + wh[0], origin[1] + wh[1])
                     elif orient == 3:
-                      origin = (origin[0] + wh[0], origin[1])
+                        origin = (origin[0] + wh[0], origin[1])
                     modu._instances.append(Instance(flname, origin, -angle))
 
     gdscell = dict()
-    if (args.gds_dir):
+    if args.gds_dir:
         if not os.path.isdir(args.gds_dir):
             print(f'{args.gds_dir} not found')
             exit()
-        for j,m in modules.items():
+        for j, m in modules.items():
             if not m._leaf:
                 continue
             m._fname = args.gds_dir + '/' + j + '.gds'
@@ -186,7 +293,7 @@ def main():
             m._cell.flatten()
             m._added = True
 
-    for j,m in modules.items():
+    for j, m in modules.items():
         for i in m._instances:
             modu = modules.get(i._name)
             if modu:
@@ -208,12 +315,14 @@ def main():
                             glno2 = l["GdsDatatype"]["Draw"]
                         else:
                             glno2 = 0
-                        layers[layer] = (glno1,glno2)
+                        layers[layer] = (glno1, glno2)
                         if "LabelLayerNo" in l:
                             labellayers[layer] = l["LabelLayerNo"]
     print(labellayers)
-            
-    for j,m in modules.items():
+
+    net_shapes = dict()
+
+    for j, m in modules.items():
         m.add()
         defname = args.def_dir + '/' + j + '.def'
         print(f'Reading def file : {defname}')
@@ -222,10 +331,17 @@ def main():
         gdslib.add(m._cell)
 
     if args.deff and args.top_cell in modules:
-        read_def(args.deff, modules[args.top_cell])
+        read_def(
+            args.deff,
+            modules[args.top_cell],
+            net_shapes=net_shapes if args.net_gds_dir else None
+        )
 
     print(f'writing gds file {args.out}')
     gdslib.write_gds(args.out)
+
+    if args.net_gds_dir:
+        write_individual_net_gds(net_shapes, args.net_gds_dir)
 
 
 if __name__ == "__main__":

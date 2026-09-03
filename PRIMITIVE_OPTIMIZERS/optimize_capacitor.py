@@ -153,7 +153,7 @@ def parse_args():
     parser.add_argument(
         "--csv_path",
         type=str,
-        default=os.path.join(base, "DEV", "DATASETS", "mimcap_dataset.csv"),
+        default=os.path.join(base, "DATASETS", "mimcap_dataset.csv"),
         help="Path to the input CSV dataset"
     )
 
@@ -167,7 +167,7 @@ def parse_args():
     parser.add_argument(
         "--model_path",
         type=str,
-        default=os.path.join(base, "DEV", "MODELS", "mimcap_poly_model.pkl"),
+        default=os.path.join(base, "MODELS", "mimcap_poly_model.pkl"),
         help="Path to save the trained model (default: mimcap_poly_model.pkl)"
     )
 
