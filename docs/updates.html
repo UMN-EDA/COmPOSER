@@ -44,7 +44,7 @@
               <li><a href="stage-1-sizing.html">Hybrid Optimizer</a></li>
               <li><a href="netlist-parsing.html">Netlist Parsing</a></li>
               <li><a href="placement.html">Placement</a></li>
-              <li><a href="routing.html">Routing</a></li>
+              <li><a href="routing.html">Routing</a></li><li><a href="pdn-routing.html">PDN Routing</a></li>
               <li><a href="hanan-router.html">Hanan Router</a></li>
               <li><a href="primitives.html">Primitives</a></li>
               <li><a href="utilities.html">Utilities</a></li>
@@ -57,24 +57,38 @@
             <h1>Updates</h1>
             <p class="lead">This page will track COmPOSER website updates, documentation changes, tool-flow notes, and future release announcements.</p>
 
-            <section class="updates-highlight">
-              <p class="updates-kicker">Current Status</p>
-              <h2>No Updates Yet</h2>
-              <p>No public updates are posted at this time. Future notes will be added here as the documentation, scripts, examples, dataset-generation support, or tool-flow instructions change.</p>
-            </section>
+                      <h2>September 3, 2026: Connected PDN Routing</h2>
+          <p>Initial implementation commit: <code>f3b3942</code>. This release connects VDD/GND pads, internal-module power pins, and generated decaps to the power grid without changing the original signal-router implementation.</p>
 
-            <h2>What Will Appear Here</h2>
-            <ul>
-              <li>Documentation updates for new or revised COmPOSER pages.</li>
-              <li>Release notes for website-visible changes and example-flow improvements.</li>
-              <li>Notes about upcoming dataset-generation scripts for Cadence-based local PDK flows.</li>
-              <li>Clarifications for installation, examples, configuration files, and supported flow stages.</li>
-            </ul>
+          <h3>New isolated flow</h3>
+          <ul><li>Added <code>perform_routing_with_pdn.py</code> as the opt-in orchestration entry point.</li><li>Added <code>perform_power_grid_with_pdn_routing.py</code> as a copy-based PDN generator specialized for routing inputs.</li><li>Added <code>ROUTER/pdn_router</code>, with its own Makefile, README, copied power-specific <code>Net.cpp</code>, and <code>pdn_router</code> binary.</li><li>The dedicated build reuses unchanged common Hanan-router sources so only power-net endpoint pairing differs.</li></ul>
 
-            <div class="callout">
-              <h3>Check Back Later</h3>
-              <p>This page is intentionally ready before the first update is posted, so new visitors have a single place to find future changes.</p>
-            </div>
+          <h3>Routing behavior</h3>
+          <ul><li>Added local virtual rail targets per physical power endpoint.</li><li>Added nearest-target pairing in the copied router when real and virtual port counts match.</li><li>Removed the need for full-chip endpoint-bounding-box searches for a power net.</li><li>Added existing signal DEF rectangles as obstacles for subsequent power routing.</li><li>Kept ordinary signal routing, PA flows, and the original Hanan router behavior unchanged.</li></ul>
+
+          <h3>Power pins and layers</h3>
+          <ul><li>Connected pad and internal-module VDD/GND pins to nearby rails.</li><li>Limited multilayer target expansion strictly to configured PDN rail layers.</li><li>Kept all ordinary module pins on their native layer geometry.</li><li>Used M8/M9 as the LNA_1 VDD grid range and M1/M2 as the GND grid range.</li><li>Avoided unnecessary via traversal caused by forcing native pin boxes to extreme layers.</li></ul>
+
+          <h3>Decaps</h3>
+          <ul><li>Moved decap placement ahead of power-grid routing.</li><li>Added generated decap instances to a PDN-specific copy of the placement JSON.</li><li>Added decap macro/pin data to a PDN-specific combined LEF.</li><li>Mapped <code>PLUS</code> to <code>net3</code>; mapped <code>MINUS</code>, <code>BULK1</code>, and <code>BULK2</code> to <code>gnd</code>.</li><li>Reduced the committed LNA_1 sanity configuration to three decaps for faster routing and inspection.</li></ul>
+
+          <h3>GDS outputs and hierarchy</h3>
+          <ul><li>Added <code>--net_gds_dir</code> to <code>utils/gen_rt_hier_gds.py</code> for individual signal-net GDS export.</li><li>Added <code>utils/gen_pdn_rt_gds.py</code> to parse routed power DEF rectangles.</li><li>Added final hierarchy <code>&lt;top&gt;_GRIDFILLED / PDN_ROUTES / PDN_NET_*</code>.</li><li>Kept GND and VDD routing geometry in separate inspectable child cells.</li><li>Preserved hierarchy in the final GDS instead of flattening newly generated routes.</li></ul>
+
+          <h3>Configuration and integration</h3>
+          <ul><li>Added <code>EXAMPLES/LNA_1/config_pdn.json</code>.</li><li>Forwarded the selected config path through routing into PDN generation.</li><li>Added power-specific placement, LEF, router-constraint, routing-output, and final-GDS paths.</li><li>Kept augmentation artifacts separate from original placement and routing inputs.</li></ul>
+
+          <h3>Framework usability fixes</h3>
+          <ul><li>Removed duplicated <code>DEV</code> assumptions from primitive-optimizer project paths and aligned them with <code>PROJECT_HOME=&lt;checkout&gt;</code>.</li><li>Added the missing shared <code>rf_logger.py</code> module used by netlist parsing.</li><li>Documented Python 3.10+ and the separate router builds.</li><li>Replaced conflicting exact dependency pins with compatible bounded ranges.</li><li>Expanded <code>.gitignore</code> for logs, generated model files, router objects/dependency files, and the PDN binary.</li><li>Excluded real datasets, licenses, generated layouts, logs, and local experiments from the public commit.</li></ul>
+
+          <h3>Independent clean-clone validation</h3>
+          <ul><li>Cloned the pushed branch into a new temporary workspace.</li><li>Created a fresh Python 3.11 virtual environment.</li><li>Installed <code>requirements.txt</code>; <code>pip check</code> reported no broken requirements.</li><li>Built both <code>ROUTER/hanan_router</code> and <code>ROUTER/pdn_router</code>.</li><li>Ran the complete LNA_1 flow: sizing, parsing, placement, routing-input generation, and signal routing.</li><li>Ran the connected-PDN flow with three decaps.</li><li>All documented stages completed successfully and produced <code>lna_1/stage_3/pdn/lna_final.gds</code>.</li></ul>
+
+          <h3>Known non-blocking warnings</h3>
+          <p>The shared Hanan router currently compiles with warnings that several placement dimensions and an R-tree comparison value may be used uninitialized. These warnings predate the isolated PDN change and did not prevent either router from building or either documented LNA_1 flow from completing. They should be addressed separately rather than mixed into the PDN-specific implementation.</p>
+
+          <p>For the operational reference, see <a href="pdn-routing.html">Connected PDN Routing</a>.</p>
+
           </article>
         </main>
       </div>
