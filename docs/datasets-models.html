@@ -1,5 +1,207 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Datasets and Models | COmPOSER</title><link rel="stylesheet" href="assets/css/site.css"></head>
-  <body><div class="page-shell"><header class="site-header"><a class="brand" href="index.html"><span class="brand-mark">CO</span><span class="brand-text"><strong>COmPOSER</strong><small>RF/mm-wave layout automation docs</small></span></a><div class="header-links"><a href="paper.html">Paper</a><a href="quickstart.html">Quickstart</a><a href="examples.html">Examples</a></div></header><div class="content-shell"><aside class="sidebar"><section class="nav-group"><h2>Overview</h2><ul><li><a href="index.html">Home</a></li><li><a href="paper.html">Paper Overview</a></li><li><a href="install.html">Installation</a></li><li><a href="quickstart.html">Quickstart</a></li><li><a href="flow.html">Full Flow</a></li><li><a href="configuration.html">Configuration</a></li><li><a href="examples.html">Examples</a></li></ul></section><section class="nav-group"><h2>Reference</h2><ul><li><a href="datasets-models.html" class="active">Datasets and Models</a></li><li><a href="stage-1-sizing.html">Stage 1 Sizing</a></li><li><a href="netlist-parsing.html">Netlist Parsing</a></li><li><a href="placement.html">Placement</a></li><li><a href="routing.html">Routing</a></li><li><a href="hanan-router.html">Hanan Router</a></li><li><a href="primitives.html">Primitives</a></li><li><a href="utilities.html">Utilities</a></li></ul></section></aside><main class="main-content"><p class="eyebrow">Data</p><article class="doc-card"><h1>Datasets and Models</h1><p class="lead">The datasets shipped in this repository are format references. Users should generate their own technology-specific datasets while preserving the same header names and units expected by the scripts.</p><h2>Reference Datasets</h2><ul><li><code>spiral_ind_data.csv</code></li><li><code>tline_data.csv</code></li><li><code>mimcap_dataset.csv</code></li><li><code>small_mimcap_dataset.csv</code></li><li><code>cpwd_data.csv</code></li></ul><h2>Critical Rule</h2><blockquote>The scripts depend on exact header names and consistent units. If you change the schema or unit system, model training and primitive optimization can break or become misleading.</blockquote><h2>Main Schemas</h2><ul><li><strong>Inductor</strong>: <code>Radius</code>, <code>Width</code>, <code>Gnd dist</code>, <code>Spacing</code>, <code>Turns</code>, <code>Inductance</code>, <code>Peak Q</code>, <code>Peak Q Freq</code>, <code>SRF</code></li><li><strong>T-line</strong>: <code>Length</code>, <code>Width</code>, <code>Inductance</code>, <code>Peak Q</code>, <code>Peak Q Freq</code>, <code>SRF</code></li><li><strong>MIM cap</strong>: <code>Length</code>, <code>Width</code>, <code>Aspect Ratio</code>, <code>Capacitance</code>, <code>Area</code></li><li><strong>Small MIM cap</strong>: <code>Length</code>, <code>Width</code>, <code>Capacitance</code></li><li><strong>CPWD</strong>: <code>Length</code>, <code>Width</code>, <code>Gap</code>, <code>Char_Imp</code>, <code>beta_l</code>, <code>root_er</code></li></ul><h2>Models</h2><p>The <code>MODELS/</code> directory is where trained <code>.pkl</code> artifacts are expected to live for faster repeated execution. The actual model files are not committed in the repo.</p></article></main></div><footer class="site-footer"><p>Static docs site generated directly inside <code>docs/</code>.</p></footer></div></body>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Datasets and Models | COmPOSER</title>
+    <link rel="stylesheet" href="assets/css/site.css?v=20260524a">
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="brand" href="index.html">
+          <img class="brand-logo" src="assets/img/logo-header.png" alt="COmPOSER logo" width="184" height="50">
+        </a>
+        <div class="header-links">
+          <a href="paper.html">Paper</a>
+          <a href="quickstart.html">Quickstart</a>
+          <a href="examples.html">Examples</a>
+          <a href="updates.html">Updates</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </header>
+      <div class="content-shell">
+        <aside class="sidebar">
+          <section class="nav-group">
+            <h2>Overview</h2>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="paper.html">Paper Overview</a></li>
+              <li><a href="install.html">Installation</a></li>
+              <li><a href="quickstart.html">Quickstart</a></li>
+              <li><a href="flow.html">Full Flow</a></li>
+              <li><a href="configuration.html">Configuration</a></li>
+              <li><a href="examples.html">Examples</a></li>
+              <li><a href="updates.html">Updates</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </section>
+          <section class="nav-group">
+            <h2>Reference</h2>
+            <ul>
+              <li><a href="datasets-models.html" class="active">Datasets and Models</a></li>
+              <li><a href="stage-1-sizing.html">Hybrid Optimizer</a></li>
+              <li><a href="netlist-parsing.html">Netlist Parsing</a></li>
+              <li><a href="placement.html">Placement</a></li>
+              <li><a href="routing.html">Routing</a></li>
+              <li><a href="hanan-router.html">Hanan Router</a></li>
+              <li><a href="primitives.html">Primitives</a></li>
+              <li><a href="utilities.html">Utilities</a></li>
+            </ul>
+          </section>
+        </aside>
+        <main class="main-content">
+          <p class="eyebrow">Data</p>
+          <article class="doc-card">
+            <h1>Datasets and Models</h1>
+            <p class="lead">COmPOSER uses CSV datasets to connect electrical targets to layout-realizable primitive geometries. The files shipped in <code>DATASETS/</code> are reference-format datasets: they document the column names, units, and data shape expected by the sizing and primitive-optimization scripts.</p>
+
+            <h2>Current Dataset Files</h2>
+            <p>The repository currently includes five CSV files. The row counts below exclude the header row.</p>
+            <table>
+              <thead>
+                <tr>
+                  <th>File</th>
+                  <th>Rows</th>
+                  <th>Used For</th>
+                  <th>Config Key</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>spiral_ind_data.csv</code></td>
+                  <td>96,135</td>
+                  <td>Spiral inductor geometry search and RF-response estimation</td>
+                  <td><code>spiral_inductor</code></td>
+                </tr>
+                <tr>
+                  <td><code>cpwd_data.csv</code></td>
+                  <td>15,200</td>
+                  <td>Coplanar waveguide with ground optimization for matching networks</td>
+                  <td><code>cpwd</code></td>
+                </tr>
+                <tr>
+                  <td><code>tline_data.csv</code></td>
+                  <td>819</td>
+                  <td>Transmission-line lookup during primitive parsing and layout generation</td>
+                  <td><code>tline</code></td>
+                </tr>
+                <tr>
+                  <td><code>mimcap_dataset.csv</code></td>
+                  <td>88</td>
+                  <td>MIM capacitor polynomial model training</td>
+                  <td><code>mimcap</code></td>
+                </tr>
+                <tr>
+                  <td><code>small_mimcap_dataset.csv</code></td>
+                  <td>32</td>
+                  <td>Small-MIM capacitor polynomial model training</td>
+                  <td><code>small_mimcap</code></td>
+                </tr>
+              </tbody>
+            </table>
+
+            <h2>Critical Rule</h2>
+            <blockquote>The scripts read columns by exact names. Preserve the same headers, units, and meanings when replacing the reference datasets with data from your own PDK.</blockquote>
+
+            <h2>Expected Schemas</h2>
+            <table>
+              <thead>
+                <tr>
+                  <th>Dataset</th>
+                  <th>Required Columns</th>
+                  <th>Expected Units</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Spiral inductor</td>
+                  <td><code>Radius</code>, <code>Width</code>, <code>Gnd dist</code>, <code>Spacing</code>, <code>Turns</code>, <code>Inductance</code>, <code>Peak Q</code>, <code>Peak Q Freq</code>, <code>SRF</code></td>
+                  <td>Dimensions in <code>um</code>, inductance in <code>pH</code>, frequencies in <code>GHz</code></td>
+                </tr>
+                <tr>
+                  <td>Transmission line</td>
+                  <td><code>Length</code>, <code>Width</code>, <code>Inductance</code>, <code>Peak Q</code>, <code>Peak Q Freq</code>, <code>SRF</code></td>
+                  <td>Dimensions in <code>um</code>, inductance in <code>pH</code>, frequencies in <code>GHz</code></td>
+                </tr>
+                <tr>
+                  <td>MIM capacitor</td>
+                  <td><code>Length</code>, <code>Width</code>, <code>Aspect Ratio</code>, <code>Capacitance</code>, <code>Area</code></td>
+                  <td>Dimensions in <code>um</code>, capacitance in <code>fF</code>, area in <code>um2</code></td>
+                </tr>
+                <tr>
+                  <td>Small MIM capacitor</td>
+                  <td><code>Length</code>, <code>Width</code>, <code>Capacitance</code></td>
+                  <td>Dimensions in <code>um</code>, capacitance in <code>fF</code></td>
+                </tr>
+                <tr>
+                  <td>CPWD</td>
+                  <td><code>Length</code>, <code>Width</code>, <code>Gap</code>, <code>Char_Imp</code>, <code>beta_l</code>, <code>root_er</code></td>
+                  <td>Dimensions in <code>um</code>; characteristic impedance, phase length, and effective-permittivity terms must stay consistent with the optimizer setup</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <h2>Where the Data Is Used</h2>
+            <ul>
+              <li><code>lna_stage_1_sizer.py</code> reads spiral-inductor and CPWD data during initial LNA sizing.</li>
+              <li><code>pa_stage_1_sizer.py</code> reads spiral-inductor data during PA sizing.</li>
+              <li><code>parse_netlist.py</code> preloads transmission-line data and trains MIM-capacitor models before generating primitive layouts.</li>
+              <li><code>PRIMITIVE_OPTIMIZERS/</code> contains the model fitting and lookup utilities used by those flow stages.</li>
+            </ul>
+
+            <h2>Models</h2>
+            <p>The <code>MODELS/</code> directory is reserved for generated <code>.pkl</code> artifacts. These files are not committed to the repository, but they are recreated locally when the relevant training or optimization flow runs.</p>
+            <table>
+              <thead>
+                <tr>
+                  <th>Model Artifact</th>
+                  <th>Generated From</th>
+                  <th>Purpose</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>emx_rf_model.pkl</code></td>
+                  <td><code>spiral_ind_data.csv</code></td>
+                  <td>Predicts inductor RF response from geometry.</td>
+                </tr>
+                <tr>
+                  <td><code>knn_model.pkl</code></td>
+                  <td><code>spiral_ind_data.csv</code></td>
+                  <td>Finds nearby inductor geometries for requested electrical targets.</td>
+                </tr>
+                <tr>
+                  <td><code>mimcap_poly_model.pkl</code></td>
+                  <td><code>mimcap_dataset.csv</code></td>
+                  <td>Fits the MIM-capacitance relation used by capacitor optimization.</td>
+                </tr>
+                <tr>
+                  <td><code>small_mimcap_poly_model.pkl</code></td>
+                  <td><code>small_mimcap_dataset.csv</code></td>
+                  <td>Fits the small-capacitor relation used when compact MIM caps are needed.</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <h2>How to Generate Your Own Data</h2>
+            <p>For a new technology, generate these datasets with your own PDK, layout rules, simulation setup, and extraction environment. The goal is to sweep valid primitive geometries, simulate or extract their electrical behavior, then export clean CSV files with the exact schemas above.</p>
+            <ol>
+              <li>Choose the legal geometry sweep ranges for the target PDK, including metal widths, spacings, radii, lengths, capacitor dimensions, and CPWD gaps.</li>
+              <li>Generate layout instances for each primitive family using the same geometry meanings used by COmPOSER.</li>
+              <li>Run EM, parasitic, or circuit simulations in your local Cadence-based environment, depending on the primitive type and the fidelity required.</li>
+              <li>Post-process the simulation output into the required CSV columns and units.</li>
+              <li>Point the <code>datasets</code> section of your design <code>config.json</code> to the generated files.</li>
+              <li>Run the sizing or parsing flow so the corresponding models are trained and cached under <code>MODELS/</code>.</li>
+            </ol>
+            <div class="callout">
+              <h3>Task to Be Done</h3>
+              <p>Ready-to-run scripts for generating these datasets on your own system with Cadence tools and your own PDK will be added shortly. Until those scripts are released, treat the included CSVs as the source of truth for column names, units, and expected file organization.</p>
+            </div>
+          </article>
+        </main>
+      </div>
+      <footer class="site-footer"><p>Static docs site generated directly inside <code>docs/</code>.</p></footer>
+    </div>
+  </body>
 </html>
