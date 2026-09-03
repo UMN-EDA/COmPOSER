@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PDN Routing | COmPOSER</title>
+    <link rel="stylesheet" href="assets/css/site.css">
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header"><a class="brand" href="index.html"><span class="brand-mark">CO</span><span class="brand-text"><strong>COmPOSER</strong><small>RF/mm-wave layout automation docs</small></span></a><div class="header-links"><a href="paper.html">Paper</a><a href="quickstart.html">Quickstart</a><a href="examples.html">Examples</a><a href="updates.html">Updates</a></div></header>
+      <div class="content-shell">
+        <aside class="sidebar">
+          <section class="nav-group"><h2>Overview</h2><ul><li><a href="index.html">Home</a></li><li><a href="paper.html">Paper Overview</a></li><li><a href="install.html">Installation</a></li><li><a href="quickstart.html">Quickstart</a></li><li><a href="flow.html">Full Flow</a></li><li><a href="configuration.html">Configuration</a></li><li><a href="examples.html">Examples</a></li><li><a href="updates.html">Updates</a></li></ul></section>
+          <section class="nav-group"><h2>Reference</h2><ul><li><a href="datasets-models.html">Datasets and Models</a></li><li><a href="stage-1-sizing.html">Stage 1 Sizing</a></li><li><a href="netlist-parsing.html">Netlist Parsing</a></li><li><a href="placement.html">Placement</a></li><li><a href="routing.html">Routing</a></li><li><a href="pdn-routing.html" class="active">PDN Routing</a></li><li><a href="hanan-router.html">Hanan Router</a></li><li><a href="primitives.html">Primitives</a></li><li><a href="utilities.html">Utilities</a></li></ul></section>
+        </aside>
+        <main class="main-content"><p class="eyebrow">Reference</p><article class="doc-card">
+          <h1>Connected PDN Routing</h1>
+          <p class="lead">The connected-PDN extension routes pad, internal-module, and generated-decoupling-capacitor power pins to nearby VDD or GND rails while keeping the original signal-routing flow isolated.</p>
+
+          <h2>Why a Separate Flow Exists</h2>
+          <p>The standard Hanan router remains the signal router. Power routing needs different endpoint semantics: a module power pin may connect to any suitable nearby point on a rail rather than to one remote fixed pin. COmPOSER therefore copies only the power-specific net behavior into <code>ROUTER/pdn_router/src/Net.cpp</code> and builds a separate <code>pdn_router</code> binary. Shared geometry, placement, parsing, and A* infrastructure still come from <code>ROUTER/hanan_router</code>.</p>
+          <p>No existing router script or binary is replaced. Users opt into the extension through <code>perform_routing_with_pdn.py</code>.</p>
+
+          <h2>Build and Run</h2>
+          <pre><code>export PROJECT_HOME=/path/to/COmPOSER
+make -C ROUTER/hanan_router
+make -C ROUTER/pdn_router
+
+./composer.sh EXAMPLES/LNA_1/config.json
+python3 perform_routing_with_pdn.py --config EXAMPLES/LNA_1/config_pdn.json</code></pre>
+          <p>The base flow must produce LNA_1 placement, LEF, and signal-routing artifacts before the connected-PDN continuation runs.</p>
+
+          <h2>End-to-End Sequence</h2>
+          <ol>
+            <li>Run the normal Hanan router for signal nets.</li>
+            <li>Use <code>utils/gen_rt_hier_gds.py</code> to assemble the routed design and optionally export one GDS cell/file per signal net through <code>--net_gds_dir</code>.</li>
+            <li>Use <code>perform_power_grid_with_pdn_routing.py</code> to create VDD/GND rails, insert decaps, discover power endpoints, create local rail targets, and write PDN routing inputs.</li>
+            <li>Run the dedicated <code>ROUTER/pdn_router/pdn_router</code> binary.</li>
+            <li>Use <code>utils/gen_pdn_rt_gds.py</code> to convert routed power DEF geometry into a hierarchical final GDS.</li>
+          </ol>
+
+          <h2>Local Endpoint Routing</h2>
+          <p>The generator does not create one full-chip bounding-box problem for an entire power net. It creates one virtual rail target for each physical endpoint, near that endpoint and within its local endpoint-to-rail region. When physical and virtual port counts match, the copied net implementation pairs each physical port with its nearest available virtual rail port. The router therefore solves short endpoint-to-rail connections instead of exploring the entire chip for every connection.</p>
+          <p>The existing signal DEF is parsed as fixed routing obstruction geometry so new power routes do not ignore already-routed signal metal.</p>
+
+          <h2>Pin and Layer Semantics</h2>
+          <ul>
+            <li>Pad power pins, internal-module VDD/GND pins, and decap pins remain physical endpoints.</li>
+            <li>Ordinary module pins are not flattened or expanded across layers.</li>
+            <li>Only generated power-grid rail targets are represented across the configured grid layers.</li>
+            <li>For LNA_1, GND targets span the M1/M2 mesh and VDD targets span the M8/M9 mesh.</li>
+            <li>This lets the router enter a rail on an appropriate grid layer and avoids unnecessary via stacks to an artificially extreme pin-box layer.</li>
+          </ul>
+
+          <h2>Decap Discovery and Connectivity</h2>
+          <p>Decaps are placed after signal routing and before grid construction. Legal candidate locations are filtered against existing geometry. The selected instances are appended to a PDN-specific placement JSON and their macro/pin definitions are appended to a PDN-specific LEF, so the router handles them like other placed modules without mutating the original placement result.</p>
+          <table><thead><tr><th>Decap label</th><th>LNA_1 power net</th></tr></thead><tbody><tr><td><code>PLUS</code></td><td><code>net3</code> (VDD)</td></tr><tr><td><code>MINUS</code></td><td><code>gnd</code></td></tr><tr><td><code>BULK1</code></td><td><code>gnd</code></td></tr><tr><td><code>BULK2</code></td><td><code>gnd</code></td></tr></tbody></table>
+          <p><code>EXAMPLES/LNA_1/config_pdn.json</code> uses <code>decap_count: 3</code> for a fast sanity-check layout. Increase it only when a denser production experiment is needed.</p>
+
+          <h2>Configuration Responsibilities</h2>
+          <ul>
+            <li><code>EXAMPLES/LNA_1/config_pdn.json</code>: reference paths and connected-PDN controls.</li>
+            <li>PDK layer JSON: drawing, pin, label, blockage, width, pitch, direction, and via rules.</li>
+            <li>Power-grid layer configuration: VDD top/bottom and GND top/bottom rail layers.</li>
+            <li>Router constraints: net ordering, permitted layers, and non-default widths.</li>
+            <li>Signal DEF: existing routed metal used as PDN obstacles.</li>
+            <li>Decap GDS: geometry plus <code>PLUS</code>, <code>MINUS</code>, <code>BULK1</code>, and <code>BULK2</code> labels.</li>
+          </ul>
+
+          <h2>Generated Files</h2>
+          <table><thead><tr><th>Artifact</th><th>Purpose</th></tr></thead><tbody>
+            <tr><td><code>stage_3/routing/net*.gds</code></td><td>Individual signal-route GDS exports for hierarchy and inspection.</td></tr>
+            <tr><td><code>stage_3/pdn/&lt;top&gt;_grid.gds</code></td><td>Placed design plus generated rails, vias, and decaps before routed drops.</td></tr>
+            <tr><td><code>stage_3/pdn/&lt;top&gt;_pdn_placement.json</code></td><td>Original placement augmented with generated decap instances and power-routing targets.</td></tr>
+            <tr><td><code>stage_3/pdn/&lt;top&gt;_pdn_primitives.lef</code></td><td>Combined LEF augmented with decap and target-pin definitions.</td></tr>
+            <tr><td><code>stage_3/pdn/&lt;top&gt;_router_constraints.json</code></td><td>Power-specific constraints passed only to the dedicated router.</td></tr>
+            <tr><td><code>stage_3/pdn/routing/&lt;top&gt;.def</code></td><td>Dedicated router output for connected power nets.</td></tr>
+            <tr><td><code>stage_3/pdn/routing/route.log</code></td><td>Power-router execution log used to inspect completion and failures.</td></tr>
+            <tr><td><code>stage_3/pdn/&lt;top&gt;_final.gds</code></td><td>Final hierarchical connected-PDN layout.</td></tr>
+          </tbody></table>
+
+          <h2>Final GDS Hierarchy</h2>
+          <pre><code>&lt;top&gt;_GRIDFILLED
+└── PDN_ROUTES
+    ├── PDN_NET_gnd
+    └── PDN_NET_net3</code></pre>
+          <p>The final generator reads power-net RECT geometry from the PDN DEF and places each net in its own child cell. Signal routes also remain available as net-specific GDS outputs. This structure allows manual inspection of the generated routes without flattening the entire final layout.</p>
+
+          <h2>Finding Unrouted Power Pins</h2>
+          <p>The augmented placement JSON and LEF define the expected physical endpoints, while the routed PDN DEF and <code>route.log</code> record the realized net routes. Compare endpoints grouped by their mapped power net against the corresponding DEF net and review router completion markers in the log. The expected mapping comes from the original module/pad net assignment plus the explicit decap-label mapping above; it should never be inferred only from physical proximity.</p>
+
+          <h2>Isolation Guarantees</h2>
+          <ul>
+            <li>The original Hanan router implementation is unchanged.</li>
+            <li>The original placement JSON and combined LEF are not overwritten by decap augmentation.</li>
+            <li>Power-specific multilayer pin expansion applies only to configured grid rails.</li>
+            <li>The connected-PDN command is opt-in and does not affect PA examples or the normal <code>composer.sh</code> flow.</li>
+          </ul>
+        </article></main>
+      </div>
+      <footer class="site-footer"><p>Static docs site generated directly inside <code>docs/</code>.</p></footer>
+    </div>
+  </body>
+</html>

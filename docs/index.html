@@ -4,21 +4,23 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>COmPOSER Documentation</title>
-    <meta name="description" content="Documentation for COmPOSER, an open-source RF/mm-wave specification-to-layout automation framework.">
-    <link rel="stylesheet" href="assets/css/site.css?v=20260524a">
+    <meta name="description" content="Static documentation website for the COmPOSER RF/mm-wave design automation framework.">
+    <link rel="stylesheet" href="assets/css/site.css">
   </head>
   <body>
     <div class="page-shell">
       <header class="site-header">
         <a class="brand" href="index.html">
-          <img class="brand-logo" src="assets/img/logo-header.png" alt="COmPOSER logo" width="184" height="50">
+          <span class="brand-mark">CO</span>
+          <span class="brand-text">
+            <strong>COmPOSER</strong>
+            <small>RF/mm-wave layout automation docs</small>
+          </span>
         </a>
         <div class="header-links">
           <a href="paper.html">Paper</a>
           <a href="quickstart.html">Quickstart</a>
           <a href="examples.html">Examples</a>
-          <a href="updates.html">Updates</a>
-          <a href="contact.html">Contact</a>
         </div>
       </header>
       <div class="content-shell">
@@ -33,18 +35,16 @@
               <li><a href="flow.html">Full Flow</a></li>
               <li><a href="configuration.html">Configuration</a></li>
               <li><a href="examples.html">Examples</a></li>
-              <li><a href="updates.html">Updates</a></li>
-              <li><a href="contact.html">Contact</a></li>
             </ul>
           </section>
           <section class="nav-group">
             <h2>Reference</h2>
             <ul>
               <li><a href="datasets-models.html">Datasets and Models</a></li>
-              <li><a href="stage-1-sizing.html">Hybrid Optimizer</a></li>
+              <li><a href="stage-1-sizing.html">Stage 1 Sizing</a></li>
               <li><a href="netlist-parsing.html">Netlist Parsing</a></li>
               <li><a href="placement.html">Placement</a></li>
-              <li><a href="routing.html">Routing</a></li>
+              <li><a href="routing.html">Routing</a></li><li><a href="pdn-routing.html">PDN Routing</a></li>
               <li><a href="hanan-router.html">Hanan Router</a></li>
               <li><a href="primitives.html">Primitives</a></li>
               <li><a href="utilities.html">Utilities</a></li>
@@ -55,45 +55,52 @@
           <p class="eyebrow">Documentation</p>
           <article class="doc-card">
             <h1>COmPOSER</h1>
-            <p class="lead">COmPOSER, short for <strong>Circuit Optimization of mm-wave/RF circuits with Performance-Oriented Synthesis for Efficient Realizations</strong>, is an open-source automation framework that converts RF and mm-wave performance targets into layout-ready circuit implementations. It is designed for front-end blocks such as low-noise amplifiers and power amplifiers, where gain, noise figure, bandwidth, output power, matching, and stability are tightly coupled to passive geometry and interconnect parasitics.</p>
-            <p>Unlike a schematic-only optimizer, COmPOSER treats circuit sizing and physical realization as one connected problem. The flow begins with topology, technology, and target specifications; performs hybrid analytical and EM-aware sizing; generates DRC-clean primitive layouts for active devices and passives; then synthesizes placement, routing, pad access, decoupling capacitors, and power delivery so the output is a complete GDSII-oriented layout rather than a disconnected list of component values.</p>
-            <p>Layout awareness is central to COmPOSER. At RF and mm-wave frequencies, spiral inductors, transmission lines, CPWs, device interconnect, substrate loss, and coupling can dominate performance. COmPOSER therefore combines physics-based active-device equations with machine-learning electromagnetic models for passives, using fast inverse design to choose feasible geometries before layout. Its placement and routing stages then preserve RF-critical intent through constraint-driven optimization rather than leaving parasitics to be discovered only after manual layout.</p>
-            <p>COmPOSER is also modular. Users can run the end-to-end specification-to-layout flow, or reuse individual pieces such as passive primitive generation, initial LNA/PA sizing, MILP-based placement, A*-based routing, or power-grid construction. That makes the repository useful both as a practical research prototype for automated RF layout generation and as a collection of reusable infrastructure for RF/mm-wave design automation experiments.</p>
+            <p class="lead">COmPOSER is a framework for automatically designing RF and mm-wave circuits, especially blocks like LNAs and PAs, starting from user performance targets such as frequency, gain, noise figure, bandwidth, and power. Instead of treating circuit design and layout as separate steps, it connects them into one flow so that the physical layout is considered early, not only at the very end.
 
-            <figure class="flow-figure">
-              <img src="assets/img/full-flow.png" alt="COmPOSER full flow diagram">
-            </figure>
+At a high level, the framework first estimates reasonable circuit sizes and passive values from the user?s specs. Then it turns those values into layout-ready building blocks such as inductors, capacitors, resistors, transmission lines, CPWs, and device blocks. After that, it performs placement, routing, and power-grid generation to create a full physical layout. The overall goal is to reduce manual RF design effort while still producing layouts that are physically meaningful and close to real design practice.
 
-            <section class="automation-block">
-              <h2>What COmPOSER Automates</h2>
-              <p>The framework links specification-driven sizing with layout generation for active devices, inductors, capacitors, resistors, transmission lines, CPWs, routing, pads, decaps, and the power delivery network. In 65 nm LNA and PA evaluations, this end-to-end flow meets post-layout targets with performance comparable to expert manual designs while reducing design turnaround by roughly 100-300x.</p>
-              <div class="automation-list">
-                <div class="automation-item">
-                  <h3>Hybrid Sizing</h3>
-                  <p>Derives transistor operating points and matching-network targets, then refines passives with ML-based EM inverse design.</p>
-                </div>
-                <div class="automation-item">
-                  <h3>Primitive Generation</h3>
-                  <p>Turns optimized dimensions into compact layout blocks for MOS devices, inductors, capacitors, resistors, T-lines, and CPWs.</p>
-                </div>
-                <div class="automation-item">
-                  <h3>Layout Synthesis</h3>
-                  <p>Combines MILP-based placement, routing-input generation, A*-based detailed routing, pad routing, decaps, and PDN creation.</p>
-                </div>
-                <div class="automation-item">
-                  <h3>Verification Loop</h3>
-                  <p>Closes the flow with EM and SPICE-based post-layout checks followed by targeted refinement when performance misses remain.</p>
-                </div>
+Another important part of COmPOSER is that it is modular. A user can run the full end-to-end flow, or use only one part of it, such as the primitive generators, the router, the placement engine, or the initial sizing scripts. That makes it useful both as a complete automation framework and as a toolkit for RF layout research and development.</p>
+
+            <div class="hero-grid">
+              <div class="callout">
+                <h3>Paper-aligned framing</h3>
+                <p>The site now follows the attached paper's framing of COmPOSER as an end-to-end RF/mm-wave synthesis flow, not just a repository of scripts.</p>
+                <p>It emphasizes layout-aware passive modeling, MILP-based placement, A*-based routing, PDN integration, and the LNA/PA evaluation story from the paper.</p>
               </div>
-            </section>
+              <div class="callout">
+                <img src="assets/img/flow-overview.svg" alt="COmPOSER flow overview">
+              </div>
+            </div>
+
+            <h2>Main Stages</h2>
+            <div class="card-grid">
+              <div class="mini-card">
+                <h3>Stage 1</h3>
+                <p>Hybrid analytical sizing computes active and passive targets from user specifications.</p>
+              </div>
+              <div class="mini-card">
+                <h3>Stage 2</h3>
+                <p>Primitive block generation turns sized elements into layout-ready GDS building blocks.</p>
+              </div>
+              <div class="mini-card">
+                <h3>Stage 3</h3>
+                <p>Layout synthesis performs placement, signal routing, connected PDN routing, decap insertion, and hierarchical GDS assembly.</p>
+              </div>
+              <div class="mini-card">
+                <h3>Stage 4</h3>
+                <p>The paper closes the loop with post-layout verification and iterative refinement.</p>
+              </div>
+            </div>
 
             <h2>Start Here</h2>
             <ul>
-              <li><a href="paper.html">Paper Overview</a> explains the COmPOSER method, evaluation results, and how the public repo maps to the full flow.</li>
+              <li><a href="paper.html">Paper Overview</a> explains how the public repo maps to the manuscript.</li>
               <li><a href="install.html">Installation</a> covers Python packages, Gurobi, router build, and the mock PDK.</li>
               <li><a href="quickstart.html">Quickstart</a> shows the fastest way to run one of the LNA or PA examples.</li>
               <li><a href="configuration.html">Configuration</a> explains the main <code>config.json</code> interface.</li>
               <li><a href="examples.html">Examples</a> explains what each example file and generated directory means.</li>
+              <li><a href="pdn-routing.html">PDN Routing</a> documents rail connectivity, decaps, endpoint handling, and final hierarchy.</li>
+              <li><a href="updates.html">Updates</a> records the complete connected-PDN release and validation status.</li>
             </ul>
 
             <h2>Important Notes</h2>
