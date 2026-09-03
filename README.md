@@ -73,19 +73,19 @@ source .venv/bin/activate
 ### 3. Install Python dependencies
 
 ```bash
-python -m pip install --upgrade "pip&lt;25.1"
+python -m pip install --upgrade "pip<25.1"
 python -m pip install -r requirements.txt
 ```
 
 Notes:
 
 - `requirements.txt` should be treated as the dependency list used by the repository.
-- The <code>-r</code> option is required. Without it, pip searches for a package literally named <code>requirements.txt</code>.
+- The `-r` option is required. Without it, pip searches for a package literally named `requirements.txt`.
 - The pinned dependency set is validated with CPython 3.8 on Linux x86-64.
 
 ### 4. Set the required environment variables
 
-COmPOSER expects the project root to be defined, and placement requires a valid Gurobi license file. <code>PROJECT_HOME</code> must point directly to the checkout containing <code>composer.sh</code>; do not append <code>DEV</code> or another directory name.
+COmPOSER expects the project root to be defined, and placement requires a valid Gurobi license file. `PROJECT_HOME` must point directly to the checkout containing `composer.sh`; do not append `DEV` or another directory name.
 
 Using `csh`/`tcsh` style:
 
@@ -106,12 +106,12 @@ You should replace `~/RF_DESIGN_AUTOMATION` with the actual path to your local C
 ### 5. Build the router
 
 ```bash
-cd ROUTER/hanan_router
-make -j4
-cd ../..
+g++ --version
+make -C ROUTER/hanan_router clean
+make -C ROUTER/hanan_router -j4
 ```
 
-This creates the router binary expected by the example configurations:
+Run `clean` and `make` as separate commands. The original router Makefile has no explicit `all` target. Always rebuild locally on a new machine instead of reusing a committed or copied binary. This creates the router binary expected by the example configurations:
 
 ```text
 ROUTER/hanan_router/hanan_router
@@ -123,6 +123,35 @@ example:
 ```bash
 make -C ROUTER/pdn_router
 ```
+
+#### Compiler and runtime errors
+
+The error `g++: error: unrecognized command line option -std=c++14` means the selected compiler is too old. GCC 4.8.5 is a common source of this error. The router requires C++14; GCC 7 or newer is recommended. On a module-based system, locate and load an available newer compiler, verify it, and rebuild both routers:
+
+```bash
+module avail gcc
+module load gcc/9       # use a version available on your system
+g++ --version
+make -C ROUTER/hanan_router clean
+make -C ROUTER/hanan_router -j4
+make -C ROUTER/pdn_router clean
+make -C ROUTER/pdn_router -j4
+```
+
+The error `GLIBCXX_3.4.21 not found` means the router binary was compiled against a newer `libstdc++` than the runtime currently being loaded. Do not copy router binaries between machines. Load the compiler/runtime intended for the current machine, run `make clean`, and rebuild locally. Inspect the library selected at runtime with:
+
+```bash
+ldd ROUTER/hanan_router/hanan_router | grep libstdc++
+```
+
+On CentOS/RHEL 7 with a site-provided Software Collection, a newer compiler may be enabled before rebuilding:
+
+```bash
+source /opt/rh/devtoolset-11/enable
+g++ --version
+```
+
+On a cluster, use the GCC module name provided by that site. Do not remove `-std=c++14` from the Makefile as a workaround.
 
 ### 6. Make sure Gurobi is available
 
