@@ -198,14 +198,14 @@ Run the isolated LNA routing flow that connects pads, internal power pins, and
 generated decaps to their nearest PDN rails:
 
 ```bash
-python3 perform_routing_with_pdn.py --config EXAMPLES/LNA_1/config_pdn.json
+python3 perform_routing_with_pdn.py --config EXAMPLES/LNA_1/config.json
 ```
 
 This flow leaves the normal router and `perform_routing.py` behavior unchanged.
 It generates an augmented placement and LEF under `lna_1/stage_3/pdn/`, routes
 only the configured VDD and GND nets with `pdn_router`, and writes a hierarchical
 final GDS. The final hierarchy contains `PDN_ROUTES` with one `PDN_NET_*` child
-per routed power net. Adjust `pdn_routing.decap_count` in `config_pdn.json` to
+per routed power net. Adjust `pdn_routing.decap_count` in `config.json` to
 control the number of generated decaps used by the example.
 
 ## Flow Overview
