@@ -33,7 +33,7 @@ The website source is stored in [`docs/`](docs/).
 | `MODELS/` | Location for trained `.pkl` models used by the flow |
 | `PRIMITIVE_GENERATORS/` | Standalone layout generators for inductors, capacitors, resistors, T-lines, CPWDs, and device blocks |
 | `PRIMITIVE_OPTIMIZERS/` | Geometry-selection and surrogate-model scripts for passive elements |
-| `ROUTER/` | Hanan-grid detailed router and related routing infrastructure |
+| `ROUTER/` | Hanan-grid signal router plus the dedicated copied PDN router |
 | `PDK/` | Mock PDK layer description used by the public flow |
 | `FIXED_PRIMITIVES/` | Black-box or fixed primitive GDS cells |
 | `utils/` | Helper scripts for LEF generation, GDS assembly, and related utilities |
@@ -50,7 +50,9 @@ The website source is stored in [`docs/`](docs/).
 | `parse_netlist.py` | Parses the sized netlist, selects or generates primitive layouts, and exports stage 2 design JSON |
 | `perform_placement.py` | Runs the placement engine and generates placement JSON and placement GDS |
 | `generate_routing_inputs.py` | Converts primitive GDS files into LEF files for routing |
-| `perform_routing.py` | Runs detailed routing, routed GDS generation, and PDN generation |
+| `perform_routing.py` | Legacy signal-routing and PDN-generation path used when `pdn_routing` is absent |
+| `perform_routing_with_pdn.py` | Runs signal routing, grid generation, dedicated power routing, and hierarchical final-GDS assembly |
+| `perform_power_grid_with_pdn_routing.py` | Creates rails, decaps, augmented routing inputs, and nearest-rail targets for configured power nets |
 
 ## Installation and Setup
 
@@ -117,8 +119,8 @@ Run `clean` and `make` as separate commands. The original router Makefile has no
 ROUTER/hanan_router/hanan_router
 ```
 
-Build the optional dedicated power-grid router used by the connected-PDN LNA
-example:
+Build the dedicated power-grid router used automatically by configs containing
+`pdn_routing`:
 
 ```bash
 make -C ROUTER/pdn_router
@@ -194,34 +196,54 @@ Run only one step:
 ./composer.sh EXAMPLES/LNA_1/config.json only routing
 ```
 
-Run the isolated LNA routing flow that connects pads, internal power pins, and
-generated decaps to their nearest PDN rails:
+Connected-PDN routing is automatic for every included example:
 
 ```bash
-python3 perform_routing_with_pdn.py --config EXAMPLES/LNA_1/config.json
+./composer.sh EXAMPLES/LNA_1/config.json
+./composer.sh EXAMPLES/PA_2/config.json
 ```
 
-This flow leaves the normal router and `perform_routing.py` behavior unchanged.
-It generates an augmented placement and LEF under `lna_1/stage_3/pdn/`, routes
-only the configured VDD and GND nets with `pdn_router`, and writes a hierarchical
-final GDS. The final hierarchy contains `PDN_ROUTES` with one `PDN_NET_*` child
-per routed power net. Adjust `pdn_routing.decap_count` in `config.json` to
-control the number of generated decaps used by the example.
+When the selected `config.json` contains `pdn_routing`, the routing step invokes
+`perform_routing_with_pdn.py`. It runs signal routing, generates the power grid
+and decaps, creates local rail targets, routes every configured VDD and GND net
+with `ROUTER/pdn_router/pdn_router`, and writes
+`<project>/stage_3/pdn/<top>_final.gds`. Configurations without `pdn_routing`
+retain the legacy `perform_routing.py` behavior. No second config or manual PDN
+continuation command is required.
+
+### Connected-PDN configuration
+
+```json
+"pdn_routing": {
+  "router_bin": "ROUTER/pdn_router/pdn_router",
+  "vdd_nets": ["net26", "net12", "net29", "net17"],
+  "gnd_nets": ["gnd"],
+  "decap_vdd_net": "net12",
+  "decap_gnd_net": "gnd",
+  "decap_count": 3
+}
+```
+
+Every name in `vdd_nets` connects to the shared VDD mesh, and every name in
+`gnd_nets` connects to the shared GND mesh. Multiple ground names must be
+electrically common; isolated ground domains require separate meshes.
+`decap_vdd_net` and `decap_gnd_net` select the generated decap connections.
+Legacy scalar `vdd_net` and `gnd_net` fields remain supported.
 
 ## Flow Overview
 
 At a high level, COmPOSER performs:
 
-1. Initial sizing  
+1. Initial sizing
    Converts target circuit specifications into initial device and passive values.
-2. Netlist parsing and primitive generation  
+2. Netlist parsing and primitive generation
    Generates layout-ready primitive blocks and exports design JSON for physical synthesis.
-3. Placement  
+3. Placement
    Places the generated blocks using user constraints and RF-critical net weighting.
-4. Routing and LEF/GDS generation  
-   Builds routing inputs, runs detailed routing, and assembles the routed GDS.
-5. PDN generation  
-   Adds the power grid and produces the final layout output.
+4. Signal routing and hierarchical GDS generation
+   Builds routing inputs, runs the Hanan signal router, and exports routed signal geometry.
+5. Connected PDN generation and routing
+   For configs containing `pdn_routing`, creates VDD/GND meshes and decaps, routes every configured power endpoint to a nearby rail with the dedicated PDN router, and writes the hierarchical final GDS.
 
 ## Main Entry Points
 
@@ -230,6 +252,8 @@ At a high level, COmPOSER performs:
 - `perform_placement.py`
 - `generate_routing_inputs.py`
 - `perform_routing.py`
+- `perform_routing_with_pdn.py`
+- `perform_power_grid_with_pdn_routing.py`
 - `composer.sh`
 
 These can all be run independently if you want to use only part of the framework.
@@ -259,8 +283,8 @@ Paper link: [https://arxiv.org/abs/2603.20486](https://arxiv.org/abs/2603.20486)
 
 For any questions, please contact:
 
-**Subhadip Ghosh**  
-University of Minnesota  
+**Subhadip Ghosh**
+University of Minnesota
 ghosh211@umn.edu
 
 ## License
