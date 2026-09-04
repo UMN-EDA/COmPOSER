@@ -20,7 +20,7 @@
 
           <h2>Why a Separate Flow Exists</h2>
           <p>The standard Hanan router remains the signal router. Power routing needs different endpoint semantics: a module power pin may connect to any suitable nearby point on a rail rather than to one remote fixed pin. COmPOSER therefore copies only the power-specific net behavior into <code>ROUTER/pdn_router/src/Net.cpp</code> and builds a separate <code>pdn_router</code> binary. Shared geometry, placement, parsing, and A* infrastructure still come from <code>ROUTER/hanan_router</code>.</p>
-          <p>No existing router script or binary is replaced. Users opt into the extension through <code>perform_routing_with_pdn.py</code>.</p>
+          <p>No existing router script or binary is replaced. When the selected <code>config.json</code> contains <code>pdn_routing</code>, <code>composer.sh</code> automatically uses <code>perform_routing_with_pdn.py</code>; configurations without that section retain the signal-only flow.</p>
 
           <h2>Build and Run</h2>
           <pre><code>export PROJECT_HOME=/path/to/COmPOSER
@@ -28,8 +28,8 @@ make -C ROUTER/hanan_router
 make -C ROUTER/pdn_router
 
 ./composer.sh EXAMPLES/LNA_1/config.json
-python3 perform_routing_with_pdn.py --config EXAMPLES/LNA_1/config_pdn.json</code></pre>
-          <p>The base flow must produce LNA_1 placement, LEF, and signal-routing artifacts before the connected-PDN continuation runs.</p>
+./composer.sh EXAMPLES/PA_2/config.json</code></pre>
+          <p>No separate PDN command or <code>config_pdn.json</code> is required. The normal composer sequence produces placement and routing inputs, then the routing step performs signal routing, PDN generation, dedicated power routing, and final hierarchical GDS assembly.</p>
 
           <h2>End-to-End Sequence</h2>
           <ol>
@@ -56,11 +56,22 @@ python3 perform_routing_with_pdn.py --config EXAMPLES/LNA_1/config_pdn.json</cod
           <h2>Decap Discovery and Connectivity</h2>
           <p>Decaps are placed after signal routing and before grid construction. Legal candidate locations are filtered against existing geometry. The selected instances are appended to a PDN-specific placement JSON and their macro/pin definitions are appended to a PDN-specific LEF, so the router handles them like other placed modules without mutating the original placement result.</p>
           <table><thead><tr><th>Decap label</th><th>LNA_1 power net</th></tr></thead><tbody><tr><td><code>PLUS</code></td><td><code>net3</code> (VDD)</td></tr><tr><td><code>MINUS</code></td><td><code>gnd</code></td></tr><tr><td><code>BULK1</code></td><td><code>gnd</code></td></tr><tr><td><code>BULK2</code></td><td><code>gnd</code></td></tr></tbody></table>
-          <p><code>EXAMPLES/LNA_1/config_pdn.json</code> uses <code>decap_count: 3</code> for a fast sanity-check layout. Increase it only when a denser production experiment is needed.</p>
+          <p>Each example's existing <code>config.json</code> uses <code>decap_count: 3</code> for a fast sanity-check layout. <code>decap_vdd_net</code> and <code>decap_gnd_net</code> explicitly select the decap supply and return nets.</p>
 
           <h2>Configuration Responsibilities</h2>
+          <pre><code>"pdn_routing": {
+  "router_bin": "ROUTER/pdn_router/pdn_router",
+  "vdd_nets": ["net26", "net12", "net29", "net17"],
+  "gnd_nets": ["gnd"],
+  "decap_vdd_net": "net12",
+  "decap_gnd_net": "gnd",
+  "decap_count": 3
+}</code></pre>
           <ul>
-            <li><code>EXAMPLES/LNA_1/config_pdn.json</code>: reference paths and connected-PDN controls.</li>
+            <li><code>vdd_nets</code>: every supply net connected to the shared VDD mesh.</li>
+            <li><code>gnd_nets</code>: every electrically common ground net connected to the shared GND mesh.</li>
+            <li><code>decap_vdd_net</code> and <code>decap_gnd_net</code>: configured power nets receiving generated decap pins.</li>
+            <li>Legacy scalar <code>vdd_net</code> and <code>gnd_net</code> fields remain accepted.</li>
             <li>PDK layer JSON: drawing, pin, label, blockage, width, pitch, direction, and via rules.</li>
             <li>Power-grid layer configuration: VDD top/bottom and GND top/bottom rail layers.</li>
             <li>Router constraints: net ordering, permitted layers, and non-default widths.</li>
@@ -84,7 +95,10 @@ python3 perform_routing_with_pdn.py --config EXAMPLES/LNA_1/config_pdn.json</cod
           <pre><code>&lt;top&gt;_GRIDFILLED
 └── PDN_ROUTES
     ├── PDN_NET_gnd
-    └── PDN_NET_net3</code></pre>
+    ├── PDN_NET_net12
+    ├── PDN_NET_net17
+    ├── PDN_NET_net26
+    └── PDN_NET_net29</code></pre>
           <p>The final generator reads power-net RECT geometry from the PDN DEF and places each net in its own child cell. Signal routes also remain available as net-specific GDS outputs. This structure allows manual inspection of the generated routes without flattening the entire final layout.</p>
 
           <h2>Finding Unrouted Power Pins</h2>
@@ -95,7 +109,8 @@ python3 perform_routing_with_pdn.py --config EXAMPLES/LNA_1/config_pdn.json</cod
             <li>The original Hanan router implementation is unchanged.</li>
             <li>The original placement JSON and combined LEF are not overwritten by decap augmentation.</li>
             <li>Power-specific multilayer pin expansion applies only to configured grid rails.</li>
-            <li>The connected-PDN command is opt-in and does not affect PA examples or the normal <code>composer.sh</code> flow.</li>
+            <li>PDN routing is selected only when the chosen <code>config.json</code> contains <code>pdn_routing</code>; signal-only configurations retain the original behavior.</li>
+            <li>Multiple names in <code>gnd_nets</code> share one physical GND mesh and therefore must be electrically common. Isolated ground domains require separate meshes.</li>
           </ul>
         </article></main>
       </div>

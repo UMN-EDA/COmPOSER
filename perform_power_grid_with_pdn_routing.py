@@ -882,6 +882,17 @@ def configured_vdd_nets(pdn_cfg):
     return list(dict.fromkeys(vdd_nets))
 
 
+def configured_gnd_nets(pdn_cfg):
+    gnd_nets = pdn_cfg.get("gnd_nets", pdn_cfg.get("gnd_net"))
+    if isinstance(gnd_nets, str):
+        gnd_nets = [gnd_nets]
+    if not gnd_nets:
+        raise ValueError(
+            "pdn_routing must define gnd_nets or the legacy gnd_net"
+        )
+    return list(dict.fromkeys(gnd_nets))
+
+
 def build_augmented_pdn_inputs(cfg, decap_refs, placement_output, lef_output):
     project_dir = cfg["project_name"]
     top_name = cfg["topcell"]
@@ -916,7 +927,10 @@ def build_augmented_pdn_inputs(cfg, decap_refs, placement_output, lef_output):
     decap_vdd_net = pdn_cfg.get("decap_vdd_net", vdd_nets[0])
     if decap_vdd_net not in vdd_nets:
         raise ValueError("decap_vdd_net must be included in vdd_nets")
-    gnd_net = pdn_cfg["gnd_net"]
+    gnd_nets = configured_gnd_nets(pdn_cfg)
+    decap_gnd_net = pdn_cfg.get("decap_gnd_net", gnd_nets[0])
+    if decap_gnd_net not in gnd_nets:
+        raise ValueError("decap_gnd_net must be included in gnd_nets")
     for index, ref in enumerate(decap_refs):
         instance_name = f"{decap_name}_{index}"
         ox, oy = ref.origin
@@ -943,7 +957,7 @@ def build_augmented_pdn_inputs(cfg, decap_refs, placement_output, lef_output):
             "pin_index": 0
         })
         for pin_index, pin_name in enumerate(pin_names[1:], start=1):
-            placement["nets"][gnd_net]["endpoints"].append({
+            placement["nets"][decap_gnd_net]["endpoints"].append({
                 "module": instance_name,
                 "pin_name": pin_name,
                 "pin_index": pin_index
@@ -971,9 +985,13 @@ def write_pdn_router_constraints(cfg, output_file, vdd_points, gnd_points,
                                  signal_def, placement):
     pdn_cfg = cfg["pdn_routing"]
     vdd_nets = configured_vdd_nets(pdn_cfg)
-    gnd_net = pdn_cfg["gnd_net"]
-    power_nets = set(vdd_nets)
-    power_nets.add(gnd_net)
+    gnd_nets = configured_gnd_nets(pdn_cfg)
+    overlapping_nets = set(vdd_nets) & set(gnd_nets)
+    if overlapping_nets:
+        raise ValueError(
+            f"PDN nets cannot be both VDD and GND: {sorted(overlapping_nets)}"
+        )
+    power_nets = set(vdd_nets) | set(gnd_nets)
     missing_nets = [name for name in power_nets if name not in placement["nets"]]
     if missing_nets:
         raise ValueError(f"Power nets missing from placement: {missing_nets}")
@@ -988,7 +1006,7 @@ def write_pdn_router_constraints(cfg, output_file, vdd_points, gnd_points,
             gnd_points, placement["nets"][gnd_net]["endpoints"],
             placement["modules"], scale, width
         )
-    }]
+    } for gnd_net in gnd_nets]
     net_constraints.extend({
         "name": vdd_net,
         "virtual_pins": nearest_rail_virtual_pins(
@@ -1000,10 +1018,10 @@ def write_pdn_router_constraints(cfg, output_file, vdd_points, gnd_points,
     constraints = [{
         "module": cfg["topcell"],
         "do_not_route": do_not_route,
-        "routing_order": [gnd_net] + vdd_nets,
+        "routing_order": gnd_nets + vdd_nets,
         "nets": net_constraints,
         "obstacles": [{
-            "nets": [gnd_net] + vdd_nets,
+            "nets": gnd_nets + vdd_nets,
             "shapes": obstacles
         }]
     }]
