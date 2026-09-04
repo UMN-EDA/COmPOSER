@@ -56,7 +56,10 @@
   },
   "pdn_routing": {
     "router_bin": "ROUTER/pdn_router/pdn_router",
-    "vdd_net": "net3",
+    "vdd_nets": [
+      "net3"
+    ],
+    "decap_vdd_net": "net3",
     "gnd_net": "gnd",
     "decap_count": 3
   }

@@ -871,6 +871,17 @@ def nearest_rail_virtual_pins(points_by_layer, endpoints, modules, scale, width)
     return virtual_pins
 
 
+def configured_vdd_nets(pdn_cfg):
+    vdd_nets = pdn_cfg.get("vdd_nets", pdn_cfg.get("vdd_net"))
+    if isinstance(vdd_nets, str):
+        vdd_nets = [vdd_nets]
+    if not vdd_nets:
+        raise ValueError(
+            "pdn_routing must define vdd_nets or the legacy vdd_net"
+        )
+    return list(dict.fromkeys(vdd_nets))
+
+
 def build_augmented_pdn_inputs(cfg, decap_refs, placement_output, lef_output):
     project_dir = cfg["project_name"]
     top_name = cfg["topcell"]
@@ -901,7 +912,10 @@ def build_augmented_pdn_inputs(cfg, decap_refs, placement_output, lef_output):
     if missing:
         raise ValueError(f"Missing decap pin labels: {missing}")
 
-    vdd_net = pdn_cfg["vdd_net"]
+    vdd_nets = configured_vdd_nets(pdn_cfg)
+    decap_vdd_net = pdn_cfg.get("decap_vdd_net", vdd_nets[0])
+    if decap_vdd_net not in vdd_nets:
+        raise ValueError("decap_vdd_net must be included in vdd_nets")
     gnd_net = pdn_cfg["gnd_net"]
     for index, ref in enumerate(decap_refs):
         instance_name = f"{decap_name}_{index}"
@@ -923,7 +937,7 @@ def build_augmented_pdn_inputs(cfg, decap_refs, placement_output, lef_output):
             "dummy_gds_file": None,
             "pins": pins
         }
-        placement["nets"][vdd_net]["endpoints"].append({
+        placement["nets"][decap_vdd_net]["endpoints"].append({
             "module": instance_name,
             "pin_name": "PLUS",
             "pin_index": 0
@@ -956,30 +970,40 @@ def build_augmented_pdn_inputs(cfg, decap_refs, placement_output, lef_output):
 def write_pdn_router_constraints(cfg, output_file, vdd_points, gnd_points,
                                  signal_def, placement):
     pdn_cfg = cfg["pdn_routing"]
-    vdd_net = pdn_cfg["vdd_net"]
+    vdd_nets = configured_vdd_nets(pdn_cfg)
     gnd_net = pdn_cfg["gnd_net"]
-    power_nets = {vdd_net, gnd_net}
+    power_nets = set(vdd_nets)
+    power_nets.add(gnd_net)
+    missing_nets = [name for name in power_nets if name not in placement["nets"]]
+    if missing_nets:
+        raise ValueError(f"Power nets missing from placement: {missing_nets}")
     do_not_route = [name for name in placement["nets"] if name not in power_nets]
     obstacles = read_signal_route_obstacles(signal_def, power_nets)
     width = cfg["pdn"]["pdn_width"]
     scale = cfg["scale"]
 
+    net_constraints = [{
+        "name": gnd_net,
+        "virtual_pins": nearest_rail_virtual_pins(
+            gnd_points, placement["nets"][gnd_net]["endpoints"],
+            placement["modules"], scale, width
+        )
+    }]
+    net_constraints.extend({
+        "name": vdd_net,
+        "virtual_pins": nearest_rail_virtual_pins(
+            vdd_points, placement["nets"][vdd_net]["endpoints"],
+            placement["modules"], scale, width
+        )
+    } for vdd_net in vdd_nets)
+
     constraints = [{
         "module": cfg["topcell"],
         "do_not_route": do_not_route,
-        "routing_order": [gnd_net, vdd_net],
-        "nets": [
-            {"name": gnd_net, "virtual_pins": nearest_rail_virtual_pins(
-                gnd_points, placement["nets"][gnd_net]["endpoints"],
-                placement["modules"], scale, width
-            )},
-            {"name": vdd_net, "virtual_pins": nearest_rail_virtual_pins(
-                vdd_points, placement["nets"][vdd_net]["endpoints"],
-                placement["modules"], scale, width
-            )}
-        ],
+        "routing_order": [gnd_net] + vdd_nets,
+        "nets": net_constraints,
         "obstacles": [{
-            "nets": [gnd_net, vdd_net],
+            "nets": [gnd_net] + vdd_nets,
             "shapes": obstacles
         }]
     }]

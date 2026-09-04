@@ -1,12 +1,11 @@
 {
-  "datasets":
-    {
-        "spiral_inductor": "DATASETS/spiral_ind_data.csv",
-        "tline": "DATASETS/tline_data.csv",
-        "mimcap": "DATASETS/mimcap_dataset.csv",
-        "small_mimcap": "DATASETS/small_mimcap_dataset.csv",
-        "cpwd": "DATASETS/cpwd_data.csv"
-    },
+  "datasets": {
+    "spiral_inductor": "DATASETS/spiral_ind_data.csv",
+    "tline": "DATASETS/tline_data.csv",
+    "mimcap": "DATASETS/mimcap_dataset.csv",
+    "small_mimcap": "DATASETS/small_mimcap_dataset.csv",
+    "cpwd": "DATASETS/cpwd_data.csv"
+  },
   "project_name": "pa_1",
   "stage_1_config": "EXAMPLES/PA_1/pa_stage_1_config.json",
   "stage_1_sizer": "pa_stage_1_sizer.py",
@@ -19,45 +18,50 @@
     "bw_req_ghz": 2,
     "s11_req_db": -10,
     "pwr_req_mw": 4,
-    "p_sat_db": 8    
+    "p_sat_db": 8
   },
-  "design":
-    {
-        "input_unsized_netlist": "EXAMPLES/PA_1/pa_1.sp",
-        "input_netlist": "EXAMPLES/PA_1/pa_1_optimized.sp",
-        "net_weights": "EXAMPLES/PA_1/net_weights.json"
-    },
+  "design": {
+    "input_unsized_netlist": "EXAMPLES/PA_1/pa_1.sp",
+    "input_netlist": "EXAMPLES/PA_1/pa_1_optimized.sp",
+    "net_weights": "EXAMPLES/PA_1/net_weights.json"
+  },
   "scale": 1000,
   "pdk": "PDK/mock_65nm/layers.json",
   "topcell": "pa",
-  "decaps":
-    {
-        "add_decaps": false,
-        "decap_val": 500e-15,
-        "num_decaps": 0
-    },
-  "pad_direction": ["W", "N"],
+  "decaps": {
+    "add_decaps": false,
+    "decap_val": 5.00E-13,
+    "num_decaps": 0
+  },
+  "pad_direction": [
+    "W",
+    "N"
+  ],
   "pad_mode": "periphery",
-  
-
-  "placement":
-    {
-        "placement_constraints": "EXAMPLES/PA_1/placement_constraint.json",
-        "timelimit": 60,
-        "aspect_ratio": 0,
-        "level": 1,
-        "weight_hpwl":1,
-        "plot_html": false
-        
-    },
-  "routing":
-    {
-        "router_bin": "ROUTER/hanan_router/hanan_router",
-        "routing_constraints": "EXAMPLES/PA_1/router_constraints.json"
-    },
-  "pdn":
-    {
-        "pdn_width": 6,
-        "pdn_gap": 2
-    }
+  "placement": {
+    "placement_constraints": "EXAMPLES/PA_1/placement_constraint.json",
+    "timelimit": 60,
+    "aspect_ratio": 0,
+    "level": 1,
+    "weight_hpwl": 1,
+    "plot_html": false
+  },
+  "routing": {
+    "router_bin": "ROUTER/hanan_router/hanan_router",
+    "routing_constraints": "EXAMPLES/PA_1/router_constraints.json"
+  },
+  "pdn": {
+    "pdn_width": 6,
+    "pdn_gap": 2
+  },
+  "pdn_routing": {
+    "router_bin": "ROUTER/pdn_router/pdn_router",
+    "vdd_nets": [
+      "net29",
+      "net12"
+    ],
+    "decap_vdd_net": "net12",
+    "gnd_net": "gnd",
+    "decap_count": 3
+  }
 }
