@@ -3,7 +3,7 @@
 
 contourpy==1.1.1
 cycler==0.12.1
-fonttools==4.57.0
+fonttools==4.60.2
 gdspy==1.6.13
 gurobipy==10.0.3
 imageio==2.35.1
