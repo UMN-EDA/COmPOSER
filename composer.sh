@@ -151,7 +151,7 @@ run_selected_step() {
                 python3 generate_routing_inputs.py --config "$CONFIG"
             ;;
         routing)
-            if grep -q ""pdn_routing"[[:space:]]*:" "$CONFIG"; then
+            if grep -q '"pdn_routing"[[:space:]]*:' "$CONFIG"; then
                 run_step "perform_routing_with_pdn" \
                     python3 perform_routing_with_pdn.py --config "$CONFIG"
             else

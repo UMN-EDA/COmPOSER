@@ -60,8 +60,11 @@
       "net29",
       "net12"
     ],
+    "gnd_nets": [
+      "gnd"
+    ],
     "decap_vdd_net": "net12",
-    "gnd_net": "gnd",
+    "decap_gnd_net": "gnd",
     "decap_count": 3
   }
 }
