@@ -55,10 +55,83 @@
           <p class="eyebrow">Updates</p>
           <article class="doc-card">
             <h1>Updates</h1>
-            <p class="lead">This page will track COmPOSER website updates, documentation changes, tool-flow notes, and future release announcements.</p>
+            <p class="lead">Release notes are listed newest first. Select an update to expand its implementation details, configuration changes, and validation results.</p>
 
-                      <h2>September 3, 2026: Connected PDN Routing</h2>
-          <p>Initial implementation commit: <code>f3b3942</code>. This release connects VDD/GND pads, internal-module power pins, and generated decaps to the power grid without changing the original signal-router implementation.</p><p><strong>Historical note:</strong> the initial opt-in <code>config_pdn.json</code> instructions below were superseded on September 4 by automatic <code>composer.sh</code> dispatch and PDN settings in each example's existing <code>config.json</code>.</p>
+
+
+          <details class="update-entry">
+            <summary>
+              <span class="update-meta">
+                <span class="update-date">September 4, 2026</span>
+                <span class="update-version">v0.3.0</span>
+              </span>
+              <span class="update-title">Multiple Ground Nets and Full-Flow Validation</span>
+              <span class="update-summary">
+                <span class="update-summary-item">Multiple common-ground nets and explicit decap return selection</span>
+                <span class="update-summary-item">Validation guards for invalid or overlapping power-net configuration</span>
+                <span class="update-summary-item">All seven LNA and PA flows completed with final hierarchical GDS</span>
+              </span>
+              <span class="update-toggle" aria-hidden="true"></span>
+            </summary>
+            <div class="update-body">
+<ul><li>Added <code>gnd_nets</code> so multiple electrically common ground-net names can route to the shared GND mesh.</li><li>Added <code>decap_gnd_net</code> to select the generated decap return net explicitly.</li><li>Retained backward compatibility with the legacy scalar <code>gnd_net</code>.</li><li>Added validation for empty ground lists, invalid decap ground selections, missing configured placement nets, and nets listed as both VDD and GND.</li><li>Documented that isolated ground domains require separate meshes because a shared mesh would short them together.</li><li>Confirmed <code>composer.sh</code> selected <code>perform_routing_with_pdn.py</code> for every included example.</li><li>Executed the complete sizing, parsing, placement, routing-input, signal-routing, grid-generation, PDN-routing, and final-GDS flow for LNA_1, LNA_2, LNA_3, LNA_4, PA_1, PA_2, and PA_3.</li><li>Confirmed all seven non-empty hierarchical final GDS files and found no <code>error</code>, <code>failed</code>, or <code>unrouted</code> markers in the dedicated PDN router logs.</li></ul><table><thead><tr><th>Example</th><th>Total runtime</th><th>Final artifact</th></tr></thead><tbody><tr><td>LNA_1</td><td>2:36</td><td><code>lna_1/stage_3/pdn/lna_final.gds</code></td></tr><tr><td>LNA_2</td><td>2:26</td><td><code>lna_2/stage_3/pdn/lna_final.gds</code></td></tr><tr><td>LNA_3</td><td>2:28</td><td><code>lna_3/stage_3/pdn/lna_final.gds</code></td></tr><tr><td>LNA_4</td><td>3:07</td><td><code>lna_4/stage_3/pdn/lna_final.gds</code></td></tr><tr><td>PA_1</td><td>1:46</td><td><code>pa_1/stage_3/pdn/pa_final.gds</code></td></tr><tr><td>PA_2</td><td>2:43</td><td><code>pa_2/stage_3/pdn/pa_final.gds</code></td></tr><tr><td>PA_3</td><td>8:19</td><td><code>pa_3/stage_3/pdn/pa_final.gds</code></td></tr></tbody></table>
+            </div>
+          </details>
+
+          <details class="update-entry">
+            <summary>
+              <span class="update-meta">
+                <span class="update-date">September 4, 2026</span>
+                <span class="update-version">v0.2.0</span>
+              </span>
+              <span class="update-title">Connected PDN Enabled for Every Example</span>
+              <span class="update-summary">
+                <span class="update-summary-item">Automatic connected-PDN dispatch from composer.sh</span>
+                <span class="update-summary-item">PDN settings consolidated into each existing config.json</span>
+                <span class="update-summary-item">Multi-VDD support enabled across all seven examples</span>
+              </span>
+              <span class="update-toggle" aria-hidden="true"></span>
+            </summary>
+            <div class="update-body">
+<ul><li>Moved connected-PDN settings into each example's existing <code>config.json</code>; the separate <code>config_pdn.json</code> file was removed.</li><li>Updated <code>composer.sh</code> to detect <code>pdn_routing</code> in the selected configuration and run the connected signal-and-power routing sequence automatically.</li><li>Enabled connected-PDN routing for LNA_1, LNA_2, LNA_3, LNA_4, PA_1, PA_2, and PA_3.</li><li>Added multi-supply support through <code>vdd_nets</code> while retaining backward compatibility with the legacy single <code>vdd_net</code> field.</li><li>Added <code>decap_vdd_net</code> so generated decap PLUS pins attach to one explicitly selected supply net.</li><li>LNA_1 through LNA_3 use VDD net <code>net3</code>.</li><li>LNA_4 uses VDD nets <code>net3</code> and <code>net33</code>.</li><li>PA_1 uses VDD nets <code>net29</code> and <code>net12</code>.</li><li>PA_2 and PA_3 use VDD nets <code>net26</code>, <code>net12</code>, <code>net29</code>, and <code>net17</code>.</li><li>Every example uses <code>gnd_nets: ["gnd"]</code> and a three-decap sanity configuration.</li></ul><pre><code>./composer.sh EXAMPLES/LNA_1/config.json</code></pre><p>No separate PDN command or second configuration file is required.</p>
+            </div>
+          </details>
+
+          <details class="update-entry">
+            <summary>
+              <span class="update-meta">
+                <span class="update-date">September 3, 2026</span>
+                <span class="update-version">v0.1.1</span>
+              </span>
+              <span class="update-title">Portable Router Build Instructions</span>
+              <span class="update-summary">
+                <span class="update-summary-item">Documented GCC 7+ and local builds for both routers</span>
+                <span class="update-summary-item">Added fixes for C++14 and GLIBCXX runtime errors</span>
+                <span class="update-summary-item">Clarified Python, PROJECT_HOME, and Gurobi license setup</span>
+              </span>
+              <span class="update-toggle" aria-hidden="true"></span>
+            </summary>
+            <div class="update-body">
+<ul><li>Documented <code>pip install -r requirements.txt</code>.</li><li>Documented GCC 7+ for C++14 router builds.</li><li>Added the GCC 4.8.5 <code>-std=c++14</code> error and fix.</li><li>Added the <code>GLIBCXX_3.4.21</code> runtime mismatch and local-rebuild fix.</li><li>Changed both router builds to separate <code>make clean</code> and <code>make</code>.</li><li>Clarified <code>PROJECT_HOME</code> and <code>GRB_LICENSE_FILE</code>.</li></ul>
+            </div>
+          </details>
+
+          <details class="update-entry">
+            <summary>
+              <span class="update-meta">
+                <span class="update-date">September 3, 2026</span>
+                <span class="update-version">v0.1.0</span>
+              </span>
+              <span class="update-title">Connected PDN Routing</span>
+              <span class="update-summary">
+                <span class="update-summary-item">Introduced the isolated copied PDN router</span>
+                <span class="update-summary-item">Connected pads, internal power pins, and generated decaps to nearby rails</span>
+                <span class="update-summary-item">Added inspectable per-net hierarchy in the final GDS</span>
+              </span>
+              <span class="update-toggle" aria-hidden="true"></span>
+            </summary>
+            <div class="update-body">
+<p>Initial implementation commit: <code>f3b3942</code>. This release connects VDD/GND pads, internal-module power pins, and generated decaps to the power grid without changing the original signal-router implementation.</p><p><strong>Historical note:</strong> the initial opt-in <code>config_pdn.json</code> instructions below were superseded on September 4 by automatic <code>composer.sh</code> dispatch and PDN settings in each example's existing <code>config.json</code>.</p>
 
           <h3>New isolated flow</h3>
           <ul><li>Added <code>perform_routing_with_pdn.py</code> as the opt-in orchestration entry point.</li><li>Added <code>perform_power_grid_with_pdn_routing.py</code> as a copy-based PDN generator specialized for routing inputs.</li><li>Added <code>ROUTER/pdn_router</code>, with its own Makefile, README, copied power-specific <code>Net.cpp</code>, and <code>pdn_router</code> binary.</li><li>The dedicated build reuses unchanged common Hanan-router sources so only power-net endpoint pairing differs.</li></ul>
@@ -88,8 +161,9 @@
           <p>The shared Hanan router currently compiles with warnings that several placement dimensions and an R-tree comparison value may be used uninitialized. These warnings predate the isolated PDN change and did not prevent either router from building or either documented LNA_1 flow from completing. They should be addressed separately rather than mixed into the PDN-specific implementation.</p>
 
           <p>For the operational reference, see <a href="pdn-routing.html">Connected PDN Routing</a>.</p>
-
-          <h2>September 3, 2026: Portable Router Build Instructions</h2><ul><li>Documented <code>pip install -r requirements.txt</code>.</li><li>Documented GCC 7+ for C++14 router builds.</li><li>Added the GCC 4.8.5 <code>-std=c++14</code> error and fix.</li><li>Added the <code>GLIBCXX_3.4.21</code> runtime mismatch and local-rebuild fix.</li><li>Changed both router builds to separate <code>make clean</code> and <code>make</code>.</li><li>Clarified <code>PROJECT_HOME</code> and <code>GRB_LICENSE_FILE</code>.</li></ul><h2>September 4, 2026: Connected PDN Enabled for Every Example</h2><ul><li>Moved connected-PDN settings into each example's existing <code>config.json</code>; the separate <code>config_pdn.json</code> file was removed.</li><li>Updated <code>composer.sh</code> to detect <code>pdn_routing</code> in the selected configuration and run the connected signal-and-power routing sequence automatically.</li><li>Enabled connected-PDN routing for LNA_1, LNA_2, LNA_3, LNA_4, PA_1, PA_2, and PA_3.</li><li>Added multi-supply support through <code>vdd_nets</code> while retaining backward compatibility with the legacy single <code>vdd_net</code> field.</li><li>Added <code>decap_vdd_net</code> so generated decap PLUS pins attach to one explicitly selected supply net.</li><li>LNA_1 through LNA_3 use VDD net <code>net3</code>.</li><li>LNA_4 uses VDD nets <code>net3</code> and <code>net33</code>.</li><li>PA_1 uses VDD nets <code>net29</code> and <code>net12</code>.</li><li>PA_2 and PA_3 use VDD nets <code>net26</code>, <code>net12</code>, <code>net29</code>, and <code>net17</code>.</li><li>Every example uses <code>gnd_nets: ["gnd"]</code> and a three-decap sanity configuration.</li></ul><pre><code>./composer.sh EXAMPLES/LNA_1/config.json</code></pre><p>No separate PDN command or second configuration file is required.</p><h2>September 4, 2026: Multiple Ground Nets and Full-Flow Validation</h2><ul><li>Added <code>gnd_nets</code> so multiple electrically common ground-net names can route to the shared GND mesh.</li><li>Added <code>decap_gnd_net</code> to select the generated decap return net explicitly.</li><li>Retained backward compatibility with the legacy scalar <code>gnd_net</code>.</li><li>Added validation for empty ground lists, invalid decap ground selections, missing configured placement nets, and nets listed as both VDD and GND.</li><li>Documented that isolated ground domains require separate meshes because a shared mesh would short them together.</li><li>Confirmed <code>composer.sh</code> selected <code>perform_routing_with_pdn.py</code> for every included example.</li><li>Executed the complete sizing, parsing, placement, routing-input, signal-routing, grid-generation, PDN-routing, and final-GDS flow for LNA_1, LNA_2, LNA_3, LNA_4, PA_1, PA_2, and PA_3.</li><li>Confirmed all seven non-empty hierarchical final GDS files and found no <code>error</code>, <code>failed</code>, or <code>unrouted</code> markers in the dedicated PDN router logs.</li></ul><table><thead><tr><th>Example</th><th>Total runtime</th><th>Final artifact</th></tr></thead><tbody><tr><td>LNA_1</td><td>2:36</td><td><code>lna_1/stage_3/pdn/lna_final.gds</code></td></tr><tr><td>LNA_2</td><td>2:26</td><td><code>lna_2/stage_3/pdn/lna_final.gds</code></td></tr><tr><td>LNA_3</td><td>2:28</td><td><code>lna_3/stage_3/pdn/lna_final.gds</code></td></tr><tr><td>LNA_4</td><td>3:07</td><td><code>lna_4/stage_3/pdn/lna_final.gds</code></td></tr><tr><td>PA_1</td><td>1:46</td><td><code>pa_1/stage_3/pdn/pa_final.gds</code></td></tr><tr><td>PA_2</td><td>2:43</td><td><code>pa_2/stage_3/pdn/pa_final.gds</code></td></tr><tr><td>PA_3</td><td>8:19</td><td><code>pa_3/stage_3/pdn/pa_final.gds</code></td></tr></tbody></table></article>
+            </div>
+          </details>
+        </article>
         </main>
       </div>
       <footer class="site-footer"><p>Static docs site generated directly inside <code>docs/</code>.</p></footer>
