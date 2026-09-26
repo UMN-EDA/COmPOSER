@@ -63,12 +63,14 @@ git clone https://github.com/UMN-EDA/COmPOSER.git
 cd COmPOSER
 ```
 
-Python 3.10 or newer is recommended.
+Use Python 3.10 for the validated pinned environment below. Python 3.8 is not
+compatible with the current dependency set; newer Python versions have not all
+been validated with these pins.
 
 ### 2. Create and activate a Python environment
 
 ```bash
-python3 -m venv .venv
+python3.10 -m venv .venv
 source .venv/bin/activate
 ```
 
@@ -83,7 +85,24 @@ Notes:
 
 - `requirements.txt` should be treated as the dependency list used by the repository.
 - The `-r` option is required. Without it, pip searches for a package literally named `requirements.txt`.
-- The pinned dependency set is validated with CPython 3.8 on Linux x86-64.
+- The pinned dependency set has been installed with CPython 3.10 on Linux x86-64.
+- `gdspy` is built from source, so install a C++ compiler before installing the
+  dependencies. The Linux validation used GCC; Windows needs the appropriate
+  Microsoft C++ build tools and was not tested in this validation.
+
+Installing the packages does not validate the full circuit flow. A small public
+GDS utility can be checked without trained models, a private PDK, or a Gurobi
+license:
+
+```bash
+python PRIMITIVE_GENERATORS/gen_bbox_layout.py \
+  --input_gds FIXED_PRIMITIVES/pad.gds \
+  --output_dir /tmp/composer-gds-smoke \
+  --output_gds_name pad.gds --new_name smoke_pad
+```
+
+This writes a renamed pad shifted to the origin. It is a modular software smoke
+test, not electrical or tapeout validation.
 
 ### 4. Set the required environment variables
 

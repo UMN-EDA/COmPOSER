@@ -1,5 +1,5 @@
-# Reproducible dependency set validated with CPython 3.8 on Linux x86_64.
-# Install with: python3.8 -m pip install -r requirements.txt
+# Reproducible dependency set validated with CPython 3.10 on Linux x86_64.
+# Install with: python3.10 -m pip install -r requirements.txt
 
 contourpy==1.1.1
 cycler==0.12.1
